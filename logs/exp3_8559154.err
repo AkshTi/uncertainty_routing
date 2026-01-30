@@ -24,4 +24,6 @@ Also make sure that all modulefiles written in TCL start with the string
 
 `torch_dtype` is deprecated! Use `dtype` instead!
 The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
-Layers:   0%|          | 0/4 [00:00<?, ?it/s]Layers:  25%|██▌       | 1/4 [08:32<25:38, 512.72s/it]Layers:  50%|█████     | 2/4 [17:04<17:04, 512.06s/it]
+Layers:   0%|          | 0/4 [00:00<?, ?it/s]Layers:  25%|██▌       | 1/4 [08:32<25:38, 512.72s/it]Layers:  50%|█████     | 2/4 [17:04<17:04, 512.06s/it]Layers:  75%|███████▌  | 3/4 [25:35<08:31, 511.71s/it]Layers: 100%|██████████| 4/4 [34:08<00:00, 512.04s/it]Layers: 100%|██████████| 4/4 [34:08<00:00, 512.04s/it]
+/orcd/home/002/akshatat/uncertainty_routing_final/uncertainty_routing/experiment3_steering_robust.py:692: UserWarning: This figure includes Axes that are not compatible with tight_layout, so results might be incorrect.
+  plt.tight_layout()
