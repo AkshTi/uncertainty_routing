@@ -486,7 +486,7 @@ class Experiment6:
 
     def run_cross_domain(self, dataset: Dict[str, Dict[str, List[Dict]]],
                          steering_direction: torch.Tensor, layer_idx: int,
-                         epsilon: float = 5.0) -> pd.DataFrame:
+                         epsilon: float = -10.0) -> pd.DataFrame:
         """
         Run cross-domain robustness experiment
 
