@@ -1,6 +1,6 @@
-Job ID: 8557538
-Node: node3301
-Start time: Thu Jan 29 22:35:01 EST 2026
+Job ID: 8558409
+Node: node3000
+Start time: Thu Jan 29 23:56:02 EST 2026
 Running Experiment 2: Gate Localization
 ==================================================
 Initializing model...
@@ -144,6 +144,17 @@ Comprehensive figure saved to results/exp2_comprehensive_analysis.png
 ============================================================
 SUMMARY TABLE: Best Window vs Controls
 ============================================================
+
+        Configuration Δ Margin Flip Rate    Type
+1-layer window [0-0]    2.000    100.0%  Window
+2-layer window [4-5]    2.000    100.0%  Window
+3-layer window [0-2]    2.000    100.0%  Window
+       Correct patch    0.200     10.0% Control
+      Wrong position   -0.400      0.0% Control
+       Random prompt    0.200     10.0% Control
+
+
+Summary table saved to results/exp2_summary_table.csv
 ==================================================
-Experiment 2 completed at: Thu Jan 29 22:57:39 EST 2026
+Experiment 2 completed at: Fri Jan 30 00:12:22 EST 2026
 Check results in ./results/

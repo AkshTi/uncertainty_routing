@@ -1,0 +1,7 @@
+Configuration,Δ Margin,Flip Rate,Type
+1-layer window [0-0],2.000,100.0%,Window
+2-layer window [4-5],2.000,100.0%,Window
+3-layer window [0-2],2.000,100.0%,Window
+Correct patch,0.200,10.0%,Control
+Wrong position,-0.400,0.0%,Control
+Random prompt,0.200,10.0%,Control

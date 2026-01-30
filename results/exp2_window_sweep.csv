@@ -1,0 +1,411 @@
+window_start,window_end,window_size,alpha,baseline_margin,patched_margin,delta_margin,flipped,pair_idx,pos_question,neg_question
+0,0,1,1.0,-1.0,-1.0,0.0,False,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+0,0,1,1.0,1.0,1.0,0.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+0,0,1,1.0,-1.0,1.0,2.0,True,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+0,0,1,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+0,0,1,1.0,-1.0,-1.0,0.0,False,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+0,0,1,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+0,0,1,1.0,-1.0,-1.0,0.0,False,6,How many continents are there?,What was Cleopatra's favorite number?
+0,0,1,1.0,-1.0,-1.0,0.0,False,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+0,0,1,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+0,0,1,1.0,-1.0,-1.0,0.0,False,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+2,2,1,1.0,-1.0,1.0,2.0,True,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+2,2,1,1.0,1.0,1.0,0.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+2,2,1,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+2,2,1,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+2,2,1,1.0,-1.0,-1.0,0.0,False,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+2,2,1,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+2,2,1,1.0,-1.0,-1.0,0.0,False,6,How many continents are there?,What was Cleopatra's favorite number?
+2,2,1,1.0,-1.0,-1.0,0.0,False,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+2,2,1,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+2,2,1,1.0,-1.0,-1.0,0.0,False,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+4,4,1,1.0,-1.0,-1.0,0.0,False,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+4,4,1,1.0,1.0,1.0,0.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+4,4,1,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+4,4,1,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+4,4,1,1.0,-1.0,-1.0,0.0,False,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+4,4,1,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+4,4,1,1.0,-1.0,-1.0,0.0,False,6,How many continents are there?,What was Cleopatra's favorite number?
+4,4,1,1.0,-1.0,-1.0,0.0,False,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+4,4,1,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+4,4,1,1.0,-1.0,-1.0,0.0,False,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+6,6,1,1.0,-1.0,-1.0,0.0,False,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+6,6,1,1.0,1.0,1.0,0.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+6,6,1,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+6,6,1,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+6,6,1,1.0,-1.0,-1.0,0.0,False,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+6,6,1,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+6,6,1,1.0,-1.0,-1.0,0.0,False,6,How many continents are there?,What was Cleopatra's favorite number?
+6,6,1,1.0,-1.0,-1.0,0.0,False,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+6,6,1,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+6,6,1,1.0,-1.0,-1.0,0.0,False,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+8,8,1,1.0,-1.0,1.0,2.0,True,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+8,8,1,1.0,1.0,-1.0,-2.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+8,8,1,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+8,8,1,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+8,8,1,1.0,-1.0,-1.0,0.0,False,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+8,8,1,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+8,8,1,1.0,-1.0,-1.0,0.0,False,6,How many continents are there?,What was Cleopatra's favorite number?
+8,8,1,1.0,-1.0,-1.0,0.0,False,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+8,8,1,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+8,8,1,1.0,-1.0,-1.0,0.0,False,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+10,10,1,1.0,-1.0,-1.0,0.0,False,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+10,10,1,1.0,1.0,-1.0,-2.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+10,10,1,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+10,10,1,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+10,10,1,1.0,-1.0,-1.0,0.0,False,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+10,10,1,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+10,10,1,1.0,-1.0,1.0,2.0,True,6,How many continents are there?,What was Cleopatra's favorite number?
+10,10,1,1.0,-1.0,-1.0,0.0,False,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+10,10,1,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+10,10,1,1.0,-1.0,1.0,2.0,True,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+12,12,1,1.0,-1.0,-1.0,0.0,False,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+12,12,1,1.0,1.0,-1.0,-2.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+12,12,1,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+12,12,1,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+12,12,1,1.0,-1.0,-1.0,0.0,False,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+12,12,1,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+12,12,1,1.0,-1.0,-1.0,0.0,False,6,How many continents are there?,What was Cleopatra's favorite number?
+12,12,1,1.0,-1.0,-1.0,0.0,False,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+12,12,1,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+12,12,1,1.0,-1.0,-1.0,0.0,False,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+14,14,1,1.0,-1.0,-1.0,0.0,False,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+14,14,1,1.0,1.0,-1.0,-2.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+14,14,1,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+14,14,1,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+14,14,1,1.0,-1.0,-1.0,0.0,False,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+14,14,1,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+14,14,1,1.0,-1.0,1.0,2.0,True,6,How many continents are there?,What was Cleopatra's favorite number?
+14,14,1,1.0,-1.0,1.0,2.0,True,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+14,14,1,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+14,14,1,1.0,-1.0,-1.0,0.0,False,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+16,16,1,1.0,-1.0,-1.0,0.0,False,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+16,16,1,1.0,1.0,1.0,0.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+16,16,1,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+16,16,1,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+16,16,1,1.0,-1.0,-1.0,0.0,False,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+16,16,1,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+16,16,1,1.0,-1.0,1.0,2.0,True,6,How many continents are there?,What was Cleopatra's favorite number?
+16,16,1,1.0,-1.0,1.0,2.0,True,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+16,16,1,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+16,16,1,1.0,-1.0,-1.0,0.0,False,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+18,18,1,1.0,-1.0,-1.0,0.0,False,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+18,18,1,1.0,1.0,1.0,0.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+18,18,1,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+18,18,1,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+18,18,1,1.0,-1.0,1.0,2.0,True,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+18,18,1,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+18,18,1,1.0,-1.0,1.0,2.0,True,6,How many continents are there?,What was Cleopatra's favorite number?
+18,18,1,1.0,-1.0,1.0,2.0,True,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+18,18,1,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+18,18,1,1.0,-1.0,-1.0,0.0,False,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+20,20,1,1.0,-1.0,-1.0,0.0,False,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+20,20,1,1.0,1.0,1.0,0.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+20,20,1,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+20,20,1,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+20,20,1,1.0,-1.0,-1.0,0.0,False,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+20,20,1,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+20,20,1,1.0,-1.0,1.0,2.0,True,6,How many continents are there?,What was Cleopatra's favorite number?
+20,20,1,1.0,-1.0,-1.0,0.0,False,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+20,20,1,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+20,20,1,1.0,-1.0,-1.0,0.0,False,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+22,22,1,1.0,-1.0,-1.0,0.0,False,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+22,22,1,1.0,1.0,1.0,0.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+22,22,1,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+22,22,1,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+22,22,1,1.0,-1.0,-1.0,0.0,False,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+22,22,1,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+22,22,1,1.0,-1.0,-1.0,0.0,False,6,How many continents are there?,What was Cleopatra's favorite number?
+22,22,1,1.0,-1.0,-1.0,0.0,False,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+22,22,1,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+22,22,1,1.0,-1.0,-1.0,0.0,False,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+24,24,1,1.0,-1.0,-1.0,0.0,False,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+24,24,1,1.0,1.0,1.0,0.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+24,24,1,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+24,24,1,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+24,24,1,1.0,-1.0,-1.0,0.0,False,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+24,24,1,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+24,24,1,1.0,-1.0,-1.0,0.0,False,6,How many continents are there?,What was Cleopatra's favorite number?
+24,24,1,1.0,-1.0,-1.0,0.0,False,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+24,24,1,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+24,24,1,1.0,-1.0,-1.0,0.0,False,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+26,26,1,1.0,-1.0,-1.0,0.0,False,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+26,26,1,1.0,1.0,1.0,0.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+26,26,1,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+26,26,1,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+26,26,1,1.0,-1.0,-1.0,0.0,False,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+26,26,1,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+26,26,1,1.0,-1.0,-1.0,0.0,False,6,How many continents are there?,What was Cleopatra's favorite number?
+26,26,1,1.0,-1.0,-1.0,0.0,False,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+26,26,1,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+26,26,1,1.0,-1.0,-1.0,0.0,False,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+0,1,2,1.0,-1.0,-1.0,0.0,False,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+0,1,2,1.0,1.0,1.0,0.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+0,1,2,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+0,1,2,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+0,1,2,1.0,-1.0,-1.0,0.0,False,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+0,1,2,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+0,1,2,1.0,-1.0,-1.0,0.0,False,6,How many continents are there?,What was Cleopatra's favorite number?
+0,1,2,1.0,-1.0,-1.0,0.0,False,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+0,1,2,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+0,1,2,1.0,-1.0,-1.0,0.0,False,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+2,3,2,1.0,-1.0,-1.0,0.0,False,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+2,3,2,1.0,1.0,1.0,0.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+2,3,2,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+2,3,2,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+2,3,2,1.0,-1.0,-1.0,0.0,False,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+2,3,2,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+2,3,2,1.0,-1.0,-1.0,0.0,False,6,How many continents are there?,What was Cleopatra's favorite number?
+2,3,2,1.0,-1.0,-1.0,0.0,False,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+2,3,2,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+2,3,2,1.0,-1.0,-1.0,0.0,False,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+4,5,2,1.0,-1.0,1.0,2.0,True,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+4,5,2,1.0,1.0,1.0,0.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+4,5,2,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+4,5,2,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+4,5,2,1.0,-1.0,-1.0,0.0,False,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+4,5,2,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+4,5,2,1.0,-1.0,-1.0,0.0,False,6,How many continents are there?,What was Cleopatra's favorite number?
+4,5,2,1.0,-1.0,-1.0,0.0,False,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+4,5,2,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+4,5,2,1.0,-1.0,-1.0,0.0,False,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+6,7,2,1.0,-1.0,1.0,2.0,True,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+6,7,2,1.0,1.0,-1.0,-2.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+6,7,2,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+6,7,2,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+6,7,2,1.0,-1.0,-1.0,0.0,False,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+6,7,2,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+6,7,2,1.0,-1.0,-1.0,0.0,False,6,How many continents are there?,What was Cleopatra's favorite number?
+6,7,2,1.0,-1.0,-1.0,0.0,False,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+6,7,2,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+6,7,2,1.0,-1.0,-1.0,0.0,False,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+8,9,2,1.0,-1.0,-1.0,0.0,False,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+8,9,2,1.0,1.0,-1.0,-2.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+8,9,2,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+8,9,2,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+8,9,2,1.0,-1.0,-1.0,0.0,False,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+8,9,2,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+8,9,2,1.0,-1.0,-1.0,0.0,False,6,How many continents are there?,What was Cleopatra's favorite number?
+8,9,2,1.0,-1.0,-1.0,0.0,False,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+8,9,2,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+8,9,2,1.0,-1.0,1.0,2.0,True,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+10,11,2,1.0,-1.0,-1.0,0.0,False,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+10,11,2,1.0,1.0,-1.0,-2.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+10,11,2,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+10,11,2,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+10,11,2,1.0,-1.0,-1.0,0.0,False,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+10,11,2,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+10,11,2,1.0,-1.0,-1.0,0.0,False,6,How many continents are there?,What was Cleopatra's favorite number?
+10,11,2,1.0,-1.0,-1.0,0.0,False,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+10,11,2,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+10,11,2,1.0,-1.0,-1.0,0.0,False,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+12,13,2,1.0,-1.0,-1.0,0.0,False,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+12,13,2,1.0,1.0,-1.0,-2.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+12,13,2,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+12,13,2,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+12,13,2,1.0,-1.0,-1.0,0.0,False,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+12,13,2,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+12,13,2,1.0,-1.0,-1.0,0.0,False,6,How many continents are there?,What was Cleopatra's favorite number?
+12,13,2,1.0,-1.0,-1.0,0.0,False,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+12,13,2,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+12,13,2,1.0,-1.0,-1.0,0.0,False,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+14,15,2,1.0,-1.0,-1.0,0.0,False,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+14,15,2,1.0,1.0,-1.0,-2.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+14,15,2,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+14,15,2,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+14,15,2,1.0,-1.0,-1.0,0.0,False,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+14,15,2,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+14,15,2,1.0,-1.0,1.0,2.0,True,6,How many continents are there?,What was Cleopatra's favorite number?
+14,15,2,1.0,-1.0,-1.0,0.0,False,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+14,15,2,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+14,15,2,1.0,-1.0,1.0,2.0,True,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+16,17,2,1.0,-1.0,-1.0,0.0,False,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+16,17,2,1.0,1.0,1.0,0.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+16,17,2,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+16,17,2,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+16,17,2,1.0,-1.0,1.0,2.0,True,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+16,17,2,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+16,17,2,1.0,-1.0,1.0,2.0,True,6,How many continents are there?,What was Cleopatra's favorite number?
+16,17,2,1.0,-1.0,1.0,2.0,True,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+16,17,2,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+16,17,2,1.0,-1.0,-1.0,0.0,False,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+18,19,2,1.0,-1.0,-1.0,0.0,False,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+18,19,2,1.0,1.0,1.0,0.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+18,19,2,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+18,19,2,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+18,19,2,1.0,-1.0,1.0,2.0,True,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+18,19,2,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+18,19,2,1.0,-1.0,1.0,2.0,True,6,How many continents are there?,What was Cleopatra's favorite number?
+18,19,2,1.0,-1.0,-1.0,0.0,False,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+18,19,2,1.0,1.0,-1.0,-2.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+18,19,2,1.0,-1.0,-1.0,0.0,False,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+20,21,2,1.0,-1.0,-1.0,0.0,False,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+20,21,2,1.0,1.0,1.0,0.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+20,21,2,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+20,21,2,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+20,21,2,1.0,-1.0,-1.0,0.0,False,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+20,21,2,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+20,21,2,1.0,-1.0,1.0,2.0,True,6,How many continents are there?,What was Cleopatra's favorite number?
+20,21,2,1.0,-1.0,-1.0,0.0,False,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+20,21,2,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+20,21,2,1.0,-1.0,-1.0,0.0,False,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+22,23,2,1.0,-1.0,-1.0,0.0,False,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+22,23,2,1.0,1.0,1.0,0.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+22,23,2,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+22,23,2,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+22,23,2,1.0,-1.0,-1.0,0.0,False,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+22,23,2,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+22,23,2,1.0,-1.0,-1.0,0.0,False,6,How many continents are there?,What was Cleopatra's favorite number?
+22,23,2,1.0,-1.0,-1.0,0.0,False,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+22,23,2,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+22,23,2,1.0,-1.0,-1.0,0.0,False,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+24,25,2,1.0,-1.0,-1.0,0.0,False,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+24,25,2,1.0,1.0,1.0,0.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+24,25,2,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+24,25,2,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+24,25,2,1.0,-1.0,-1.0,0.0,False,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+24,25,2,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+24,25,2,1.0,-1.0,-1.0,0.0,False,6,How many continents are there?,What was Cleopatra's favorite number?
+24,25,2,1.0,-1.0,-1.0,0.0,False,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+24,25,2,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+24,25,2,1.0,-1.0,-1.0,0.0,False,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+26,27,2,1.0,-1.0,-1.0,0.0,False,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+26,27,2,1.0,1.0,1.0,0.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+26,27,2,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+26,27,2,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+26,27,2,1.0,-1.0,-1.0,0.0,False,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+26,27,2,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+26,27,2,1.0,-1.0,-1.0,0.0,False,6,How many continents are there?,What was Cleopatra's favorite number?
+26,27,2,1.0,-1.0,-1.0,0.0,False,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+26,27,2,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+26,27,2,1.0,-1.0,-1.0,0.0,False,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+0,2,3,1.0,-1.0,1.0,2.0,True,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+0,2,3,1.0,1.0,1.0,0.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+0,2,3,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+0,2,3,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+0,2,3,1.0,-1.0,-1.0,0.0,False,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+0,2,3,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+0,2,3,1.0,-1.0,-1.0,0.0,False,6,How many continents are there?,What was Cleopatra's favorite number?
+0,2,3,1.0,-1.0,-1.0,0.0,False,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+0,2,3,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+0,2,3,1.0,-1.0,-1.0,0.0,False,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+2,4,3,1.0,-1.0,-1.0,0.0,False,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+2,4,3,1.0,1.0,1.0,0.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+2,4,3,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+2,4,3,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+2,4,3,1.0,-1.0,-1.0,0.0,False,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+2,4,3,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+2,4,3,1.0,-1.0,-1.0,0.0,False,6,How many continents are there?,What was Cleopatra's favorite number?
+2,4,3,1.0,-1.0,-1.0,0.0,False,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+2,4,3,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+2,4,3,1.0,-1.0,-1.0,0.0,False,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+4,6,3,1.0,-1.0,-1.0,0.0,False,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+4,6,3,1.0,1.0,1.0,0.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+4,6,3,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+4,6,3,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+4,6,3,1.0,-1.0,-1.0,0.0,False,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+4,6,3,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+4,6,3,1.0,-1.0,-1.0,0.0,False,6,How many continents are there?,What was Cleopatra's favorite number?
+4,6,3,1.0,-1.0,-1.0,0.0,False,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+4,6,3,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+4,6,3,1.0,-1.0,-1.0,0.0,False,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+6,8,3,1.0,-1.0,-1.0,0.0,False,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+6,8,3,1.0,1.0,-1.0,-2.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+6,8,3,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+6,8,3,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+6,8,3,1.0,-1.0,-1.0,0.0,False,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+6,8,3,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+6,8,3,1.0,-1.0,-1.0,0.0,False,6,How many continents are there?,What was Cleopatra's favorite number?
+6,8,3,1.0,-1.0,-1.0,0.0,False,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+6,8,3,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+6,8,3,1.0,-1.0,1.0,2.0,True,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+8,10,3,1.0,-1.0,-1.0,0.0,False,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+8,10,3,1.0,1.0,-1.0,-2.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+8,10,3,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+8,10,3,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+8,10,3,1.0,-1.0,-1.0,0.0,False,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+8,10,3,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+8,10,3,1.0,-1.0,-1.0,0.0,False,6,How many continents are there?,What was Cleopatra's favorite number?
+8,10,3,1.0,-1.0,1.0,2.0,True,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+8,10,3,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+8,10,3,1.0,-1.0,-1.0,0.0,False,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+10,12,3,1.0,-1.0,-1.0,0.0,False,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+10,12,3,1.0,1.0,-1.0,-2.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+10,12,3,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+10,12,3,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+10,12,3,1.0,-1.0,-1.0,0.0,False,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+10,12,3,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+10,12,3,1.0,-1.0,-1.0,0.0,False,6,How many continents are there?,What was Cleopatra's favorite number?
+10,12,3,1.0,-1.0,-1.0,0.0,False,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+10,12,3,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+10,12,3,1.0,-1.0,1.0,2.0,True,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+12,14,3,1.0,-1.0,-1.0,0.0,False,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+12,14,3,1.0,1.0,-1.0,-2.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+12,14,3,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+12,14,3,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+12,14,3,1.0,-1.0,-1.0,0.0,False,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+12,14,3,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+12,14,3,1.0,-1.0,-1.0,0.0,False,6,How many continents are there?,What was Cleopatra's favorite number?
+12,14,3,1.0,-1.0,-1.0,0.0,False,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+12,14,3,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+12,14,3,1.0,-1.0,-1.0,0.0,False,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+14,16,3,1.0,-1.0,-1.0,0.0,False,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+14,16,3,1.0,1.0,-1.0,-2.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+14,16,3,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+14,16,3,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+14,16,3,1.0,-1.0,-1.0,0.0,False,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+14,16,3,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+14,16,3,1.0,-1.0,1.0,2.0,True,6,How many continents are there?,What was Cleopatra's favorite number?
+14,16,3,1.0,-1.0,1.0,2.0,True,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+14,16,3,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+14,16,3,1.0,-1.0,1.0,2.0,True,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+16,18,3,1.0,-1.0,-1.0,0.0,False,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+16,18,3,1.0,1.0,1.0,0.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+16,18,3,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+16,18,3,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+16,18,3,1.0,-1.0,1.0,2.0,True,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+16,18,3,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+16,18,3,1.0,-1.0,1.0,2.0,True,6,How many continents are there?,What was Cleopatra's favorite number?
+16,18,3,1.0,-1.0,1.0,2.0,True,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+16,18,3,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+16,18,3,1.0,-1.0,-1.0,0.0,False,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+18,20,3,1.0,-1.0,-1.0,0.0,False,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+18,20,3,1.0,1.0,1.0,0.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+18,20,3,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+18,20,3,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+18,20,3,1.0,-1.0,1.0,2.0,True,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+18,20,3,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+18,20,3,1.0,-1.0,1.0,2.0,True,6,How many continents are there?,What was Cleopatra's favorite number?
+18,20,3,1.0,-1.0,1.0,2.0,True,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+18,20,3,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+18,20,3,1.0,-1.0,-1.0,0.0,False,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+20,22,3,1.0,-1.0,-1.0,0.0,False,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+20,22,3,1.0,1.0,1.0,0.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+20,22,3,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+20,22,3,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+20,22,3,1.0,-1.0,-1.0,0.0,False,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+20,22,3,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+20,22,3,1.0,-1.0,1.0,2.0,True,6,How many continents are there?,What was Cleopatra's favorite number?
+20,22,3,1.0,-1.0,-1.0,0.0,False,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+20,22,3,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+20,22,3,1.0,-1.0,-1.0,0.0,False,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+22,24,3,1.0,-1.0,-1.0,0.0,False,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+22,24,3,1.0,1.0,1.0,0.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+22,24,3,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+22,24,3,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+22,24,3,1.0,-1.0,-1.0,0.0,False,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+22,24,3,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+22,24,3,1.0,-1.0,-1.0,0.0,False,6,How many continents are there?,What was Cleopatra's favorite number?
+22,24,3,1.0,-1.0,-1.0,0.0,False,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+22,24,3,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+22,24,3,1.0,-1.0,-1.0,0.0,False,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+24,26,3,1.0,-1.0,-1.0,0.0,False,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+24,26,3,1.0,1.0,1.0,0.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+24,26,3,1.0,-1.0,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
+24,26,3,1.0,1.0,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+24,26,3,1.0,-1.0,-1.0,0.0,False,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+24,26,3,1.0,-1.0,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
+24,26,3,1.0,-1.0,-1.0,0.0,False,6,How many continents are there?,What was Cleopatra's favorite number?
+24,26,3,1.0,-1.0,-1.0,0.0,False,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
+24,26,3,1.0,1.0,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
+24,26,3,1.0,-1.0,-1.0,0.0,False,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
