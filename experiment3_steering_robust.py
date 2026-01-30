@@ -853,19 +853,21 @@ def main(quick_test: bool = False):
     # test_questions will be set from eval split below
 
     if quick_test:
-        print("\n🔬 QUICK TEST MODE (Est. runtime: ~1 hour)")
-        # Use more examples for meaningful signal
-        answerable = answerable[:20]
-        unanswerable = unanswerable[:20]
+        print("\n🔬 QUICK TEST MODE (Est. runtime: ~5 minutes)")
+        # Use fewer examples for speed
+        answerable = answerable[:15]
+        unanswerable = unanswerable[:15]
         # Test on eval split (set below after train/eval split)
-        # Use symmetric epsilon range
-        epsilon_range = [-8, -4, 0, 4, 8]
+        # Use minimal epsilon range - just baseline and one steering strength
+        epsilon_range = [0.0, 8.0]
+        # Test only layer 18 (best from exp2) for speed
+        test_layers = [18]
     else:
         print("\n⚠️  FULL MODE (Est. runtime: ~5 hours)")
         answerable = answerable[:40]
         unanswerable = unanswerable[:40]
         # Test on eval split (set below)
-        epsilon_range = [-20, -10, -5, -2, 0, 2, 5, 10, 20]
+        epsilon_range = [-20.0, -10.0, -5.0, -2.0, 0.0, 2.0, 5.0, 10.0, 20.0]
 
     # FIX 2: Create test set from eval split instead of ambiguous questions
     # Split train/eval first
@@ -887,13 +889,25 @@ def main(quick_test: bool = False):
 
     # Run experiment - pass pre-split data
     exp3 = Experiment3Robust(model, config)
-    results_df = exp3.run(
-        pos_examples=answerable,
-        neg_examples=unanswerable,
-        test_examples=test_questions,
-        train_split=train_split,
-        epsilon_range=epsilon_range
-    )
+
+    # For quick test, pass custom test_layers
+    if quick_test:
+        results_df = exp3.run(
+            pos_examples=answerable,
+            neg_examples=unanswerable,
+            test_examples=test_questions,
+            train_split=train_split,
+            epsilon_range=epsilon_range,
+            test_layers=test_layers
+        )
+    else:
+        results_df = exp3.run(
+            pos_examples=answerable,
+            neg_examples=unanswerable,
+            test_examples=test_questions,
+            train_split=train_split,
+            epsilon_range=epsilon_range
+        )
 
     # Analyze
     summary = exp3.analyze(results_df)
