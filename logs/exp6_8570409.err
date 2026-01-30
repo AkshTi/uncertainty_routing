@@ -1,0 +1,40 @@
+Lmod has detected the following error: The following module(s) are unknown:
+"python/3.9"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "python/3.9"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+Lmod has detected the following error: The following module(s) are unknown:
+"cuda/11.8"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "cuda/11.8"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+`torch_dtype` is deprecated! Use `dtype` instead!
+Domains:   0%|          | 0/5 [00:00<?, ?it/s]
+math answerable:   0%|          | 0/50 [00:00<?, ?it/s][A
+                                                       [ADomains:   0%|          | 0/5 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/orcd/home/002/akshatat/uncertainty_routing_final/uncertainty_routing/experiment6_robustness.py", line 884, in <module>
+    main(
+  File "/orcd/home/002/akshatat/uncertainty_routing_final/uncertainty_routing/experiment6_robustness.py", line 836, in main
+    results_df = exp6.run_cross_domain(
+  File "/orcd/home/002/akshatat/uncertainty_routing_final/uncertainty_routing/experiment6_robustness.py", line 385, in run_cross_domain
+    result = self.test_with_steering(
+  File "/orcd/home/002/akshatat/uncertainty_routing_final/uncertainty_routing/experiment6_robustness.py", line 323, in test_with_steering
+    layer = self.model.model.layers[layer_idx]
+  File "/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1928, in __getattr__
+    raise AttributeError(
+AttributeError: 'Qwen2ForCausalLM' object has no attribute 'layers'

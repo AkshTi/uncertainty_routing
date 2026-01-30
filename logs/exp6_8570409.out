@@ -1,0 +1,46 @@
+Job ID: 8570409
+Node: node3301
+Start time: Fri Jan 30 13:20:01 EST 2026
+Running Experiment 6: Cross-Domain Robustness
+==================================================
+Initializing model...
+Loading model Qwen/Qwen2.5-1.5B-Instruct...
+Model loaded successfully!
+
+============================================================
+CROSS-DOMAIN DATASET CONSTRUCTION
+============================================================
+
+MATH: Sampled 50 answerable (with replacement from 8)
+MATH: Sampled 50 unanswerable (with replacement from 6)
+
+SCIENCE: Sampled 50 answerable (with replacement from 7)
+SCIENCE: Sampled 50 unanswerable (with replacement from 6)
+
+HISTORY: Sampled 50 answerable (with replacement from 6)
+HISTORY: Sampled 50 unanswerable (with replacement from 6)
+
+GEOGRAPHY: Sampled 50 answerable (with replacement from 7)
+GEOGRAPHY: Sampled 50 unanswerable (with replacement from 11)
+
+GENERAL: Sampled 50 answerable (with replacement from 20)
+GENERAL: Sampled 50 unanswerable (with replacement from 20)
+
+============================================================
+
+Loading steering direction from Experiment 3...
+Loaded steering direction (layer 21)
+
+Exp 2 identified best layer: 0
+Using layer 0 for alignment with Exp 2
+
+============================================================
+CROSS-DOMAIN ROBUSTNESS EXPERIMENT
+============================================================
+Steering layer: 0
+Epsilon: 5.0
+
+--- Testing domain: MATH ---
+==================================================
+Experiment 6 completed at: Fri Jan 30 13:20:20 EST 2026
+Check results in ./results/
