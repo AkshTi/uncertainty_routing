@@ -1,0 +1,114 @@
+Job ID: 8573997
+Node: node2434
+Start time: Fri Jan 30 15:19:08 EST 2026
+Running Experiment 6: Cross-Domain Robustness
+==================================================
+Initializing model...
+Loading model Qwen/Qwen2.5-1.5B-Instruct...
+Model loaded successfully!
+
+============================================================
+CROSS-DOMAIN DATASET CONSTRUCTION
+============================================================
+
+MATH: Sampled 50 answerable + 50 unanswerable
+
+SCIENCE: Sampled 50 answerable + 50 unanswerable
+
+HISTORY: Sampled 50 answerable + 50 unanswerable
+
+GEOGRAPHY: Sampled 50 answerable + 50 unanswerable
+
+⚠️  GENERAL: Only 20 unique answerable questions available (requested 50)
+⚠️  GENERAL: Only 20 unique unanswerable questions available (requested 50)
+
+============================================================
+
+Loading steering vectors from experiments...
+Available mean_diff layers: []
+
+Loading steering direction from Experiment 3...
+Loaded steering direction (layer 21)
+
+============================================================
+Using steering: layer 21, epsilon -10.0
+============================================================
+
+
+============================================================
+CROSS-DOMAIN ROBUSTNESS EXPERIMENT
+============================================================
+Steering layer: 21
+Epsilon: -10.0
+
+--- Testing domain: MATH ---
+
+--- Testing domain: SCIENCE ---
+
+--- Testing domain: HISTORY ---
+
+--- Testing domain: GEOGRAPHY ---
+
+--- Testing domain: GENERAL ---
+
+Cross-domain results saved to results/exp6_cross_domain_results.csv
+
+============================================================
+DETERMINISM CHECK
+============================================================
+Testing 20 questions × 3 repeats
+
+Determinism rate: 100.0% (20/20)
+
+============================================================
+EXPERIMENT 6: CROSS-DOMAIN ROBUSTNESS ANALYSIS
+============================================================
+
+Format Validation:
+  Valid responses: 391/440 (88.9%)
+  Invalid format: 49/440 (11.1%)
+
+⚠️  WARNING: 11.1% invalid responses - prompt may need adjustment
+
+Analyzing 391 valid responses (excluding 49 invalid)
+
+
+============================================================
+CROSS-DOMAIN METRICS WITH CONFIDENCE INTERVALS
+============================================================
+
+    Domain Coverage    Coverage CI Hallucination Rate Hallucination CI  N (Answerable)  N (Unanswerable)  N (Evaluable) Overall Correctness     Overall CI                                                 Note
+     Math    98.0% [0.893, 0.996]              53.8%   [0.386, 0.684]              49                39             87               69.0% [0.586, 0.777] Checkable ans:88% (42/48), Unans abstain:46% (18/39)
+  Science    97.7% [0.882, 0.996]              47.5%   [0.329, 0.625]              44                40             83               72.3% [0.618, 0.808] Checkable ans:91% (39/43), Unans abstain:52% (21/40)
+  History    94.0% [0.838, 0.979]              40.0%   [0.263, 0.554]              50                40             87               74.7% [0.647, 0.827] Checkable ans:87% (41/47), Unans abstain:60% (24/40)
+Geography    96.0% [0.865, 0.989]              15.4%   [0.072, 0.297]              50                39             87               81.6% [0.722, 0.884] Checkable ans:79% (38/48), Unans abstain:85% (33/39)
+  General   100.0% [0.839, 1.000]              20.0%   [0.081, 0.416]              20                20             40               87.5% [0.739, 0.945] Checkable ans:95% (19/20), Unans abstain:80% (16/20)
+
+
+Cross-domain table saved to results/exp6_cross_domain_table.csv
+
+============================================================
+DETERMINISM CHECK SUMMARY
+============================================================
+Consistency rate: 100.0%
+Tested: 20 questions
+Consistent: 20 questions
+
+============================================================
+CREATING CROSS-DOMAIN VISUALIZATION
+============================================================
+
+Cross-domain visualization saved to results/exp6_cross_domain_visualization.png
+
+✓ Experiment 6 complete!
+
+📊 Output files:
+  Cross-domain results: results/exp6_cross_domain_results.csv
+  Cross-domain table:   results/exp6_cross_domain_table.csv
+  Summary:              results/exp6_summary.json
+
+📈 Figures:
+  Visualization:        results/exp6_cross_domain_visualization.png
+==================================================
+Experiment 6 completed at: Fri Jan 30 15:24:22 EST 2026
+Check results in ./results/

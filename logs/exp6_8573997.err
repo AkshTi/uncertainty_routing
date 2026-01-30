@@ -1,0 +1,488 @@
+Lmod has detected the following error: The following module(s) are unknown:
+"python/3.9"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "python/3.9"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+Lmod has detected the following error: The following module(s) are unknown:
+"cuda/11.8"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "cuda/11.8"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+`torch_dtype` is deprecated! Use `dtype` instead!
+Domains:   0%|          | 0/5 [00:00<?, ?it/s]
+math answerable:   0%|          | 0/50 [00:00<?, ?it/s][AThe following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+
+math answerable:   2%|▏         | 1/50 [00:00<00:48,  1.01it/s][A
+math answerable:   4%|▍         | 2/50 [00:01<00:34,  1.37it/s][A
+math answerable:   6%|▌         | 3/50 [00:02<00:31,  1.51it/s][A
+math answerable:   8%|▊         | 4/50 [00:02<00:29,  1.57it/s][A
+math answerable:  10%|█         | 5/50 [00:02<00:22,  1.98it/s][A
+math answerable:  12%|█▏        | 6/50 [00:03<00:23,  1.88it/s][A
+math answerable:  14%|█▍        | 7/50 [00:04<00:22,  1.92it/s][A
+math answerable:  16%|█▌        | 8/50 [00:04<00:22,  1.84it/s][A
+math answerable:  18%|█▊        | 9/50 [00:05<00:22,  1.84it/s][A
+math answerable:  20%|██        | 10/50 [00:05<00:22,  1.80it/s][A
+math answerable:  22%|██▏       | 11/50 [00:06<00:24,  1.62it/s][A
+math answerable:  24%|██▍       | 12/50 [00:07<00:22,  1.67it/s][A
+math answerable:  26%|██▌       | 13/50 [00:07<00:21,  1.69it/s][A
+math answerable:  28%|██▊       | 14/50 [00:08<00:21,  1.70it/s][A
+math answerable:  30%|███       | 15/50 [00:09<00:22,  1.53it/s][A
+math answerable:  32%|███▏      | 16/50 [00:09<00:22,  1.52it/s][A
+math answerable:  34%|███▍      | 17/50 [00:10<00:20,  1.57it/s][A
+math answerable:  36%|███▌      | 18/50 [00:11<00:22,  1.43it/s][A
+math answerable:  38%|███▊      | 19/50 [00:11<00:20,  1.48it/s][A
+math answerable:  40%|████      | 20/50 [00:12<00:19,  1.54it/s][A
+math answerable:  42%|████▏     | 21/50 [00:12<00:17,  1.61it/s][A
+math answerable:  44%|████▍     | 22/50 [00:13<00:16,  1.69it/s][A
+math answerable:  46%|████▌     | 23/50 [00:14<00:16,  1.68it/s][A
+math answerable:  48%|████▊     | 24/50 [00:14<00:15,  1.69it/s][A
+math answerable:  50%|█████     | 25/50 [00:15<00:14,  1.70it/s][A
+math answerable:  52%|█████▏    | 26/50 [00:15<00:14,  1.71it/s][A
+math answerable:  54%|█████▍    | 27/50 [00:16<00:13,  1.75it/s][A
+math answerable:  56%|█████▌    | 28/50 [00:17<00:13,  1.61it/s][A
+math answerable:  58%|█████▊    | 29/50 [00:17<00:12,  1.65it/s][A
+math answerable:  60%|██████    | 30/50 [00:18<00:12,  1.62it/s][A
+math answerable:  62%|██████▏   | 31/50 [00:18<00:11,  1.64it/s][A
+math answerable:  64%|██████▍   | 32/50 [00:19<00:12,  1.43it/s][A
+math answerable:  66%|██████▌   | 33/50 [00:20<00:11,  1.52it/s][A
+math answerable:  68%|██████▊   | 34/50 [00:20<00:09,  1.60it/s][A
+math answerable:  70%|███████   | 35/50 [00:21<00:09,  1.66it/s][A
+math answerable:  72%|███████▏  | 36/50 [00:22<00:09,  1.51it/s][A
+math answerable:  74%|███████▍  | 37/50 [00:22<00:08,  1.59it/s][A
+math answerable:  76%|███████▌  | 38/50 [00:23<00:07,  1.65it/s][A
+math answerable:  78%|███████▊  | 39/50 [00:23<00:06,  1.67it/s][A
+math answerable:  80%|████████  | 40/50 [00:24<00:05,  1.73it/s][A
+math answerable:  82%|████████▏ | 41/50 [00:24<00:05,  1.78it/s][A
+math answerable:  84%|████████▍ | 42/50 [00:25<00:04,  1.75it/s][A
+math answerable:  86%|████████▌ | 43/50 [00:26<00:03,  1.76it/s][A
+math answerable:  88%|████████▊ | 44/50 [00:26<00:03,  1.78it/s][A
+math answerable:  90%|█████████ | 45/50 [00:27<00:03,  1.58it/s][A
+math answerable:  92%|█████████▏| 46/50 [00:28<00:02,  1.62it/s][A
+math answerable:  94%|█████████▍| 47/50 [00:28<00:01,  1.67it/s][A
+math answerable:  96%|█████████▌| 48/50 [00:29<00:01,  1.71it/s][A
+math answerable:  98%|█████████▊| 49/50 [00:29<00:00,  1.72it/s][A
+math answerable: 100%|██████████| 50/50 [00:30<00:00,  1.61it/s][A
+                                                                [A
+math unanswerable:   0%|          | 0/50 [00:00<?, ?it/s][A
+math unanswerable:   2%|▏         | 1/50 [00:00<00:28,  1.73it/s][A
+math unanswerable:   4%|▍         | 2/50 [00:01<00:31,  1.51it/s][A
+math unanswerable:   6%|▌         | 3/50 [00:01<00:28,  1.64it/s][A
+math unanswerable:   8%|▊         | 4/50 [00:02<00:27,  1.69it/s][A
+math unanswerable:  10%|█         | 5/50 [00:03<00:27,  1.62it/s][A
+math unanswerable:  12%|█▏        | 6/50 [00:03<00:26,  1.68it/s][A
+math unanswerable:  14%|█▍        | 7/50 [00:04<00:25,  1.72it/s][A
+math unanswerable:  16%|█▌        | 8/50 [00:04<00:24,  1.69it/s][A
+math unanswerable:  18%|█▊        | 9/50 [00:05<00:23,  1.72it/s][A
+math unanswerable:  20%|██        | 10/50 [00:05<00:22,  1.76it/s][A
+math unanswerable:  22%|██▏       | 11/50 [00:06<00:21,  1.79it/s][A
+math unanswerable:  24%|██▍       | 12/50 [00:07<00:21,  1.76it/s][A
+math unanswerable:  26%|██▌       | 13/50 [00:07<00:21,  1.75it/s][A
+math unanswerable:  28%|██▊       | 14/50 [00:08<00:20,  1.76it/s][A
+math unanswerable:  30%|███       | 15/50 [00:08<00:19,  1.77it/s][A
+math unanswerable:  32%|███▏      | 16/50 [00:09<00:19,  1.78it/s][A
+math unanswerable:  34%|███▍      | 17/50 [00:09<00:19,  1.67it/s][A
+math unanswerable:  36%|███▌      | 18/50 [00:10<00:18,  1.71it/s][A
+math unanswerable:  38%|███▊      | 19/50 [00:11<00:21,  1.46it/s][A
+math unanswerable:  40%|████      | 20/50 [00:11<00:19,  1.54it/s][A
+math unanswerable:  42%|████▏     | 21/50 [00:12<00:18,  1.59it/s][A
+math unanswerable:  44%|████▍     | 22/50 [00:13<00:17,  1.63it/s][A
+math unanswerable:  46%|████▌     | 23/50 [00:13<00:16,  1.68it/s][A
+math unanswerable:  48%|████▊     | 24/50 [00:14<00:14,  1.73it/s][A
+math unanswerable:  50%|█████     | 25/50 [00:14<00:14,  1.74it/s][A
+math unanswerable:  52%|█████▏    | 26/50 [00:15<00:13,  1.76it/s][A
+math unanswerable:  54%|█████▍    | 27/50 [00:15<00:13,  1.77it/s][A
+math unanswerable:  56%|█████▌    | 28/50 [00:16<00:12,  1.79it/s][A
+math unanswerable:  58%|█████▊    | 29/50 [00:17<00:11,  1.78it/s][A
+math unanswerable:  60%|██████    | 30/50 [00:17<00:11,  1.79it/s][A
+math unanswerable:  62%|██████▏   | 31/50 [00:18<00:10,  1.74it/s][A
+math unanswerable:  64%|██████▍   | 32/50 [00:18<00:10,  1.73it/s][A
+math unanswerable:  66%|██████▌   | 33/50 [00:19<00:11,  1.52it/s][A
+math unanswerable:  68%|██████▊   | 34/50 [00:20<00:10,  1.57it/s][A
+math unanswerable:  70%|███████   | 35/50 [00:20<00:09,  1.62it/s][A
+math unanswerable:  72%|███████▏  | 36/50 [00:21<00:08,  1.63it/s][A
+math unanswerable:  74%|███████▍  | 37/50 [00:21<00:07,  1.66it/s][A
+math unanswerable:  76%|███████▌  | 38/50 [00:22<00:07,  1.60it/s][A
+math unanswerable:  78%|███████▊  | 39/50 [00:23<00:06,  1.67it/s][A
+math unanswerable:  80%|████████  | 40/50 [00:23<00:05,  1.73it/s][A
+math unanswerable:  82%|████████▏ | 41/50 [00:24<00:05,  1.73it/s][A
+math unanswerable:  84%|████████▍ | 42/50 [00:24<00:04,  1.77it/s][A
+math unanswerable:  86%|████████▌ | 43/50 [00:25<00:03,  1.80it/s][A
+math unanswerable:  88%|████████▊ | 44/50 [00:25<00:03,  1.76it/s][A
+math unanswerable:  90%|█████████ | 45/50 [00:26<00:02,  1.77it/s][A
+math unanswerable:  92%|█████████▏| 46/50 [00:27<00:02,  1.78it/s][A
+math unanswerable:  94%|█████████▍| 47/50 [00:27<00:01,  1.76it/s][A
+math unanswerable:  96%|█████████▌| 48/50 [00:28<00:01,  1.77it/s][A
+math unanswerable:  98%|█████████▊| 49/50 [00:28<00:00,  1.77it/s][A
+math unanswerable: 100%|██████████| 50/50 [00:29<00:00,  1.69it/s][A
+                                                                  [ADomains:  20%|██        | 1/5 [00:59<03:59, 59.90s/it]
+science answerable:   0%|          | 0/50 [00:00<?, ?it/s][A
+science answerable:   2%|▏         | 1/50 [00:00<00:25,  1.92it/s][A
+science answerable:   4%|▍         | 2/50 [00:01<00:24,  1.92it/s][A
+science answerable:   6%|▌         | 3/50 [00:01<00:24,  1.93it/s][A
+science answerable:   8%|▊         | 4/50 [00:02<00:24,  1.90it/s][A
+science answerable:  10%|█         | 5/50 [00:02<00:24,  1.86it/s][A
+science answerable:  12%|█▏        | 6/50 [00:03<00:28,  1.53it/s][A
+science answerable:  14%|█▍        | 7/50 [00:04<00:26,  1.62it/s][A
+science answerable:  16%|█▌        | 8/50 [00:04<00:24,  1.70it/s][A
+science answerable:  18%|█▊        | 9/50 [00:05<00:25,  1.63it/s][A
+science answerable:  20%|██        | 10/50 [00:05<00:23,  1.71it/s][A
+science answerable:  22%|██▏       | 11/50 [00:06<00:22,  1.77it/s][A
+science answerable:  24%|██▍       | 12/50 [00:06<00:21,  1.79it/s][A
+science answerable:  26%|██▌       | 13/50 [00:07<00:20,  1.83it/s][A
+science answerable:  28%|██▊       | 14/50 [00:07<00:19,  1.86it/s][A
+science answerable:  30%|███       | 15/50 [00:08<00:19,  1.84it/s][A
+science answerable:  32%|███▏      | 16/50 [00:08<00:18,  1.86it/s][A
+science answerable:  34%|███▍      | 17/50 [00:09<00:17,  1.88it/s][A
+science answerable:  36%|███▌      | 18/50 [00:10<00:16,  1.89it/s][A
+science answerable:  38%|███▊      | 19/50 [00:10<00:16,  1.90it/s][A
+science answerable:  40%|████      | 20/50 [00:11<00:15,  1.91it/s][A
+science answerable:  42%|████▏     | 21/50 [00:11<00:16,  1.71it/s][A
+science answerable:  44%|████▍     | 22/50 [00:12<00:15,  1.76it/s][A
+science answerable:  46%|████▌     | 23/50 [00:12<00:14,  1.81it/s][A
+science answerable:  48%|████▊     | 24/50 [00:13<00:14,  1.82it/s][A
+science answerable:  50%|█████     | 25/50 [00:13<00:13,  1.85it/s][A
+science answerable:  52%|█████▏    | 26/50 [00:14<00:12,  1.87it/s][A
+science answerable:  54%|█████▍    | 27/50 [00:14<00:12,  1.87it/s][A
+science answerable:  56%|█████▌    | 28/50 [00:15<00:13,  1.65it/s][A
+science answerable:  58%|█████▊    | 29/50 [00:16<00:12,  1.70it/s][A
+science answerable:  60%|██████    | 30/50 [00:16<00:11,  1.75it/s][A
+science answerable:  62%|██████▏   | 31/50 [00:17<00:10,  1.79it/s][A
+science answerable:  64%|██████▍   | 32/50 [00:17<00:09,  1.82it/s][A
+science answerable:  66%|██████▌   | 33/50 [00:18<00:09,  1.85it/s][A
+science answerable:  68%|██████▊   | 34/50 [00:18<00:08,  1.86it/s][A
+science answerable:  70%|███████   | 35/50 [00:19<00:07,  1.88it/s][A
+science answerable:  72%|███████▏  | 36/50 [00:19<00:07,  1.89it/s][A
+science answerable:  74%|███████▍  | 37/50 [00:20<00:07,  1.86it/s][A
+science answerable:  76%|███████▌  | 38/50 [00:21<00:06,  1.75it/s][A
+science answerable:  78%|███████▊  | 39/50 [00:21<00:06,  1.80it/s][A
+science answerable:  80%|████████  | 40/50 [00:22<00:05,  1.83it/s][A
+science answerable:  82%|████████▏ | 41/50 [00:22<00:04,  1.85it/s][A
+science answerable:  84%|████████▍ | 42/50 [00:22<00:03,  2.18it/s][A
+science answerable:  86%|████████▌ | 43/50 [00:23<00:03,  2.05it/s][A
+science answerable:  88%|████████▊ | 44/50 [00:24<00:03,  2.00it/s][A
+science answerable:  90%|█████████ | 45/50 [00:24<00:02,  1.84it/s][A
+science answerable:  92%|█████████▏| 46/50 [00:25<00:02,  1.83it/s][A
+science answerable:  94%|█████████▍| 47/50 [00:25<00:01,  1.69it/s][A
+science answerable:  96%|█████████▌| 48/50 [00:26<00:01,  1.71it/s][A
+science answerable:  98%|█████████▊| 49/50 [00:27<00:00,  1.72it/s][A
+science answerable: 100%|██████████| 50/50 [00:27<00:00,  1.58it/s][A
+                                                                   [A
+science unanswerable:   0%|          | 0/50 [00:00<?, ?it/s][A
+science unanswerable:   2%|▏         | 1/50 [00:00<00:27,  1.81it/s][A
+science unanswerable:   4%|▍         | 2/50 [00:01<00:32,  1.46it/s][A
+science unanswerable:   6%|▌         | 3/50 [00:01<00:28,  1.63it/s][A
+science unanswerable:   8%|▊         | 4/50 [00:02<00:26,  1.70it/s][A
+science unanswerable:  10%|█         | 5/50 [00:02<00:25,  1.77it/s][A
+science unanswerable:  12%|█▏        | 6/50 [00:03<00:24,  1.82it/s][A
+science unanswerable:  14%|█▍        | 7/50 [00:04<00:24,  1.73it/s][A
+science unanswerable:  16%|█▌        | 8/50 [00:04<00:23,  1.79it/s][A
+science unanswerable:  18%|█▊        | 9/50 [00:05<00:22,  1.82it/s][A
+science unanswerable:  20%|██        | 10/50 [00:05<00:25,  1.60it/s][A
+science unanswerable:  22%|██▏       | 11/50 [00:06<00:23,  1.69it/s][A
+science unanswerable:  24%|██▍       | 12/50 [00:07<00:22,  1.70it/s][A
+science unanswerable:  26%|██▌       | 13/50 [00:07<00:21,  1.76it/s][A
+science unanswerable:  28%|██▊       | 14/50 [00:08<00:20,  1.79it/s][A
+science unanswerable:  30%|███       | 15/50 [00:08<00:20,  1.68it/s][A
+science unanswerable:  32%|███▏      | 16/50 [00:09<00:19,  1.73it/s][A
+science unanswerable:  34%|███▍      | 17/50 [00:09<00:18,  1.78it/s][A
+science unanswerable:  36%|███▌      | 18/50 [00:10<00:18,  1.69it/s][A
+science unanswerable:  38%|███▊      | 19/50 [00:11<00:17,  1.75it/s][A
+science unanswerable:  40%|████      | 20/50 [00:11<00:16,  1.80it/s][A
+science unanswerable:  42%|████▏     | 21/50 [00:12<00:15,  1.84it/s][A
+science unanswerable:  44%|████▍     | 22/50 [00:12<00:15,  1.86it/s][A
+science unanswerable:  46%|████▌     | 23/50 [00:13<00:14,  1.88it/s][A
+science unanswerable:  48%|████▊     | 24/50 [00:13<00:13,  1.89it/s][A
+science unanswerable:  50%|█████     | 25/50 [00:14<00:13,  1.86it/s][A
+science unanswerable:  52%|█████▏    | 26/50 [00:14<00:12,  1.88it/s][A
+science unanswerable:  54%|█████▍    | 27/50 [00:15<00:12,  1.87it/s][A
+science unanswerable:  56%|█████▌    | 28/50 [00:15<00:11,  1.87it/s][A
+science unanswerable:  58%|█████▊    | 29/50 [00:16<00:11,  1.88it/s][A
+science unanswerable:  60%|██████    | 30/50 [00:16<00:10,  1.90it/s][A
+science unanswerable:  62%|██████▏   | 31/50 [00:17<00:09,  1.90it/s][A
+science unanswerable:  64%|██████▍   | 32/50 [00:17<00:09,  1.91it/s][A
+science unanswerable:  66%|██████▌   | 33/50 [00:18<00:08,  1.91it/s][A
+science unanswerable:  68%|██████▊   | 34/50 [00:18<00:08,  1.92it/s][A
+science unanswerable:  70%|███████   | 35/50 [00:19<00:07,  1.91it/s][A
+science unanswerable:  72%|███████▏  | 36/50 [00:20<00:07,  1.76it/s][A
+science unanswerable:  74%|███████▍  | 37/50 [00:20<00:07,  1.78it/s][A
+science unanswerable:  76%|███████▌  | 38/50 [00:21<00:07,  1.53it/s][A
+science unanswerable:  78%|███████▊  | 39/50 [00:22<00:06,  1.63it/s][A
+science unanswerable:  80%|████████  | 40/50 [00:22<00:05,  1.70it/s][A
+science unanswerable:  82%|████████▏ | 41/50 [00:23<00:05,  1.64it/s][A
+science unanswerable:  84%|████████▍ | 42/50 [00:23<00:04,  1.72it/s][A
+science unanswerable:  86%|████████▌ | 43/50 [00:24<00:03,  1.75it/s][A
+science unanswerable:  88%|████████▊ | 44/50 [00:24<00:03,  1.78it/s][A
+science unanswerable:  90%|█████████ | 45/50 [00:25<00:02,  1.79it/s][A
+science unanswerable:  92%|█████████▏| 46/50 [00:25<00:02,  1.79it/s][A
+science unanswerable:  94%|█████████▍| 47/50 [00:26<00:01,  1.76it/s][A
+science unanswerable:  96%|█████████▌| 48/50 [00:27<00:01,  1.77it/s][A
+science unanswerable:  98%|█████████▊| 49/50 [00:27<00:00,  1.79it/s][A
+science unanswerable: 100%|██████████| 50/50 [00:28<00:00,  1.82it/s][A
+                                                                     [ADomains:  40%|████      | 2/5 [01:55<02:52, 57.61s/it]
+history answerable:   0%|          | 0/50 [00:00<?, ?it/s][A
+history answerable:   2%|▏         | 1/50 [00:00<00:25,  1.94it/s][A
+history answerable:   4%|▍         | 2/50 [00:01<00:28,  1.68it/s][A
+history answerable:   6%|▌         | 3/50 [00:01<00:26,  1.76it/s][A
+history answerable:   8%|▊         | 4/50 [00:02<00:25,  1.80it/s][A
+history answerable:  10%|█         | 5/50 [00:02<00:24,  1.84it/s][A
+history answerable:  12%|█▏        | 6/50 [00:03<00:23,  1.86it/s][A
+history answerable:  14%|█▍        | 7/50 [00:03<00:22,  1.87it/s][A
+history answerable:  16%|█▌        | 8/50 [00:04<00:24,  1.72it/s][A
+history answerable:  18%|█▊        | 9/50 [00:05<00:23,  1.75it/s][A
+history answerable:  20%|██        | 10/50 [00:05<00:22,  1.76it/s][A
+history answerable:  22%|██▏       | 11/50 [00:06<00:21,  1.77it/s][A
+history answerable:  24%|██▍       | 12/50 [00:06<00:21,  1.78it/s][A
+history answerable:  26%|██▌       | 13/50 [00:07<00:20,  1.79it/s][A
+history answerable:  28%|██▊       | 14/50 [00:07<00:19,  1.81it/s][A
+history answerable:  30%|███       | 15/50 [00:08<00:19,  1.81it/s][A
+history answerable:  32%|███▏      | 16/50 [00:09<00:21,  1.60it/s][A
+history answerable:  34%|███▍      | 17/50 [00:09<00:19,  1.66it/s][A
+history answerable:  36%|███▌      | 18/50 [00:10<00:19,  1.68it/s][A
+history answerable:  38%|███▊      | 19/50 [00:10<00:18,  1.71it/s][A
+history answerable:  40%|████      | 20/50 [00:11<00:17,  1.75it/s][A
+history answerable:  42%|████▏     | 21/50 [00:11<00:16,  1.77it/s][A
+history answerable:  44%|████▍     | 22/50 [00:12<00:15,  1.80it/s][A
+history answerable:  46%|████▌     | 23/50 [00:13<00:14,  1.80it/s][A
+history answerable:  48%|████▊     | 24/50 [00:13<00:15,  1.67it/s][A
+history answerable:  50%|█████     | 25/50 [00:14<00:14,  1.71it/s][A
+history answerable:  52%|█████▏    | 26/50 [00:14<00:13,  1.73it/s][A
+history answerable:  54%|█████▍    | 27/50 [00:15<00:13,  1.75it/s][A
+history answerable:  56%|█████▌    | 28/50 [00:15<00:12,  1.82it/s][A
+history answerable:  58%|█████▊    | 29/50 [00:16<00:11,  1.82it/s][A
+history answerable:  60%|██████    | 30/50 [00:16<00:10,  1.85it/s][A
+history answerable:  62%|██████▏   | 31/50 [00:17<00:10,  1.89it/s][A
+history answerable:  64%|██████▍   | 32/50 [00:17<00:09,  1.90it/s][A
+history answerable:  66%|██████▌   | 33/50 [00:18<00:09,  1.88it/s][A
+history answerable:  68%|██████▊   | 34/50 [00:19<00:08,  1.89it/s][A
+history answerable:  70%|███████   | 35/50 [00:19<00:07,  1.90it/s][A
+history answerable:  72%|███████▏  | 36/50 [00:20<00:07,  1.91it/s][A
+history answerable:  74%|███████▍  | 37/50 [00:20<00:06,  1.91it/s][A
+history answerable:  76%|███████▌  | 38/50 [00:21<00:06,  1.92it/s][A
+history answerable:  78%|███████▊  | 39/50 [00:21<00:05,  1.93it/s][A
+history answerable:  80%|████████  | 40/50 [00:22<00:05,  1.88it/s][A
+history answerable:  82%|████████▏ | 41/50 [00:22<00:04,  1.87it/s][A
+history answerable:  84%|████████▍ | 42/50 [00:23<00:05,  1.55it/s][A
+history answerable:  86%|████████▌ | 43/50 [00:24<00:04,  1.65it/s][A
+history answerable:  88%|████████▊ | 44/50 [00:24<00:03,  1.71it/s][A
+history answerable:  90%|█████████ | 45/50 [00:25<00:02,  1.77it/s][A
+history answerable:  92%|█████████▏| 46/50 [00:25<00:02,  1.80it/s][A
+history answerable:  94%|█████████▍| 47/50 [00:26<00:01,  1.84it/s][A
+history answerable:  96%|█████████▌| 48/50 [00:26<00:01,  1.81it/s][A
+history answerable:  98%|█████████▊| 49/50 [00:27<00:00,  1.84it/s][A
+history answerable: 100%|██████████| 50/50 [00:27<00:00,  1.89it/s][A
+                                                                   [A
+history unanswerable:   0%|          | 0/50 [00:00<?, ?it/s][A
+history unanswerable:   2%|▏         | 1/50 [00:00<00:28,  1.75it/s][A
+history unanswerable:   4%|▍         | 2/50 [00:01<00:25,  1.85it/s][A
+history unanswerable:   6%|▌         | 3/50 [00:01<00:24,  1.88it/s][A
+history unanswerable:   8%|▊         | 4/50 [00:02<00:29,  1.58it/s][A
+history unanswerable:  10%|█         | 5/50 [00:02<00:26,  1.68it/s][A
+history unanswerable:  12%|█▏        | 6/50 [00:03<00:24,  1.76it/s][A
+history unanswerable:  14%|█▍        | 7/50 [00:03<00:24,  1.78it/s][A
+history unanswerable:  16%|█▌        | 8/50 [00:04<00:23,  1.81it/s][A
+history unanswerable:  18%|█▊        | 9/50 [00:05<00:22,  1.85it/s][A
+history unanswerable:  20%|██        | 10/50 [00:05<00:21,  1.87it/s][A
+history unanswerable:  22%|██▏       | 11/50 [00:06<00:20,  1.88it/s][A
+history unanswerable:  24%|██▍       | 12/50 [00:06<00:20,  1.88it/s][A
+history unanswerable:  26%|██▌       | 13/50 [00:07<00:22,  1.64it/s][A
+history unanswerable:  28%|██▊       | 14/50 [00:07<00:20,  1.72it/s][A
+history unanswerable:  30%|███       | 15/50 [00:08<00:19,  1.77it/s][A
+history unanswerable:  32%|███▏      | 16/50 [00:08<00:18,  1.81it/s][A
+history unanswerable:  34%|███▍      | 17/50 [00:09<00:17,  1.85it/s][A
+history unanswerable:  36%|███▌      | 18/50 [00:10<00:17,  1.84it/s][A
+history unanswerable:  38%|███▊      | 19/50 [00:10<00:16,  1.86it/s][A
+history unanswerable:  40%|████      | 20/50 [00:11<00:16,  1.85it/s][A
+history unanswerable:  42%|████▏     | 21/50 [00:11<00:16,  1.81it/s][A
+history unanswerable:  44%|████▍     | 22/50 [00:12<00:15,  1.84it/s][A
+history unanswerable:  46%|████▌     | 23/50 [00:12<00:14,  1.84it/s][A
+history unanswerable:  48%|████▊     | 24/50 [00:13<00:14,  1.85it/s][A
+history unanswerable:  50%|█████     | 25/50 [00:13<00:13,  1.87it/s][A
+history unanswerable:  52%|█████▏    | 26/50 [00:14<00:13,  1.77it/s][A
+history unanswerable:  54%|█████▍    | 27/50 [00:14<00:12,  1.81it/s][A
+history unanswerable:  56%|█████▌    | 28/50 [00:15<00:11,  1.85it/s][A
+history unanswerable:  58%|█████▊    | 29/50 [00:16<00:11,  1.85it/s][A
+history unanswerable:  60%|██████    | 30/50 [00:16<00:10,  1.84it/s][A
+history unanswerable:  62%|██████▏   | 31/50 [00:17<00:10,  1.83it/s][A
+history unanswerable:  64%|██████▍   | 32/50 [00:17<00:10,  1.79it/s][A
+history unanswerable:  66%|██████▌   | 33/50 [00:18<00:09,  1.76it/s][A
+history unanswerable:  68%|██████▊   | 34/50 [00:19<00:09,  1.64it/s][A
+history unanswerable:  70%|███████   | 35/50 [00:19<00:08,  1.71it/s][A
+history unanswerable:  72%|███████▏  | 36/50 [00:20<00:07,  1.77it/s][A
+history unanswerable:  74%|███████▍  | 37/50 [00:20<00:07,  1.81it/s][A
+history unanswerable:  76%|███████▌  | 38/50 [00:21<00:06,  1.84it/s][A
+history unanswerable:  78%|███████▊  | 39/50 [00:21<00:05,  1.85it/s][A
+history unanswerable:  80%|████████  | 40/50 [00:22<00:05,  1.87it/s][A
+history unanswerable:  82%|████████▏ | 41/50 [00:22<00:04,  1.85it/s][A
+history unanswerable:  84%|████████▍ | 42/50 [00:23<00:04,  1.84it/s][A
+history unanswerable:  86%|████████▌ | 43/50 [00:23<00:03,  1.83it/s][A
+history unanswerable:  88%|████████▊ | 44/50 [00:24<00:03,  1.85it/s][A
+history unanswerable:  90%|█████████ | 45/50 [00:24<00:02,  1.87it/s][A
+history unanswerable:  92%|█████████▏| 46/50 [00:25<00:02,  1.89it/s][A
+history unanswerable:  94%|█████████▍| 47/50 [00:25<00:01,  1.89it/s][A
+history unanswerable:  96%|█████████▌| 48/50 [00:26<00:01,  1.86it/s][A
+history unanswerable:  98%|█████████▊| 49/50 [00:27<00:00,  1.76it/s][A
+history unanswerable: 100%|██████████| 50/50 [00:27<00:00,  1.76it/s][A
+                                                                     [ADomains:  60%|██████    | 3/5 [02:51<01:53, 56.66s/it]
+geography answerable:   0%|          | 0/50 [00:00<?, ?it/s][A
+geography answerable:   2%|▏         | 1/50 [00:00<00:27,  1.81it/s][A
+geography answerable:   4%|▍         | 2/50 [00:01<00:25,  1.85it/s][A
+geography answerable:   6%|▌         | 3/50 [00:01<00:25,  1.85it/s][A
+geography answerable:   8%|▊         | 4/50 [00:02<00:24,  1.86it/s][A
+geography answerable:  10%|█         | 5/50 [00:02<00:26,  1.73it/s][A
+geography answerable:  12%|█▏        | 6/50 [00:03<00:24,  1.78it/s][A
+geography answerable:  14%|█▍        | 7/50 [00:03<00:23,  1.81it/s][A
+geography answerable:  16%|█▌        | 8/50 [00:04<00:23,  1.82it/s][A
+geography answerable:  18%|█▊        | 9/50 [00:04<00:22,  1.85it/s][A
+geography answerable:  20%|██        | 10/50 [00:05<00:21,  1.88it/s][A
+geography answerable:  22%|██▏       | 11/50 [00:05<00:20,  1.89it/s][A
+geography answerable:  24%|██▍       | 12/50 [00:06<00:20,  1.90it/s][A
+geography answerable:  26%|██▌       | 13/50 [00:07<00:19,  1.90it/s][A
+geography answerable:  28%|██▊       | 14/50 [00:07<00:21,  1.66it/s][A
+geography answerable:  30%|███       | 15/50 [00:08<00:20,  1.73it/s][A
+geography answerable:  32%|███▏      | 16/50 [00:08<00:19,  1.72it/s][A
+geography answerable:  34%|███▍      | 17/50 [00:09<00:19,  1.71it/s][A
+geography answerable:  36%|███▌      | 18/50 [00:10<00:18,  1.75it/s][A
+geography answerable:  38%|███▊      | 19/50 [00:10<00:19,  1.60it/s][A
+geography answerable:  40%|████      | 20/50 [00:11<00:18,  1.64it/s][A
+geography answerable:  42%|████▏     | 21/50 [00:12<00:18,  1.60it/s][A
+geography answerable:  44%|████▍     | 22/50 [00:12<00:17,  1.64it/s][A
+geography answerable:  46%|████▌     | 23/50 [00:13<00:15,  1.70it/s][A
+geography answerable:  48%|████▊     | 24/50 [00:13<00:14,  1.75it/s][A
+geography answerable:  50%|█████     | 25/50 [00:14<00:14,  1.78it/s][A
+geography answerable:  52%|█████▏    | 26/50 [00:14<00:13,  1.82it/s][A
+geography answerable:  54%|█████▍    | 27/50 [00:15<00:12,  1.82it/s][A
+geography answerable:  56%|█████▌    | 28/50 [00:15<00:12,  1.81it/s][A
+geography answerable:  58%|█████▊    | 29/50 [00:16<00:11,  1.84it/s][A
+geography answerable:  60%|██████    | 30/50 [00:16<00:10,  1.86it/s][A
+geography answerable:  62%|██████▏   | 31/50 [00:17<00:10,  1.82it/s][A
+geography answerable:  64%|██████▍   | 32/50 [00:18<00:10,  1.79it/s][A
+geography answerable:  66%|██████▌   | 33/50 [00:18<00:09,  1.80it/s][A
+geography answerable:  68%|██████▊   | 34/50 [00:19<00:08,  1.80it/s][A
+geography answerable:  70%|███████   | 35/50 [00:19<00:08,  1.79it/s][A
+geography answerable:  72%|███████▏  | 36/50 [00:20<00:07,  1.78it/s][A
+geography answerable:  74%|███████▍  | 37/50 [00:20<00:07,  1.75it/s][A
+geography answerable:  76%|███████▌  | 38/50 [00:21<00:07,  1.55it/s][A
+geography answerable:  78%|███████▊  | 39/50 [00:22<00:07,  1.57it/s][A
+geography answerable:  80%|████████  | 40/50 [00:23<00:07,  1.40it/s][A
+geography answerable:  82%|████████▏ | 41/50 [00:23<00:06,  1.49it/s][A
+geography answerable:  84%|████████▍ | 42/50 [00:24<00:05,  1.39it/s][A
+geography answerable:  86%|████████▌ | 43/50 [00:25<00:04,  1.49it/s][A
+geography answerable:  88%|████████▊ | 44/50 [00:25<00:03,  1.55it/s][A
+geography answerable:  90%|█████████ | 45/50 [00:26<00:03,  1.46it/s][A
+geography answerable:  92%|█████████▏| 46/50 [00:27<00:02,  1.54it/s][A
+geography answerable:  94%|█████████▍| 47/50 [00:27<00:01,  1.61it/s][A
+geography answerable:  96%|█████████▌| 48/50 [00:28<00:01,  1.62it/s][A
+geography answerable:  98%|█████████▊| 49/50 [00:28<00:00,  1.68it/s][A
+geography answerable: 100%|██████████| 50/50 [00:29<00:00,  1.72it/s][A
+                                                                     [A
+geography unanswerable:   0%|          | 0/50 [00:00<?, ?it/s][A
+geography unanswerable:   2%|▏         | 1/50 [00:00<00:27,  1.80it/s][A
+geography unanswerable:   4%|▍         | 2/50 [00:01<00:26,  1.79it/s][A
+geography unanswerable:   6%|▌         | 3/50 [00:01<00:26,  1.79it/s][A
+geography unanswerable:   8%|▊         | 4/50 [00:02<00:25,  1.80it/s][A
+geography unanswerable:  10%|█         | 5/50 [00:02<00:25,  1.79it/s][A
+geography unanswerable:  12%|█▏        | 6/50 [00:03<00:29,  1.48it/s][A
+geography unanswerable:  14%|█▍        | 7/50 [00:04<00:27,  1.56it/s][A
+geography unanswerable:  16%|█▌        | 8/50 [00:05<00:29,  1.45it/s][A
+geography unanswerable:  18%|█▊        | 9/50 [00:05<00:26,  1.53it/s][A
+geography unanswerable:  20%|██        | 10/50 [00:06<00:25,  1.58it/s][A
+geography unanswerable:  22%|██▏       | 11/50 [00:06<00:25,  1.52it/s][A
+geography unanswerable:  24%|██▍       | 12/50 [00:07<00:23,  1.59it/s][A
+geography unanswerable:  26%|██▌       | 13/50 [00:08<00:22,  1.65it/s][A
+geography unanswerable:  28%|██▊       | 14/50 [00:08<00:21,  1.68it/s][A
+geography unanswerable:  30%|███       | 15/50 [00:09<00:20,  1.72it/s][A
+geography unanswerable:  32%|███▏      | 16/50 [00:09<00:19,  1.75it/s][A
+geography unanswerable:  34%|███▍      | 17/50 [00:10<00:18,  1.77it/s][A
+geography unanswerable:  36%|███▌      | 18/50 [00:10<00:18,  1.77it/s][A
+geography unanswerable:  38%|███▊      | 19/50 [00:11<00:18,  1.67it/s][A
+geography unanswerable:  40%|████      | 20/50 [00:12<00:17,  1.72it/s][A
+geography unanswerable:  42%|████▏     | 21/50 [00:12<00:17,  1.66it/s][A
+geography unanswerable:  44%|████▍     | 22/50 [00:13<00:16,  1.69it/s][A
+geography unanswerable:  46%|████▌     | 23/50 [00:14<00:17,  1.52it/s][A
+geography unanswerable:  48%|████▊     | 24/50 [00:14<00:16,  1.58it/s][A
+geography unanswerable:  50%|█████     | 25/50 [00:15<00:15,  1.61it/s][A
+geography unanswerable:  52%|█████▏    | 26/50 [00:15<00:15,  1.56it/s][A
+geography unanswerable:  54%|█████▍    | 27/50 [00:16<00:14,  1.62it/s][A
+geography unanswerable:  56%|█████▌    | 28/50 [00:17<00:13,  1.69it/s][A
+geography unanswerable:  58%|█████▊    | 29/50 [00:17<00:14,  1.48it/s][A
+geography unanswerable:  60%|██████    | 30/50 [00:18<00:12,  1.58it/s][A
+geography unanswerable:  62%|██████▏   | 31/50 [00:19<00:11,  1.63it/s][A
+geography unanswerable:  64%|██████▍   | 32/50 [00:19<00:10,  1.70it/s][A
+geography unanswerable:  66%|██████▌   | 33/50 [00:20<00:09,  1.77it/s][A
+geography unanswerable:  68%|██████▊   | 34/50 [00:20<00:08,  1.81it/s][A
+geography unanswerable:  70%|███████   | 35/50 [00:21<00:08,  1.82it/s][A
+geography unanswerable:  72%|███████▏  | 36/50 [00:21<00:07,  1.83it/s][A
+geography unanswerable:  74%|███████▍  | 37/50 [00:22<00:07,  1.79it/s][A
+geography unanswerable:  76%|███████▌  | 38/50 [00:22<00:06,  1.80it/s][A
+geography unanswerable:  78%|███████▊  | 39/50 [00:23<00:06,  1.82it/s][A
+geography unanswerable:  80%|████████  | 40/50 [00:24<00:05,  1.69it/s][A
+geography unanswerable:  82%|████████▏ | 41/50 [00:24<00:05,  1.72it/s][A
+geography unanswerable:  84%|████████▍ | 42/50 [00:25<00:04,  1.71it/s][A
+geography unanswerable:  86%|████████▌ | 43/50 [00:25<00:04,  1.72it/s][A
+geography unanswerable:  88%|████████▊ | 44/50 [00:26<00:03,  1.55it/s][A
+geography unanswerable:  90%|█████████ | 45/50 [00:27<00:03,  1.60it/s][A
+geography unanswerable:  92%|█████████▏| 46/50 [00:27<00:02,  1.65it/s][A
+geography unanswerable:  94%|█████████▍| 47/50 [00:28<00:02,  1.48it/s][A
+geography unanswerable:  96%|█████████▌| 48/50 [00:29<00:01,  1.56it/s][A
+geography unanswerable:  98%|█████████▊| 49/50 [00:29<00:00,  1.61it/s][A
+geography unanswerable: 100%|██████████| 50/50 [00:30<00:00,  1.59it/s][A
+                                                                       [ADomains:  80%|████████  | 4/5 [03:51<00:57, 57.84s/it]
+general answerable:   0%|          | 0/20 [00:00<?, ?it/s][A
+general answerable:   5%|▌         | 1/20 [00:00<00:09,  1.94it/s][A
+general answerable:  10%|█         | 2/20 [00:01<00:11,  1.58it/s][A
+general answerable:  15%|█▌        | 3/20 [00:01<00:10,  1.69it/s][A
+general answerable:  20%|██        | 4/20 [00:02<00:09,  1.72it/s][A
+general answerable:  25%|██▌       | 5/20 [00:02<00:08,  1.70it/s][A
+general answerable:  30%|███       | 6/20 [00:03<00:08,  1.73it/s][A
+general answerable:  35%|███▌      | 7/20 [00:04<00:08,  1.55it/s][A
+general answerable:  40%|████      | 8/20 [00:04<00:07,  1.62it/s][A
+general answerable:  45%|████▌     | 9/20 [00:05<00:06,  1.69it/s][A
+general answerable:  50%|█████     | 10/20 [00:05<00:05,  1.70it/s][A
+general answerable:  55%|█████▌    | 11/20 [00:06<00:05,  1.75it/s][A
+general answerable:  60%|██████    | 12/20 [00:06<00:04,  1.81it/s][A
+general answerable:  65%|██████▌   | 13/20 [00:07<00:04,  1.54it/s][A
+general answerable:  70%|███████   | 14/20 [00:08<00:03,  1.61it/s][A
+general answerable:  75%|███████▌  | 15/20 [00:09<00:03,  1.49it/s][A
+general answerable:  80%|████████  | 16/20 [00:09<00:02,  1.57it/s][A
+general answerable:  85%|████████▌ | 17/20 [00:10<00:01,  1.64it/s][A
+general answerable:  90%|█████████ | 18/20 [00:10<00:01,  1.69it/s][A
+general answerable:  95%|█████████▌| 19/20 [00:11<00:00,  1.74it/s][A
+general answerable: 100%|██████████| 20/20 [00:11<00:00,  1.75it/s][A
+                                                                   [A
+general unanswerable:   0%|          | 0/20 [00:00<?, ?it/s][A
+general unanswerable:   5%|▌         | 1/20 [00:00<00:09,  1.92it/s][A
+general unanswerable:  10%|█         | 2/20 [00:01<00:09,  1.90it/s][A
+general unanswerable:  15%|█▌        | 3/20 [00:01<00:10,  1.66it/s][A
+general unanswerable:  20%|██        | 4/20 [00:02<00:09,  1.69it/s][A
+general unanswerable:  25%|██▌       | 5/20 [00:03<00:09,  1.60it/s][A
+general unanswerable:  30%|███       | 6/20 [00:03<00:08,  1.65it/s][A
+general unanswerable:  35%|███▌      | 7/20 [00:04<00:07,  1.70it/s][A
+general unanswerable:  40%|████      | 8/20 [00:04<00:06,  1.72it/s][A
+general unanswerable:  45%|████▌     | 9/20 [00:05<00:06,  1.73it/s][A
+general unanswerable:  50%|█████     | 10/20 [00:05<00:05,  1.76it/s][A
+general unanswerable:  55%|█████▌    | 11/20 [00:06<00:05,  1.78it/s][A
+general unanswerable:  60%|██████    | 12/20 [00:06<00:04,  1.80it/s][A
+general unanswerable:  65%|██████▌   | 13/20 [00:07<00:03,  1.81it/s][A
+general unanswerable:  70%|███████   | 14/20 [00:08<00:03,  1.58it/s][A
+general unanswerable:  75%|███████▌  | 15/20 [00:08<00:03,  1.56it/s][A
+general unanswerable:  80%|████████  | 16/20 [00:09<00:02,  1.59it/s][A
+general unanswerable:  85%|████████▌ | 17/20 [00:10<00:01,  1.65it/s][A
+general unanswerable:  90%|█████████ | 18/20 [00:10<00:01,  1.64it/s][A
+general unanswerable:  95%|█████████▌| 19/20 [00:11<00:00,  1.70it/s][A
+general unanswerable: 100%|██████████| 20/20 [00:11<00:00,  1.73it/s][A
+                                                                     [ADomains: 100%|██████████| 5/5 [04:14<00:00, 45.55s/it]Domains: 100%|██████████| 5/5 [04:14<00:00, 50.96s/it]
+Determinism test:   0%|          | 0/20 [00:00<?, ?it/s]Determinism test:   5%|▌         | 1/20 [00:01<00:35,  1.84s/it]Determinism test:  10%|█         | 2/20 [00:03<00:32,  1.83s/it]Determinism test:  15%|█▌        | 3/20 [00:05<00:32,  1.92s/it]Determinism test:  20%|██        | 4/20 [00:07<00:29,  1.86s/it]Determinism test:  25%|██▌       | 5/20 [00:09<00:27,  1.82s/it]Determinism test:  30%|███       | 6/20 [00:11<00:25,  1.83s/it]Determinism test:  35%|███▌      | 7/20 [00:12<00:23,  1.79s/it]Determinism test:  40%|████      | 8/20 [00:14<00:21,  1.79s/it]Determinism test:  45%|████▌     | 9/20 [00:16<00:19,  1.80s/it]Determinism test:  50%|█████     | 10/20 [00:18<00:17,  1.77s/it]Determinism test:  55%|█████▌    | 11/20 [00:19<00:15,  1.74s/it]Determinism test:  60%|██████    | 12/20 [00:21<00:14,  1.77s/it]Determinism test:  65%|██████▌   | 13/20 [00:23<00:12,  1.74s/it]Determinism test:  70%|███████   | 14/20 [00:25<00:10,  1.75s/it]Determinism test:  75%|███████▌  | 15/20 [00:27<00:09,  1.86s/it]Determinism test:  80%|████████  | 16/20 [00:28<00:07,  1.82s/it]Determinism test:  85%|████████▌ | 17/20 [00:30<00:05,  1.79s/it]Determinism test:  90%|█████████ | 18/20 [00:32<00:03,  1.80s/it]Determinism test:  95%|█████████▌| 19/20 [00:34<00:01,  1.82s/it]Determinism test: 100%|██████████| 20/20 [00:36<00:00,  1.85s/it]Determinism test: 100%|██████████| 20/20 [00:36<00:00,  1.81s/it]

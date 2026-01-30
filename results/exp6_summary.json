@@ -2,68 +2,68 @@
   "domain_metrics": [
     {
       "Domain": "Math",
-      "Coverage": "100.0%",
-      "Coverage CI": "[0.646, 1.000]",
-      "Hallucination Rate": "80.0%",
-      "Hallucination CI": "[0.376, 0.964]",
-      "N (Answerable)": 7,
-      "N (Unanswerable)": 5,
-      "N (Evaluable)": 12,
-      "Overall Correctness": "50.0%",
-      "Overall CI": "[0.254, 0.746]",
-      "Note": "Checkable ans:71% (5/7), Unans abstain:20% (1/5)"
+      "Coverage": "98.0%",
+      "Coverage CI": "[0.893, 0.996]",
+      "Hallucination Rate": "53.8%",
+      "Hallucination CI": "[0.386, 0.684]",
+      "N (Answerable)": 49,
+      "N (Unanswerable)": 39,
+      "N (Evaluable)": 87,
+      "Overall Correctness": "69.0%",
+      "Overall CI": "[0.586, 0.777]",
+      "Note": "Checkable ans:88% (42/48), Unans abstain:46% (18/39)"
     },
     {
       "Domain": "Science",
-      "Coverage": "100.0%",
-      "Coverage CI": "[0.566, 1.000]",
-      "Hallucination Rate": "50.0%",
-      "Hallucination CI": "[0.150, 0.850]",
-      "N (Answerable)": 5,
-      "N (Unanswerable)": 4,
-      "N (Evaluable)": 9,
-      "Overall Correctness": "66.7%",
-      "Overall CI": "[0.354, 0.879]",
-      "Note": "Checkable ans:80% (4/5), Unans abstain:50% (2/4)"
+      "Coverage": "97.7%",
+      "Coverage CI": "[0.882, 0.996]",
+      "Hallucination Rate": "47.5%",
+      "Hallucination CI": "[0.329, 0.625]",
+      "N (Answerable)": 44,
+      "N (Unanswerable)": 40,
+      "N (Evaluable)": 83,
+      "Overall Correctness": "72.3%",
+      "Overall CI": "[0.618, 0.808]",
+      "Note": "Checkable ans:91% (39/43), Unans abstain:52% (21/40)"
     },
     {
       "Domain": "History",
-      "Coverage": "100.0%",
-      "Coverage CI": "[0.610, 1.000]",
-      "Hallucination Rate": "50.0%",
-      "Hallucination CI": "[0.188, 0.812]",
-      "N (Answerable)": 6,
-      "N (Unanswerable)": 6,
-      "N (Evaluable)": 12,
-      "Overall Correctness": "75.0%",
-      "Overall CI": "[0.468, 0.911]",
-      "Note": "Checkable ans:100% (6/6), Unans abstain:50% (3/6)"
+      "Coverage": "94.0%",
+      "Coverage CI": "[0.838, 0.979]",
+      "Hallucination Rate": "40.0%",
+      "Hallucination CI": "[0.263, 0.554]",
+      "N (Answerable)": 50,
+      "N (Unanswerable)": 40,
+      "N (Evaluable)": 87,
+      "Overall Correctness": "74.7%",
+      "Overall CI": "[0.647, 0.827]",
+      "Note": "Checkable ans:87% (41/47), Unans abstain:60% (24/40)"
     },
     {
       "Domain": "Geography",
-      "Coverage": "100.0%",
-      "Coverage CI": "[0.676, 1.000]",
-      "Hallucination Rate": "22.2%",
-      "Hallucination CI": "[0.063, 0.547]",
-      "N (Answerable)": 8,
-      "N (Unanswerable)": 9,
-      "N (Evaluable)": 17,
-      "Overall Correctness": "82.4%",
-      "Overall CI": "[0.590, 0.938]",
-      "Note": "Checkable ans:88% (7/8), Unans abstain:78% (7/9)"
+      "Coverage": "96.0%",
+      "Coverage CI": "[0.865, 0.989]",
+      "Hallucination Rate": "15.4%",
+      "Hallucination CI": "[0.072, 0.297]",
+      "N (Answerable)": 50,
+      "N (Unanswerable)": 39,
+      "N (Evaluable)": 87,
+      "Overall Correctness": "81.6%",
+      "Overall CI": "[0.722, 0.884]",
+      "Note": "Checkable ans:79% (38/48), Unans abstain:85% (33/39)"
     },
     {
       "Domain": "General",
       "Coverage": "100.0%",
       "Coverage CI": "[0.839, 1.000]",
-      "Hallucination Rate": "25.0%",
-      "Hallucination CI": "[0.112, 0.469]",
+      "Hallucination Rate": "20.0%",
+      "Hallucination CI": "[0.081, 0.416]",
       "N (Answerable)": 20,
       "N (Unanswerable)": 20,
       "N (Evaluable)": 40,
-      "Overall Correctness": "85.0%",
-      "Overall CI": "[0.709, 0.929]",
-      "Note": "Checkable ans:95% (19/20), Unans abstain:75% (15/20)"
+      "Overall Correctness": "87.5%",
+      "Overall CI": "[0.739, 0.945]",
+      "Note": "Checkable ans:95% (19/20), Unans abstain:80% (16/20)"
     }
   ],
   "determinism": {
@@ -72,140 +72,140 @@
     "n_consistent": 20,
     "details": [
       {
-        "question": "What is 15 multiplied by 8?",
+        "question": "What is 8 times 12?",
         "domain": "math",
         "answerability": "answerable",
         "consistent": true,
         "unique_decisions": 1
       },
       {
-        "question": "What is the square root of 144?",
+        "question": "How many sides does a hexagon have?",
         "domain": "math",
         "answerability": "answerable",
         "consistent": true,
         "unique_decisions": 1
       },
       {
-        "question": "Which equation is the most elegant?",
+        "question": "How long should a mathematical proof be?",
         "domain": "math",
         "answerability": "unanswerable",
         "consistent": true,
         "unique_decisions": 1
       },
       {
-        "question": "What is the best number?",
+        "question": "How many pencils is the perfect amount?",
         "domain": "math",
         "answerability": "unanswerable",
         "consistent": true,
         "unique_decisions": 1
       },
       {
-        "question": "What is the speed of sound in air at 20\u00b0C?",
+        "question": "How many seconds are in a minute?",
         "domain": "science",
         "answerability": "answerable",
         "consistent": true,
         "unique_decisions": 1
       },
       {
-        "question": "What is the atomic number of carbon?",
+        "question": "What gas do humans breathe in?",
         "domain": "science",
         "answerability": "answerable",
         "consistent": true,
         "unique_decisions": 1
       },
       {
-        "question": "What does gravity taste like?",
+        "question": "Which law of physics is the most fun?",
         "domain": "science",
         "answerability": "unanswerable",
         "consistent": true,
         "unique_decisions": 1
       },
       {
-        "question": "How heavy is a dream in grams?",
+        "question": "What is the temperature of love in Kelvin?",
         "domain": "science",
         "answerability": "unanswerable",
         "consistent": true,
         "unique_decisions": 1
       },
       {
-        "question": "What year did the American Civil War begin?",
+        "question": "Who was the longest-reigning British monarch?",
         "domain": "history",
         "answerability": "answerable",
         "consistent": true,
         "unique_decisions": 1
       },
       {
-        "question": "What year did the Berlin Wall fall?",
+        "question": "Who led the Soviet Union during World War II?",
         "domain": "history",
         "answerability": "answerable",
         "consistent": true,
         "unique_decisions": 1
       },
       {
-        "question": "How many times did Napoleon sneeze in his lifetime?",
+        "question": "Which Roman emperor had the nicest handwriting?",
         "domain": "history",
         "answerability": "unanswerable",
         "consistent": true,
         "unique_decisions": 1
       },
       {
-        "question": "What was Beethoven's favorite breakfast food?",
+        "question": "Which Roman gladiator had the best posture?",
         "domain": "history",
         "answerability": "unanswerable",
         "consistent": true,
         "unique_decisions": 1
       },
       {
-        "question": "What is the largest ocean on Earth?",
+        "question": "What is the capital of China?",
         "domain": "geography",
         "answerability": "answerable",
         "consistent": true,
         "unique_decisions": 1
       },
       {
-        "question": "What is the capital of Germany?",
+        "question": "What is the highest waterfall in the world?",
         "domain": "geography",
         "answerability": "answerable",
         "consistent": true,
         "unique_decisions": 1
       },
       {
-        "question": "What was the population of the city mentioned in the previous paragraph?",
+        "question": "How does the equator taste?",
         "domain": "geography",
         "answerability": "unanswerable",
         "consistent": true,
         "unique_decisions": 1
       },
       {
-        "question": "Which country has the nicest people?",
+        "question": "What will be the tallest building in 2100?",
         "domain": "geography",
         "answerability": "unanswerable",
         "consistent": true,
         "unique_decisions": 1
       },
       {
-        "question": "Who painted the Mona Lisa?",
+        "question": "Who wrote Romeo and Juliet?",
         "domain": "general",
         "answerability": "answerable",
         "consistent": true,
         "unique_decisions": 1
       },
       {
-        "question": "How many continents are there?",
+        "question": "What is 2 + 2?",
         "domain": "general",
         "answerability": "answerable",
         "consistent": true,
         "unique_decisions": 1
       },
       {
-        "question": "What is the exact temperature at the center of the sun right now?",
+        "question": "What is the solution to the unsolved Goldbach conjecture?",
         "domain": "general",
         "answerability": "unanswerable",
         "consistent": true,
         "unique_decisions": 1
       },
       {
-        "question": "How many trees were in Central Park on opening day?",
+        "question": "How many siblings did Shakespeare's grandmother have?",
         "domain": "general",
         "answerability": "unanswerable",
         "consistent": true,
@@ -213,7 +213,7 @@
       }
     ]
   },
-  "invalid_rate": 0.08163265306122448,
-  "n_invalid": 8,
-  "n_total": 98
+  "invalid_rate": 0.11136363636363636,
+  "n_invalid": 49,
+  "n_total": 440
 }
