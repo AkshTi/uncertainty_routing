@@ -478,6 +478,41 @@ class Experiment4Enhanced:
         print(f"Non-baseline observations for modeling: {len(df_model)}")
         print(f"Total flips: {df_model['flipped_binary'].sum()}")
 
+        # Check for zero flips - cannot fit model
+        n_flips = df_model['flipped_binary'].sum()
+        flip_rate = n_flips / len(df_model) if len(df_model) > 0 else 0
+
+        if n_flips == 0 or n_flips == len(df_model):
+            print("\n" + "="*60)
+            print("⚠️  INSUFFICIENT VARIATION IN FLIPS")
+            print("="*60)
+            print(f"\nFlip rate: {flip_rate:.1%} ({n_flips}/{len(df_model)})")
+            print("\n❌ Cannot fit interaction model - no variation in outcome.")
+            print("\n📋 RECOMMENDATIONS:")
+            print("  1. Increase epsilon magnitude:")
+            print("     Current range: [{}, {}]".format(df['epsilon'].min(), df['epsilon'].max()))
+            print("     Suggested: Use epsilon values like [-50, -20, 0, 20, 50] or [-100, 0, 100]")
+            print("  2. Use more diverse questions (current: {} questions)".format(df['question_id'].nunique()))
+            print("  3. Check steering vector strength and layer selection")
+            print("  4. Verify questions span a range of uncertainty levels")
+            print("\n💡 TIP: Run with --quick_test to verify setup before full run")
+            return {
+                "error": "insufficient_variation",
+                "flip_rate": float(flip_rate),
+                "n_flips": int(n_flips),
+                "n_observations": len(df_model),
+                "recommendations": [
+                    "Increase epsilon values",
+                    "Use more diverse questions",
+                    "Check steering vector strength"
+                ]
+            }
+
+        if flip_rate < 0.05:
+            print(f"\n⚠️  WARNING: Very low flip rate ({flip_rate:.1%})")
+            print(f"   Results may be unreliable with only {n_flips} flips")
+            print(f"   Consider increasing epsilon magnitude or using more questions\n")
+
         # 1. Fit interaction model using statsmodels (for significance testing)
         print("\n" + "="*60)
         print("1. INTERACTION MODEL: flip ~ entropy + ε + entropy*ε")
@@ -660,16 +695,25 @@ class Experiment4Enhanced:
         print(f"  Already reported above: p={interaction_pval:.4e}")
         print(f"  Interaction significant: {interaction_significant}")
 
-        # Pseudo R²
+        # Pseudo R² (with safety check)
         from sklearn.metrics import log_loss
         y_true = df_model['flipped_binary'].values
 
-        ll_null = -log_loss(y_true, model_null.predict(df_model), normalize=False)
-        ll_full = -log_loss(y_true, model.predict(df_model), normalize=False)
+        try:
+            # Provide labels explicitly to handle edge cases
+            ll_null = -log_loss(y_true, model_null.predict(df_model),
+                              labels=[0, 1], normalize=False)
+            ll_full = -log_loss(y_true, model.predict(df_model),
+                              labels=[0, 1], normalize=False)
 
-        print(f"\nPseudo-R² (McFadden):")
-        print(f"  Without interaction: {model_null.prsquared:.4f}")
-        print(f"  With interaction:    {model.prsquared:.4f}")
+            print(f"\nPseudo-R² (McFadden):")
+            print(f"  Without interaction: {model_null.prsquared:.4f}")
+            print(f"  With interaction:    {model.prsquared:.4f}")
+        except Exception as e:
+            print(f"\n⚠️  Could not compute alternative pseudo-R² ({type(e).__name__})")
+            print(f"  Using statsmodels pseudo-R² only:")
+            print(f"  Without interaction: {model_null.prsquared:.4f}")
+            print(f"  With interaction:    {model.prsquared:.4f}")
 
         # 3. Plot predicted probabilities
         self.plot_interaction_effects(df, model, scaler_ent, scaler_eps)
@@ -898,9 +942,11 @@ def main(n_questions: int = 300, quick_test: bool = False):
     if quick_test:
         print("\n🔬 QUICK TEST MODE")
         n_questions = 50
-        epsilon_values = [0, 5, 10]
+        # Use stronger epsilon values to ensure observable effects
+        epsilon_values = [0, -50, -20, 20, 50]
     else:
-        epsilon_values = [0, 5, 10, 15, 20]
+        # Full sweep with stronger magnitudes
+        epsilon_values = [0, -100, -50, -20, -10, 10, 20, 50, 100]
 
     # Sample questions
     import random

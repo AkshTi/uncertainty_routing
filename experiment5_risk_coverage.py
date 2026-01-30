@@ -22,14 +22,14 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 from tqdm import tqdm
-from typing import List, Dict, Tuple
+from typing import List, Dict
 import json
 import torch
 from collections import Counter
 
 from core_utils import (
     ModelWrapper, ExperimentConfig, extract_answer,
-    set_seed, compute_binary_margin_simple
+    set_seed
 )
 from data_preparation import format_prompt
 
@@ -43,6 +43,17 @@ class Experiment5:
         self.results = []
         set_seed(config.seed)
         self.n_layers = self.model.model.config.num_hidden_layers
+
+    @staticmethod
+    def parse_abstention(response: str) -> bool:
+        """
+        Parse whether model abstained based on abstain_or_answer format
+
+        Returns:
+            True if model abstained, False if it answered
+        """
+        response_stripped = response.strip().upper()
+        return response_stripped.startswith("ABSTAIN")
 
     # =========================================================================
     # Semantic Entropy Computation (for baseline and optional use)
@@ -103,21 +114,40 @@ class Experiment5:
                 context = q_data.get("context", None)
                 true_answerability = q_data.get("answerability", "unknown")
 
-                # Generate with steering
-                prompt = format_prompt(question, "neutral", context)
+                # Use abstain_or_answer format
+                prompt = format_prompt(question, "abstain_or_answer", context)
+
+                # Compute decision token position (where "ABSTAIN" or "ANSWER" appears)
+                # This is the position after the prompt ends
+                tokenizer = self.model.tokenizer
+                prompt_tokens = tokenizer.encode(prompt, add_special_tokens=True)
+                decision_pos = len(prompt_tokens)  # Position of first generated token
 
                 self.model.clear_hooks()
 
-                # Register steering hook
+                # Register steering hook (using Exp4 logic)
                 direction_norm = steering_direction / (torch.norm(steering_direction) + 1e-8)
+
+                # Track whether we're in the initial forward pass
+                is_first_pass = [True]
 
                 def steering_hook(module, input, output):
                     if isinstance(output, tuple):
                         hs = output[0]
                     else:
                         hs = output
-                    # Add steering vector to last token
-                    hs[:, -1, :] = hs[:, -1, :] + epsilon * direction_norm.to(hs.device).to(hs.dtype)
+
+                    seq_len = hs.shape[1]
+
+                    if is_first_pass[0] and seq_len >= decision_pos:
+                        # First pass: steer at decision_pos
+                        steer_idx = decision_pos - 1  # -1 because 0-indexed
+                        hs[:, steer_idx, :] = hs[:, steer_idx, :] + epsilon * direction_norm.to(hs.device).to(hs.dtype)
+                        is_first_pass[0] = False
+                    elif not is_first_pass[0]:
+                        # KV-cached passes: steer at position 0 (the new token)
+                        hs[:, 0, :] = hs[:, 0, :] + epsilon * direction_norm.to(hs.device).to(hs.dtype)
+
                     if isinstance(output, tuple):
                         return (hs,) + output[1:]
                     return hs
@@ -130,14 +160,15 @@ class Experiment5:
                 handle.remove()
                 self.model.clear_hooks()
 
-                # Extract answer and determine abstention
+                # Parse abstention using consistent method
+                abstained = self.parse_abstention(response)
+
+                # Extract answer
                 answer = extract_answer(response)
-                abstained = ("cannot" in answer.lower() or "don't know" in answer.lower() or
-                           "unsure" in answer.lower() or "no information" in answer.lower())
 
                 results.append({
                     "method": "steering",
-                    "parameter": epsilon,
+                    "parameter": float(epsilon),
                     "question": question,
                     "true_answerability": true_answerability,
                     "abstained": abstained,
@@ -160,6 +191,8 @@ class Experiment5:
         """
         Run prompt engineering sweep with varying caution levels
 
+        All variants use abstain_or_answer format with different system instructions
+
         Args:
             questions: List of questions (both answerable and unanswerable)
 
@@ -170,14 +203,15 @@ class Experiment5:
         print("METHOD 2: PROMPT ENGINEERING")
         print("="*60)
 
-        # Define 6 prompt variants from "always answer" to "extremely cautious"
+        # Define 6 prompt variants from "force answer" to "extremely cautious"
+        # All use abstain_or_answer base format with prepended instructions
         prompt_variants = {
-            "always_answer": "You must always provide a specific answer. Never say you don't know.",
-            "default": None,  # Use default neutral prompt
-            "slight_caution": "If you're not certain, you may indicate uncertainty.",
-            "moderate_caution": "Please be careful. If you don't have enough information, say so.",
-            "high_caution": "Be very cautious. Only answer if you are confident. Otherwise, say you cannot answer.",
-            "extreme_caution": "You must refuse to answer unless you are absolutely certain. It is better to abstain than to guess."
+            "force_answer": "You must ALWAYS answer with 'ANSWER: <your answer>'. Never abstain.",
+            "default": None,  # Use default abstain_or_answer prompt
+            "slight_caution": "If you're not certain, you may abstain.",
+            "moderate_caution": "Be careful. If you don't have enough information, abstain.",
+            "high_caution": "Be very cautious. Only answer if confident. Otherwise abstain.",
+            "extreme_caution": "Abstain unless absolutely certain. Better to abstain than guess."
         }
 
         print(f"Testing {len(prompt_variants)} prompt variants")
@@ -190,25 +224,23 @@ class Experiment5:
                 context = q_data.get("context", None)
                 true_answerability = q_data.get("answerability", "unknown")
 
-                # Format prompt with system instruction
-                if system_instruction is None:
-                    # Default neutral prompt
-                    prompt = format_prompt(question, "neutral", context)
+                # Use abstain_or_answer format
+                base_prompt = format_prompt(question, "abstain_or_answer", context)
+
+                # Prepend system instruction if provided
+                if system_instruction is not None:
+                    prompt = f"{system_instruction}\n\n{base_prompt}"
                 else:
-                    # Custom prompt with system instruction
-                    if context:
-                        prompt = f"{system_instruction}\n\nContext: {context}\n\nQuestion: {question}\n\nAnswer:"
-                    else:
-                        prompt = f"{system_instruction}\n\nQuestion: {question}\n\nAnswer:"
+                    prompt = base_prompt
 
                 self.model.clear_hooks()
                 response = self.model.generate(prompt, temperature=0.0, do_sample=False)
 
-                # Extract answer and determine abstention
+                # Parse abstention using consistent method
+                abstained = self.parse_abstention(response)
+
+                # Extract answer
                 answer = extract_answer(response)
-                abstained = ("cannot" in answer.lower() or "don't know" in answer.lower() or
-                           "unsure" in answer.lower() or "no information" in answer.lower() or
-                           "refuse" in answer.lower() or "unable" in answer.lower())
 
                 results.append({
                     "method": "prompt",
@@ -236,9 +268,12 @@ class Experiment5:
         """
         Run semantic entropy threshold sweep
 
+        Unlike the old version which hard-abstained, this version always generates
+        with abstain_or_answer format, but adds a system instruction based on entropy.
+
         Args:
             questions: List of questions
-            tau_values: Threshold values to sweep (abstain if entropy > τ)
+            tau_values: Threshold values to sweep (suggest abstention if entropy > τ)
 
         Returns:
             DataFrame with results
@@ -271,28 +306,42 @@ class Experiment5:
 
                 entropy = entropy_cache[question]
 
-                # Decision rule: abstain if entropy > tau
+                # Use abstain_or_answer format with entropy-based instruction
+                base_prompt = format_prompt(question, "abstain_or_answer", context)
+
                 if entropy > tau:
-                    abstained = True
-                    answer = "I cannot answer this question (high uncertainty)"
-                    response = answer
+                    # High entropy: suggest abstention
+                    system_instruction = (
+                        f"Your uncertainty is high (entropy={entropy:.2f} > threshold={tau:.2f}). "
+                        "You should strongly consider abstaining."
+                    )
+                    prompt = f"{system_instruction}\n\n{base_prompt}"
                 else:
-                    # Generate answer with neutral prompt
-                    prompt = format_prompt(question, "neutral", context)
-                    self.model.clear_hooks()
-                    response = self.model.generate(prompt, temperature=0.0, do_sample=False)
-                    answer = extract_answer(response)
-                    abstained = ("cannot" in answer.lower() or "don't know" in answer.lower())
+                    # Low entropy: encourage answering
+                    system_instruction = (
+                        f"Your uncertainty is acceptable (entropy={entropy:.2f} \u2264 threshold={tau:.2f}). "
+                        "You may answer if you have information."
+                    )
+                    prompt = f"{system_instruction}\n\n{base_prompt}"
+
+                self.model.clear_hooks()
+                response = self.model.generate(prompt, temperature=0.0, do_sample=False)
+
+                # Parse abstention using consistent method
+                abstained = self.parse_abstention(response)
+
+                # Extract answer
+                answer = extract_answer(response)
 
                 results.append({
                     "method": "entropy_threshold",
-                    "parameter": tau,
+                    "parameter": float(tau),
                     "question": question,
                     "true_answerability": true_answerability,
                     "abstained": abstained,
                     "answer": answer,
                     "response": response,
-                    "entropy": entropy
+                    "entropy": float(entropy)
                 })
 
         df = pd.DataFrame(results)
@@ -335,19 +384,20 @@ class Experiment5:
                 context = q_data.get("context", None)
                 true_answerability = q_data.get("answerability", "unknown")
 
-                # Generate with temperature
-                prompt = format_prompt(question, "neutral", context)
+                # Use abstain_or_answer format
+                prompt = format_prompt(question, "abstain_or_answer", context)
                 self.model.clear_hooks()
                 response = self.model.generate(prompt, temperature=temp, do_sample=(temp > 0.0))
 
-                # Extract answer and determine abstention
+                # Parse abstention using consistent method
+                abstained = self.parse_abstention(response)
+
+                # Extract answer
                 answer = extract_answer(response)
-                abstained = ("cannot" in answer.lower() or "don't know" in answer.lower() or
-                           "unsure" in answer.lower())
 
                 results.append({
                     "method": "temperature",
-                    "parameter": temp,
+                    "parameter": float(temp),
                     "question": question,
                     "true_answerability": true_answerability,
                     "abstained": abstained,
@@ -499,7 +549,8 @@ class Experiment5:
     def compute_matched_risk_comparison(self, curves_df: pd.DataFrame,
                                         risk_levels: List[float]) -> List[Dict]:
         """
-        For each risk level, find the coverage each method achieves
+        For each risk level, find the maximum coverage each method achieves
+        while keeping risk ≤ target
 
         Args:
             curves_df: Combined risk-coverage curves
@@ -515,25 +566,33 @@ class Experiment5:
         results = []
 
         for target_risk in risk_levels:
-            print(f"\nAt target risk = {target_risk:.1%}:")
+            print(f"\nAt target risk \u2264 {target_risk:.1%}:")
 
             comparison = {"target_risk": target_risk}
 
             for method in curves_df['method'].unique():
                 method_df = curves_df[curves_df['method'] == method].copy()
 
-                # Find point closest to target risk
-                method_df['risk_diff'] = abs(method_df['risk'] - target_risk)
-                closest_idx = method_df['risk_diff'].idxmin()
-                closest_point = method_df.loc[closest_idx]
+                # Find all points with risk ≤ target
+                valid_points = method_df[method_df['risk'] <= target_risk]
 
-                actual_risk = closest_point['risk']
-                coverage = closest_point['coverage']
+                if len(valid_points) == 0:
+                    # No valid points - method can't achieve this risk level
+                    print(f"  {method:25s}: No valid points (minimum risk = {method_df['risk'].min():.1%})")
+                    comparison[f"{method}_coverage"] = float('nan')
+                    comparison[f"{method}_actual_risk"] = float('nan')
+                else:
+                    # Find max coverage among valid points
+                    best_idx = valid_points['coverage'].idxmax()
+                    best_point = valid_points.loc[best_idx]
 
-                print(f"  {method:25s}: Coverage = {coverage:.1%} (actual risk = {actual_risk:.1%})")
+                    actual_risk = best_point['risk']
+                    coverage = best_point['coverage']
 
-                comparison[f"{method}_coverage"] = float(coverage)
-                comparison[f"{method}_actual_risk"] = float(actual_risk)
+                    print(f"  {method:25s}: Coverage = {coverage:.1%} (actual risk = {actual_risk:.1%})")
+
+                    comparison[f"{method}_coverage"] = float(coverage)
+                    comparison[f"{method}_actual_risk"] = float(actual_risk)
 
             results.append(comparison)
 
