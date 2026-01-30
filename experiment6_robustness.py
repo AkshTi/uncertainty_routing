@@ -940,51 +940,56 @@ def main(n_per_domain: int = 50, epsilon: float = 5.0, quick_test: bool = False)
     exp6 = Experiment6(model, config)
 
     # ===== LOAD OR COMPUTE STEERING DIRECTION =====
-    # Try to load from Experiment 3 or Experiment 2
+    # Try to load steering vectors from Exp 3/1 with proper layer selection
     steering_direction = None
     best_layer = None
 
-    try:
-        # First, try to load from Exp 3
+    # Try to load from steering_vectors.pt (from Exp1/3)
+    steering_vectors_path = config.results_dir / "steering_vectors.pt"
+    if steering_vectors_path.exists():
+        print("\nLoading steering vectors from experiments...")
+        steering_vectors = torch.load(steering_vectors_path)
+
+        # Priority: Use mean_diff from middle layers (14, 16, 18) - these work best
+        for preferred_layer in [16, 14, 18]:
+            if (preferred_layer, 'mean_diff') in steering_vectors:
+                best_layer = preferred_layer
+                steering_direction = steering_vectors[(preferred_layer, 'mean_diff')]
+                print(f"✓ Using layer {best_layer} steering vector (mean_diff)")
+                break
+
+        # Fallback: try any mean_diff vector
+        if steering_direction is None:
+            for key in steering_vectors.keys():
+                if isinstance(key, tuple) and key[1] == 'mean_diff':
+                    best_layer = key[0]
+                    steering_direction = steering_vectors[key]
+                    print(f"✓ Using layer {best_layer} steering vector (mean_diff) as fallback")
+                    break
+
+    # If still nothing, try Exp3 format
+    if steering_direction is None:
         exp3_results_path = config.results_dir / "exp3_steering_directions.pt"
         if exp3_results_path.exists():
             print("\nLoading steering direction from Experiment 3...")
             saved_data = torch.load(exp3_results_path)
             steering_direction = saved_data['mean_diff_direction']
-            best_layer = saved_data.get('best_layer', int(exp6.n_layers * 0.75))
+            best_layer = saved_data.get('best_layer', 16)  # Default to 16, not 0.75*n_layers
             print(f"Loaded steering direction (layer {best_layer})")
 
-        # Check if we should use layer from Exp 2 instead
-        exp2_summary_path = config.results_dir / "exp2_summary.json"
-        if exp2_summary_path.exists():
-            with open(exp2_summary_path, 'r') as f:
-                exp2_summary = json.load(f)
+    # If still no steering direction, compute from scratch at layer 16
+    if steering_direction is None:
+        print("\n⚠️  WARNING: No saved steering direction found")
+        print("Computing steering direction from scratch at layer 16...")
 
-            # Extract best window from Exp 2
-            if 'best_windows' in exp2_summary and exp2_summary['best_windows']:
-                # Use center of best single-layer window
-                best_window_info = exp2_summary['best_windows'].get('1', None)
-                if best_window_info:
-                    # Parse window string like "[24-24]"
-                    window_str = best_window_info['window']
-                    layer_from_exp2 = int(window_str.strip('[]').split('-')[0])
-                    print(f"\nExp 2 identified best layer: {layer_from_exp2}")
-                    print(f"Using layer {layer_from_exp2} for alignment with Exp 2")
-                    best_layer = layer_from_exp2
-
-        # If still no steering direction, compute from scratch
-        if steering_direction is None:
-            print("\nWARNING: No saved steering direction found")
-            print("Computing steering direction from scratch...")
-
+        try:
             from experiment3_steering_robust import compute_mean_diff_direction
 
             # Use general domain questions
             general_ans = dataset['general']['answerable'][:20]
             general_unans = dataset['general']['unanswerable'][:20]
 
-            if best_layer is None:
-                best_layer = int(exp6.n_layers * 0.75)
+            best_layer = 16  # Use middle layer, not layer 0!
 
             steering_direction = compute_mean_diff_direction(
                 model, general_ans, general_unans, best_layer
@@ -992,24 +997,22 @@ def main(n_per_domain: int = 50, epsilon: float = 5.0, quick_test: bool = False)
 
             # Save for future use
             torch.save({
-                'mean_diff_direction': steering_direction,
-                'best_layer': best_layer
-            }, exp3_results_path)
+                (best_layer, 'mean_diff'): steering_direction
+            }, config.results_dir / "steering_vectors.pt")
 
-    except Exception as e:
-        print(f"ERROR loading steering direction: {e}")
-        print("Computing from scratch...")
+            print(f"✓ Computed and saved steering vector for layer {best_layer}")
 
-        from experiment3_steering_robust import compute_mean_diff_direction
+        except Exception as e:
+            print(f"ERROR computing steering direction: {e}")
+            raise
 
-        general_ans = dataset['general']['answerable'][:20]
-        general_unans = dataset['general']['unanswerable'][:20]
+    # Ensure we have both steering direction and layer
+    if steering_direction is None or best_layer is None:
+        raise ValueError("Failed to load or compute steering direction and layer")
 
-        best_layer = int(exp6.n_layers * 0.75)
-
-        steering_direction = compute_mean_diff_direction(
-            model, general_ans, general_unans, best_layer
-        )
+    print(f"\n{'='*60}")
+    print(f"Using steering: layer {best_layer}, epsilon {epsilon}")
+    print(f"{'='*60}\n")
 
     # ===== RUN CROSS-DOMAIN EXPERIMENT =====
     results_df = exp6.run_cross_domain(
