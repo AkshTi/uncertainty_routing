@@ -40,12 +40,12 @@
   },
   "position_effects": {
     "last": 0.0,
-    "second_last": 0.2,
+    "second_last": 0.0,
     "first": 0.0
   },
   "position_flips": {
-    "last": 0.0,
-    "second_last": 0.1,
+    "last": 0.2,
+    "second_last": 0.0,
     "first": 0.0
   },
   "control_effects": {

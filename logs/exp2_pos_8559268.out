@@ -1,0 +1,59 @@
+Job ID: 8559268
+Node: node3000
+Start time: Fri Jan 30 01:32:04 EST 2026
+Running Experiment 2: Position Sweep (FIXED)
+==================================================
+Initializing model...
+Loading model Qwen/Qwen2.5-1.5B-Instruct...
+Model loaded successfully!
+
+Loading datasets...
+
+============================================================
+RERUNNING: POSITION SWEEP
+============================================================
+Using layer: 21
+
+============================================================
+POSITION SWEEP: Token Position Sensitivity
+============================================================
+Testing layer 21
+Positions: last token, second-to-last, first token
+
+Position sweep results saved to results/exp2_position_sweep.csv
+
+✓ Position sweep complete!
+
+Results saved to: results/exp2_position_sweep.csv
+
+============================================================
+POSITION SWEEP SUMMARY
+============================================================
+
+Effect by token position:
+  First Token    : Δ=0.000, flip=0.0%
+  2nd-to-Last    : Δ=0.000, flip=0.0%
+  Last Token     : Δ=0.000, flip=20.0%
+Processing window sweep results...
+  ✓ Window stats processed
+Processing position sweep results...
+  ✓ Position stats processed
+Processing negative controls...
+  ✓ Control stats processed
+Processing mixing sweep results...
+  ✓ Mixing stats processed
+
+✓ Summary regenerated successfully: results/exp2_summary.json
+
+Summary contains:
+  - window_stats
+  - best_windows
+  - position_effects
+  - position_flips
+  - control_effects
+  - control_flips
+  - mixing_stats
+  - monotonic
+==================================================
+Experiment 2 position sweep completed at: Fri Jan 30 01:33:10 EST 2026
+Check results in ./results/

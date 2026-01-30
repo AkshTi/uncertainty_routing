@@ -24,4 +24,4 @@ Also make sure that all modulefiles written in TCL start with the string
 
 `torch_dtype` is deprecated! Use `dtype` instead!
 The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
-Layers:   0%|          | 0/4 [00:00<?, ?it/s]Layers:  25%|██▌       | 1/4 [08:32<25:38, 512.72s/it]
+Layers:   0%|          | 0/4 [00:00<?, ?it/s]Layers:  25%|██▌       | 1/4 [08:32<25:38, 512.72s/it]Layers:  50%|█████     | 2/4 [17:04<17:04, 512.06s/it]

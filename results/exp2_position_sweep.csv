@@ -1,11 +1,11 @@
 baseline_margin,layer,last_margin,last_delta,last_flipped,second_last_margin,second_last_delta,second_last_flipped,first_margin,first_delta,first_flipped,pair_idx,pos_question,neg_question
--1.0,21,-1.0,0.0,False,1.0,2.0,True,-1.0,0.0,False,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
-1.0,21,1.0,0.0,False,1.0,0.0,False,1.0,0.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
+-1.0,21,-1.0,0.0,False,-1.0,0.0,False,-1.0,0.0,False,0,What is the capital of France?,What is the name of Napoleon's favorite childhood 
+1.0,21,-1.0,-2.0,False,1.0,0.0,False,1.0,0.0,False,1,How many days are in a week?,What color was Einstein's first bicycle?
 -1.0,21,-1.0,0.0,False,-1.0,0.0,False,-1.0,0.0,False,2,What is 2 + 2?,How many siblings did Shakespeare's grandmother ha
-1.0,21,1.0,0.0,False,1.0,0.0,False,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
--1.0,21,-1.0,0.0,False,-1.0,0.0,False,-1.0,0.0,False,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
+1.0,21,-1.0,-2.0,False,1.0,0.0,False,1.0,0.0,False,3,What year did World War II end?,"What was the temperature in Paris on January 15, 1"
+-1.0,21,1.0,2.0,True,-1.0,0.0,False,-1.0,0.0,False,4,Who wrote Romeo and Juliet?,What did Socrates have for breakfast on his 30th b
 -1.0,21,-1.0,0.0,False,-1.0,0.0,False,-1.0,0.0,False,5,What is the chemical symbol for water?,How many trees were in Central Park on opening day
 -1.0,21,-1.0,0.0,False,-1.0,0.0,False,-1.0,0.0,False,6,How many continents are there?,What was Cleopatra's favorite number?
 -1.0,21,-1.0,0.0,False,-1.0,0.0,False,-1.0,0.0,False,7,What is the boiling point of water in Celsius?,"What time did Mozart wake up on March 12, 1785?"
 1.0,21,1.0,0.0,False,1.0,0.0,False,1.0,0.0,False,8,What planet is closest to the Sun?,How many words did Lincoln's father speak in his l
--1.0,21,-1.0,0.0,False,-1.0,0.0,False,-1.0,0.0,False,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
+-1.0,21,1.0,2.0,True,-1.0,0.0,False,-1.0,0.0,False,9,How many legs does a spider have?,What was the exact weight of the first wheel ever 
