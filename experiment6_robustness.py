@@ -448,8 +448,10 @@ class Experiment6:
                 return (hs,) + rest
             return hs
 
+        # Get the layer using _get_blocks to handle different model architectures
         layer = _get_blocks(self.model.model)[layer_idx]
         handle = layer.register_forward_hook(steering_hook)
+        self.model.hooks.append(handle)
 
         response = self.model.generate(prompt, temperature=0.0, do_sample=False)
 
