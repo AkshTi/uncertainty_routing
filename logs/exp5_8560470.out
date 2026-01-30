@@ -1,0 +1,46 @@
+Job ID: 8560470
+Node: node3000
+Start time: Fri Jan 30 04:15:07 EST 2026
+Running Experiment 5: Risk-Coverage Tradeoff
+==================================================
+Initializing model...
+Loading model Qwen/Qwen2.5-1.5B-Instruct...
+Model loaded successfully!
+
+Loading datasets...
+
+Dataset: 20 answerable + 20 unanswerable
+
+Loading steering direction from Experiment 3...
+Loaded steering direction (layer 21)
+
+============================================================
+METHOD 1: ACTIVATION STEERING
+============================================================
+Sweeping epsilon: [-20, -15, -10, -5, -2, 0, 2, 5, 10, 15, 20]
+
+Format validation:
+  Valid:   434/440 (98.6%)
+  Invalid: 6/440 (1.4%)
+  → These will be excluded from risk-coverage analysis
+
+Steering sweep results saved to results/exp5_steering_sweep.csv
+
+============================================================
+METHOD 2: PROMPT ENGINEERING
+============================================================
+Testing 6 prompt variants
+
+Format validation:
+  Valid:   238/240 (99.2%)
+  Invalid: 2/240 (0.8%)
+  → These will be excluded from risk-coverage analysis
+
+Prompt sweep results saved to results/exp5_prompt_sweep.csv
+
+============================================================
+METHOD 3: SEMANTIC ENTROPY THRESHOLD
+============================================================
+Sweeping tau: ['0.10', '0.24', '0.37', '0.51', '0.64', '0.78', '0.91', '1.05', '1.19', '1.32', '1.46', '1.59', '1.73', '1.86', '2.00']
+
+Computing semantic entropy for all questions...

@@ -1,0 +1,172 @@
+Job ID: 8560484
+Node: node3000
+Start time: Fri Jan 30 04:19:08 EST 2026
+Running Experiment 4: Steering Selectivity
+==================================================
+Initializing model...
+Loading model Qwen/Qwen2.5-1.5B-Instruct...
+Model loaded successfully!
+Available steering vectors: ["(14, 'mean_diff')", "(14, 'probe')", "(14, 'pc1')", "(14, 'random')", "(14, 'shuffled')", "(16, 'mean_diff')", "(16, 'probe')", "(16, 'pc1')", "(16, 'random')", "(16, 'shuffled')", "(18, 'mean_diff')", "(18, 'probe')", "(18, 'pc1')", "(18, 'random')", "(18, 'shuffled')", "(7, 'early_layer')"]
+✓ Loaded steering vector for layer 16
+  Shape: torch.Size([1536]), Norm: 1.0000
+
+Loading questions...
+
+🔬 QUICK TEST MODE
+
+Using 30 questions
+Epsilon values: [0, -50, -20, 20, 50]
+
+============================================================
+EXPERIMENT 4: STEERING SELECTIVITY (ENHANCED)
+============================================================
+Questions: 30
+Target: ≥100 examples per entropy bin
+Epsilon values: [0, -50, -20, 20, 50]
+Layer: 16
+
+============================================================
+PHASE 1: MEASURING INTERNAL UNCERTAINTY
+============================================================
+
+Entropy range: [1.84, 3.00]
+Entropy mean: 2.78 ± 0.28
+
+Entropy distribution (4 bins):
+  Very Low    :    7 examples (23.3%)
+  Low         :    5 examples (16.7%)
+  Medium      :    8 examples (26.7%)
+  High        :   10 examples (33.3%)
+
+⚠️ WARNING: Some bins have <100 examples.
+   Smallest bin: 5 examples
+   Consider using more questions for robust analysis.
+
+============================================================
+PHASE 2: TESTING STEERING SELECTIVITY
+============================================================
+
+============================================================
+FORMAT COMPLIANCE REPORT
+============================================================
+Baseline responses:  30/30 valid (100.0%)
+Steered responses:   120/120 valid (100.0%)
+
+📍 Decision token position used for steering
+   (computed via get_decision_token_position for each prompt)
+
+
+Results saved to results/exp4_selectivity_results.csv
+
+============================================================
+EXPERIMENT 4: INTERACTION MODEL ANALYSIS
+============================================================
+
+Total observations (raw): 150
+Valid observations: 150
+Non-baseline observations for modeling: 120
+Total flips: 14
+
+============================================================
+1. INTERACTION MODEL: flip ~ entropy + ε + entropy*ε
+============================================================
+
+Model Summary (with cluster-robust standard errors):
+                            Results: Logit
+=======================================================================
+Model:                  Logit              Method:             MLE     
+Dependent Variable:     flipped_binary     Pseudo R-squared:   0.074   
+Date:                   2026-01-30 04:26   AIC:                88.0212 
+No. Observations:       120                BIC:                99.1711 
+Df Model:               3                  Log-Likelihood:     -40.011 
+Df Residuals:           116                LL-Null:            -43.228 
+Converged:              1.0000             LLR p-value:        0.092295
+No. Iterations:         7.0000             Scale:              1.0000  
+-----------------------------------------------------------------------
+                         Coef.  Std.Err.    z    P>|z|   [0.025  0.975]
+-----------------------------------------------------------------------
+Intercept               -2.2367   0.4673 -4.7867 0.0000 -3.1525 -1.3209
+entropy_std              0.0800   0.2443  0.3274 0.7433 -0.3989  0.5589
+epsilon_std             -0.6038   0.2425 -2.4903 0.0128 -1.0790 -0.1286
+entropy_std:epsilon_std -0.4491   0.2112 -2.1268 0.0334 -0.8629 -0.0352
+=======================================================================
+
+
+Note: Standard errors are clustered by question_id to account for
+      repeated measures (multiple epsilon values per question).
+
+------------------------------------------------------------
+INTERACTION TERM ANALYSIS
+------------------------------------------------------------
+Coefficient: -0.4491
+P-value: 3.3435e-02
+Significant (p<0.05): True
+
+✓ INTERACTION IS SIGNIFICANT
+  → Steering effect varies with uncertainty
+  → NOT a uniform bias
+
+============================================================
+1b. ALTERNATIVE MODEL: flip ~ sample_margin + ε + sample_margin*ε
+============================================================
+Note: sample_margin is based on answer distribution, not token logits
+
+Sample-margin interaction coefficient: 0.4681
+Sample-margin interaction p-value: 9.0003e-02
+
+Compare uncertainty measures:
+  Entropy interaction:        coef=-0.4491, p=3.3435e-02
+  Sample-margin interaction:  coef=0.4681, p=9.0003e-02
+  Pseudo-R² (entropy):        0.0744
+  Pseudo-R² (sample-margin):  0.0795
+
+============================================================
+1c. ALTERNATIVE MODEL: flip ~ entropy + |ε| + entropy*|ε|
+============================================================
+
+Abs(epsilon) interaction coefficient: 0.3763
+Abs(epsilon) interaction p-value: 8.2594e-02
+
+Compare signed vs absolute epsilon:
+  Signed ε interaction:   coef=-0.4491, p=3.3435e-02
+  Abs(ε) interaction:     coef=0.3763, p=8.2594e-02
+  Pseudo-R² (signed ε):   0.0744
+  Pseudo-R² (abs ε):      0.0337
+
+→ Signed ε model is preferred
+
+============================================================
+1d. DIRECTIONALITY CHECK: Separate models for ε>0 and ε<0
+============================================================
+
+For ε>0 (n=60):
+  Interaction coef: 1.0070, p=7.1375e-03
+
+For ε<0 (n=60):
+  Interaction coef: -0.4492, p=4.5813e-01
+
+⚠️ WARNING: Interaction coefficients have opposite signs!
+   Selectivity may exist only for one direction of steering
+
+============================================================
+2. MODEL COMPARISON
+============================================================
+
+Model Comparison (descriptive):
+  LR statistic: 1.9837
+  Note: LR p-value not valid with cluster SEs
+
+Wald test for interaction (valid with cluster SEs):
+  Already reported above: p=3.3435e-02
+  Interaction significant: True
+
+Pseudo-R² (McFadden):
+  Without interaction: 0.0515
+  With interaction:    0.0744
+
+============================================================
+CREATING INTERACTION PLOTS
+============================================================
+==================================================
+Experiment 4 completed at: Fri Jan 30 04:26:17 EST 2026
+Check results in ./results/

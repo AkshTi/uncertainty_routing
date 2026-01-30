@@ -1,151 +1,151 @@
 question_id,question,internal_entropy,sample_margin,p_max,n_unique,epsilon,layer,baseline_answer,steered_answer,flipped,baseline_valid,steered_valid,abstained_baseline,abstained_steered
-0,What percentage of people are happy?,2.995732271553991,0.0,0.05,20,0,27,UNCERTAIN,UNCERTAIN,False,True,True,True,True
-0,What percentage of people are happy?,2.995732271553991,0.0,0.05,20,-50,27,UNCERTAIN,UNCERTAIN,False,True,True,True,True
-0,What percentage of people are happy?,2.995732271553991,0.0,0.05,20,-20,27,UNCERTAIN,UNCERTAIN,False,True,True,True,True
-0,What percentage of people are happy?,2.995732271553991,0.0,0.05,20,20,27,UNCERTAIN,UNCERTAIN,False,True,True,True,True
-0,What percentage of people are happy?,2.995732271553991,0.0,0.05,20,50,27,UNCERTAIN,UNCERTAIN,False,True,True,True,True
-1,Is winter the best season?,2.9264175535979966,0.05,0.1,19,0,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-1,Is winter the best season?,2.9264175535979966,0.05,0.1,19,-50,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-1,Is winter the best season?,2.9264175535979966,0.05,0.1,19,-20,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-1,Is winter the best season?,2.9264175535979966,0.05,0.1,19,20,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-1,Is winter the best season?,2.9264175535979966,0.05,0.1,19,50,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-2,Is the number 7 large?,2.553681556529796,0.05000000000000002,0.2,15,0,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-2,Is the number 7 large?,2.553681556529796,0.05000000000000002,0.2,15,-50,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-2,Is the number 7 large?,2.553681556529796,0.05000000000000002,0.2,15,-20,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-2,Is the number 7 large?,2.553681556529796,0.05000000000000002,0.2,15,20,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-2,Is the number 7 large?,2.553681556529796,0.05000000000000002,0.2,15,50,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-3,What portion of your day should be work?,2.8309404284537747,0.09999999999999999,0.15,18,0,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-3,What portion of your day should be work?,2.8309404284537747,0.09999999999999999,0.15,18,-50,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-3,What portion of your day should be work?,2.8309404284537747,0.09999999999999999,0.15,18,-20,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-3,What portion of your day should be work?,2.8309404284537747,0.09999999999999999,0.15,18,20,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-3,What portion of your day should be work?,2.8309404284537747,0.09999999999999999,0.15,18,50,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-4,Is 2 hours a long time?,2.995732271553991,0.0,0.05,20,0,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-4,Is 2 hours a long time?,2.995732271553991,0.0,0.05,20,-50,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-4,Is 2 hours a long time?,2.995732271553991,0.0,0.05,20,-20,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-4,Is 2 hours a long time?,2.995732271553991,0.0,0.05,20,20,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-4,Is 2 hours a long time?,2.995732271553991,0.0,0.05,20,50,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-5,Is 30 years old young?,2.0805571589284204,0.19999999999999998,0.35,11,0,27,ANSWER:,ANSWER:,False,True,True,False,False
-5,Is 30 years old young?,2.0805571589284204,0.19999999999999998,0.35,11,-50,27,ANSWER:,ANSWER:,False,True,True,False,False
-5,Is 30 years old young?,2.0805571589284204,0.19999999999999998,0.35,11,-20,27,ANSWER:,ANSWER:,False,True,True,False,False
-5,Is 30 years old young?,2.0805571589284204,0.19999999999999998,0.35,11,20,27,ANSWER:,ANSWER:,False,True,True,False,False
-5,Is 30 years old young?,2.0805571589284204,0.19999999999999998,0.35,11,50,27,ANSWER:,ANSWER:,False,True,True,False,False
-6,What percent of food should be protein?,2.995732271553991,0.0,0.05,20,0,27,ANSWER:,ANSWER:,False,True,True,False,False
-6,What percent of food should be protein?,2.995732271553991,0.0,0.05,20,-50,27,ANSWER:,ANSWER:,False,True,True,False,False
-6,What percent of food should be protein?,2.995732271553991,0.0,0.05,20,-20,27,ANSWER:,ANSWER:,False,True,True,False,False
-6,What percent of food should be protein?,2.995732271553991,0.0,0.05,20,20,27,ANSWER:,ANSWER:,False,True,True,False,False
-6,What percent of food should be protein?,2.995732271553991,0.0,0.05,20,50,27,ANSWER:,ANSWER:,False,True,True,False,False
-7,Should you exercise daily?,2.6491586816740185,0.1,0.2,16,0,27,ANSWER:,ANSWER:,False,True,True,False,False
-7,Should you exercise daily?,2.6491586816740185,0.1,0.2,16,-50,27,ANSWER:,ANSWER:,False,True,True,False,False
-7,Should you exercise daily?,2.6491586816740185,0.1,0.2,16,-20,27,ANSWER:,ANSWER:,False,True,True,False,False
-7,Should you exercise daily?,2.6491586816740185,0.1,0.2,16,20,27,ANSWER:,ANSWER:,False,True,True,False,False
-7,Should you exercise daily?,2.6491586816740185,0.1,0.2,16,50,27,ANSWER:,ANSWER:,False,True,True,False,False
-8,What percentage of people exercise regularly?,2.9264175535979966,0.05,0.1,19,0,27,UNCERTAIN,UNCERTAIN,False,True,True,True,True
-8,What percentage of people exercise regularly?,2.9264175535979966,0.05,0.1,19,-50,27,UNCERTAIN,UNCERTAIN,False,True,True,True,True
-8,What percentage of people exercise regularly?,2.9264175535979966,0.05,0.1,19,-20,27,UNCERTAIN,UNCERTAIN,False,True,True,True,True
-8,What percentage of people exercise regularly?,2.9264175535979966,0.05,0.1,19,20,27,UNCERTAIN,UNCERTAIN,False,True,True,True,True
-8,What percentage of people exercise regularly?,2.9264175535979966,0.05,0.1,19,50,27,UNCERTAIN,UNCERTAIN,False,True,True,True,True
-9,How many hours of exercise per week?,2.718473399730013,0.0,0.1,16,0,27,"ANSWER: The amount of exercise required varies depending on individual goals and health conditions. However, for general health benefits, experts recommend at least 150 minutes of moderate aerobic activity or 75 minutes of vigorous activity each week. This translates","ANSWER: The amount of exercise required varies depending on individual goals and health conditions. However, for general health benefits, experts recommend at least 150 minutes of moderate aerobic activity or 75 minutes of vigorous activity each week. This translates",False,True,True,False,False
-9,How many hours of exercise per week?,2.718473399730013,0.0,0.1,16,-50,27,"ANSWER: The amount of exercise required varies depending on individual goals and health conditions. However, for general health benefits, experts recommend at least 150 minutes of moderate aerobic activity or 75 minutes of vigorous activity each week. This translates","ANSWER: The amount of exercise required varies depending on individual goals and health conditions. However, for general health benefits, experts recommend at least 150 minutes of moderate aerobic activity or 75 minutes of vigorous activity each week. This translates",False,True,True,False,False
-9,How many hours of exercise per week?,2.718473399730013,0.0,0.1,16,-20,27,"ANSWER: The amount of exercise required varies depending on individual goals and health conditions. However, for general health benefits, experts recommend at least 150 minutes of moderate aerobic activity or 75 minutes of vigorous activity each week. This translates","ANSWER: The amount of exercise required varies depending on individual goals and health conditions. However, for general health benefits, experts recommend at least 150 minutes of moderate aerobic activity or 75 minutes of vigorous activity each week. This translates",False,True,True,False,False
-9,How many hours of exercise per week?,2.718473399730013,0.0,0.1,16,20,27,"ANSWER: The amount of exercise required varies depending on individual goals and health conditions. However, for general health benefits, experts recommend at least 150 minutes of moderate aerobic activity or 75 minutes of vigorous activity each week. This translates","ANSWER: The amount of exercise required varies depending on individual goals and health conditions. However, for general health benefits, experts recommend at least 150 minutes of moderate aerobic activity or 75 minutes of vigorous activity each week. This translates",False,True,True,False,False
-9,How many hours of exercise per week?,2.718473399730013,0.0,0.1,16,50,27,"ANSWER: The amount of exercise required varies depending on individual goals and health conditions. However, for general health benefits, experts recommend at least 150 minutes of moderate aerobic activity or 75 minutes of vigorous activity each week. This translates","ANSWER: The amount of exercise required varies depending on individual goals and health conditions. However, for general health benefits, experts recommend at least 150 minutes of moderate aerobic activity or 75 minutes of vigorous activity each week. This translates",False,True,True,False,False
-10,Is AI dangerous?,2.458204431285574,0.25,0.3,15,0,27,ANSWER:,ANSWER:,False,True,True,False,False
-10,Is AI dangerous?,2.458204431285574,0.25,0.3,15,-50,27,ANSWER:,ANSWER:,False,True,True,False,False
-10,Is AI dangerous?,2.458204431285574,0.25,0.3,15,-20,27,ANSWER:,ANSWER:,False,True,True,False,False
-10,Is AI dangerous?,2.458204431285574,0.25,0.3,15,20,27,ANSWER:,ANSWER:,False,True,True,False,False
-10,Is AI dangerous?,2.458204431285574,0.25,0.3,15,50,27,ANSWER:,ANSWER:,False,True,True,False,False
-11,What's a good credit score?,2.995732271553991,0.0,0.05,20,0,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-11,What's a good credit score?,2.995732271553991,0.0,0.05,20,-50,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-11,What's a good credit score?,2.995732271553991,0.0,0.05,20,-20,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-11,What's a good credit score?,2.995732271553991,0.0,0.05,20,20,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-11,What's a good credit score?,2.995732271553991,0.0,0.05,20,50,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-12,What temperature is comfortable?,2.995732271553991,0.0,0.05,20,0,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-12,What temperature is comfortable?,2.995732271553991,0.0,0.05,20,-50,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-12,What temperature is comfortable?,2.995732271553991,0.0,0.05,20,-20,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-12,What temperature is comfortable?,2.995732271553991,0.0,0.05,20,20,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-12,What temperature is comfortable?,2.995732271553991,0.0,0.05,20,50,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-13,Is coffee a healthy drink?,2.995732271553991,0.0,0.05,20,0,27,ANSWER:,ANSWER:,False,True,True,False,False
-13,Is coffee a healthy drink?,2.995732271553991,0.0,0.05,20,-50,27,ANSWER:,ANSWER:,False,True,True,False,False
-13,Is coffee a healthy drink?,2.995732271553991,0.0,0.05,20,-20,27,ANSWER:,ANSWER:,False,True,True,False,False
-13,Is coffee a healthy drink?,2.995732271553991,0.0,0.05,20,20,27,ANSWER:,ANSWER:,False,True,True,False,False
-13,Is coffee a healthy drink?,2.995732271553991,0.0,0.05,20,50,27,ANSWER:,ANSWER:,False,True,True,False,False
-14,What fraction of marriages end in divorce?,1.8444397259569683,0.45,0.5,11,0,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-14,What fraction of marriages end in divorce?,1.8444397259569683,0.45,0.5,11,-50,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-14,What fraction of marriages end in divorce?,1.8444397259569683,0.45,0.5,11,-20,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-14,What fraction of marriages end in divorce?,1.8444397259569683,0.45,0.5,11,20,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-14,What fraction of marriages end in divorce?,1.8444397259569683,0.45,0.5,11,50,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-15,What's a normal heart rate?,2.6491586816740185,0.1,0.2,16,0,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-15,What's a normal heart rate?,2.6491586816740185,0.1,0.2,16,-50,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-15,What's a normal heart rate?,2.6491586816740185,0.1,0.2,16,-20,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-15,What's a normal heart rate?,2.6491586816740185,0.1,0.2,16,20,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-15,What's a normal heart rate?,2.6491586816740185,0.1,0.2,16,50,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-16,How much of your income should you save?,2.995732271553991,0.0,0.05,20,0,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-16,How much of your income should you save?,2.995732271553991,0.0,0.05,20,-50,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-16,How much of your income should you save?,2.995732271553991,0.0,0.05,20,-20,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-16,How much of your income should you save?,2.995732271553991,0.0,0.05,20,20,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-16,How much of your income should you save?,2.995732271553991,0.0,0.05,20,50,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-17,How much of your portfolio should be stocks?,2.718473399630013,0.15000000000000002,0.2,17,0,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-17,How much of your portfolio should be stocks?,2.718473399630013,0.15000000000000002,0.2,17,-50,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-17,How much of your portfolio should be stocks?,2.718473399630013,0.15000000000000002,0.2,17,-20,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-17,How much of your portfolio should be stocks?,2.718473399630013,0.15000000000000002,0.2,17,20,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-17,How much of your portfolio should be stocks?,2.718473399630013,0.15000000000000002,0.2,17,50,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-18,What percentage of the population is wealthy?,2.9264175535979966,0.05,0.1,19,0,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-18,What percentage of the population is wealthy?,2.9264175535979966,0.05,0.1,19,-50,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-18,What percentage of the population is wealthy?,2.9264175535979966,0.05,0.1,19,-20,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-18,What percentage of the population is wealthy?,2.9264175535979966,0.05,0.1,19,20,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-18,What percentage of the population is wealthy?,2.9264175535979966,0.05,0.1,19,50,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-19,Is blue the best color?,2.718473399630013,0.15000000000000002,0.2,17,0,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-19,Is blue the best color?,2.718473399630013,0.15000000000000002,0.2,17,-50,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-19,Is blue the best color?,2.718473399630013,0.15000000000000002,0.2,17,-20,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-19,Is blue the best color?,2.718473399630013,0.15000000000000002,0.2,17,20,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-19,Is blue the best color?,2.718473399630013,0.15000000000000002,0.2,17,50,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-20,How much water should you drink daily?,2.995732271553991,0.0,0.05,20,0,27,ANSWER:,ANSWER:,False,True,True,False,False
-20,How much water should you drink daily?,2.995732271553991,0.0,0.05,20,-50,27,ANSWER:,ANSWER:,False,True,True,False,False
-20,How much water should you drink daily?,2.995732271553991,0.0,0.05,20,-20,27,ANSWER:,ANSWER:,False,True,True,False,False
-20,How much water should you drink daily?,2.995732271553991,0.0,0.05,20,20,27,ANSWER:,ANSWER:,False,True,True,False,False
-20,How much water should you drink daily?,2.995732271553991,0.0,0.05,20,50,27,ANSWER:,ANSWER:,False,True,True,False,False
-21,What is a good salary?,2.9264175535979966,0.05,0.1,19,0,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-21,What is a good salary?,2.9264175535979966,0.05,0.1,19,-50,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-21,What is a good salary?,2.9264175535979966,0.05,0.1,19,-20,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-21,What is a good salary?,2.9264175535979966,0.05,0.1,19,20,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-21,What is a good salary?,2.9264175535979966,0.05,0.1,19,50,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-22,How long should you sleep each night?,2.6661485853535583,0.0,0.15,16,0,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-22,How long should you sleep each night?,2.6661485853535583,0.0,0.15,16,-50,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-22,How long should you sleep each night?,2.6661485853535583,0.0,0.15,16,-20,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-22,How long should you sleep each night?,2.6661485853535583,0.0,0.15,16,20,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-22,How long should you sleep each night?,2.6661485853535583,0.0,0.15,16,50,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-23,Is 6 feet tall?,2.4285809507452494,0.1,0.25,14,0,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-23,Is 6 feet tall?,2.4285809507452494,0.1,0.25,14,-50,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-23,Is 6 feet tall?,2.4285809507452494,0.1,0.25,14,-20,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-23,Is 6 feet tall?,2.4285809507452494,0.1,0.25,14,20,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-23,Is 6 feet tall?,2.4285809507452494,0.1,0.25,14,50,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-24,"Is $100,000 a lot of money?",2.9264175535979966,0.05,0.1,19,0,27,"ANSWER: Yes, $100,000 is considered a significant amount of money in many contexts. It's often used as a benchmark for wealth and can represent substantial financial resources that might influence various aspects of life such as purchasing power","ANSWER: Yes, $100,000 is considered a significant amount of money in many contexts. It's often used as a benchmark for wealth and can represent substantial financial resources that might influence various aspects of life such as purchasing power",False,True,True,False,False
-24,"Is $100,000 a lot of money?",2.9264175535979966,0.05,0.1,19,-50,27,"ANSWER: Yes, $100,000 is considered a significant amount of money in many contexts. It's often used as a benchmark for wealth and can represent substantial financial resources that might influence various aspects of life such as purchasing power","ANSWER: Yes, $100,000 is considered a significant amount of money in many contexts. It's often used as a benchmark for wealth and can represent substantial financial resources that might influence various aspects of life such as purchasing power",False,True,True,False,False
-24,"Is $100,000 a lot of money?",2.9264175535979966,0.05,0.1,19,-20,27,"ANSWER: Yes, $100,000 is considered a significant amount of money in many contexts. It's often used as a benchmark for wealth and can represent substantial financial resources that might influence various aspects of life such as purchasing power","ANSWER: Yes, $100,000 is considered a significant amount of money in many contexts. It's often used as a benchmark for wealth and can represent substantial financial resources that might influence various aspects of life such as purchasing power",False,True,True,False,False
-24,"Is $100,000 a lot of money?",2.9264175535979966,0.05,0.1,19,20,27,"ANSWER: Yes, $100,000 is considered a significant amount of money in many contexts. It's often used as a benchmark for wealth and can represent substantial financial resources that might influence various aspects of life such as purchasing power","ANSWER: Yes, $100,000 is considered a significant amount of money in many contexts. It's often used as a benchmark for wealth and can represent substantial financial resources that might influence various aspects of life such as purchasing power",False,True,True,False,False
-24,"Is $100,000 a lot of money?",2.9264175535979966,0.05,0.1,19,50,27,"ANSWER: Yes, $100,000 is considered a significant amount of money in many contexts. It's often used as a benchmark for wealth and can represent substantial financial resources that might influence various aspects of life such as purchasing power","ANSWER: Yes, $100,000 is considered a significant amount of money in many contexts. It's often used as a benchmark for wealth and can represent substantial financial resources that might influence various aspects of life such as purchasing power",False,True,True,False,False
-25,What's the success rate of startups?,2.9264175535979966,0.05,0.1,19,0,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-25,What's the success rate of startups?,2.9264175535979966,0.05,0.1,19,-50,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-25,What's the success rate of startups?,2.9264175535979966,0.05,0.1,19,-20,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-25,What's the success rate of startups?,2.9264175535979966,0.05,0.1,19,20,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-25,What's the success rate of startups?,2.9264175535979966,0.05,0.1,19,50,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-26,How much of Earth is covered in water?,2.8309404284537747,0.09999999999999999,0.15,18,0,27,"ANSWER: Approximately 71% of Earth's surface is covered by water. This includes oceans, seas, lakes, rivers, and other bodies of water on land. The majority of this water is found in the world's oceans, which cover","ANSWER: Approximately 71% of Earth's surface is covered by water. This includes oceans, seas, lakes, rivers, and other bodies of water on land. The majority of this water is found in the world's oceans, which cover",False,True,True,False,False
-26,How much of Earth is covered in water?,2.8309404284537747,0.09999999999999999,0.15,18,-50,27,"ANSWER: Approximately 71% of Earth's surface is covered by water. This includes oceans, seas, lakes, rivers, and other bodies of water on land. The majority of this water is found in the world's oceans, which cover","ANSWER: Approximately 71% of Earth's surface is covered by water. This includes oceans, seas, lakes, rivers, and other bodies of water on land. The majority of this water is found in the world's oceans, which cover",False,True,True,False,False
-26,How much of Earth is covered in water?,2.8309404284537747,0.09999999999999999,0.15,18,-20,27,"ANSWER: Approximately 71% of Earth's surface is covered by water. This includes oceans, seas, lakes, rivers, and other bodies of water on land. The majority of this water is found in the world's oceans, which cover","ANSWER: Approximately 71% of Earth's surface is covered by water. This includes oceans, seas, lakes, rivers, and other bodies of water on land. The majority of this water is found in the world's oceans, which cover",False,True,True,False,False
-26,How much of Earth is covered in water?,2.8309404284537747,0.09999999999999999,0.15,18,20,27,"ANSWER: Approximately 71% of Earth's surface is covered by water. This includes oceans, seas, lakes, rivers, and other bodies of water on land. The majority of this water is found in the world's oceans, which cover","ANSWER: Approximately 71% of Earth's surface is covered by water. This includes oceans, seas, lakes, rivers, and other bodies of water on land. The majority of this water is found in the world's oceans, which cover",False,True,True,False,False
-26,How much of Earth is covered in water?,2.8309404284537747,0.09999999999999999,0.15,18,50,27,"ANSWER: Approximately 71% of Earth's surface is covered by water. This includes oceans, seas, lakes, rivers, and other bodies of water on land. The majority of this water is found in the world's oceans, which cover","ANSWER: Approximately 71% of Earth's surface is covered by water. This includes oceans, seas, lakes, rivers, and other bodies of water on land. The majority of this water is found in the world's oceans, which cover",False,True,True,False,False
-27,How many books should a person read per year?,2.995732271553991,0.0,0.05,20,0,27,"ANSWER: The number of books a person should read per year depends on their personal reading goals and preferences. Some people may benefit from reading 5-10 books annually to expand their knowledge and improve their critical thinking skills, while others might prefer","ANSWER: The number of books a person should read per year depends on their personal reading goals and preferences. Some people may benefit from reading 5-10 books annually to expand their knowledge and improve their critical thinking skills, while others might prefer",False,True,True,False,False
-27,How many books should a person read per year?,2.995732271553991,0.0,0.05,20,-50,27,"ANSWER: The number of books a person should read per year depends on their personal reading goals and preferences. Some people may benefit from reading 5-10 books annually to expand their knowledge and improve their critical thinking skills, while others might prefer","ANSWER: The number of books a person should read per year depends on their personal reading goals and preferences. Some people may benefit from reading 5-10 books annually to expand their knowledge and improve their critical thinking skills, while others might prefer",False,True,True,False,False
-27,How many books should a person read per year?,2.995732271553991,0.0,0.05,20,-20,27,"ANSWER: The number of books a person should read per year depends on their personal reading goals and preferences. Some people may benefit from reading 5-10 books annually to expand their knowledge and improve their critical thinking skills, while others might prefer","ANSWER: The number of books a person should read per year depends on their personal reading goals and preferences. Some people may benefit from reading 5-10 books annually to expand their knowledge and improve their critical thinking skills, while others might prefer",False,True,True,False,False
-27,How many books should a person read per year?,2.995732271553991,0.0,0.05,20,20,27,"ANSWER: The number of books a person should read per year depends on their personal reading goals and preferences. Some people may benefit from reading 5-10 books annually to expand their knowledge and improve their critical thinking skills, while others might prefer","ANSWER: The number of books a person should read per year depends on their personal reading goals and preferences. Some people may benefit from reading 5-10 books annually to expand their knowledge and improve their critical thinking skills, while others might prefer",False,True,True,False,False
-27,How many books should a person read per year?,2.995732271553991,0.0,0.05,20,50,27,"ANSWER: The number of books a person should read per year depends on their personal reading goals and preferences. Some people may benefit from reading 5-10 books annually to expand their knowledge and improve their critical thinking skills, while others might prefer","ANSWER: The number of books a person should read per year depends on their personal reading goals and preferences. Some people may benefit from reading 5-10 books annually to expand their knowledge and improve their critical thinking skills, while others might prefer",False,True,True,False,False
-28,How tall is a tall person?,2.76162571049778,0.04999999999999999,0.15,17,0,27,"ANSWER: The height of a ""tall"" person varies depending on cultural and societal standards. In many Western countries, a person who stands between 5 feet 9 inches (175 cm) to 6 feet 2 inches (","ANSWER: The height of a ""tall"" person varies depending on cultural and societal standards. In many Western countries, a person who stands between 5 feet 9 inches (175 cm) to 6 feet 2 inches (",False,True,True,False,False
-28,How tall is a tall person?,2.76162571049778,0.04999999999999999,0.15,17,-50,27,"ANSWER: The height of a ""tall"" person varies depending on cultural and societal standards. In many Western countries, a person who stands between 5 feet 9 inches (175 cm) to 6 feet 2 inches (","ANSWER: The height of a ""tall"" person varies depending on cultural and societal standards. In many Western countries, a person who stands between 5 feet 9 inches (175 cm) to 6 feet 2 inches (",False,True,True,False,False
-28,How tall is a tall person?,2.76162571049778,0.04999999999999999,0.15,17,-20,27,"ANSWER: The height of a ""tall"" person varies depending on cultural and societal standards. In many Western countries, a person who stands between 5 feet 9 inches (175 cm) to 6 feet 2 inches (","ANSWER: The height of a ""tall"" person varies depending on cultural and societal standards. In many Western countries, a person who stands between 5 feet 9 inches (175 cm) to 6 feet 2 inches (",False,True,True,False,False
-28,How tall is a tall person?,2.76162571049778,0.04999999999999999,0.15,17,20,27,"ANSWER: The height of a ""tall"" person varies depending on cultural and societal standards. In many Western countries, a person who stands between 5 feet 9 inches (175 cm) to 6 feet 2 inches (","ANSWER: The height of a ""tall"" person varies depending on cultural and societal standards. In many Western countries, a person who stands between 5 feet 9 inches (175 cm) to 6 feet 2 inches (",False,True,True,False,False
-28,How tall is a tall person?,2.76162571049778,0.04999999999999999,0.15,17,50,27,"ANSWER: The height of a ""tall"" person varies depending on cultural and societal standards. In many Western countries, a person who stands between 5 feet 9 inches (175 cm) to 6 feet 2 inches (","ANSWER: The height of a ""tall"" person varies depending on cultural and societal standards. In many Western countries, a person who stands between 5 feet 9 inches (175 cm) to 6 feet 2 inches (",False,True,True,False,False
-29,How many friends should you have?,2.995732271553991,0.0,0.05,20,0,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-29,How many friends should you have?,2.995732271553991,0.0,0.05,20,-50,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-29,How many friends should you have?,2.995732271553991,0.0,0.05,20,-20,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-29,How many friends should you have?,2.995732271553991,0.0,0.05,20,20,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
-29,How many friends should you have?,2.995732271553991,0.0,0.05,20,50,27,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+0,What percentage of people are happy?,2.995732271553991,0.0,0.05,20,0,16,UNCERTAIN,UNCERTAIN,False,True,True,True,True
+0,What percentage of people are happy?,2.995732271553991,0.0,0.05,20,-50,16,UNCERTAIN,UNCERTAIN,False,True,True,True,True
+0,What percentage of people are happy?,2.995732271553991,0.0,0.05,20,-20,16,UNCERTAIN,UNCERTAIN,False,True,True,True,True
+0,What percentage of people are happy?,2.995732271553991,0.0,0.05,20,20,16,UNCERTAIN,UNCERTAIN,False,True,True,True,True
+0,What percentage of people are happy?,2.995732271553991,0.0,0.05,20,50,16,UNCERTAIN,UNCERTAIN,False,True,True,True,True
+1,Is winter the best season?,2.9264175535979966,0.05,0.1,19,0,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+1,Is winter the best season?,2.9264175535979966,0.05,0.1,19,-50,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+1,Is winter the best season?,2.9264175535979966,0.05,0.1,19,-20,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+1,Is winter the best season?,2.9264175535979966,0.05,0.1,19,20,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+1,Is winter the best season?,2.9264175535979966,0.05,0.1,19,50,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+2,Is the number 7 large?,2.553681556529796,0.05000000000000002,0.2,15,0,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+2,Is the number 7 large?,2.553681556529796,0.05000000000000002,0.2,15,-50,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+2,Is the number 7 large?,2.553681556529796,0.05000000000000002,0.2,15,-20,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+2,Is the number 7 large?,2.553681556529796,0.05000000000000002,0.2,15,20,16,ABSTAIN:,"ANSWER: No, the number 7 is not considered large in most contexts unless specified otherwise. In everyday usage and mathematical contexts, numbers are often categorized based on their magnitude rather than being inherently ""large"" or ""small."" The term ""large",True,True,True,True,False
+2,Is the number 7 large?,2.553681556529796,0.05000000000000002,0.2,15,50,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+3,What portion of your day should be work?,2.8309404284537747,0.09999999999999999,0.15,18,0,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+3,What portion of your day should be work?,2.8309404284537747,0.09999999999999999,0.15,18,-50,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+3,What portion of your day should be work?,2.8309404284537747,0.09999999999999999,0.15,18,-20,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+3,What portion of your day should be work?,2.8309404284537747,0.09999999999999999,0.15,18,20,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+3,What portion of your day should be work?,2.8309404284537747,0.09999999999999999,0.15,18,50,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+4,Is 2 hours a long time?,2.995732271553991,0.0,0.05,20,0,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+4,Is 2 hours a long time?,2.995732271553991,0.0,0.05,20,-50,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+4,Is 2 hours a long time?,2.995732271553991,0.0,0.05,20,-20,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+4,Is 2 hours a long time?,2.995732271553991,0.0,0.05,20,20,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+4,Is 2 hours a long time?,2.995732271553991,0.0,0.05,20,50,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+5,Is 30 years old young?,2.0805571589284204,0.19999999999999998,0.35,11,0,16,ANSWER:,ANSWER:,False,True,True,False,False
+5,Is 30 years old young?,2.0805571589284204,0.19999999999999998,0.35,11,-50,16,ANSWER:,ANSWER:,False,True,True,False,False
+5,Is 30 years old young?,2.0805571589284204,0.19999999999999998,0.35,11,-20,16,ANSWER:,ANSWER:,False,True,True,False,False
+5,Is 30 years old young?,2.0805571589284204,0.19999999999999998,0.35,11,20,16,ANSWER:,ANSWER:,False,True,True,False,False
+5,Is 30 years old young?,2.0805571589284204,0.19999999999999998,0.35,11,50,16,ANSWER:,ANSWER:,False,True,True,False,False
+6,What percent of food should be protein?,2.995732271553991,0.0,0.05,20,0,16,ANSWER:,ANSWER:,False,True,True,False,False
+6,What percent of food should be protein?,2.995732271553991,0.0,0.05,20,-50,16,ANSWER:,UNCERTAIN,True,True,True,False,True
+6,What percent of food should be protein?,2.995732271553991,0.0,0.05,20,-20,16,ANSWER:,UNCERTAIN,True,True,True,False,True
+6,What percent of food should be protein?,2.995732271553991,0.0,0.05,20,20,16,ANSWER:,ANSWER:,False,True,True,False,False
+6,What percent of food should be protein?,2.995732271553991,0.0,0.05,20,50,16,ANSWER:,ANSWER:,False,True,True,False,False
+7,Should you exercise daily?,2.6491586816740185,0.1,0.2,16,0,16,ANSWER:,ANSWER:,False,True,True,False,False
+7,Should you exercise daily?,2.6491586816740185,0.1,0.2,16,-50,16,ANSWER:,ANSWER:,False,True,True,False,False
+7,Should you exercise daily?,2.6491586816740185,0.1,0.2,16,-20,16,ANSWER:,ANSWER:,False,True,True,False,False
+7,Should you exercise daily?,2.6491586816740185,0.1,0.2,16,20,16,ANSWER:,ANSWER:,False,True,True,False,False
+7,Should you exercise daily?,2.6491586816740185,0.1,0.2,16,50,16,ANSWER:,ANSWER:,False,True,True,False,False
+8,What percentage of people exercise regularly?,2.9264175535979966,0.05,0.1,19,0,16,UNCERTAIN,UNCERTAIN,False,True,True,True,True
+8,What percentage of people exercise regularly?,2.9264175535979966,0.05,0.1,19,-50,16,UNCERTAIN,UNCERTAIN,False,True,True,True,True
+8,What percentage of people exercise regularly?,2.9264175535979966,0.05,0.1,19,-20,16,UNCERTAIN,UNCERTAIN,False,True,True,True,True
+8,What percentage of people exercise regularly?,2.9264175535979966,0.05,0.1,19,20,16,UNCERTAIN,UNCERTAIN,False,True,True,True,True
+8,What percentage of people exercise regularly?,2.9264175535979966,0.05,0.1,19,50,16,UNCERTAIN,UNCERTAIN,False,True,True,True,True
+9,How many hours of exercise per week?,2.718473399730013,0.0,0.1,16,0,16,"ANSWER: The amount of exercise required varies depending on individual goals and health conditions. However, for general health benefits, experts recommend at least 150 minutes of moderate aerobic activity or 75 minutes of vigorous activity each week. This translates","ANSWER: The amount of exercise required varies depending on individual goals and health conditions. However, for general health benefits, experts recommend at least 150 minutes of moderate aerobic activity or 75 minutes of vigorous activity each week. This translates",False,True,True,False,False
+9,How many hours of exercise per week?,2.718473399730013,0.0,0.1,16,-50,16,"ANSWER: The amount of exercise required varies depending on individual goals and health conditions. However, for general health benefits, experts recommend at least 150 minutes of moderate aerobic activity or 75 minutes of vigorous activity each week. This translates",UNCERTAIN,True,True,True,False,True
+9,How many hours of exercise per week?,2.718473399730013,0.0,0.1,16,-20,16,"ANSWER: The amount of exercise required varies depending on individual goals and health conditions. However, for general health benefits, experts recommend at least 150 minutes of moderate aerobic activity or 75 minutes of vigorous activity each week. This translates","ANSWER: The amount of exercise required varies depending on individual goals and health conditions. However, for general health benefits, experts recommend at least 150 minutes of moderate aerobic activity or 75 minutes of vigorous activity each week. This translates",False,True,True,False,False
+9,How many hours of exercise per week?,2.718473399730013,0.0,0.1,16,20,16,"ANSWER: The amount of exercise required varies depending on individual goals and health conditions. However, for general health benefits, experts recommend at least 150 minutes of moderate aerobic activity or 75 minutes of vigorous activity each week. This translates",ANSWER:,False,True,True,False,False
+9,How many hours of exercise per week?,2.718473399730013,0.0,0.1,16,50,16,"ANSWER: The amount of exercise required varies depending on individual goals and health conditions. However, for general health benefits, experts recommend at least 150 minutes of moderate aerobic activity or 75 minutes of vigorous activity each week. This translates",ANSWER:,False,True,True,False,False
+10,Is AI dangerous?,2.458204431285574,0.25,0.3,15,0,16,ANSWER:,ANSWER:,False,True,True,False,False
+10,Is AI dangerous?,2.458204431285574,0.25,0.3,15,-50,16,ANSWER:,ANSWER:,False,True,True,False,False
+10,Is AI dangerous?,2.458204431285574,0.25,0.3,15,-20,16,ANSWER:,ANSWER:,False,True,True,False,False
+10,Is AI dangerous?,2.458204431285574,0.25,0.3,15,20,16,ANSWER:,ANSWER:,False,True,True,False,False
+10,Is AI dangerous?,2.458204431285574,0.25,0.3,15,50,16,ANSWER:,ANSWER:,False,True,True,False,False
+11,What's a good credit score?,2.995732271553991,0.0,0.05,20,0,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+11,What's a good credit score?,2.995732271553991,0.0,0.05,20,-50,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+11,What's a good credit score?,2.995732271553991,0.0,0.05,20,-20,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+11,What's a good credit score?,2.995732271553991,0.0,0.05,20,20,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+11,What's a good credit score?,2.995732271553991,0.0,0.05,20,50,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+12,What temperature is comfortable?,2.995732271553991,0.0,0.05,20,0,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+12,What temperature is comfortable?,2.995732271553991,0.0,0.05,20,-50,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+12,What temperature is comfortable?,2.995732271553991,0.0,0.05,20,-20,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+12,What temperature is comfortable?,2.995732271553991,0.0,0.05,20,20,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+12,What temperature is comfortable?,2.995732271553991,0.0,0.05,20,50,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+13,Is coffee a healthy drink?,2.995732271553991,0.0,0.05,20,0,16,ANSWER:,ANSWER:,False,True,True,False,False
+13,Is coffee a healthy drink?,2.995732271553991,0.0,0.05,20,-50,16,ANSWER:,ABSTAIN:,True,True,True,False,True
+13,Is coffee a healthy drink?,2.995732271553991,0.0,0.05,20,-20,16,ANSWER:,ANSWER:,False,True,True,False,False
+13,Is coffee a healthy drink?,2.995732271553991,0.0,0.05,20,20,16,ANSWER:,ANSWER:,False,True,True,False,False
+13,Is coffee a healthy drink?,2.995732271553991,0.0,0.05,20,50,16,ANSWER:,ANSWER:,False,True,True,False,False
+14,What fraction of marriages end in divorce?,1.8444397259569683,0.45,0.5,11,0,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+14,What fraction of marriages end in divorce?,1.8444397259569683,0.45,0.5,11,-50,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+14,What fraction of marriages end in divorce?,1.8444397259569683,0.45,0.5,11,-20,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+14,What fraction of marriages end in divorce?,1.8444397259569683,0.45,0.5,11,20,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+14,What fraction of marriages end in divorce?,1.8444397259569683,0.45,0.5,11,50,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+15,What's a normal heart rate?,2.6491586816740185,0.1,0.2,16,0,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+15,What's a normal heart rate?,2.6491586816740185,0.1,0.2,16,-50,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+15,What's a normal heart rate?,2.6491586816740185,0.1,0.2,16,-20,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+15,What's a normal heart rate?,2.6491586816740185,0.1,0.2,16,20,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+15,What's a normal heart rate?,2.6491586816740185,0.1,0.2,16,50,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+16,How much of your income should you save?,2.995732271553991,0.0,0.05,20,0,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+16,How much of your income should you save?,2.995732271553991,0.0,0.05,20,-50,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+16,How much of your income should you save?,2.995732271553991,0.0,0.05,20,-20,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+16,How much of your income should you save?,2.995732271553991,0.0,0.05,20,20,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+16,How much of your income should you save?,2.995732271553991,0.0,0.05,20,50,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+17,How much of your portfolio should be stocks?,2.718473399630013,0.15000000000000002,0.2,17,0,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+17,How much of your portfolio should be stocks?,2.718473399630013,0.15000000000000002,0.2,17,-50,16,ABSTAIN:,UNCERTAIN,False,True,True,True,True
+17,How much of your portfolio should be stocks?,2.718473399630013,0.15000000000000002,0.2,17,-20,16,ABSTAIN:,UNCERTAIN,False,True,True,True,True
+17,How much of your portfolio should be stocks?,2.718473399630013,0.15000000000000002,0.2,17,20,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+17,How much of your portfolio should be stocks?,2.718473399630013,0.15000000000000002,0.2,17,50,16,ABSTAIN:,UNCERTAIN,False,True,True,True,True
+18,What percentage of the population is wealthy?,2.9264175535979966,0.05,0.1,19,0,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+18,What percentage of the population is wealthy?,2.9264175535979966,0.05,0.1,19,-50,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+18,What percentage of the population is wealthy?,2.9264175535979966,0.05,0.1,19,-20,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+18,What percentage of the population is wealthy?,2.9264175535979966,0.05,0.1,19,20,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+18,What percentage of the population is wealthy?,2.9264175535979966,0.05,0.1,19,50,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+19,Is blue the best color?,2.718473399630013,0.15000000000000002,0.2,17,0,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+19,Is blue the best color?,2.718473399630013,0.15000000000000002,0.2,17,-50,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+19,Is blue the best color?,2.718473399630013,0.15000000000000002,0.2,17,-20,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+19,Is blue the best color?,2.718473399630013,0.15000000000000002,0.2,17,20,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+19,Is blue the best color?,2.718473399630013,0.15000000000000002,0.2,17,50,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+20,How much water should you drink daily?,2.995732271553991,0.0,0.05,20,0,16,ANSWER:,ANSWER:,False,True,True,False,False
+20,How much water should you drink daily?,2.995732271553991,0.0,0.05,20,-50,16,ANSWER:,ABSTAIN:,True,True,True,False,True
+20,How much water should you drink daily?,2.995732271553991,0.0,0.05,20,-20,16,ANSWER:,"ANSWER: The amount of water an individual needs to drink daily varies depending on factors such as age, sex, weight, activity level, and climate. However, general recommendations suggest that adults should aim for at least 8 cups (64 ounces",False,True,True,False,False
+20,How much water should you drink daily?,2.995732271553991,0.0,0.05,20,20,16,ANSWER:,ANSWER:,False,True,True,False,False
+20,How much water should you drink daily?,2.995732271553991,0.0,0.05,20,50,16,ANSWER:,ANSWER:,False,True,True,False,False
+21,What is a good salary?,2.9264175535979966,0.05,0.1,19,0,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+21,What is a good salary?,2.9264175535979966,0.05,0.1,19,-50,16,ABSTAIN:,UNCERTAIN,False,True,True,True,True
+21,What is a good salary?,2.9264175535979966,0.05,0.1,19,-20,16,ABSTAIN:,UNCERTAIN,False,True,True,True,True
+21,What is a good salary?,2.9264175535979966,0.05,0.1,19,20,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+21,What is a good salary?,2.9264175535979966,0.05,0.1,19,50,16,ABSTAIN:,UNCERTAIN,False,True,True,True,True
+22,How long should you sleep each night?,2.6661485853535583,0.0,0.15,16,0,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+22,How long should you sleep each night?,2.6661485853535583,0.0,0.15,16,-50,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+22,How long should you sleep each night?,2.6661485853535583,0.0,0.15,16,-20,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+22,How long should you sleep each night?,2.6661485853535583,0.0,0.15,16,20,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+22,How long should you sleep each night?,2.6661485853535583,0.0,0.15,16,50,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+23,Is 6 feet tall?,2.4285809507452494,0.1,0.25,14,0,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+23,Is 6 feet tall?,2.4285809507452494,0.1,0.25,14,-50,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+23,Is 6 feet tall?,2.4285809507452494,0.1,0.25,14,-20,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+23,Is 6 feet tall?,2.4285809507452494,0.1,0.25,14,20,16,ABSTAIN:,"ANSWER: Yes, 6 feet tall is approximately 183 centimeters and falls within the average height range for adult males in many cultures. However, it's important to note that height can vary significantly based on genetics, nutrition, health",True,True,True,True,False
+23,Is 6 feet tall?,2.4285809507452494,0.1,0.25,14,50,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+24,"Is $100,000 a lot of money?",2.9264175535979966,0.05,0.1,19,0,16,"ANSWER: Yes, $100,000 is considered a significant amount of money in many contexts. It's often used as a benchmark for wealth and can represent substantial financial resources that might influence various aspects of life such as purchasing power","ANSWER: Yes, $100,000 is considered a significant amount of money in many contexts. It's often used as a benchmark for wealth and can represent substantial financial resources that might influence various aspects of life such as purchasing power",False,True,True,False,False
+24,"Is $100,000 a lot of money?",2.9264175535979966,0.05,0.1,19,-50,16,"ANSWER: Yes, $100,000 is considered a significant amount of money in many contexts. It's often used as a benchmark for wealth and can represent substantial financial resources that might influence various aspects of life such as purchasing power",ABSTAIN:,True,True,True,False,True
+24,"Is $100,000 a lot of money?",2.9264175535979966,0.05,0.1,19,-20,16,"ANSWER: Yes, $100,000 is considered a significant amount of money in many contexts. It's often used as a benchmark for wealth and can represent substantial financial resources that might influence various aspects of life such as purchasing power","ANSWER: Yes, $100,000 is considered a significant amount of money in many contexts. It's often used as a benchmark for wealth and can represent substantial financial resources that might influence various aspects of life such as purchasing power",False,True,True,False,False
+24,"Is $100,000 a lot of money?",2.9264175535979966,0.05,0.1,19,20,16,"ANSWER: Yes, $100,000 is considered a significant amount of money in many contexts. It's often used as a benchmark for wealth and can represent substantial financial resources that might influence various aspects of life such as purchasing power",ANSWER:,False,True,True,False,False
+24,"Is $100,000 a lot of money?",2.9264175535979966,0.05,0.1,19,50,16,"ANSWER: Yes, $100,000 is considered a significant amount of money in many contexts. It's often used as a benchmark for wealth and can represent substantial financial resources that might influence various aspects of life such as purchasing power",ANSWER:,False,True,True,False,False
+25,What's the success rate of startups?,2.9264175535979966,0.05,0.1,19,0,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+25,What's the success rate of startups?,2.9264175535979966,0.05,0.1,19,-50,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+25,What's the success rate of startups?,2.9264175535979966,0.05,0.1,19,-20,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+25,What's the success rate of startups?,2.9264175535979966,0.05,0.1,19,20,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+25,What's the success rate of startups?,2.9264175535979966,0.05,0.1,19,50,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+26,How much of Earth is covered in water?,2.8309404284537747,0.09999999999999999,0.15,18,0,16,"ANSWER: Approximately 71% of Earth's surface is covered by water. This includes oceans, seas, lakes, rivers, and other bodies of water on land. The majority of this water is found in the world's oceans, which cover","ANSWER: Approximately 71% of Earth's surface is covered by water. This includes oceans, seas, lakes, rivers, and other bodies of water on land. The majority of this water is found in the world's oceans, which cover",False,True,True,False,False
+26,How much of Earth is covered in water?,2.8309404284537747,0.09999999999999999,0.15,18,-50,16,"ANSWER: Approximately 71% of Earth's surface is covered by water. This includes oceans, seas, lakes, rivers, and other bodies of water on land. The majority of this water is found in the world's oceans, which cover",ABSTAIN:,True,True,True,False,True
+26,How much of Earth is covered in water?,2.8309404284537747,0.09999999999999999,0.15,18,-20,16,"ANSWER: Approximately 71% of Earth's surface is covered by water. This includes oceans, seas, lakes, rivers, and other bodies of water on land. The majority of this water is found in the world's oceans, which cover",ABSTAIN:,True,True,True,False,True
+26,How much of Earth is covered in water?,2.8309404284537747,0.09999999999999999,0.15,18,20,16,"ANSWER: Approximately 71% of Earth's surface is covered by water. This includes oceans, seas, lakes, rivers, and other bodies of water on land. The majority of this water is found in the world's oceans, which cover","ANSWER: Approximately 71% of Earth's surface is covered by water. This percentage includes both oceans and seas as well as inland bodies of water such as lakes and rivers. The majority of this water is found in the world's oceans,",False,True,True,False,False
+26,How much of Earth is covered in water?,2.8309404284537747,0.09999999999999999,0.15,18,50,16,"ANSWER: Approximately 71% of Earth's surface is covered by water. This includes oceans, seas, lakes, rivers, and other bodies of water on land. The majority of this water is found in the world's oceans, which cover",ABSTAIN:,True,True,True,False,True
+27,How many books should a person read per year?,2.995732271553991,0.0,0.05,20,0,16,"ANSWER: The number of books a person should read per year depends on their personal reading goals and preferences. Some people may benefit from reading 5-10 books annually to expand their knowledge and improve their critical thinking skills, while others might prefer","ANSWER: The number of books a person should read per year depends on their personal reading goals and preferences. Some people may benefit from reading 5-10 books annually to expand their knowledge and improve their critical thinking skills, while others might prefer",False,True,True,False,False
+27,How many books should a person read per year?,2.995732271553991,0.0,0.05,20,-50,16,"ANSWER: The number of books a person should read per year depends on their personal reading goals and preferences. Some people may benefit from reading 5-10 books annually to expand their knowledge and improve their critical thinking skills, while others might prefer","ANSWER: The number of books a person should read per year depends on their personal reading goals and preferences. Some people may benefit from reading 5-10 books annually to expand their knowledge and improve their critical thinking skills, while others might prefer",False,True,True,False,False
+27,How many books should a person read per year?,2.995732271553991,0.0,0.05,20,-20,16,"ANSWER: The number of books a person should read per year depends on their personal reading goals and preferences. Some people may benefit from reading 5-10 books annually to expand their knowledge and improve their critical thinking skills, while others might prefer","ANSWER: The number of books a person should read per year depends on their personal reading goals and preferences. Some people may benefit from reading 5-10 books annually to expand their knowledge and improve their critical thinking skills, while others might prefer",False,True,True,False,False
+27,How many books should a person read per year?,2.995732271553991,0.0,0.05,20,20,16,"ANSWER: The number of books a person should read per year depends on their personal reading goals and preferences. Some people may benefit from reading 5-10 books annually to expand their knowledge and improve their critical thinking skills, while others might prefer",ANSWER:,False,True,True,False,False
+27,How many books should a person read per year?,2.995732271553991,0.0,0.05,20,50,16,"ANSWER: The number of books a person should read per year depends on their personal reading goals and preferences. Some people may benefit from reading 5-10 books annually to expand their knowledge and improve their critical thinking skills, while others might prefer",ANSWER:,False,True,True,False,False
+28,How tall is a tall person?,2.76162571049778,0.04999999999999999,0.15,17,0,16,"ANSWER: The height of a ""tall"" person varies depending on cultural and societal standards. In many Western countries, a person who stands between 5 feet 9 inches (175 cm) to 6 feet 2 inches (","ANSWER: The height of a ""tall"" person varies depending on cultural and societal standards. In many Western countries, a person who stands between 5 feet 9 inches (175 cm) to 6 feet 2 inches (",False,True,True,False,False
+28,How tall is a tall person?,2.76162571049778,0.04999999999999999,0.15,17,-50,16,"ANSWER: The height of a ""tall"" person varies depending on cultural and societal standards. In many Western countries, a person who stands between 5 feet 9 inches (175 cm) to 6 feet 2 inches (",ABSTAIN:,True,True,True,False,True
+28,How tall is a tall person?,2.76162571049778,0.04999999999999999,0.15,17,-20,16,"ANSWER: The height of a ""tall"" person varies depending on cultural and societal standards. In many Western countries, a person who stands between 5 feet 9 inches (175 cm) to 6 feet 2 inches (",ABSTAIN:,True,True,True,False,True
+28,How tall is a tall person?,2.76162571049778,0.04999999999999999,0.15,17,20,16,"ANSWER: The height of a ""tall"" person varies depending on cultural and societal standards. In many Western countries, a person who stands between 5 feet 9 inches (175 cm) to 6 feet 2 inches (",ANSWER:,False,True,True,False,False
+28,How tall is a tall person?,2.76162571049778,0.04999999999999999,0.15,17,50,16,"ANSWER: The height of a ""tall"" person varies depending on cultural and societal standards. In many Western countries, a person who stands between 5 feet 9 inches (175 cm) to 6 feet 2 inches (",ABSTAIN:,True,True,True,False,True
+29,How many friends should you have?,2.995732271553991,0.0,0.05,20,0,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+29,How many friends should you have?,2.995732271553991,0.0,0.05,20,-50,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+29,How many friends should you have?,2.995732271553991,0.0,0.05,20,-20,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+29,How many friends should you have?,2.995732271553991,0.0,0.05,20,20,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
+29,How many friends should you have?,2.995732271553991,0.0,0.05,20,50,16,ABSTAIN:,ABSTAIN:,False,True,True,True,True
