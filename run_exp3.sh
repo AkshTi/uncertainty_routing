@@ -7,7 +7,7 @@
 #SBATCH -p mit_normal_gpu
 #SBATCH -c 4
 #SBATCH --mem=32G
-#SBATCH -G 1
+#SBATCH -G h200:1
 
 
 # Load required modules
