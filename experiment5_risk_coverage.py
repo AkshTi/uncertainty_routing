@@ -29,7 +29,7 @@ from collections import Counter
 
 from core_utils import (
     ModelWrapper, ExperimentConfig, extract_answer,
-    set_seed
+    set_seed, _get_blocks
 )
 from data_preparation import format_prompt
 
@@ -153,7 +153,7 @@ class Experiment5:
                         return (hs,) + rest
                     return hs
 
-                layer = self.model.model.layers[layer_idx]
+                layer = _get_blocks(self.model.model)[layer_idx]
                 handle = layer.register_forward_hook(steering_hook)
 
                 response = self.model.generate(prompt, temperature=0.0, do_sample=False)
