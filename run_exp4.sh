@@ -27,7 +27,7 @@ echo "=================================================="
 
 # Run experiment with 300 questions for robust statistics
 python experiment4_selectivity.py \
-    --n_questions 300
+    --n_questions 200
 
 echo "=================================================="
 echo "Experiment 4 completed at: $(date)"

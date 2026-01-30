@@ -27,8 +27,8 @@ echo "=================================================="
 
 # Run experiment
 python experiment1_behavior_belief.py \
-    --n_answerable 200 \
-    --n_unanswerable 200
+    --n_answerable 100 \
+    --n_unanswerable 100
 
 echo "=================================================="
 echo "Experiment 1 completed at: $(date)"
