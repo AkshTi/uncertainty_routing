@@ -1,0 +1,326 @@
+Lmod has detected the following error: The following module(s) are unknown:
+"python/3.9"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "python/3.9"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+Lmod has detected the following error: The following module(s) are unknown:
+"cuda/11.8"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "cuda/11.8"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+`torch_dtype` is deprecated! Use `dtype` instead!
+Measuring uncertainty:   0%|          | 0/30 [00:00<?, ?it/s]Measuring uncertainty:   3%|▎         | 1/30 [00:06<03:17,  6.80s/it]Measuring uncertainty:   7%|▋         | 2/30 [00:13<03:04,  6.60s/it]Measuring uncertainty:  10%|█         | 3/30 [00:19<02:56,  6.52s/it]Measuring uncertainty:  13%|█▎        | 4/30 [00:26<02:48,  6.48s/it]Measuring uncertainty:  17%|█▋        | 5/30 [00:32<02:41,  6.47s/it]Measuring uncertainty:  20%|██        | 6/30 [00:38<02:34,  6.45s/it]Measuring uncertainty:  23%|██▎       | 7/30 [00:45<02:28,  6.45s/it]Measuring uncertainty:  27%|██▋       | 8/30 [00:51<02:21,  6.44s/it]Measuring uncertainty:  30%|███       | 9/30 [00:58<02:14,  6.42s/it]Measuring uncertainty:  33%|███▎      | 10/30 [01:04<02:08,  6.41s/it]Measuring uncertainty:  37%|███▋      | 11/30 [01:11<02:01,  6.42s/it]Measuring uncertainty:  40%|████      | 12/30 [01:17<01:55,  6.43s/it]Measuring uncertainty:  43%|████▎     | 13/30 [01:23<01:49,  6.43s/it]Measuring uncertainty:  47%|████▋     | 14/30 [01:30<01:42,  6.43s/it]Measuring uncertainty:  50%|█████     | 15/30 [01:36<01:36,  6.43s/it]Measuring uncertainty:  53%|█████▎    | 16/30 [01:43<01:30,  6.43s/it]Measuring uncertainty:  57%|█████▋    | 17/30 [01:49<01:23,  6.43s/it]Measuring uncertainty:  60%|██████    | 18/30 [01:56<01:17,  6.43s/it]Measuring uncertainty:  63%|██████▎   | 19/30 [02:02<01:10,  6.44s/it]Measuring uncertainty:  67%|██████▋   | 20/30 [02:08<01:04,  6.43s/it]Measuring uncertainty:  70%|███████   | 21/30 [02:15<00:57,  6.44s/it]Measuring uncertainty:  73%|███████▎  | 22/30 [02:21<00:51,  6.44s/it]Measuring uncertainty:  77%|███████▋  | 23/30 [02:28<00:45,  6.44s/it]Measuring uncertainty:  80%|████████  | 24/30 [02:34<00:38,  6.44s/it]Measuring uncertainty:  83%|████████▎ | 25/30 [02:41<00:32,  6.44s/it]Measuring uncertainty:  87%|████████▋ | 26/30 [02:47<00:25,  6.45s/it]Measuring uncertainty:  90%|█████████ | 27/30 [02:54<00:19,  6.44s/it]Measuring uncertainty:  93%|█████████▎| 28/30 [03:00<00:12,  6.44s/it]Measuring uncertainty:  97%|█████████▋| 29/30 [03:06<00:06,  6.42s/it]Measuring uncertainty: 100%|██████████| 30/30 [03:13<00:00,  6.42s/it]Measuring uncertainty: 100%|██████████| 30/30 [03:13<00:00,  6.44s/it]
+Questions:   0%|          | 0/30 [00:00<?, ?it/s]The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Questions:   3%|▎         | 1/30 [00:01<00:46,  1.60s/it]Questions:   7%|▋         | 2/30 [00:03<00:44,  1.58s/it]Questions:  10%|█         | 3/30 [00:04<00:42,  1.58s/it]Questions:  13%|█▎        | 4/30 [00:06<00:40,  1.57s/it]Questions:  17%|█▋        | 5/30 [00:07<00:39,  1.57s/it]Questions:  20%|██        | 6/30 [00:09<00:37,  1.56s/it]Questions:  23%|██▎       | 7/30 [00:10<00:35,  1.56s/it]Questions:  27%|██▋       | 8/30 [00:12<00:34,  1.56s/it]Questions:  30%|███       | 9/30 [00:14<00:32,  1.56s/it]Questions:  33%|███▎      | 10/30 [00:15<00:31,  1.56s/it]Questions:  37%|███▋      | 11/30 [00:17<00:29,  1.56s/it]Questions:  40%|████      | 12/30 [00:18<00:27,  1.56s/it]Questions:  43%|████▎     | 13/30 [00:20<00:26,  1.55s/it]Questions:  47%|████▋     | 14/30 [00:21<00:24,  1.55s/it]Questions:  50%|█████     | 15/30 [00:23<00:23,  1.55s/it]Questions:  53%|█████▎    | 16/30 [00:24<00:21,  1.55s/it]Questions:  57%|█████▋    | 17/30 [00:26<00:20,  1.55s/it]Questions:  60%|██████    | 18/30 [00:28<00:18,  1.55s/it]Questions:  63%|██████▎   | 19/30 [00:29<00:17,  1.56s/it]Questions:  67%|██████▋   | 20/30 [00:31<00:15,  1.56s/it]Questions:  70%|███████   | 21/30 [00:32<00:14,  1.56s/it]Questions:  73%|███████▎  | 22/30 [00:34<00:12,  1.56s/it]Questions:  77%|███████▋  | 23/30 [00:35<00:10,  1.55s/it]Questions:  80%|████████  | 24/30 [00:37<00:09,  1.55s/it]Questions:  83%|████████▎ | 25/30 [00:38<00:07,  1.56s/it]Questions:  87%|████████▋ | 26/30 [00:40<00:06,  1.56s/it]Questions:  90%|█████████ | 27/30 [00:42<00:04,  1.56s/it]Questions:  93%|█████████▎| 28/30 [00:43<00:03,  1.56s/it]Questions:  97%|█████████▋| 29/30 [00:45<00:01,  1.56s/it]Questions: 100%|██████████| 30/30 [00:46<00:00,  1.56s/it]Questions: 100%|██████████| 30/30 [00:46<00:00,  1.56s/it]
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/base/model.py:607: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  warnings.warn("Maximum Likelihood optimization failed to "
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:4469: RuntimeWarning: divide by zero encountered in scalar divide
+  return 1 - self.llf/self.llnull
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/base/model.py:607: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  warnings.warn("Maximum Likelihood optimization failed to "
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:4469: RuntimeWarning: divide by zero encountered in scalar divide
+  return 1 - self.llf/self.llnull
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/base/model.py:607: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  warnings.warn("Maximum Likelihood optimization failed to "
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:4469: RuntimeWarning: divide by zero encountered in scalar divide
+  return 1 - self.llf/self.llnull
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/discrete/discrete_model.py:227: PerfectSeparationWarning: Perfect separation or prediction detected, parameter may not be identified
+  warnings.warn(msg, category=PerfectSeparationWarning)
+/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/statsmodels/base/model.py:607: ConvergenceWarning: Maximum Likelihood optimization failed to converge. Check mle_retvals
+  warnings.warn("Maximum Likelihood optimization failed to "
+Traceback (most recent call last):
+  File "/orcd/home/002/akshatat/uncertainty_routing_final/uncertainty_routing/experiment4_selectivity.py", line 954, in <module>
+    main(n_questions=args.n_questions, quick_test=args.quick_test)
+  File "/orcd/home/002/akshatat/uncertainty_routing_final/uncertainty_routing/experiment4_selectivity.py", line 925, in main
+    summary = exp4.analyze(results_df)
+  File "/orcd/home/002/akshatat/uncertainty_routing_final/uncertainty_routing/experiment4_selectivity.py", line 667, in analyze
+    ll_null = -log_loss(y_true, model_null.predict(df_model), normalize=False)
+  File "/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/sklearn/utils/_param_validation.py", line 218, in wrapper
+    return func(*args, **kwargs)
+  File "/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/sklearn/metrics/_classification.py", line 3240, in log_loss
+    transformed_labels, y_pred = _validate_multiclass_probabilistic_prediction(
+  File "/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/sklearn/metrics/_classification.py", line 229, in _validate_multiclass_probabilistic_prediction
+    raise ValueError(
+ValueError: y_true contains only one label (0). Please provide the list of all expected class labels explicitly through the labels argument.
