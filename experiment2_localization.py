@@ -214,13 +214,18 @@ class Experiment2:
         # Get baseline
         baseline_margin = self.get_baseline_margin(neg_prompt)
 
-        # Tokenize to get positions
-        tokens = self.model.tokenizer(neg_prompt, return_tensors="pt")
-        seq_len = tokens['input_ids'].shape[1]
+        # Tokenize both prompts to get positions
+        pos_tokens = self.model.tokenizer(pos_prompt, return_tensors="pt")
+        neg_tokens = self.model.tokenizer(neg_prompt, return_tensors="pt")
+        pos_seq_len = pos_tokens['input_ids'].shape[1]
+        neg_seq_len = neg_tokens['input_ids'].shape[1]
+
+        # Use the minimum sequence length to ensure positions are valid for both
+        min_seq_len = min(pos_seq_len, neg_seq_len)
 
         positions = {
-            "last": seq_len - 1,
-            "second_last": max(0, seq_len - 2),
+            "last": min_seq_len - 1,
+            "second_last": max(0, min_seq_len - 2),
             "first": 0
         }
 
@@ -619,7 +624,17 @@ class Experiment2:
             for k, info in best_windows.items():
                 print(f"  k={k}: {info['window']} → Δ={info['delta']:.3f}, flip={info['flip_rate']:.1%}")
 
-            analysis_results["window_stats"] = window_stats.to_dict()
+            # Convert MultiIndex columns to JSON-serializable format
+            window_stats_dict = {}
+            for col in window_stats.columns:
+                if isinstance(col, tuple):
+                    # Flatten tuple column names
+                    key = '_'.join(str(x) for x in col)
+                    window_stats_dict[key] = window_stats[col].to_dict()
+                else:
+                    window_stats_dict[str(col)] = window_stats[col].to_dict()
+
+            analysis_results["window_stats"] = window_stats_dict
             analysis_results["best_windows"] = best_windows
 
             # Compute what % of max effect each window size achieves
@@ -686,7 +701,17 @@ class Experiment2:
 
             print(f"\nMonotonic increase: {monotonic} (expected for real gating)")
 
-            analysis_results["mixing_stats"] = mixing_stats.to_dict()
+            # Convert MultiIndex columns to JSON-serializable format
+            mixing_stats_dict = {}
+            for col in mixing_stats.columns:
+                if isinstance(col, tuple):
+                    # Flatten tuple column names
+                    key = '_'.join(str(x) for x in col)
+                    mixing_stats_dict[key] = mixing_stats[col].to_dict()
+                else:
+                    mixing_stats_dict[str(col)] = mixing_stats[col].to_dict()
+
+            analysis_results["mixing_stats"] = mixing_stats_dict
             analysis_results["monotonic"] = monotonic
 
         # ===== CREATE VISUALIZATIONS =====

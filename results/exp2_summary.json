@@ -1,3 +1,66 @@
 {
   "window_stats": {
-    
+    "delta_margin_mean": {
+      "1": 0.129,
+      "2": 0.071,
+      "3": 0.138
+    },
+    "delta_margin_std": {
+      "1": 0.687,
+      "2": 0.696,
+      "3": 0.755
+    },
+    "delta_margin_max": {
+      "1": 2.0,
+      "2": 2.0,
+      "3": 2.0
+    },
+    "flipped_mean": {
+      "1": 0.093,
+      "2": 0.079,
+      "3": 0.108
+    }
+  },
+  "best_windows": {
+    "1": {
+      "window": "[0-0]",
+      "delta": 2.0,
+      "flip_rate": 1.0
+    },
+    "2": {
+      "window": "[4-5]",
+      "delta": 2.0,
+      "flip_rate": 1.0
+    },
+    "3": {
+      "window": "[0-2]",
+      "delta": 2.0,
+      "flip_rate": 1.0
+    }
+  },
+  "control_effects": {
+    "correct_patch": 0.2,
+    "random_prompt": 0.2,
+    "wrong_position": -0.4
+  },
+  "control_flips": {
+    "correct_patch": 0.1,
+    "random_prompt": 0.1,
+    "wrong_position": 0.0
+  },
+  "mixing_stats": {
+    "delta_margin": {
+      "0.25": 0.0,
+      "0.5": 0.0,
+      "0.75": 0.0,
+      "1.0": 0.2
+    },
+    "flipped": {
+      "0.25": 0.0,
+      "0.5": 0.0,
+      "0.75": 0.0,
+      "1.0": 0.1
+    }
+  },
+  "monotonic": true
+}
