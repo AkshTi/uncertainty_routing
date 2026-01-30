@@ -1,0 +1,130 @@
+Job ID: 8559154
+Node: node3301
+Start time: Fri Jan 30 01:12:03 EST 2026
+Running Experiment 3: Robust Steering Control
+==================================================
+Initializing model...
+Loading model Qwen/Qwen2.5-1.5B-Instruct...
+Model loaded successfully!
+
+Loading datasets...
+
+🔬 QUICK TEST MODE (Est. runtime: ~1 hour)
+
+Dataset split:
+  Train: 12 answerable + 12 unanswerable
+  Test:  8 answerable + 8 unanswerable
+
+============================================================
+EXPERIMENT 3: ROBUST STEERING CONTROL
+============================================================
+Train/Eval split: 60% train, 40% eval
+Epsilon range: [-8, -4, 0, 4, 8]
+Testing layers: [24, 25, 26, 27]
+Direction estimators: mean-diff, probe, PC1 + controls
+
+Train set: 12 POS + 12 NEG
+Eval set: 8 POS + 8 NEG
+Test set: 16 questions
+
+============================================================
+COMPUTING STEERING DIRECTIONS
+============================================================
+CONVENTION: Direction points from NEG→POS (unanswerable→answerable)
+            Positive ε pushes TOWARD answering
+            Negative ε pushes TOWARD abstaining
+  Computing directions for layer 24...
+    [Sanity] Decision position: 18/19 (0-indexed in prompt)
+    [Sanity] Decision is made at FIRST GENERATED TOKEN (after prompt)
+    [Sanity] Prompt token at pos 18: 'ER'
+    [Sanity] First generated tokens: 'Leonardo da Vinci painted the'
+    [Sanity] Starts with ABSTAIN/ANSWER: False
+    [Sanity] Decision position: 27/28 (0-indexed in prompt)
+    [Sanity] Decision is made at FIRST GENERATED TOKEN (after prompt)
+    [Sanity] Prompt token at pos 27: 'ER'
+    [Sanity] First generated tokens: 'Infinity + 1 ='
+    [Sanity] Starts with ABSTAIN/ANSWER: False
+    Computed 5 direction types
+  Layer 24, mean_diff: norm=1.0000
+  Layer 24, probe: norm=0.9995
+  Layer 24, pc1: norm=1.0000
+  Layer 24, random: norm=1.0000
+  Layer 24, shuffled: norm=1.0000
+  Computing directions for layer 25...
+    [Sanity] Decision position: 18/19 (0-indexed in prompt)
+    [Sanity] Decision is made at FIRST GENERATED TOKEN (after prompt)
+    [Sanity] Prompt token at pos 18: 'ER'
+    [Sanity] First generated tokens: 'Leonardo da Vinci painted the'
+    [Sanity] Starts with ABSTAIN/ANSWER: False
+    [Sanity] Decision position: 27/28 (0-indexed in prompt)
+    [Sanity] Decision is made at FIRST GENERATED TOKEN (after prompt)
+    [Sanity] Prompt token at pos 27: 'ER'
+    [Sanity] First generated tokens: 'Infinity + 1 ='
+    [Sanity] Starts with ABSTAIN/ANSWER: False
+    Computed 5 direction types
+  Layer 25, mean_diff: norm=1.0000
+  Layer 25, probe: norm=1.0000
+  Layer 25, pc1: norm=1.0000
+  Layer 25, random: norm=1.0000
+  Layer 25, shuffled: norm=1.0000
+  Computing directions for layer 26...
+    [Sanity] Decision position: 18/19 (0-indexed in prompt)
+    [Sanity] Decision is made at FIRST GENERATED TOKEN (after prompt)
+    [Sanity] Prompt token at pos 18: 'ER'
+    [Sanity] First generated tokens: 'Leonardo da Vinci painted the'
+    [Sanity] Starts with ABSTAIN/ANSWER: False
+    [Sanity] Decision position: 27/28 (0-indexed in prompt)
+    [Sanity] Decision is made at FIRST GENERATED TOKEN (after prompt)
+    [Sanity] Prompt token at pos 27: 'ER'
+    [Sanity] First generated tokens: 'Infinity + 1 ='
+    [Sanity] Starts with ABSTAIN/ANSWER: False
+    Computed 5 direction types
+  Layer 26, mean_diff: norm=1.0000
+  Layer 26, probe: norm=1.0000
+  Layer 26, pc1: norm=1.0000
+  Layer 26, random: norm=1.0000
+  Layer 26, shuffled: norm=1.0000
+  Computing directions for layer 27...
+    [Sanity] Decision position: 18/19 (0-indexed in prompt)
+    [Sanity] Decision is made at FIRST GENERATED TOKEN (after prompt)
+    [Sanity] Prompt token at pos 18: 'ER'
+    [Sanity] First generated tokens: 'Leonardo da Vinci painted the'
+    [Sanity] Starts with ABSTAIN/ANSWER: False
+    [Sanity] Decision position: 27/28 (0-indexed in prompt)
+    [Sanity] Decision is made at FIRST GENERATED TOKEN (after prompt)
+    [Sanity] Prompt token at pos 27: 'ER'
+    [Sanity] First generated tokens: 'Infinity + 1 ='
+    [Sanity] Starts with ABSTAIN/ANSWER: False
+    Computed 5 direction types
+  Layer 27, mean_diff: norm=1.0000
+  Layer 27, probe: norm=0.9995
+  Layer 27, pc1: norm=1.0000
+  Layer 27, random: norm=1.0000
+  Layer 27, shuffled: norm=1.0000
+
+Computing early-layer control (layer 7)...
+  Computing directions for layer 7...
+    [Sanity] Decision position: 18/19 (0-indexed in prompt)
+    [Sanity] Decision is made at FIRST GENERATED TOKEN (after prompt)
+    [Sanity] Prompt token at pos 18: 'ER'
+    [Sanity] First generated tokens: 'Leonardo da Vinci painted the'
+    [Sanity] Starts with ABSTAIN/ANSWER: False
+    [Sanity] Decision position: 27/28 (0-indexed in prompt)
+    [Sanity] Decision is made at FIRST GENERATED TOKEN (after prompt)
+    [Sanity] Prompt token at pos 27: 'ER'
+    [Sanity] First generated tokens: 'Infinity + 1 ='
+    [Sanity] Starts with ABSTAIN/ANSWER: False
+    Computed 5 direction types
+  Early layer control: norm=1.0000
+
+============================================================
+TESTING STEERING EFFECTS
+============================================================
+
+[SANITY CHECK] Testing abstention detection on first example...
+  Response: 49. 
+
+Explanation: To find 7 squared, you multiply 7 by itself, which equals 49. Squaring a number m
+  Detected as: ANSWER
+  ⚠️  WARNING: Response doesn't start with ABSTAIN or ANSWER!
+  ⚠️  Check if format_prompt is using correct forced prefix!

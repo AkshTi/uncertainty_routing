@@ -1,0 +1,27 @@
+Lmod has detected the following error: The following module(s) are unknown:
+"python/3.9"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "python/3.9"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+Lmod has detected the following error: The following module(s) are unknown:
+"cuda/11.8"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "cuda/11.8"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+`torch_dtype` is deprecated! Use `dtype` instead!
+Position sweep:   0%|          | 0/10 [00:00<?, ?it/s]The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Position sweep:  10%|█         | 1/10 [00:05<00:46,  5.20s/it]Position sweep:  20%|██        | 2/10 [00:08<00:33,  4.25s/it]Position sweep:  30%|███       | 3/10 [00:12<00:27,  3.94s/it]Position sweep:  40%|████      | 4/10 [00:15<00:22,  3.80s/it]Position sweep:  50%|█████     | 5/10 [00:19<00:18,  3.72s/it]Position sweep:  60%|██████    | 6/10 [00:23<00:14,  3.67s/it]Position sweep:  70%|███████   | 7/10 [00:26<00:10,  3.65s/it]Position sweep:  80%|████████  | 8/10 [00:30<00:07,  3.64s/it]Position sweep:  90%|█████████ | 9/10 [00:33<00:03,  3.63s/it]Position sweep: 100%|██████████| 10/10 [00:37<00:00,  3.64s/it]Position sweep: 100%|██████████| 10/10 [00:37<00:00,  3.76s/it]
