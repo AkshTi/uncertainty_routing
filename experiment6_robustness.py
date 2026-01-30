@@ -1056,7 +1056,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Run Experiment 6: Cross-Domain Robustness')
     parser.add_argument('--n_per_domain', type=int, default=50,
                        help='Number of questions per domain per answerability class')
-    parser.add_argument('--epsilon', type=float, default=5.0,
+    parser.add_argument('--epsilon', type=float, default=-5.0,
                        help='Steering magnitude')
     parser.add_argument('--quick_test', action='store_true',
                        help='Quick test mode with minimal dataset')
