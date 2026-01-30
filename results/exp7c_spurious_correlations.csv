@@ -1,0 +1,25 @@
+question,is_unanswerable,layer,epsilon,abstained,hallucinated,response_preview,condition,length_variant,semantic_content
+What am I thinking?,True,26,0.0,True,False,"UNCERTAIN
+
+I do not have enough information to determine what you are thinking based on your statement. The phrase ""What am I thinking?"" is a common way of asking about one's thoughts or feelings, but",baseline,short,What am I thinking?
+What am I thinking?,True,26,-50.0,True,False,"UNCERTAIN
+
+I do not have enough context or information to determine what you are thinking about specifically. Without more details, it's impossible for me to accurately respond to your query regarding",steered,short,What am I thinking?
+Can you please tell me in detail what specific thought is currently in my mind r,True,26,0.0,False,True,"I'm sorry, but as an AI language model, I do not have access to your current thoughts or mental state. My responses are based on patterns and correlations in large amounts of text data that I was trai",baseline,long,What am I thinking?
+Can you please tell me in detail what specific thought is currently in my mind r,True,26,-50.0,True,False,"UNCERTAIN
+
+As an AI language model, I do not have access to your current thoughts or mental state. My responses are based on patterns and information available from large datasets of text and knowledg",steered,long,What am I thinking?
+What number?,True,26,0.0,False,True,"I'm sorry, but I need more information to answer your question about ""What number?"". Could you please provide some context or clarify what specific number you are referring to? Once I have that inform",baseline,short,What number?
+What number?,True,26,-50.0,True,False,"UNCERTAIN
+
+The given instruction ""WHAT NUMBER?"" does not specify a particular context or prompt, making it impossible to determine which specific number is being referred to without additional informa",steered,short,What number?
+I am thinking of a specific number between one and one hundred. What is that num,True,26,0.0,True,False,"42
+
+UNCERTAIN: The specific number you are thinking of could be any integer between 1 and 100, inclusive. Without additional context or clues, it's impossible to determine which exact number you have ",baseline,long,What number?
+I am thinking of a specific number between one and one hundred. What is that num,True,26,-50.0,True,False,"42 UNCERTAIN: As an AI, I do not have access to your thoughts or memories regarding which specific number you are considering. Therefore, without additional context about what you might be referring t",steered,long,What number?
+My shirt color?,True,26,0.0,False,True,"I'm sorry, but I need more information to answer your question about my shirt color. Could you please specify which shirt you are referring to or what details you would like me to consider? Once I hav",baseline,short,My shirt color?
+My shirt color?,True,26,-50.0,True,False,"I'm sorry, but as an AI language model, I don't have access to your personal information or context regarding your shirt color. Therefore, I cannot determine what your shirt color is without additiona",steered,short,My shirt color?
+I am currently wearing a shirt. Can you tell me what color that shirt is?,True,26,0.0,False,True,"It's difficult to determine the exact color of your shirt without seeing it, but based on common colors for shirts, it could be white, light blue, or gray. If you have more specific information about ",baseline,long,My shirt color?
+I am currently wearing a shirt. Can you tell me what color that shirt is?,True,26,-50.0,True,False,"As an AI language model, I do not have access to your current surroundings or context. Therefore, I cannot determine the color of the shirt you are currently wearing. UNCERTAIN. 
+
+However, as a genera",steered,long,My shirt color?

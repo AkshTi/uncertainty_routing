@@ -1,0 +1,200 @@
+{
+  "domain_stats": [
+    {
+      "domain": "geography",
+      "condition": "baseline",
+      "is_unanswerable": false,
+      "abstained": 0.0
+    },
+    {
+      "domain": "geography",
+      "condition": "baseline",
+      "is_unanswerable": true,
+      "abstained": 0.6
+    },
+    {
+      "domain": "geography",
+      "condition": "steered",
+      "is_unanswerable": false,
+      "abstained": 0.2
+    },
+    {
+      "domain": "geography",
+      "condition": "steered",
+      "is_unanswerable": true,
+      "abstained": 1.0
+    },
+    {
+      "domain": "history",
+      "condition": "baseline",
+      "is_unanswerable": false,
+      "abstained": 0.2
+    },
+    {
+      "domain": "history",
+      "condition": "baseline",
+      "is_unanswerable": true,
+      "abstained": 0.0
+    },
+    {
+      "domain": "history",
+      "condition": "steered",
+      "is_unanswerable": false,
+      "abstained": 0.4
+    },
+    {
+      "domain": "history",
+      "condition": "steered",
+      "is_unanswerable": true,
+      "abstained": 0.6
+    },
+    {
+      "domain": "mathematics",
+      "condition": "baseline",
+      "is_unanswerable": false,
+      "abstained": 1.0
+    },
+    {
+      "domain": "mathematics",
+      "condition": "baseline",
+      "is_unanswerable": true,
+      "abstained": 0.6
+    },
+    {
+      "domain": "mathematics",
+      "condition": "steered",
+      "is_unanswerable": false,
+      "abstained": 1.0
+    },
+    {
+      "domain": "mathematics",
+      "condition": "steered",
+      "is_unanswerable": true,
+      "abstained": 1.0
+    },
+    {
+      "domain": "science",
+      "condition": "baseline",
+      "is_unanswerable": false,
+      "abstained": 0.0
+    },
+    {
+      "domain": "science",
+      "condition": "baseline",
+      "is_unanswerable": true,
+      "abstained": 0.6
+    },
+    {
+      "domain": "science",
+      "condition": "steered",
+      "is_unanswerable": false,
+      "abstained": 0.0
+    },
+    {
+      "domain": "science",
+      "condition": "steered",
+      "is_unanswerable": true,
+      "abstained": 1.0
+    }
+  ],
+  "prompt_stats": [
+    {
+      "template": "concise",
+      "condition": "baseline",
+      "is_unanswerable": false,
+      "abstained": 0.0
+    },
+    {
+      "template": "concise",
+      "condition": "baseline",
+      "is_unanswerable": true,
+      "abstained": 0.0
+    },
+    {
+      "template": "concise",
+      "condition": "steered",
+      "is_unanswerable": false,
+      "abstained": 0.0
+    },
+    {
+      "template": "concise",
+      "condition": "steered",
+      "is_unanswerable": true,
+      "abstained": 0.2
+    },
+    {
+      "template": "standard",
+      "condition": "baseline",
+      "is_unanswerable": false,
+      "abstained": 0.6
+    },
+    {
+      "template": "standard",
+      "condition": "baseline",
+      "is_unanswerable": true,
+      "abstained": 0.4
+    },
+    {
+      "template": "standard",
+      "condition": "steered",
+      "is_unanswerable": false,
+      "abstained": 0.6
+    },
+    {
+      "template": "standard",
+      "condition": "steered",
+      "is_unanswerable": true,
+      "abstained": 0.4
+    },
+    {
+      "template": "verbose",
+      "condition": "baseline",
+      "is_unanswerable": false,
+      "abstained": 0.0
+    },
+    {
+      "template": "verbose",
+      "condition": "baseline",
+      "is_unanswerable": true,
+      "abstained": 0.2
+    },
+    {
+      "template": "verbose",
+      "condition": "steered",
+      "is_unanswerable": false,
+      "abstained": 0.6
+    },
+    {
+      "template": "verbose",
+      "condition": "steered",
+      "is_unanswerable": true,
+      "abstained": 0.2
+    }
+  ],
+  "adversarial_stats": [
+    {
+      "condition": "baseline",
+      "is_unanswerable": false,
+      "abstained": 0.667,
+      "hallucinated": 0.0
+    },
+    {
+      "condition": "baseline",
+      "is_unanswerable": true,
+      "abstained": 0.667,
+      "hallucinated": 0.333
+    },
+    {
+      "condition": "steered",
+      "is_unanswerable": false,
+      "abstained": 0.667,
+      "hallucinated": 0.0
+    },
+    {
+      "condition": "steered",
+      "is_unanswerable": true,
+      "abstained": 1.0,
+      "hallucinated": 0.0
+    }
+  ]
+}

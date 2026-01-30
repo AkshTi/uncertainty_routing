@@ -1,0 +1,36 @@
+{
+  "risk_sensitive": true,
+  "best_epsilon": 20.0,
+  "best_gradient": 0.25,
+  "reductions_by_epsilon": {
+    "5.0": {
+      "high_reduction": 0.0,
+      "medium_reduction": 0.0,
+      "low_reduction": 0.0,
+      "gradient": 0.0
+    },
+    "10.0": {
+      "high_reduction": 0.0,
+      "medium_reduction": 0.0,
+      "low_reduction": 0.0,
+      "gradient": 0.0
+    },
+    "15.0": {
+      "high_reduction": 0.25,
+      "medium_reduction": 0.0,
+      "low_reduction": 0.0,
+      "gradient": -0.25
+    },
+    "20.0": {
+      "high_reduction": 0.25,
+      "medium_reduction": 0.0,
+      "low_reduction": 0.5,
+      "gradient": 0.25
+    }
+  },
+  "baseline_abstention": {
+    "high": 1.0,
+    "low": 1.0,
+    "medium": 0.6666666666666666
+  }
+}

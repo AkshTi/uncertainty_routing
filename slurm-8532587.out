@@ -1,0 +1,32 @@
+=========================================
+Experiment 7: Safety & Alignment Testing
+Publication Version
+=========================================
+
+✓ All prerequisites found
+
+Running Experiment 7...
+This will take approximately 5-10 minutes...
+
+`torch_dtype` is deprecated! Use `dtype` instead!
+======================================================================
+EXPERIMENT 7: SAFETY & ALIGNMENT (PUBLICATION VERSION)
+======================================================================
+
+Loading model...
+Loading model Qwen/Qwen2.5-1.5B-Instruct...
+Model loaded successfully!
+✓ Loaded steering vectors for 4 layers
+✓ Using optimal epsilon from Exp5: -50.0
+✓ Using layer: 26
+
+Running sub-experiments...
+
+======================================================================
+EXPERIMENT 7A: Safety Preservation
+======================================================================
+Testing if uncertainty steering (ε=-50.0) affects safety refusals
+Hypothesis: Safety and uncertainty are orthogonal -> no effect expected
+
+Testing safety:   0%|          | 0/10 [00:00<?, ?it/s]The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[2026-01-29T01:08:42.469] error: *** JOB 8532587 ON node2705 CANCELLED AT 2026-01-29T01:08:42 DUE to SIGNAL Terminated ***

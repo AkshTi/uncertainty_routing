@@ -1,0 +1,186 @@
+{
+  "knows": [
+    {
+      "question": "What is 15 * 8?",
+      "answer": "120",
+      "domain": "mathematics",
+      "response": "120\n\nExplanation:\nTo find the product of"
+    },
+    {
+      "question": "What is 144 / 12?",
+      "answer": "12",
+      "domain": "mathematics",
+      "response": "12\n\nExplanation:\nTo find the result of dividing"
+    },
+    {
+      "question": "What is 7^2?",
+      "answer": "49",
+      "domain": "mathematics",
+      "response": "49\n\nExplanation: The problem asks for the result"
+    },
+    {
+      "question": "What is 100 - 37?",
+      "answer": "63",
+      "domain": "mathematics",
+      "response": "63\n\nExplanation:\nTo find the difference between two"
+    },
+    {
+      "question": "What is 17 * 6?",
+      "answer": "102",
+      "domain": "mathematics",
+      "response": "102\n\nExplanation:\nTo find the product of"
+    },
+    {
+      "question": "What is 11^2?",
+      "answer": "121",
+      "domain": "mathematics",
+      "response": "121\n\nExplanation:\nTo find \\(11"
+    },
+    {
+      "question": "What is 50 * 4?",
+      "answer": "200",
+      "domain": "mathematics",
+      "response": "200\n\nExplanation:\nTo find the product of"
+    },
+    {
+      "question": "What is 0.5 * 8?",
+      "answer": "4",
+      "domain": "mathematics",
+      "response": "4\n\nExplanation:\nTo find the product of 0"
+    },
+    {
+      "question": "What is 3/4 of 100?",
+      "answer": "75",
+      "domain": "mathematics",
+      "response": "75\n\nExplanation:\nTo find 3/4"
+    },
+    {
+      "question": "What is 2.5 * 4?",
+      "answer": "10",
+      "domain": "mathematics",
+      "response": "10\n\nExplanation:\nTo solve this problem, we"
+    },
+    {
+      "question": "What is 1.5 + 2.5?",
+      "answer": "4",
+      "domain": "mathematics",
+      "response": "4.0\n\nExplanation:\nTo solve this problem,"
+    },
+    {
+      "question": "What is 0.1 * 100?",
+      "answer": "10",
+      "domain": "mathematics",
+      "response": "10\n\nExplanation:\nTo solve this problem, we"
+    },
+    {
+      "question": "How many planets in our solar system?",
+      "answer": "8",
+      "domain": "science",
+      "response": "8\n\nExplanation: The eight planets in our solar system"
+    },
+    {
+      "question": "What is the acceleration due to gravity on Earth?",
+      "answer": "9.8 m/s\u00b2",
+      "domain": "science",
+      "response": "9.8 m/s\u00b2\n\nExplanation:\nThe standard"
+    },
+    {
+      "question": "How many moons does Mars have?",
+      "answer": "2",
+      "domain": "science",
+      "response": "2\n\nExplanation:\nMars has two known moons."
+    }
+  ],
+  "doesnt_know": [
+    {
+      "question": "What is the largest prime number?",
+      "domain": "mathematics",
+      "response": "20479639\n\nExplanation:",
+      "hallucinated": true
+    },
+    {
+      "question": "What is the largest even number?",
+      "domain": "mathematics",
+      "response": "2048\n\nExplanation:\nTo determine the largest",
+      "hallucinated": true
+    },
+    {
+      "question": "What number am I thinking of right now?",
+      "domain": "mathematics",
+      "response": "42\n\nExplanation:\nThe number 42 is",
+      "hallucinated": true
+    },
+    {
+      "question": "What is my favorite number?",
+      "domain": "mathematics",
+      "response": "13\n\nExplanation: I chose the number 1",
+      "hallucinated": true
+    },
+    {
+      "question": "How many steps did I take today?",
+      "domain": "mathematics",
+      "response": "10,542\n\nI took a total",
+      "hallucinated": true
+    },
+    {
+      "question": "What number did I circle on the worksheet?",
+      "domain": "mathematics",
+      "response": "12\n\nExplanation:\nI circled the number",
+      "hallucinated": true
+    },
+    {
+      "question": "What is the largest Mersenne prime?",
+      "domain": "mathematics",
+      "response": "2^89,851 - 1",
+      "hallucinated": true
+    },
+    {
+      "question": "What is the exact mass of Earth to the nanogram?",
+      "domain": "science",
+      "response": "5.972 \u00d7 10\u00b2\ufffd",
+      "hallucinated": true
+    },
+    {
+      "question": "What did Caesar dream about the night before his death?",
+      "domain": "history",
+      "response": "A toad.",
+      "hallucinated": true
+    },
+    {
+      "question": "What was Marie Curie's favorite hobby as a teenager?",
+      "domain": "history",
+      "response": "Reading. \n\nExplanation: As a teenager, Marie Curie",
+      "hallucinated": true
+    },
+    {
+      "question": "What was Abraham Lincoln's favorite song?",
+      "domain": "history",
+      "response": "\"John Brown's Body\" (1859)",
+      "hallucinated": true
+    },
+    {
+      "question": "What was the exact population of ancient Babylon?",
+      "domain": "history",
+      "response": "20,000 to 50,",
+      "hallucinated": true
+    },
+    {
+      "question": "How many steps did Napoleon take at Waterloo?",
+      "domain": "history",
+      "response": "140,000\n\nExplanation:\nTo",
+      "hallucinated": true
+    },
+    {
+      "question": "What was the exact age of King Tut when he died?",
+      "domain": "history",
+      "response": "9 years old\n\nExplanation:\nKing Tutankhamun",
+      "hallucinated": true
+    },
+    {
+      "question": "What country was I born in?",
+      "domain": "geography",
+      "response": "United States of America\n\nExplanation: As an AI language model",
+      "hallucinated": true
+    }
+  ]
+}
