@@ -1,0 +1,42 @@
+Lmod has detected the following error: The following module(s) are unknown:
+"python/3.9"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "python/3.9"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+Lmod has detected the following error: The following module(s) are unknown:
+"cuda/11.8"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "cuda/11.8"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+`torch_dtype` is deprecated! Use `dtype` instead!
+Measuring uncertainty:   0%|          | 0/30 [00:00<?, ?it/s]Measuring uncertainty:   3%|▎         | 1/30 [00:10<05:00, 10.36s/it]Measuring uncertainty:   7%|▋         | 2/30 [00:20<04:48, 10.29s/it]Measuring uncertainty:  10%|█         | 3/30 [00:30<04:28,  9.94s/it]Measuring uncertainty:  13%|█▎        | 4/30 [00:40<04:22, 10.09s/it]Measuring uncertainty:  17%|█▋        | 5/30 [00:50<04:13, 10.13s/it]Measuring uncertainty:  20%|██        | 6/30 [01:00<04:01, 10.08s/it]Measuring uncertainty:  23%|██▎       | 7/30 [01:10<03:52, 10.09s/it]Measuring uncertainty:  27%|██▋       | 8/30 [01:20<03:37,  9.90s/it]Measuring uncertainty:  30%|███       | 9/30 [01:30<03:28,  9.94s/it]Measuring uncertainty:  33%|███▎      | 10/30 [01:39<03:15,  9.75s/it]Measuring uncertainty:  37%|███▋      | 11/30 [01:48<02:59,  9.43s/it]Measuring uncertainty:  40%|████      | 12/30 [01:58<02:51,  9.52s/it]Measuring uncertainty:  43%|████▎     | 13/30 [02:07<02:42,  9.56s/it]Measuring uncertainty:  47%|████▋     | 14/30 [02:17<02:32,  9.56s/it]Measuring uncertainty:  50%|█████     | 15/30 [02:27<02:26,  9.79s/it]Measuring uncertainty:  53%|█████▎    | 16/30 [02:37<02:18,  9.86s/it]Measuring uncertainty:  57%|█████▋    | 17/30 [02:47<02:09,  9.92s/it]Measuring uncertainty:  60%|██████    | 18/30 [02:57<01:58,  9.91s/it]Measuring uncertainty:  63%|██████▎   | 19/30 [03:07<01:49,  9.95s/it]Measuring uncertainty:  67%|██████▋   | 20/30 [03:18<01:41, 10.11s/it]Measuring uncertainty:  70%|███████   | 21/30 [03:27<01:29,  9.98s/it]Measuring uncertainty:  73%|███████▎  | 22/30 [03:37<01:19,  9.88s/it]Measuring uncertainty:  77%|███████▋  | 23/30 [03:46<01:08,  9.79s/it]Measuring uncertainty:  80%|████████  | 24/30 [03:56<00:57,  9.63s/it]Measuring uncertainty:  83%|████████▎ | 25/30 [04:05<00:47,  9.45s/it]Measuring uncertainty:  87%|████████▋ | 26/30 [04:15<00:38,  9.56s/it]Measuring uncertainty:  90%|█████████ | 27/30 [04:24<00:28,  9.62s/it]Measuring uncertainty:  93%|█████████▎| 28/30 [04:35<00:19,  9.80s/it]Measuring uncertainty:  97%|█████████▋| 29/30 [04:45<00:09,  9.86s/it]Measuring uncertainty: 100%|██████████| 30/30 [04:54<00:00,  9.73s/it]Measuring uncertainty: 100%|██████████| 30/30 [04:54<00:00,  9.82s/it]
+Epsilon values:   0%|          | 0/3 [00:00<?, ?it/s]The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Epsilon values:  33%|███▎      | 1/3 [00:23<00:47, 23.71s/it]Epsilon values:  67%|██████▋   | 2/3 [01:11<00:37, 37.62s/it]Epsilon values: 100%|██████████| 3/3 [01:58<00:00, 41.92s/it]Epsilon values: 100%|██████████| 3/3 [01:58<00:00, 39.37s/it]
+Traceback (most recent call last):
+  File "/orcd/home/002/akshatat/uncertainty_routing_final/uncertainty_routing/experiment4_selectivity.py", line 638, in <module>
+    main(n_questions=args.n_questions, quick_test=args.quick_test)
+  File "/orcd/home/002/akshatat/uncertainty_routing_final/uncertainty_routing/experiment4_selectivity.py", line 609, in main
+    summary = exp4.analyze(results_df)
+  File "/orcd/home/002/akshatat/uncertainty_routing_final/uncertainty_routing/experiment4_selectivity.py", line 359, in analyze
+    self.plot_interaction_effects(df, model, scaler_ent, scaler_eps)
+  File "/orcd/home/002/akshatat/uncertainty_routing_final/uncertainty_routing/experiment4_selectivity.py", line 453, in plot_interaction_effects
+    df_nonzero['entropy_bin'] = pd.qcut(
+  File "/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/pandas/core/reshape/tile.py", line 340, in qcut
+    fac, bins = _bins_to_cuts(
+  File "/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/pandas/core/reshape/tile.py", line 493, in _bins_to_cuts
+    raise ValueError(
+ValueError: Bin labels must be one fewer than the number of bin edges
