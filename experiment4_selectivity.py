@@ -908,23 +908,50 @@ def main(n_questions: int = 300, quick_test: bool = False):
             print("Please run Experiment 3 first to generate steering vectors.")
             return None
 
-    # Get best layer and direction
-    best_layer = 27  # Default, can be overridden
-    if (best_layer, 'mean_diff') in steering_vectors:
-        steering_vec = steering_vectors[(best_layer, 'mean_diff')]
-    elif str((best_layer, 'mean_diff')) in steering_vectors:
-        steering_vec = steering_vectors[str((best_layer, 'mean_diff'))]
-    elif best_layer in steering_vectors:
-        steering_vec = steering_vectors[best_layer]
-    elif str(best_layer) in steering_vectors:
-        steering_vec = steering_vectors[str(best_layer)]
-    else:
-        print(f"Available keys: {list(steering_vectors.keys())}")
-        # Use first available
-        steering_vec = list(steering_vectors.values())[0]
+    # Get best layer and direction - auto-detect from available vectors
+    print(f"Available steering vectors: {list(steering_vectors.keys())}")
+
+    # Priority: Use mean_diff from layers 14-18 (middle layers work best)
+    best_layer = None
+    steering_vec = None
+
+    # Try to find mean_diff vectors in order of preference
+    for preferred_layer in [16, 14, 18]:  # Middle layer first
+        if (preferred_layer, 'mean_diff') in steering_vectors:
+            best_layer = preferred_layer
+            steering_vec = steering_vectors[(preferred_layer, 'mean_diff')]
+            break
+        elif str((preferred_layer, 'mean_diff')) in steering_vectors:
+            best_layer = preferred_layer
+            steering_vec = steering_vectors[str((preferred_layer, 'mean_diff'))]
+            break
+
+    # Fallback: use any available vector and extract its layer
+    if steering_vec is None:
+        first_key = list(steering_vectors.keys())[0]
+        steering_vec = steering_vectors[first_key]
+        # Try to extract layer from key
+        if isinstance(first_key, tuple):
+            best_layer = first_key[0]
+        elif isinstance(first_key, str):
+            # Try to parse layer from string like "(14, 'mean_diff')"
+            import re
+            match = re.search(r'\((\d+),', first_key)
+            if match:
+                best_layer = int(match.group(1))
+            else:
+                best_layer = 16  # Safe default
+        else:
+            best_layer = 16  # Safe default
+        print(f"⚠️  Using fallback vector from key: {first_key}")
+
+    if steering_vec is None or best_layer is None:
+        print("ERROR: Could not load steering vector!")
+        return None
 
     steering_vec = steering_vec.to(config.device)
-    print(f"Loaded steering vector: shape={steering_vec.shape}, norm={steering_vec.norm():.4f}")
+    print(f"✓ Loaded steering vector for layer {best_layer}")
+    print(f"  Shape: {steering_vec.shape}, Norm: {steering_vec.norm():.4f}")
 
     # Load questions
     print("\nLoading questions...")
