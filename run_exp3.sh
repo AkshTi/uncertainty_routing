@@ -7,7 +7,8 @@
 #SBATCH -p mit_normal_gpu
 #SBATCH -c 4
 #SBATCH --mem=32G
-#SBATCH -G h200:1
+#SBATCH -G 1
+
 
 # Load required modules
 module load python/3.9
