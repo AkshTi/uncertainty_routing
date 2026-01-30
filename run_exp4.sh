@@ -2,9 +2,10 @@
 #SBATCH --job-name=exp4_selectivity
 #SBATCH --output=logs/exp4_%j.out
 #SBATCH --error=logs/exp4_%j.err
-#SBATCH --time=05:00:00
-#SBATCH --partition=mit_normal_gpu
-#SBATCH --gres=gpu:1
+#SBATCH --time=02:30:00
+#SBATCH --partition=sched_mit_psfc_gpu_r8
+#SBATCH --gres=gpu:A100:1
+#SBATCH --constraint=A100
 #SBATCH --mem=32G
 #SBATCH --cpus-per-task=4
 
