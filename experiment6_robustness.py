@@ -950,8 +950,13 @@ def main(n_per_domain: int = 50, epsilon: float = 5.0, quick_test: bool = False)
         print("\nLoading steering vectors from experiments...")
         steering_vectors = torch.load(steering_vectors_path)
 
-        # Priority: Use mean_diff from middle layers (14, 16, 18) - these work best
-        for preferred_layer in [16, 14, 18]:
+        # Debug: show available layers
+        available_layers = [k[0] for k in steering_vectors.keys() if isinstance(k, tuple) and k[1] == 'mean_diff']
+        print(f"Available mean_diff layers: {sorted(set(available_layers))}")
+
+        # Priority: Use mean_diff from middle layers - these work best
+        # Layer 20 from recommended config, then 16, 14, 18, 21
+        for preferred_layer in [20, 16, 14, 18, 21]:
             if (preferred_layer, 'mean_diff') in steering_vectors:
                 best_layer = preferred_layer
                 steering_direction = steering_vectors[(preferred_layer, 'mean_diff')]

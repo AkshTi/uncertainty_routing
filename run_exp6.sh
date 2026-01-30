@@ -30,7 +30,7 @@ echo "=================================================="
 # Run experiment
 python experiment6_robustness.py \
     --n_per_domain 50 \
-    --epsilon 5.0
+    --epsilon -5.0
 
 echo "=================================================="
 echo "Experiment 6 completed at: $(date)"
