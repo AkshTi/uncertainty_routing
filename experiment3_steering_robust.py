@@ -39,18 +39,22 @@ def _get_blocks(hf_model):
     raise AttributeError(f"Can't find blocks for {type(hf_model)}")
 
 
-def compute_flip_rate(df: pd.DataFrame, baseline_col: str = 'baseline_answer',
-                      steered_col: str = 'steered_answer') -> float:
+def compute_flip_rate(df: pd.DataFrame, flip_col: str = 'flipped') -> float:
     """
     Canonical flip rate computation - used everywhere for consistency.
 
-    Flip = answer changed relative to baseline (ε=0 for same prompt).
+    FIX: Flip = DECISION changed (abstain ↔ answer), NOT content changed.
+    Uses the boolean 'flipped' column that tracks abstention decision changes.
     """
     if len(df) == 0:
         return 0.0
 
-    flipped = (df[baseline_col] != df[steered_col]).sum()
-    return float(flipped / len(df))
+    if flip_col not in df.columns:
+        raise ValueError(f"Column '{flip_col}' not found. Available: {df.columns.tolist()}")
+
+    # Count how many rows have flipped=True
+    n_flipped = df[flip_col].sum()
+    return float(n_flipped / len(df))
 
 
 class Experiment3Robust:
@@ -82,11 +86,17 @@ class Experiment3Robust:
             if i == 0:
                 inputs = self.model.tokenizer(prompt, return_tensors="pt")
                 prompt_len = inputs["input_ids"].shape[1]
-                print(f"    [Sanity] Decision position: {position}/{prompt_len-1} (0-indexed)")
-                # Decode the token at decision position to verify
-                token_id = inputs["input_ids"][0, position].item()
-                token_text = self.model.tokenizer.decode([token_id])
-                print(f"    [Sanity] Token at decision pos: '{token_text}'")
+                print(f"    [Sanity] Decision position: {position}/{prompt_len-1} (0-indexed in prompt)")
+                print(f"    [Sanity] Decision is made at FIRST GENERATED TOKEN (after prompt)")
+                # Decode the prompt token at decision position
+                if position < prompt_len:
+                    token_id = inputs["input_ids"][0, position].item()
+                    token_text = self.model.tokenizer.decode([token_id])
+                    print(f"    [Sanity] Prompt token at pos {position}: '{token_text}'")
+                # Generate one token to see what the model produces
+                test_output = self.model.generate(prompt, temperature=0.0, do_sample=False, max_new_tokens=5)
+                print(f"    [Sanity] First generated tokens: '{test_output[:80]}'")
+                print(f"    [Sanity] Starts with ABSTAIN/ANSWER: {test_output.strip().upper().startswith(('ABSTAIN', 'ANSWER'))}")
 
             # Cache activation at decision position
             self.model.register_cache_hook(layer_idx, position)
@@ -226,7 +236,10 @@ class Experiment3Robust:
         # Steered generation
         self.model.clear_hooks()
 
-        # FIX: Apply steering at decision position, not last token
+        # Track if we've already steered (only steer once during full forward pass)
+        steered = {"done": False, "logged": False}
+
+        # FIX: Apply steering at decision position, handling KV cache correctly
         def steering_hook(module, input, output):
             if isinstance(output, tuple):
                 hidden_states = output[0]
@@ -235,15 +248,32 @@ class Experiment3Robust:
                 hidden_states = output
                 rest = None
 
+            seq_len = hidden_states.shape[1]
+
+            # SANITY LOG: Log seq_len on first hook call
+            if not steered["logged"]:
+                print(f"    [Sanity Hook] First forward: seq_len={seq_len}, decision_pos={decision_pos}")
+                steered["logged"] = True
+
+            # Skip if already steered
+            if steered["done"]:
+                return output
+
             hidden_states = hidden_states.clone()
             sv = steering_vector.to(hidden_states.device)
             if sv.ndim == 2 and sv.shape[0] == 1:
                 sv = sv[0]
 
-            # Apply at decision position (where model chooses ABSTAIN/ANSWER)
-            seq_len = hidden_states.shape[1]
-            if decision_pos < seq_len:
+            # During full forward pass (prompt): steer at decision_pos
+            # During generation steps (KV cache, seq_len=1): steer at position 0
+            if seq_len > 1 and decision_pos < seq_len:
+                # Full forward pass - steer at decision position
                 hidden_states[:, decision_pos, :] += epsilon * sv
+                steered["done"] = True
+            elif seq_len == 1 and not steered["done"]:
+                # Generation step - steer current token (this IS the decision token)
+                hidden_states[:, 0, :] += epsilon * sv
+                steered["done"] = True
 
             if rest is None:
                 return hidden_states
@@ -463,6 +493,8 @@ class Experiment3Robust:
         # 1. Compute flip rates using canonical function
         print("\n1. FLIP RATES BY DIRECTION TYPE")
         print("-" * 40)
+        print("NOTE: Best ε selected post-hoc on test set (exploratory analysis)")
+        print("      For publication, use fixed ε or validation split")
 
         # For each direction type, at best epsilon
         direction_types = df['direction_type'].unique()
@@ -471,7 +503,7 @@ class Experiment3Robust:
         for dir_type in direction_types:
             dir_df = df[df['direction_type'] == dir_type]
 
-            # Find best epsilon (highest flip rate)
+            # Find best epsilon (highest flip rate) - POST-HOC exploratory
             eps_flip_rates = []
             for eps in dir_df['epsilon'].unique():
                 if eps == 0:
