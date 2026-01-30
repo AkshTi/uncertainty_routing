@@ -205,18 +205,19 @@ class Experiment4Enhanced:
             bins = pd.qcut(entropies, q=5, labels=False, duplicates='drop')
             # Map numeric bins to names
             bin_names = ['Very Low', 'Low', 'Medium', 'High', 'Very High']
-            n_bins = len(pd.unique(bins))
+            n_bins = len(pd.unique(bins[~pd.isna(bins)]))
             # Use only as many names as we have bins
             bin_labels = bin_names[:n_bins]
-            bins_named = pd.Series([bin_labels[int(b)] for b in bins], index=results_df.index)
+            bins_named = pd.Series([bin_labels[int(b)] if not pd.isna(b) else 'Unknown' for b in bins])
             bin_counts = bins_named.value_counts()
 
             print(f"\nEntropy distribution ({n_bins} bins):")
             for bin_name in bin_labels:
                 count = bin_counts.get(bin_name, 0)
                 print(f"  {bin_name:12s}: {count:4d} examples ({100*count/len(entropies):.1f}%)")
-        except ValueError as e:
+        except (ValueError, IndexError) as e:
             print(f"\n⚠️ Could not create entropy bins: {e}")
+            print("   Using continuous entropy for analysis instead.")
             bin_counts = pd.Series([len(entropies)])  # Single bin
 
         if len(bin_counts) > 0 and bin_counts.min() < min_per_bin:
