@@ -767,12 +767,13 @@ def main(quick_test: bool = False):
         test_questions = answerable[20:40] + unanswerable[20:40]
 
     if quick_test:
-        print("\n🔬 QUICK TEST MODE")
-        answerable = answerable[:15]
-        unanswerable = unanswerable[:15]
-        test_questions = test_questions[:20]
-        epsilon_range = [-10, -5, 0, 5, 10]
+        print("\n🔬 QUICK TEST MODE (Est. runtime: ~30 min)")
+        answerable = answerable[:10]
+        unanswerable = unanswerable[:10]
+        test_questions = test_questions[:10]
+        epsilon_range = [-5, 0, 5]
     else:
+        print("\n⚠️  FULL MODE (Est. runtime: ~20 hours)")
         answerable = answerable[:30]
         unanswerable = unanswerable[:30]
         test_questions = test_questions[:40]

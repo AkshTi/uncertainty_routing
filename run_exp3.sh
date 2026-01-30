@@ -27,8 +27,8 @@ echo "Start time: $(date)"
 echo "Running Experiment 3: Robust Steering Control"
 echo "=================================================="
 
-# Run experiment
-python experiment3_steering_robust.py
+# Run experiment in quick test mode (~30 min instead of ~20 hours)
+python experiment3_steering_robust.py --quick_test
 
 echo "=================================================="
 echo "Experiment 3 completed at: $(date)"
