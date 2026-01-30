@@ -1,7 +1,7 @@
 #!/bin/bash
-#SBATCH --job-name=exp2_localization
-#SBATCH --output=logs/exp2_%j.out
-#SBATCH --error=logs/exp2_%j.err
+#SBATCH --job-name=exp3
+#SBATCH --output=logs/exp3_%j.out
+#SBATCH --error=logs/exp3_%j.err
 #SBATCH --time=01:30:00
 
 #SBATCH -p mit_normal_gpu
