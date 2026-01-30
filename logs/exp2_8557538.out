@@ -1,0 +1,24 @@
+Job ID: 8557538
+Node: node3301
+Start time: Thu Jan 29 22:35:01 EST 2026
+Running Experiment 2: Gate Localization
+==================================================
+Initializing model...
+Loading model Qwen/Qwen2.5-1.5B-Instruct...
+Model loaded successfully!
+
+Loading datasets...
+
+============================================================
+STEP 1: MINIMAL-SUFFICIENT WINDOW SWEEP
+============================================================
+
+============================================================
+WINDOW SWEEP: Minimal-Sufficient Layer Windows
+============================================================
+Testing window sizes: [1, 2, 3]
+Testing 10 example pairs
+
+--- Testing 1-layer windows ---
+
+--- Testing 2-layer windows ---
