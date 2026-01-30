@@ -201,15 +201,25 @@ class Experiment4Enhanced:
         print(f"Entropy mean: {np.mean(entropies):.2f} ± {np.std(entropies):.2f}")
 
         # Bin check (for reporting, not for analysis)
-        bins = pd.qcut(entropies, q=5, labels=['Very Low', 'Low', 'Medium', 'High', 'Very High'],
-                      duplicates='drop')
-        bin_counts = bins.value_counts()
-        print("\nEntropy quintile distribution:")
-        for bin_name in ['Very Low', 'Low', 'Medium', 'High', 'Very High']:
-            count = bin_counts.get(bin_name, 0)
-            print(f"  {bin_name:12s}: {count:4d} examples ({100*count/len(entropies):.1f}%)")
+        try:
+            bins = pd.qcut(entropies, q=5, labels=False, duplicates='drop')
+            # Map numeric bins to names
+            bin_names = ['Very Low', 'Low', 'Medium', 'High', 'Very High']
+            n_bins = len(pd.unique(bins))
+            # Use only as many names as we have bins
+            bin_labels = bin_names[:n_bins]
+            bins_named = pd.Series([bin_labels[int(b)] for b in bins], index=results_df.index)
+            bin_counts = bins_named.value_counts()
 
-        if bin_counts.min() < min_per_bin:
+            print(f"\nEntropy distribution ({n_bins} bins):")
+            for bin_name in bin_labels:
+                count = bin_counts.get(bin_name, 0)
+                print(f"  {bin_name:12s}: {count:4d} examples ({100*count/len(entropies):.1f}%)")
+        except ValueError as e:
+            print(f"\n⚠️ Could not create entropy bins: {e}")
+            bin_counts = pd.Series([len(entropies)])  # Single bin
+
+        if len(bin_counts) > 0 and bin_counts.min() < min_per_bin:
             print(f"\n⚠️ WARNING: Some bins have <{min_per_bin} examples.")
             print(f"   Smallest bin: {bin_counts.min()} examples")
             print(f"   Consider using more questions for robust analysis.")
