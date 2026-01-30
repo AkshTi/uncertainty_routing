@@ -866,27 +866,35 @@ class Experiment2:
                 })
 
         # Position effects
-        if position_df is not None:
+        if position_df is not None and len(position_df) > 0:
             for pos in ['last', 'second_last', 'first']:
-                pos_label = {'last': 'Last token', 'second_last': '2nd-to-last', 'first': 'First token'}
-                table_data.append({
-                    'Configuration': pos_label[pos],
-                    'Δ Margin': f"{position_df[f'{pos}_delta'].mean():.3f}",
-                    'Flip Rate': f"{position_df[f'{pos}_flipped'].mean():.1%}",
-                    'Type': 'Position'
-                })
+                # Check if columns exist before accessing
+                delta_col = f'{pos}_delta'
+                flipped_col = f'{pos}_flipped'
+                if delta_col in position_df.columns and flipped_col in position_df.columns:
+                    pos_label = {'last': 'Last token', 'second_last': '2nd-to-last', 'first': 'First token'}
+                    table_data.append({
+                        'Configuration': pos_label[pos],
+                        'Δ Margin': f"{position_df[delta_col].mean():.3f}",
+                        'Flip Rate': f"{position_df[flipped_col].mean():.1%}",
+                        'Type': 'Position'
+                    })
 
         # Controls
-        if control_df is not None:
+        if control_df is not None and len(control_df) > 0:
             for ct in ['correct_patch', 'wrong_position', 'random_prompt']:
-                ct_label = {'correct_patch': 'Correct patch', 'wrong_position': 'Wrong position',
-                           'random_prompt': 'Random prompt'}
-                table_data.append({
-                    'Configuration': ct_label[ct],
-                    'Δ Margin': f"{control_df[f'{ct}_delta'].mean():.3f}",
-                    'Flip Rate': f"{control_df[f'{ct}_flipped'].mean():.1%}",
-                    'Type': 'Control'
-                })
+                # Check if columns exist before accessing
+                delta_col = f'{ct}_delta'
+                flipped_col = f'{ct}_flipped'
+                if delta_col in control_df.columns and flipped_col in control_df.columns:
+                    ct_label = {'correct_patch': 'Correct patch', 'wrong_position': 'Wrong position',
+                               'random_prompt': 'Random prompt'}
+                    table_data.append({
+                        'Configuration': ct_label[ct],
+                        'Δ Margin': f"{control_df[delta_col].mean():.3f}",
+                        'Flip Rate': f"{control_df[flipped_col].mean():.1%}",
+                        'Type': 'Control'
+                    })
 
         table_df = pd.DataFrame(table_data)
         print("\n", table_df.to_string(index=False))

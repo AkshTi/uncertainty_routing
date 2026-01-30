@@ -105,9 +105,10 @@ class Experiment3Robust:
         probe = LogisticRegression(max_iter=1000, random_state=42)
         probe.fit(X, y)
 
-        direction = torch.tensor(probe.coef_[0], dtype=torch.float32)
+        # Match dtype and device of pos_acts to avoid dtype mismatch errors
+        direction = torch.tensor(probe.coef_[0], dtype=pos_acts.dtype, device=pos_acts.device)
         direction = direction / (direction.norm() + 1e-8)
-        return direction.to(pos_acts.device)
+        return direction
 
     def compute_pc1_direction(self, pos_acts: torch.Tensor, neg_acts: torch.Tensor) -> torch.Tensor:
         """Method 3: PC1 from PCA on difference-centered activations"""
@@ -120,16 +121,17 @@ class Experiment3Robust:
         pca = PCA(n_components=1)
         pca.fit(all_centered)
 
-        direction = torch.tensor(pca.components_[0], dtype=torch.float32)
+        # Match dtype of pos_acts to avoid dtype mismatch errors
+        direction = torch.tensor(pca.components_[0], dtype=pos_acts.dtype, device=pos_acts.device)
         direction = direction / (direction.norm() + 1e-8)
 
         # Ensure pointing toward POS
-        pos_proj = (pos_acts @ direction.to(pos_acts.device)).mean()
-        neg_proj = (neg_acts @ direction.to(pos_acts.device)).mean()
+        pos_proj = (pos_acts @ direction).mean()
+        neg_proj = (neg_acts @ direction).mean()
         if pos_proj < neg_proj:
             direction = -direction
 
-        return direction.to(pos_acts.device)
+        return direction
 
     def compute_random_direction(self, reference: torch.Tensor) -> torch.Tensor:
         """Control: Random direction with same norm as reference"""
