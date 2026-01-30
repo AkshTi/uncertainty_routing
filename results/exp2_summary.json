@@ -38,6 +38,16 @@
       "flip_rate": 1.0
     }
   },
+  "position_effects": {
+    "last": 0.0,
+    "second_last": 0.2,
+    "first": 0.0
+  },
+  "position_flips": {
+    "last": 0.0,
+    "second_last": 0.1,
+    "first": 0.0
+  },
   "control_effects": {
     "correct_patch": 0.2,
     "random_prompt": 0.2,

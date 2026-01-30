@@ -3,3 +3,121 @@ Node: node3301
 Start time: Fri Jan 30 00:12:04 EST 2026
 Running Experiment 3: Robust Steering Control
 ==================================================
+Initializing model...
+Loading model Qwen/Qwen2.5-1.5B-Instruct...
+Model loaded successfully!
+
+Loading datasets...
+
+🔬 QUICK TEST MODE (Est. runtime: ~30 min)
+
+============================================================
+EXPERIMENT 3: ROBUST STEERING CONTROL
+============================================================
+Train/Eval split: 60% train, 40% eval
+Epsilon range: [-5, 0, 5]
+Testing layers: [24, 25, 26, 27]
+Direction estimators: mean-diff, probe, PC1 + controls
+
+Train set: 6 POS + 6 NEG
+Eval set: 4 POS + 4 NEG
+Test set: 10 questions
+
+============================================================
+COMPUTING STEERING DIRECTIONS
+============================================================
+  Computing directions for layer 24...
+    Computed 5 direction types
+  Layer 24, mean_diff: norm=1.0000
+  Layer 24, probe: norm=1.0000
+  Layer 24, pc1: norm=1.0000
+  Layer 24, random: norm=1.0000
+  Layer 24, shuffled: norm=1.0000
+  Computing directions for layer 25...
+    Computed 5 direction types
+  Layer 25, mean_diff: norm=1.0000
+  Layer 25, probe: norm=1.0000
+  Layer 25, pc1: norm=1.0000
+  Layer 25, random: norm=1.0000
+  Layer 25, shuffled: norm=0.9995
+  Computing directions for layer 26...
+    Computed 5 direction types
+  Layer 26, mean_diff: norm=1.0000
+  Layer 26, probe: norm=1.0000
+  Layer 26, pc1: norm=1.0000
+  Layer 26, random: norm=1.0000
+  Layer 26, shuffled: norm=1.0000
+  Computing directions for layer 27...
+    Computed 5 direction types
+  Layer 27, mean_diff: norm=0.9995
+  Layer 27, probe: norm=1.0000
+  Layer 27, pc1: norm=1.0000
+  Layer 27, random: norm=1.0000
+  Layer 27, shuffled: norm=1.0000
+
+Computing early-layer control (layer 7)...
+  Computing directions for layer 7...
+    Computed 5 direction types
+  Early layer control: norm=1.0000
+
+============================================================
+TESTING STEERING EFFECTS
+============================================================
+
+Testing early-layer control...
+
+
+Results saved to results/exp3_robust_results.csv
+Steering vectors saved
+
+============================================================
+EXPERIMENT 3: ROBUST ANALYSIS
+============================================================
+
+1. FLIP RATES BY DIRECTION TYPE
+----------------------------------------
+  mean_diff      : 55.0% at |ε|=5
+  probe          : 55.0% at |ε|=5
+  pc1            : 42.5% at |ε|=5
+  random         : 50.0% at |ε|=5
+  shuffled       : 45.0% at |ε|=5
+  early_layer    : 80.0% at |ε|=5
+
+2. MAIN ESTIMATORS VS CONTROLS
+----------------------------------------
+
+Main estimators (mean): 50.8%
+Controls (mean):        58.3%
+⚠️ Controls comparable to main estimators
+
+3. BEST LAYER
+----------------------------------------
+Best configuration: layer=24, pc1, ε=-5
+Flip rate: 70.0%
+
+Comprehensive figure saved to results/exp3_robust_analysis.png
+
+============================================================
+SUMMARY TABLE: Direction Estimators vs Controls
+============================================================
+
+ Empty DataFrame
+Columns: []
+Index: []
+
+
+Summary table saved to results/exp3_summary_table.csv
+
+✓ Experiment 3 (Robust) complete!
+
+📊 Output files:
+  Results:              results/exp3_robust_results.csv
+  Summary:              results/exp3_robust_summary.json
+  Steering vectors:     results/steering_vectors_robust.pt
+
+📈 Figures:
+  Comprehensive:        results/exp3_robust_analysis.png
+  Summary table:        results/exp3_summary_table.csv
+==================================================
+Experiment 3 completed at: Fri Jan 30 00:26:15 EST 2026
+Check results in ./results/

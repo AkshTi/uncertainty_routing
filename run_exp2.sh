@@ -28,8 +28,10 @@ echo "Running Experiment 2: Gate Localization"
 echo "=================================================="
 
 # Run experiment
-python experiment2_localization.py \
-    --n_pairs 10
+#python experiment2_localization.py \
+ #   --n_pairs 10
+python rerun_position_sweep.py
+python regenerate_exp2_summary.py
 
 echo "=================================================="
 echo "Experiment 2 completed at: $(date)"
