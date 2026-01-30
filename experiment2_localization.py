@@ -214,29 +214,28 @@ class Experiment2:
         # Get baseline
         baseline_margin = self.get_baseline_margin(neg_prompt)
 
-        # Tokenize both prompts to get positions
+        # Tokenize both prompts to get their lengths
         pos_tokens = self.model.tokenizer(pos_prompt, return_tensors="pt")
         neg_tokens = self.model.tokenizer(neg_prompt, return_tensors="pt")
         pos_seq_len = pos_tokens['input_ids'].shape[1]
         neg_seq_len = neg_tokens['input_ids'].shape[1]
 
-        # Use the minimum sequence length to ensure positions are valid for both
-        min_seq_len = min(pos_seq_len, neg_seq_len)
-
-        positions = {
-            "last": min_seq_len - 1,
-            "second_last": max(0, min_seq_len - 2),
-            "first": 0
+        # Define RELATIVE positions for each prompt
+        # "last" means last token of EACH prompt (even if different absolute positions)
+        position_pairs = {
+            "last": (pos_seq_len - 1, neg_seq_len - 1),
+            "second_last": (max(0, pos_seq_len - 2), max(0, neg_seq_len - 2)),
+            "first": (0, 0)
         }
 
         results = {"baseline_margin": float(baseline_margin), "layer": layer_idx}
 
-        for pos_name, pos_idx in positions.items():
-            # Cache activation from pos_prompt at this position
+        for pos_name, (pos_idx, neg_idx) in position_pairs.items():
+            # Cache activation from pos_prompt at its position
             pos_activation = self.cache_activation_at_position(pos_prompt, layer_idx, pos_idx)
 
-            # Patch into neg_prompt at same position
-            patched_margin = self.patch_and_measure(neg_prompt, pos_activation, layer_idx, position=pos_idx)
+            # Patch into neg_prompt at its corresponding position
+            patched_margin = self.patch_and_measure(neg_prompt, pos_activation, layer_idx, position=neg_idx)
 
             delta = patched_margin - baseline_margin
             flipped = (baseline_margin < 0 and patched_margin > 0)
