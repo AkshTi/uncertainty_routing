@@ -30,9 +30,124 @@ from collections import defaultdict
 
 from core_utils import (
     ModelWrapper, ExperimentConfig, extract_answer,
-    set_seed, compute_binary_margin_simple
+    set_seed, compute_binary_margin_simple, _get_blocks
 )
 from data_preparation import format_prompt
+
+
+def abstain_or_answer_prompt(question: str, context: str | None = None) -> str:
+    """
+    Strict prompt format for Exp6 that forces ABSTAIN: or ANSWER: prefix.
+
+    Args:
+        question: Question text
+        context: Optional context
+
+    Returns:
+        Formatted prompt
+    """
+    ctx_part = f"\nContext: {context}\n" if context else ""
+
+    return (
+        "You must respond in one of two formats:\n"
+        "- If you can answer: ANSWER: [your answer]\n"
+        "- If you cannot answer: ABSTAIN: [reason]\n\n"
+        f"{ctx_part}"
+        f"Question: {question}\n"
+    )
+
+
+def parse_abstention_strict(response: str) -> Tuple[bool, bool]:
+    """
+    Strict parsing: response must start with ABSTAIN: or ANSWER: (with colon)
+
+    Args:
+        response: Model response
+
+    Returns:
+        (abstained, valid) tuple
+        - abstained: True if ABSTAIN:, False if ANSWER:
+        - valid: True if response starts with valid prefix including colon
+    """
+    response_stripped = response.strip().upper()
+
+    # Enforce colon - must be "ABSTAIN:" or "ANSWER:"
+    if response_stripped.startswith("ABSTAIN:"):
+        return (True, True)
+    elif response_stripped.startswith("ANSWER:"):
+        return (False, True)
+    else:
+        # Invalid format - doesn't have proper prefix with colon
+        return (False, False)
+
+
+def normalize_answer(answer: str) -> str:
+    """
+    Normalize answer for comparison by removing punctuation and extra whitespace.
+
+    Args:
+        answer: Raw answer string
+
+    Returns:
+        Normalized answer
+    """
+    import string
+
+    # Convert to lowercase
+    answer = answer.lower().strip()
+
+    # Remove punctuation
+    answer = answer.translate(str.maketrans('', '', string.punctuation))
+
+    # Normalize whitespace
+    answer = ' '.join(answer.split())
+
+    return answer
+
+
+def check_answer_correctness(model_answer: str, expected_answer: str) -> bool:
+    """
+    Check if model answer matches expected answer with normalization and aliases.
+
+    Args:
+        model_answer: Answer from model
+        expected_answer: Ground truth answer
+
+    Returns:
+        True if answers match
+    """
+    # Normalize both
+    model_norm = normalize_answer(model_answer)
+    expected_norm = normalize_answer(expected_answer)
+
+    # Direct match
+    if model_norm == expected_norm:
+        return True
+
+    # Substring match (relaxed)
+    if expected_norm in model_norm or model_norm in expected_norm:
+        return True
+
+    # Common aliases
+    aliases = {
+        'au': 'gold',
+        'gold': 'au',
+        'h2o': 'water',
+        'water': 'h2o',
+        'usa': 'united states',
+        'united states': 'usa',
+        'us': 'united states',
+        'uk': 'united kingdom',
+        'united kingdom': 'uk'
+    }
+
+    # Check if either is an alias of the other
+    if model_norm in aliases and aliases[model_norm] == expected_norm:
+        return True
+    if expected_norm in aliases and aliases[expected_norm] == model_norm:
+        return True
+
+    return False
 
 
 def wilson_confidence_interval(successes: int, trials: int, confidence: float = 0.95) -> Tuple[float, float]:
@@ -159,15 +274,16 @@ def load_cross_domain_dataset(n_per_domain: int = 200) -> Dict[str, List[Dict]]:
         {"question": "What was Beethoven's favorite breakfast food?", "domain": "history", "answerability": "unanswerable"},
     ]
 
-    # GEOGRAPHY - Answerable
+    # GEOGRAPHY - Answerable (FIXED - stable facts only)
     geography_answerable = [
         {"question": "What is the capital of Japan?", "answer": "Tokyo", "domain": "geography", "answerability": "answerable"},
         {"question": "What is the largest ocean on Earth?", "answer": "Pacific Ocean", "domain": "geography", "answerability": "answerable"},
-        {"question": "What is the longest river in the world?", "answer": "Nile River", "domain": "geography", "answerability": "answerable"},
         {"question": "How many continents are there?", "answer": "7", "domain": "geography", "answerability": "answerable"},
         {"question": "What is the tallest mountain in the world?", "answer": "Mount Everest", "domain": "geography", "answerability": "answerable"},
         {"question": "What is the capital of France?", "answer": "Paris", "domain": "geography", "answerability": "answerable"},
-        {"question": "Which country has the largest population?", "answer": "China or India", "domain": "geography", "answerability": "answerable"},
+        {"question": "What is the capital of Germany?", "answer": "Berlin", "domain": "geography", "answerability": "answerable"},
+        {"question": "On which continent is Egypt located?", "answer": "Africa", "domain": "geography", "answerability": "answerable"},
+        {"question": "What is the capital of Italy?", "answer": "Rome", "domain": "geography", "answerability": "answerable"},
     ]
 
     # GEOGRAPHY - Unanswerable (IMPROVED - truly unanswerable, not guessable)
@@ -250,20 +366,20 @@ def load_cross_domain_dataset(n_per_domain: int = 200) -> Dict[str, List[Dict]]:
         answerable_pool = domain_questions[domain]["answerable"]
         unanswerable_pool = domain_questions[domain]["unanswerable"]
 
-        # Sample (with replacement if needed)
-        if len(answerable_pool) < n_per_domain:
-            sampled_ans = random.choices(answerable_pool, k=n_per_domain)
-            print(f"\n{domain.upper()}: Sampled {n_per_domain} answerable (with replacement from {len(answerable_pool)})")
-        else:
-            sampled_ans = random.sample(answerable_pool, n_per_domain)
-            print(f"\n{domain.upper()}: Sampled {n_per_domain} answerable from {len(answerable_pool)}")
+        # Cap at available pool size to avoid duplicates
+        n_ans = min(n_per_domain, len(answerable_pool))
+        n_unans = min(n_per_domain, len(unanswerable_pool))
 
-        if len(unanswerable_pool) < n_per_domain:
-            sampled_unans = random.choices(unanswerable_pool, k=n_per_domain)
-            print(f"{domain.upper()}: Sampled {n_per_domain} unanswerable (with replacement from {len(unanswerable_pool)})")
-        else:
-            sampled_unans = random.sample(unanswerable_pool, n_per_domain)
-            print(f"{domain.upper()}: Sampled {n_per_domain} unanswerable from {len(unanswerable_pool)}")
+        if n_ans < n_per_domain:
+            print(f"\n⚠️  {domain.upper()}: Only {n_ans} unique answerable questions available (requested {n_per_domain})")
+        sampled_ans = random.sample(answerable_pool, n_ans)
+
+        if n_unans < n_per_domain:
+            print(f"⚠️  {domain.upper()}: Only {n_unans} unique unanswerable questions available (requested {n_per_domain})")
+        sampled_unans = random.sample(unanswerable_pool, n_unans)
+
+        if n_ans >= n_per_domain and n_unans >= n_per_domain:
+            print(f"\n{domain.upper()}: Sampled {n_ans} answerable + {n_unans} unanswerable")
 
         sampled_dataset[domain] = {
             "answerable": sampled_ans,
@@ -285,9 +401,9 @@ class Experiment6:
         set_seed(config.seed)
         self.n_layers = self.model.model.config.num_hidden_layers
 
-    def test_with_steering(self, question: str, context: str, true_answerability: str,
+    def test_with_steering(self, question: str, context: str | None, true_answerability: str,
                            steering_direction: torch.Tensor, layer_idx: int,
-                           epsilon: float) -> Dict:
+                           epsilon: float, expected_answer: str | None = None) -> Dict:
         """
         Test a single question with activation steering
 
@@ -298,29 +414,41 @@ class Experiment6:
             steering_direction: Steering vector
             layer_idx: Layer to apply steering
             epsilon: Steering magnitude
+            expected_answer: Expected answer for answerable questions (for correctness check)
 
         Returns:
             Result dictionary
         """
-        prompt = format_prompt(question, "neutral", context)
+        prompt = abstain_or_answer_prompt(question, context)
 
         self.model.clear_hooks()
 
-        # Register steering hook
+        # Register steering hook with proper cloning
         direction_norm = steering_direction / (torch.norm(steering_direction) + 1e-8)
 
+        # Use flag to ensure single-token steering
+        steered = [False]
+
         def steering_hook(module, input, output):
+            if steered[0]:
+                return output
+
             if isinstance(output, tuple):
-                hs = output[0]
+                hs = output[0].clone()
+                rest = output[1:]
             else:
-                hs = output
+                hs = output.clone()
+                rest = None
+
             # Add steering vector to last token
             hs[:, -1, :] = hs[:, -1, :] + epsilon * direction_norm.to(hs.device).to(hs.dtype)
-            if isinstance(output, tuple):
-                return (hs,) + output[1:]
+            steered[0] = True
+
+            if rest is not None:
+                return (hs,) + rest
             return hs
 
-        layer = self.model.model.layers[layer_idx]
+        layer = _get_blocks(self.model.model)[layer_idx]
         handle = layer.register_forward_hook(steering_hook)
 
         response = self.model.generate(prompt, temperature=0.0, do_sample=False)
@@ -328,27 +456,30 @@ class Experiment6:
         handle.remove()
         self.model.clear_hooks()
 
-        # Extract answer and determine behavior
-        answer = extract_answer(response)
-        abstained = ("cannot" in answer.lower() or "don't know" in answer.lower() or
-                    "unsure" in answer.lower() or "no information" in answer.lower() or
-                    "unable" in answer.lower())
+        # Parse response with strict format checking
+        abstained, valid = parse_abstention_strict(response)
 
-        # Determine correctness for answerable questions
-        # (simplified - just check if model didn't abstain)
-        if true_answerability == "answerable":
-            correct = not abstained
+        # Extract answer from response
+        if abstained:
+            answer = response.split("ABSTAIN:", 1)[-1].strip() if "ABSTAIN:" in response else ""
         else:
-            correct = abstained
+            answer = response.split("ANSWER:", 1)[-1].strip() if "ANSWER:" in response else extract_answer(response)
+
+        # Compute correctness only for answerable questions with expected answers
+        correct = None
+        if true_answerability == "answerable" and expected_answer and valid and not abstained:
+            correct = check_answer_correctness(answer, expected_answer)
 
         return {
             "question": question,
             "true_answerability": true_answerability,
             "abstained": abstained,
             "answered": not abstained,
+            "valid": valid,
             "correct": correct,
             "answer": answer,
-            "response": response
+            "response": response,
+            "expected_answer": expected_answer
         }
 
     def run_cross_domain(self, dataset: Dict[str, Dict[str, List[Dict]]],
@@ -381,10 +512,11 @@ class Experiment6:
             for q_data in tqdm(dataset[domain]["answerable"], desc=f"{domain} answerable", leave=False):
                 question = q_data["question"]
                 context = q_data.get("context", None)
+                expected_answer = q_data.get("answer", None)
 
                 result = self.test_with_steering(
                     question, context, "answerable",
-                    steering_direction, layer_idx, epsilon
+                    steering_direction, layer_idx, epsilon, expected_answer
                 )
 
                 result["domain"] = domain
@@ -397,7 +529,7 @@ class Experiment6:
 
                 result = self.test_with_steering(
                     question, context, "unanswerable",
-                    steering_direction, layer_idx, epsilon
+                    steering_direction, layer_idx, epsilon, expected_answer=None
                 )
 
                 result["domain"] = domain
@@ -462,24 +594,26 @@ class Experiment6:
         for q_data, answerability, domain in tqdm(test_questions, desc="Determinism test"):
             question = q_data["question"]
             context = q_data.get("context", None)
+            expected_answer = q_data.get("answer", None)
 
-            responses = []
+            results = []
             for _ in range(n_repeats):
                 result = self.test_with_steering(
                     question, context, answerability,
-                    steering_direction, layer_idx, epsilon
+                    steering_direction, layer_idx, epsilon, expected_answer
                 )
-                responses.append(result["response"])
+                results.append(result)
 
-            # Check if all responses are identical
-            all_same = all(r == responses[0] for r in responses)
+            # Compare parsed decisions (valid, abstained, normalized answer), not raw text
+            decisions = [(r["valid"], r["abstained"], normalize_answer(r["answer"])[:50]) for r in results]
+            all_same = all(d == decisions[0] for d in decisions)
 
             consistency_results.append({
                 "question": question,
                 "domain": domain,
                 "answerability": answerability,
                 "consistent": all_same,
-                "unique_responses": len(set(responses))
+                "unique_decisions": len(set(decisions))
             })
 
         # Compute statistics
@@ -489,10 +623,10 @@ class Experiment6:
         print(f"\nDeterminism rate: {consistency_rate:.1%} ({n_consistent}/{len(consistency_results)})")
 
         if consistency_rate < 1.0:
-            print("\nWARNING: Some questions produced inconsistent outputs!")
+            print("\nWARNING: Some questions produced inconsistent decisions!")
             inconsistent = [r for r in consistency_results if not r["consistent"]]
             for r in inconsistent[:5]:
-                print(f"  - {r['question'][:60]}... ({r['unique_responses']} unique responses)")
+                print(f"  - {r['question'][:60]}... ({r['unique_decisions']} unique decisions)")
 
         return {
             "consistency_rate": consistency_rate,
@@ -516,11 +650,27 @@ class Experiment6:
         print("EXPERIMENT 6: CROSS-DOMAIN ROBUSTNESS ANALYSIS")
         print("="*60)
 
+        # Report invalid format rate
+        n_total = len(df)
+        n_invalid = (~df['valid']).sum()
+        invalid_rate = n_invalid / n_total if n_total > 0 else 0.0
+
+        print(f"\nFormat Validation:")
+        print(f"  Valid responses: {n_total - n_invalid}/{n_total} ({100*(1-invalid_rate):.1f}%)")
+        print(f"  Invalid format: {n_invalid}/{n_total} ({100*invalid_rate:.1f}%)")
+
+        if invalid_rate > 0.05:
+            print(f"\n⚠️  WARNING: {100*invalid_rate:.1f}% invalid responses - prompt may need adjustment")
+
+        # Filter to valid responses only for analysis
+        df_valid = df[df['valid']].copy()
+        print(f"\nAnalyzing {len(df_valid)} valid responses (excluding {n_invalid} invalid)\n")
+
         # Compute metrics per domain
         domain_metrics = []
 
-        for domain in df['domain'].unique():
-            domain_df = df[df['domain'] == domain]
+        for domain in df_valid['domain'].unique():
+            domain_df = df_valid[df_valid['domain'] == domain]
 
             # Split by answerability
             answerable_df = domain_df[domain_df['true_answerability'] == 'answerable']
@@ -528,9 +678,16 @@ class Experiment6:
 
             # Metrics for answerable questions
             n_answerable = len(answerable_df)
-            n_answered_correct = answerable_df['answered'].sum()  # Coverage
-            coverage = n_answered_correct / n_answerable if n_answerable > 0 else 0.0
-            coverage_ci = wilson_confidence_interval(int(n_answered_correct), n_answerable)
+            n_answered = answerable_df['answered'].sum()  # Coverage (how many answered)
+            coverage = n_answered / n_answerable if n_answerable > 0 else 0.0
+            coverage_ci = wilson_confidence_interval(int(n_answered), n_answerable)
+
+            # Correctness on answerable questions (only where we can check)
+            checkable = answerable_df[answerable_df['correct'].notna()]
+            n_checkable = len(checkable)
+            n_correct_ans = checkable['correct'].sum() if n_checkable > 0 else 0
+            correctness_rate = n_correct_ans / n_checkable if n_checkable > 0 else None
+            correctness_ci = wilson_confidence_interval(int(n_correct_ans), n_checkable) if n_checkable > 0 else (None, None)
 
             # Metrics for unanswerable questions
             n_unanswerable = len(unanswerable_df)
@@ -543,25 +700,38 @@ class Experiment6:
             hallucination_rate = n_hallucinated / n_unanswerable if n_unanswerable > 0 else 0.0
             hallucination_ci = wilson_confidence_interval(int(n_hallucinated), n_unanswerable)
 
-            # Overall accuracy (both answerable and unanswerable)
-            n_total = len(domain_df)
-            n_correct = domain_df['correct'].sum()
-            accuracy = n_correct / n_total if n_total > 0 else 0.0
-            accuracy_ci = wilson_confidence_interval(int(n_correct), n_total)
+            # Overall correctness = (answerables correct) + (unanswerables abstained)
+            # This gives a single "accuracy" metric across both question types
+            n_total_domain = len(domain_df)
+            n_correct_overall = 0
 
-            domain_metrics.append({
+            # Count correct answerables (where we have ground truth)
+            if correctness_rate is not None and n_checkable > 0:
+                n_correct_overall += n_correct_ans
+
+            # Count correct unanswerables (abstained)
+            n_correct_overall += n_abstained
+
+            overall_correctness = n_correct_overall / n_total_domain if n_total_domain > 0 else 0.0
+            overall_ci = wilson_confidence_interval(int(n_correct_overall), n_total_domain)
+
+            metrics_dict = {
                 'Domain': domain.capitalize(),
                 'Coverage': f"{coverage:.1%}",
                 'Coverage CI': f"[{coverage_ci[0]:.3f}, {coverage_ci[1]:.3f}]",
-                'Abstention Rate': f"{abstention_rate:.1%}",
-                'Abstention CI': f"[{abstention_ci[0]:.3f}, {abstention_ci[1]:.3f}]",
                 'Hallucination Rate': f"{hallucination_rate:.1%}",
                 'Hallucination CI': f"[{hallucination_ci[0]:.3f}, {hallucination_ci[1]:.3f}]",
-                'Accuracy': f"{accuracy:.1%}",
-                'Accuracy CI': f"[{accuracy_ci[0]:.3f}, {accuracy_ci[1]:.3f}]",
+                'Overall Correctness': f"{overall_correctness:.1%}",
+                'Overall CI': f"[{overall_ci[0]:.3f}, {overall_ci[1]:.3f}]",
                 'N (Answerable)': n_answerable,
                 'N (Unanswerable)': n_unanswerable
-            })
+            }
+
+            # Add per-type correctness breakdown in a note
+            if correctness_rate is not None:
+                metrics_dict['Note'] = f"Ans:{correctness_rate:.0%} ({n_correct_ans}/{n_checkable}), Unans:{abstention_rate:.0%}"
+
+            domain_metrics.append(metrics_dict)
 
         # Create summary table
         table_df = pd.DataFrame(domain_metrics)
