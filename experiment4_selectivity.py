@@ -721,6 +721,10 @@ class Experiment4Enhanced:
         # 4. Create coefficient table
         self.create_coefficient_table(model)
 
+        # 4b. Evaluate selectivity by ground truth category
+        epsilon_values = sorted(df[df['epsilon'] != 0]['epsilon'].unique())
+        self.evaluate_category_selectivity(df, epsilon_values)
+
         # 5. Quantify effect size across entropy levels
         print("\n" + "="*60)
         print("3. EFFECT SIZE ACROSS ENTROPY LEVELS")
@@ -810,12 +814,25 @@ class Experiment4Enhanced:
         df_nonzero = df[df['epsilon'] != 0].copy()
 
         # Bin entropy into quintiles
-        df_nonzero['entropy_bin'] = pd.qcut(
-            df_nonzero['internal_entropy'],
-            q=5,
-            labels=['Q1\n(Low)', 'Q2', 'Q3', 'Q4', 'Q5\n(High)'],
-            duplicates='drop'
-        )
+        # Don't use fixed labels since duplicates='drop' may create fewer bins
+        try:
+            df_nonzero['entropy_bin'] = pd.qcut(
+                df_nonzero['internal_entropy'],
+                q=5,
+                labels=False,  # Use numeric labels
+                duplicates='drop'
+            )
+            # Convert to readable labels manually
+            n_bins = df_nonzero['entropy_bin'].nunique()
+            bin_labels = {i: f'Bin {i+1}' for i in range(n_bins)}
+            df_nonzero['entropy_bin'] = df_nonzero['entropy_bin'].map(bin_labels)
+        except ValueError:
+            # If qcut fails, use simple quartiles
+            df_nonzero['entropy_bin'] = pd.cut(
+                df_nonzero['internal_entropy'],
+                bins=4,
+                labels=['Low', 'Med-Low', 'Med-High', 'High']
+            )
 
         # For each epsilon, compute flip rate by bin
         for eps in epsilon_values:
@@ -875,6 +892,122 @@ class Experiment4Enhanced:
         output_path = self.config.results_dir / "exp4_coefficient_table.csv"
         coef_df.to_csv(output_path, index=False)
         print(f"\n\nCoefficient table saved to {output_path}")
+
+    def evaluate_category_selectivity(self, df: pd.DataFrame, epsilon_values: List[float]):
+        """
+        Evaluate selectivity by ground truth category
+
+        Goal: Steering should increase abstention on Unanswerable + Ambiguous
+              while preserving coverage on Answerable
+        """
+        print("\n" + "="*60)
+        print("SELECTIVITY BY GROUND TRUTH CATEGORY")
+        print("="*60)
+
+        # Check if we have category labels
+        if 'ground_truth_category' not in df.columns:
+            print("\n⚠️  No ground_truth_category column found")
+            print("   Cannot evaluate category-based selectivity")
+            print("   Skipping this analysis...")
+            return
+
+        categories = df['ground_truth_category'].unique()
+        print(f"\nCategories found: {list(categories)}")
+
+        # For each epsilon, compute abstention rate by category
+        results = []
+
+        for eps in [0] + list(epsilon_values):
+            eps_df = df[df['epsilon'] == eps]
+
+            row = {'epsilon': eps}
+
+            for cat in categories:
+                cat_df = eps_df[eps_df['ground_truth_category'] == cat]
+                if len(cat_df) > 0:
+                    abstention_rate = cat_df['abstained_steered'].mean()
+                    row[f'{cat}_abstention'] = abstention_rate
+                    row[f'{cat}_n'] = len(cat_df)
+
+            results.append(row)
+
+        # Print results
+        print("\n" + "-"*60)
+        print("ABSTENTION RATES BY CATEGORY AND EPSILON")
+        print("-"*60)
+
+        for row in results:
+            eps = row['epsilon']
+            print(f"\nε = {eps:5.0f}:")
+            for cat in categories:
+                if f'{cat}_abstention' in row:
+                    rate = row[f'{cat}_abstention']
+                    n = row[f'{cat}_n']
+                    print(f"  {cat:15s}: {rate:5.1%} ({n:3d} questions)")
+
+        # Compute steering effect (change from baseline)
+        baseline = results[0]  # epsilon=0
+
+        print("\n" + "-"*60)
+        print("STEERING EFFECT (CHANGE FROM BASELINE)")
+        print("-"*60)
+
+        for row in results[1:]:  # Skip baseline
+            eps = row['epsilon']
+            print(f"\nε = {eps:5.0f}:")
+
+            for cat in categories:
+                if f'{cat}_abstention' in row and f'{cat}_abstention' in baseline:
+                    baseline_rate = baseline[f'{cat}_abstention']
+                    steered_rate = row[f'{cat}_abstention']
+                    change = steered_rate - baseline_rate
+                    direction = "↑" if change > 0 else "↓" if change < 0 else "→"
+                    print(f"  {cat:15s}: {direction} {abs(change):5.1%} change")
+
+        # Evaluate selectivity goal
+        print("\n" + "="*60)
+        print("SELECTIVITY EVALUATION")
+        print("="*60)
+
+        # Find epsilon with strongest effect
+        best_eps = None
+        best_selectivity_score = -999
+
+        for row in results[1:]:
+            eps = row['epsilon']
+
+            # Compute selectivity score:
+            # - Want HIGH abstention increase on unanswerable/ambiguous
+            # - Want LOW abstention increase (or decrease) on answerable
+
+            score_components = {}
+
+            if 'answerable_abstention' in row:
+                ans_change = row['answerable_abstention'] - baseline.get('answerable_abstention', 0)
+                score_components['answerable'] = -ans_change  # Negative change is good
+
+            if 'unanswerable_abstention' in row:
+                unans_change = row['unanswerable_abstention'] - baseline.get('unanswerable_abstention', 0)
+                score_components['unanswerable'] = unans_change  # Positive change is good
+
+            if 'ambiguous_abstention' in row:
+                amb_change = row['ambiguous_abstention'] - baseline.get('ambiguous_abstention', 0)
+                score_components['ambiguous'] = amb_change  # Positive change is good
+
+            # Overall score: preserve answerable coverage + increase unanswerable/ambiguous abstention
+            score = sum(score_components.values())
+
+            if score > best_selectivity_score:
+                best_selectivity_score = score
+                best_eps = eps
+
+        if best_eps is not None:
+            print(f"\n✓ Best selective epsilon: {best_eps}")
+            print(f"  Selectivity score: {best_selectivity_score:.3f}")
+            print(f"\n  Interpretation:")
+            print(f"  - Negative ε tends to increase abstention")
+            print(f"  - Positive ε tends to decrease abstention")
+            print(f"  - Best ε balances coverage (answerable) vs safety (unanswerable/ambiguous)")
 
 
 # ============================================================================
@@ -953,18 +1086,46 @@ def main(n_questions: int = 300, quick_test: bool = False):
     print(f"✓ Loaded steering vector for layer {best_layer}")
     print(f"  Shape: {steering_vec.shape}, Norm: {steering_vec.norm():.4f}")
 
-    # Load questions
+    # Load questions from THREE categories for proper selectivity evaluation
     print("\nLoading questions...")
+
+    # Try to load all three categories
     try:
-        with open("./data/dataset_ambiguous.json", 'r') as f:
-            questions = json.load(f)
-    except FileNotFoundError:
-        # Fallback: mix answerable and unanswerable
-        with open("./data/dataset_clearly_answerable_expanded.json", 'r') as f:
+        print("Loading three-category question set...")
+        with open("./data/dataset_clearly_answerable.json", 'r') as f:
             answerable = json.load(f)
-        with open("./data/dataset_clearly_unanswerable_expanded.json", 'r') as f:
+        with open("./data/dataset_clearly_unanswerable.json", 'r') as f:
             unanswerable = json.load(f)
-        questions = answerable + unanswerable
+
+        # Add category labels
+        for q in answerable:
+            q['ground_truth_category'] = 'answerable'
+        for q in unanswerable:
+            q['ground_truth_category'] = 'unanswerable'
+
+        # Try to load ambiguous questions (subjective/underspecified)
+        try:
+            with open("./data/dataset_ambiguous.json", 'r') as f:
+                ambiguous = json.load(f)
+            for q in ambiguous:
+                q['ground_truth_category'] = 'ambiguous'
+            print(f"  ✓ Loaded {len(answerable)} answerable")
+            print(f"  ✓ Loaded {len(unanswerable)} unanswerable")
+            print(f"  ✓ Loaded {len(ambiguous)} ambiguous")
+            questions = answerable + unanswerable + ambiguous
+        except FileNotFoundError:
+            print(f"  ✓ Loaded {len(answerable)} answerable")
+            print(f"  ✓ Loaded {len(unanswerable)} unanswerable")
+            print(f"  ⚠️  No ambiguous dataset found - using answerable + unanswerable only")
+            questions = answerable + unanswerable
+
+    except FileNotFoundError as e:
+        print(f"ERROR: Could not load question datasets: {e}")
+        print("Please ensure data files exist:")
+        print("  - ./data/dataset_clearly_answerable.json")
+        print("  - ./data/dataset_clearly_unanswerable.json")
+        print("  - ./data/dataset_ambiguous.json (optional)")
+        return None
 
     if quick_test:
         print("\n🔬 QUICK TEST MODE")
