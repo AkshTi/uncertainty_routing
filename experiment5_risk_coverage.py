@@ -45,15 +45,23 @@ class Experiment5:
         self.n_layers = self.model.model.config.num_hidden_layers
 
     @staticmethod
-    def parse_abstention(response: str) -> bool:
+    def parse_abstention(response: str) -> tuple:
         """
         Parse whether model abstained based on abstain_or_answer format
 
         Returns:
-            True if model abstained, False if it answered
+            (abstained: bool, valid: bool) - valid=False if format is invalid
         """
         response_stripped = response.strip().upper()
-        return response_stripped.startswith("ABSTAIN")
+
+        # Check for valid format
+        if response_stripped.startswith("ABSTAIN"):
+            return (True, True)
+        elif response_stripped.startswith("ANSWER"):
+            return (False, True)
+        else:
+            # Invalid format - doesn't start with ABSTAIN or ANSWER
+            return (False, False)
 
     # =========================================================================
     # Semantic Entropy Computation (for baseline and optional use)
@@ -117,39 +125,32 @@ class Experiment5:
                 # Use abstain_or_answer format
                 prompt = format_prompt(question, "abstain_or_answer", context)
 
-                # Compute decision token position (where "ABSTAIN" or "ANSWER" appears)
-                # This is the position after the prompt ends
-                tokenizer = self.model.tokenizer
-                prompt_tokens = tokenizer.encode(prompt, add_special_tokens=True)
-                decision_pos = len(prompt_tokens)  # Position of first generated token
-
                 self.model.clear_hooks()
 
-                # Register steering hook (using Exp4 logic)
+                # Register steering hook - steer ONCE at last prompt token only
                 direction_norm = steering_direction / (torch.norm(steering_direction) + 1e-8)
-
-                # Track whether we're in the initial forward pass
-                is_first_pass = [True]
+                steered = [False]  # Track if we've already steered
 
                 def steering_hook(module, input, output):
+                    if steered[0]:
+                        # Already steered, don't modify anything else
+                        return output
+
+                    # Extract hidden states and clone to avoid in-place mutation issues
                     if isinstance(output, tuple):
-                        hs = output[0]
+                        hs = output[0].clone()
+                        rest = output[1:]
                     else:
-                        hs = output
+                        hs = output.clone()
+                        rest = None
 
-                    seq_len = hs.shape[1]
+                    # Steer the last token of the prompt (once only)
+                    hs[:, -1, :] = hs[:, -1, :] + epsilon * direction_norm.to(hs.device).to(hs.dtype)
+                    steered[0] = True
 
-                    if is_first_pass[0] and seq_len >= decision_pos:
-                        # First pass: steer at decision_pos
-                        steer_idx = decision_pos - 1  # -1 because 0-indexed
-                        hs[:, steer_idx, :] = hs[:, steer_idx, :] + epsilon * direction_norm.to(hs.device).to(hs.dtype)
-                        is_first_pass[0] = False
-                    elif not is_first_pass[0]:
-                        # KV-cached passes: steer at position 0 (the new token)
-                        hs[:, 0, :] = hs[:, 0, :] + epsilon * direction_norm.to(hs.device).to(hs.dtype)
-
-                    if isinstance(output, tuple):
-                        return (hs,) + output[1:]
+                    # Return modified tensor explicitly
+                    if rest is not None:
+                        return (hs,) + rest
                     return hs
 
                 layer = self.model.model.layers[layer_idx]
@@ -161,7 +162,7 @@ class Experiment5:
                 self.model.clear_hooks()
 
                 # Parse abstention using consistent method
-                abstained = self.parse_abstention(response)
+                abstained, valid = self.parse_abstention(response)
 
                 # Extract answer
                 answer = extract_answer(response)
@@ -172,11 +173,24 @@ class Experiment5:
                     "question": question,
                     "true_answerability": true_answerability,
                     "abstained": abstained,
+                    "valid_format": valid,
                     "answer": answer,
                     "response": response
                 })
 
         df = pd.DataFrame(results)
+
+        # Report format validation stats
+        if 'valid_format' in df.columns:
+            n_valid = df['valid_format'].sum()
+            n_total = len(df)
+            n_invalid = n_total - n_valid
+            print(f"\nFormat validation:")
+            print(f"  Valid:   {n_valid}/{n_total} ({100*n_valid/n_total:.1f}%)")
+            if n_invalid > 0:
+                print(f"  Invalid: {n_invalid}/{n_total} ({100*n_invalid/n_total:.1f}%)")
+                print(f"  → These will be excluded from risk-coverage analysis")
+
         output_path = self.config.results_dir / "exp5_steering_sweep.csv"
         df.to_csv(output_path, index=False)
         print(f"\nSteering sweep results saved to {output_path}")
@@ -237,7 +251,7 @@ class Experiment5:
                 response = self.model.generate(prompt, temperature=0.0, do_sample=False)
 
                 # Parse abstention using consistent method
-                abstained = self.parse_abstention(response)
+                abstained, valid = self.parse_abstention(response)
 
                 # Extract answer
                 answer = extract_answer(response)
@@ -248,11 +262,24 @@ class Experiment5:
                     "question": question,
                     "true_answerability": true_answerability,
                     "abstained": abstained,
+                    "valid_format": valid,
                     "answer": answer,
                     "response": response
                 })
 
         df = pd.DataFrame(results)
+
+        # Report format validation stats
+        if 'valid_format' in df.columns:
+            n_valid = df['valid_format'].sum()
+            n_total = len(df)
+            n_invalid = n_total - n_valid
+            print(f"\nFormat validation:")
+            print(f"  Valid:   {n_valid}/{n_total} ({100*n_valid/n_total:.1f}%)")
+            if n_invalid > 0:
+                print(f"  Invalid: {n_invalid}/{n_total} ({100*n_invalid/n_total:.1f}%)")
+                print(f"  → These will be excluded from risk-coverage analysis")
+
         output_path = self.config.results_dir / "exp5_prompt_sweep.csv"
         df.to_csv(output_path, index=False)
         print(f"\nPrompt sweep results saved to {output_path}")
@@ -328,7 +355,7 @@ class Experiment5:
                 response = self.model.generate(prompt, temperature=0.0, do_sample=False)
 
                 # Parse abstention using consistent method
-                abstained = self.parse_abstention(response)
+                abstained, valid = self.parse_abstention(response)
 
                 # Extract answer
                 answer = extract_answer(response)
@@ -339,12 +366,25 @@ class Experiment5:
                     "question": question,
                     "true_answerability": true_answerability,
                     "abstained": abstained,
+                    "valid_format": valid,
                     "answer": answer,
                     "response": response,
                     "entropy": float(entropy)
                 })
 
         df = pd.DataFrame(results)
+
+        # Report format validation stats
+        if 'valid_format' in df.columns:
+            n_valid = df['valid_format'].sum()
+            n_total = len(df)
+            n_invalid = n_total - n_valid
+            print(f"\nFormat validation:")
+            print(f"  Valid:   {n_valid}/{n_total} ({100*n_valid/n_total:.1f}%)")
+            if n_invalid > 0:
+                print(f"  Invalid: {n_invalid}/{n_total} ({100*n_invalid/n_total:.1f}%)")
+                print(f"  → These will be excluded from risk-coverage analysis")
+
         output_path = self.config.results_dir / "exp5_entropy_threshold_sweep.csv"
         df.to_csv(output_path, index=False)
         print(f"\nEntropy threshold sweep results saved to {output_path}")
@@ -390,7 +430,7 @@ class Experiment5:
                 response = self.model.generate(prompt, temperature=temp, do_sample=(temp > 0.0))
 
                 # Parse abstention using consistent method
-                abstained = self.parse_abstention(response)
+                abstained, valid = self.parse_abstention(response)
 
                 # Extract answer
                 answer = extract_answer(response)
@@ -401,11 +441,24 @@ class Experiment5:
                     "question": question,
                     "true_answerability": true_answerability,
                     "abstained": abstained,
+                    "valid_format": valid,
                     "answer": answer,
                     "response": response
                 })
 
         df = pd.DataFrame(results)
+
+        # Report format validation stats
+        if 'valid_format' in df.columns:
+            n_valid = df['valid_format'].sum()
+            n_total = len(df)
+            n_invalid = n_total - n_valid
+            print(f"\nFormat validation:")
+            print(f"  Valid:   {n_valid}/{n_total} ({100*n_valid/n_total:.1f}%)")
+            if n_invalid > 0:
+                print(f"  Invalid: {n_invalid}/{n_total} ({100*n_invalid/n_total:.1f}%)")
+                print(f"  → These will be excluded from risk-coverage analysis")
+
         output_path = self.config.results_dir / "exp5_temperature_sweep.csv"
         df.to_csv(output_path, index=False)
         print(f"\nTemperature sweep results saved to {output_path}")
@@ -424,12 +477,21 @@ class Experiment5:
         Coverage = % of answerables that get answered
 
         Args:
-            df: Results dataframe with columns: parameter, true_answerability, abstained
+            df: Results dataframe with columns: parameter, true_answerability, abstained, valid_format
             method_name: Name of method for labeling
 
         Returns:
             DataFrame with columns: method, parameter, risk, coverage
         """
+        # Filter out invalid format responses
+        if 'valid_format' in df.columns:
+            n_total = len(df)
+            df = df[df['valid_format'] == True].copy()
+            n_valid = len(df)
+            n_invalid = n_total - n_valid
+            if n_invalid > 0:
+                print(f"  ⚠️  {method_name}: Dropped {n_invalid}/{n_total} ({100*n_invalid/n_total:.1f}%) invalid format responses")
+
         curve_points = []
 
         for param_value in df['parameter'].unique():
@@ -635,8 +697,8 @@ class Experiment5:
                    color=colors.get(method, 'gray'),
                    alpha=0.8)
 
-        # Add reference lines
-        ax.plot([0, 1], [0, 1], 'k--', alpha=0.3, linewidth=1, label='Random (no selection)')
+        # Add reference line (y=x)
+        ax.plot([0, 1], [0, 1], 'k--', alpha=0.3, linewidth=1, label='Reference (Risk = Coverage)')
 
         # Styling
         ax.set_xlabel('Risk (Hallucination Rate on Unanswerables)', fontsize=13, fontweight='bold')
