@@ -72,14 +72,23 @@ class Experiment3Robust:
         """Collect activations at decision position for all prompts"""
         activations = []
 
-        for prompt in prompts:
+        for i, prompt in enumerate(prompts):
             self.model.clear_hooks()
 
-            # Get prompt length for position
-            inputs = self.model.tokenizer(prompt, return_tensors="pt").to(self.model.config.device)
-            position = inputs["input_ids"].shape[1] - 1
+            # FIX: Use get_decision_token_position to get where model chooses ABSTAIN/ANSWER
+            position = get_decision_token_position(self.model.tokenizer, prompt)
 
-            # Cache activation
+            # SANITY CHECK: Log decision position for first prompt
+            if i == 0:
+                inputs = self.model.tokenizer(prompt, return_tensors="pt")
+                prompt_len = inputs["input_ids"].shape[1]
+                print(f"    [Sanity] Decision position: {position}/{prompt_len-1} (0-indexed)")
+                # Decode the token at decision position to verify
+                token_id = inputs["input_ids"][0, position].item()
+                token_text = self.model.tokenizer.decode([token_id])
+                print(f"    [Sanity] Token at decision pos: '{token_text}'")
+
+            # Cache activation at decision position
             self.model.register_cache_hook(layer_idx, position)
             _ = self.model.generate(prompt, temperature=0.0, do_sample=False, max_new_tokens=1)
 
@@ -90,10 +99,15 @@ class Experiment3Robust:
         return torch.stack(activations).squeeze(1)  # [N, D]
 
     def compute_mean_diff_direction(self, pos_acts: torch.Tensor, neg_acts: torch.Tensor) -> torch.Tensor:
-        """Method 1: Mean difference direction (current approach)"""
+        """
+        Method 1: Mean difference direction (current approach)
+
+        FIX: Standardized convention - direction points from NEG (unanswerable) to POS (answerable)
+        Positive epsilon pushes TOWARD answering, negative epsilon pushes TOWARD abstaining
+        """
         pos_mean = pos_acts.mean(dim=0)
         neg_mean = neg_acts.mean(dim=0)
-        direction = pos_mean - neg_mean
+        direction = pos_mean - neg_mean  # Points toward POS (answerable)
         direction = direction / (direction.norm() + 1e-8)
         return direction
 
@@ -186,11 +200,17 @@ class Experiment3Robust:
         """Apply steering and measure effect"""
         self.model.clear_hooks()
 
+        # FIX: Get decision position for this prompt
+        decision_pos = get_decision_token_position(self.model.tokenizer, prompt)
+
         # Baseline (ε=0)
         baseline_response = self.model.generate(
             prompt, temperature=0.0, do_sample=False, max_new_tokens=50
         )
         baseline_answer = extract_answer(baseline_response)
+
+        # FIX: Use ABSTAIN prefix detection, not "UNCERTAIN"
+        abstained_baseline = baseline_response.strip().upper().startswith("ABSTAIN")
 
         if epsilon == 0:
             return {
@@ -199,13 +219,14 @@ class Experiment3Robust:
                 "baseline_response": baseline_response[:100],
                 "steered_response": baseline_response[:100],
                 "flipped": False,
-                "abstained_baseline": "UNCERTAIN" in baseline_answer.upper(),
-                "abstained_steered": "UNCERTAIN" in baseline_answer.upper()
+                "abstained_baseline": abstained_baseline,
+                "abstained_steered": abstained_baseline
             }
 
         # Steered generation
         self.model.clear_hooks()
 
+        # FIX: Apply steering at decision position, not last token
         def steering_hook(module, input, output):
             if isinstance(output, tuple):
                 hidden_states = output[0]
@@ -219,8 +240,10 @@ class Experiment3Robust:
             if sv.ndim == 2 and sv.shape[0] == 1:
                 sv = sv[0]
 
-            # Apply to last token
-            hidden_states[:, -1, :] += epsilon * sv
+            # Apply at decision position (where model chooses ABSTAIN/ANSWER)
+            seq_len = hidden_states.shape[1]
+            if decision_pos < seq_len:
+                hidden_states[:, decision_pos, :] += epsilon * sv
 
             if rest is None:
                 return hidden_states
@@ -237,17 +260,24 @@ class Experiment3Robust:
 
         self.model.clear_hooks()
 
-        # Compute metrics
-        flipped = (baseline_answer != steered_answer)
+        # FIX: Use ABSTAIN prefix detection consistently
+        abstained_steered = steered_response.strip().upper().startswith("ABSTAIN")
+
+        # FIX: Flip = decision changed (abstain vs answer), not content changed
+        flipped = (abstained_baseline != abstained_steered)
+
+        # Keep separate metric for content change
+        answer_content_changed = (baseline_answer != steered_answer)
 
         return {
             "baseline_answer": baseline_answer,
             "steered_answer": steered_answer,
             "baseline_response": baseline_response[:100],
             "steered_response": steered_response[:100],
-            "flipped": flipped,
-            "abstained_baseline": "UNCERTAIN" in baseline_answer.upper(),
-            "abstained_steered": "UNCERTAIN" in steered_answer.upper()
+            "flipped": flipped,  # Decision flip (abstain vs answer)
+            "answer_changed": answer_content_changed,  # Content changed
+            "abstained_baseline": abstained_baseline,
+            "abstained_steered": abstained_steered
         }
 
     # ============================================================================
@@ -284,14 +314,22 @@ class Experiment3Robust:
         print(f"Testing layers: {test_layers}")
         print(f"Direction estimators: mean-diff, probe, PC1 + controls")
 
-        # Split into train/eval
-        n_train_pos = int(len(pos_examples) * train_split)
-        n_train_neg = int(len(neg_examples) * train_split)
+        # FIX: Shuffle before splitting to avoid domain/difficulty bias
+        import random
+        pos_examples_copy = pos_examples.copy()
+        neg_examples_copy = neg_examples.copy()
+        random.seed(self.config.seed)
+        random.shuffle(pos_examples_copy)
+        random.shuffle(neg_examples_copy)
 
-        train_pos = pos_examples[:n_train_pos]
-        eval_pos = pos_examples[n_train_pos:]
-        train_neg = neg_examples[:n_train_neg]
-        eval_neg = neg_examples[n_train_neg:]
+        # Split into train/eval
+        n_train_pos = int(len(pos_examples_copy) * train_split)
+        n_train_neg = int(len(neg_examples_copy) * train_split)
+
+        train_pos = pos_examples_copy[:n_train_pos]
+        eval_pos = pos_examples_copy[n_train_pos:]
+        train_neg = neg_examples_copy[:n_train_neg]
+        eval_neg = neg_examples_copy[n_train_neg:]
 
         print(f"\nTrain set: {len(train_pos)} POS + {len(train_neg)} NEG")
         print(f"Eval set: {len(eval_pos)} POS + {len(eval_neg)} NEG")
@@ -307,6 +345,9 @@ class Experiment3Robust:
         print("\n" + "="*60)
         print("COMPUTING STEERING DIRECTIONS")
         print("="*60)
+        print("CONVENTION: Direction points from NEG→POS (unanswerable→answerable)")
+        print("            Positive ε pushes TOWARD answering")
+        print("            Negative ε pushes TOWARD abstaining")
 
         for layer_idx in test_layers:
             directions = self.compute_all_directions(train_pos_prompts, train_neg_prompts, layer_idx)
@@ -315,13 +356,14 @@ class Experiment3Robust:
                 self.steering_vectors[(layer_idx, dir_type)] = direction
                 print(f"  Layer {layer_idx}, {dir_type}: norm={direction.norm():.4f}")
 
-        # Also compute early-layer direction as control
+        # FIX 3: Compute early-layer direction as control
+        # This tests if steering early layers (which shouldn't control abstention) works
         early_layer = int(self.n_layers * 0.25)
         print(f"\nComputing early-layer control (layer {early_layer})...")
         early_directions = self.compute_all_directions(train_pos_prompts, train_neg_prompts, early_layer)
         for dir_type, direction in early_directions.items():
             if dir_type == 'mean_diff':  # Only need one early control
-                self.steering_vectors[('early', dir_type)] = direction
+                self.steering_vectors[(early_layer, 'early_layer')] = direction
                 print(f"  Early layer control: norm={direction.norm():.4f}")
 
         # Test steering
@@ -331,6 +373,18 @@ class Experiment3Robust:
 
         test_prompts = [(ex, format_prompt(ex["question"], "neutral", ex.get("context")))
                         for ex in test_examples]
+
+        # SANITY CHECK: Test abstention detection on first example
+        print("\n[SANITY CHECK] Testing abstention detection on first example...")
+        first_prompt = test_prompts[0][1]
+        test_response = self.model.generate(first_prompt, temperature=0.0, do_sample=False, max_new_tokens=50)
+        print(f"  Response: {test_response[:100]}")
+        abstained = test_response.strip().upper().startswith("ABSTAIN")
+        print(f"  Detected as: {'ABSTAIN' if abstained else 'ANSWER'}")
+        if not (test_response.strip().upper().startswith("ABSTAIN") or
+                test_response.strip().upper().startswith("ANSWER")):
+            print("  ⚠️  WARNING: Response doesn't start with ABSTAIN or ANSWER!")
+            print("  ⚠️  Check if format_prompt is using correct forced prefix!")
 
         for layer_idx in tqdm(test_layers, desc="Layers"):
             for dir_type in ['mean_diff', 'probe', 'pc1', 'random', 'shuffled']:
@@ -357,19 +411,20 @@ class Experiment3Robust:
                             print(f"\nError: layer={layer_idx}, dir={dir_type}, ε={epsilon}: {e}")
                             continue
 
-        # Test early-layer control
-        if ('early', 'mean_diff') in self.steering_vectors:
+        # FIX 4: Test early-layer control at EARLY layer (not late layer)
+        # This properly tests if early layers control abstention (they shouldn't)
+        early_layer = int(self.n_layers * 0.25)
+        if (early_layer, 'early_layer') in self.steering_vectors:
             print("\nTesting early-layer control...")
-            early_vec = self.steering_vectors[('early', 'mean_diff')]
-            best_layer = test_layers[-1]  # Apply early direction at late layer
+            early_vec = self.steering_vectors[(early_layer, 'early_layer')]
 
             for epsilon in epsilon_range:
-                for ex, prompt in test_prompts[:10]:  # Subset for speed
+                for ex, prompt in test_prompts:  # Test on all, not just subset
                     try:
-                        result = self.apply_steering(prompt, best_layer, early_vec, epsilon)
+                        result = self.apply_steering(prompt, early_layer, early_vec, epsilon)
 
                         self.results.append({
-                            "layer": best_layer,
+                            "layer": early_layer,
                             "direction_type": "early_layer",
                             "epsilon": epsilon,
                             "question": ex["question"][:50],
@@ -719,11 +774,13 @@ def compute_mean_diff_direction(model_wrapper, answerable_questions: List[Dict],
         activations_unanswerable.append(activation)
         model_wrapper.clear_hooks()
 
-    # Compute mean difference direction
+    # FIX: Compute mean difference direction with standardized convention
+    # Direction points from NEG (unanswerable) to POS (answerable)
+    # Positive epsilon pushes TOWARD answering, negative epsilon pushes TOWARD abstaining
     answerable_mean = torch.stack(activations_answerable).squeeze(1).mean(dim=0)
     unanswerable_mean = torch.stack(activations_unanswerable).squeeze(1).mean(dim=0)
 
-    direction = unanswerable_mean - answerable_mean
+    direction = answerable_mean - unanswerable_mean  # Points toward answerable (POS)
     direction = direction / (direction.norm() + 1e-8)
 
     return direction
@@ -759,33 +816,50 @@ def main(quick_test: bool = False):
         with open("./data/dataset_clearly_unanswerable.json", 'r') as f:
             unanswerable = json.load(f)
 
-    try:
-        with open("./data/dataset_ambiguous.json", 'r') as f:
-            test_questions = json.load(f)
-    except FileNotFoundError:
-        # Fallback: use subset of answerable/unanswerable
-        test_questions = answerable[20:40] + unanswerable[20:40]
+    # FIX 1: Don't use ambiguous questions - use eval split of clear questions
+    # This ensures we're testing on questions with known ground truth
+    # test_questions will be set from eval split below
 
     if quick_test:
-        print("\n🔬 QUICK TEST MODE (Est. runtime: ~30 min)")
-        answerable = answerable[:10]
-        unanswerable = unanswerable[:10]
-        test_questions = test_questions[:10]
-        epsilon_range = [-5, 0, 5]
+        print("\n🔬 QUICK TEST MODE (Est. runtime: ~1 hour)")
+        # Use more examples for meaningful signal
+        answerable = answerable[:20]
+        unanswerable = unanswerable[:20]
+        # Test on eval split (set below after train/eval split)
+        # Use symmetric epsilon range
+        epsilon_range = [-8, -4, 0, 4, 8]
     else:
-        print("\n⚠️  FULL MODE (Est. runtime: ~20 hours)")
-        answerable = answerable[:30]
-        unanswerable = unanswerable[:30]
-        test_questions = test_questions[:40]
+        print("\n⚠️  FULL MODE (Est. runtime: ~5 hours)")
+        answerable = answerable[:40]
+        unanswerable = unanswerable[:40]
+        # Test on eval split (set below)
         epsilon_range = [-20, -10, -5, -2, 0, 2, 5, 10, 20]
 
-    # Run experiment
+    # FIX 2: Create test set from eval split instead of ambiguous questions
+    # Split train/eval first
+    train_split = 0.6
+    n_train_pos = int(len(answerable) * train_split)
+    n_train_neg = int(len(unanswerable) * train_split)
+
+    train_pos = answerable[:n_train_pos]
+    eval_pos = answerable[n_train_pos:]
+    train_neg = unanswerable[:n_train_neg]
+    eval_neg = unanswerable[n_train_neg:]
+
+    # Use eval set as test questions (these have known answerability)
+    test_questions = eval_pos + eval_neg
+
+    print(f"\nDataset split:")
+    print(f"  Train: {len(train_pos)} answerable + {len(train_neg)} unanswerable")
+    print(f"  Test:  {len(eval_pos)} answerable + {len(eval_neg)} unanswerable")
+
+    # Run experiment - pass pre-split data
     exp3 = Experiment3Robust(model, config)
     results_df = exp3.run(
         pos_examples=answerable,
         neg_examples=unanswerable,
         test_examples=test_questions,
-        train_split=0.6,
+        train_split=train_split,
         epsilon_range=epsilon_range
     )
 

@@ -1,8 +1,8 @@
 #!/bin/bash
-#SBATCH --job-name=exp3
-#SBATCH --output=logs/exp3_%j.out
-#SBATCH --error=logs/exp3_%j.err
-#SBATCH --time=02:00:00
+#SBATCH --job-name=exp3_full
+#SBATCH --output=logs/exp3_full_%j.out
+#SBATCH --error=logs/exp3_full_%j.err
+#SBATCH --time=06:00:00
 
 #SBATCH -p mit_normal_gpu
 #SBATCH -c 4
@@ -24,13 +24,13 @@ mkdir -p logs
 echo "Job ID: $SLURM_JOB_ID"
 echo "Node: $SLURM_NODELIST"
 echo "Start time: $(date)"
-echo "Running Experiment 3: Robust Steering Control"
+echo "Running Experiment 3: Robust Steering Control (FULL MODE)"
 echo "=================================================="
 
-# Run experiment in quick test mode (~1 hour instead of ~5 hours)
-# This now uses improved settings: 20 train examples, 5 epsilon values
-python experiment3_steering_robust.py --quick_test
+# Run full experiment (no --quick_test flag)
+# This will take ~5 hours with the optimizations
+python experiment3_steering_robust.py
 
 echo "=================================================="
-echo "Experiment 3 completed at: $(date)"
+echo "Experiment 3 (FULL) completed at: $(date)"
 echo "Check results in ./results/"
