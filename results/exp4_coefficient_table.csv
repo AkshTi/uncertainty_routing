@@ -1,0 +1,5 @@
+Term,Coefficient,Std Error,z-value,P-value
+Intercept,-2.4324,0.3583,-6.788,1.1393e-11
+entropy_std,0.2144,0.3545,0.605,0.5452
+epsilon_std,-0.9342,0.2428,-3.847,1.1957e-04
+entropy_std:epsilon_std,0.2993,0.2174,1.377,0.1686

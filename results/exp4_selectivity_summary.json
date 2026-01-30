@@ -1,11 +1,11 @@
 {
-  "error": "insufficient_variation",
-  "flip_rate": 0.0,
-  "n_flips": 0,
-  "n_observations": 120,
-  "recommendations": [
-    "Increase epsilon values",
-    "Use more diverse questions",
-    "Check steering vector strength"
-  ]
+  "interaction_coefficient": 0.29925811481567793,
+  "interaction_pvalue": 0.16864502514249835,
+  "interaction_significant": false,
+  "lr_statistic": 0.8984384259046152,
+  "lr_pvalue": null,
+  "pseudo_r2_null": 0.09150787157322815,
+  "pseudo_r2_full": 0.09798982439156356,
+  "n_observations": 200,
+  "n_flips": 22
 }
