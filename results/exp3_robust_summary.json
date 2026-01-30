@@ -1,32 +1,32 @@
 {
   "flip_rates_by_direction": {
     "mean_diff": {
-      "best_epsilon": "8",
+      "best_epsilon": 8.0,
       "flip_rate": 0.0
     },
     "probe": {
-      "best_epsilon": "8",
+      "best_epsilon": 8.0,
       "flip_rate": 0.0
     },
     "pc1": {
-      "best_epsilon": "8",
+      "best_epsilon": 8.0,
       "flip_rate": 0.0
     },
     "random": {
-      "best_epsilon": "8",
+      "best_epsilon": 8.0,
       "flip_rate": 0.0
     },
     "shuffled": {
-      "best_epsilon": "8",
+      "best_epsilon": 8.0,
       "flip_rate": 0.0
     },
     "early_layer": {
-      "best_epsilon": "8",
-      "flip_rate": 0.0
+      "best_epsilon": 8.0,
+      "flip_rate": 0.08333333333333333
     }
   },
   "best_config": null,
   "best_flip_rate": 0.0,
   "main_estimator_mean": 0.0,
-  "control_mean": 0.0
+  "control_mean": 0.027777777777777776
 }
