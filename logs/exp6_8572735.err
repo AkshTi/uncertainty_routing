@@ -1,0 +1,146 @@
+Lmod has detected the following error: The following module(s) are unknown:
+"python/3.9"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "python/3.9"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+Lmod has detected the following error: The following module(s) are unknown:
+"cuda/11.8"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "cuda/11.8"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+`torch_dtype` is deprecated! Use `dtype` instead!
+Domains:   0%|          | 0/5 [00:00<?, ?it/s]
+math answerable:   0%|          | 0/8 [00:00<?, ?it/s][AThe following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+
+math answerable:  12%|█▎        | 1/8 [00:01<00:07,  1.10s/it][A
+math answerable:  25%|██▌       | 2/8 [00:01<00:04,  1.29it/s][A
+math answerable:  38%|███▊      | 3/8 [00:02<00:03,  1.49it/s][A
+math answerable:  50%|█████     | 4/8 [00:02<00:02,  1.61it/s][A
+math answerable:  62%|██████▎   | 5/8 [00:03<00:01,  1.69it/s][A
+math answerable:  75%|███████▌  | 6/8 [00:03<00:01,  1.73it/s][A
+math answerable:  88%|████████▊ | 7/8 [00:04<00:00,  1.76it/s][A
+math answerable: 100%|██████████| 8/8 [00:04<00:00,  1.77it/s][A
+                                                              [A
+math unanswerable:   0%|          | 0/6 [00:00<?, ?it/s][A
+math unanswerable:  17%|█▋        | 1/6 [00:00<00:02,  1.78it/s][A
+math unanswerable:  33%|███▎      | 2/6 [00:01<00:02,  1.80it/s][A
+math unanswerable:  50%|█████     | 3/6 [00:01<00:01,  1.82it/s][A
+math unanswerable:  67%|██████▋   | 4/6 [00:02<00:01,  1.83it/s][A
+math unanswerable:  83%|████████▎ | 5/6 [00:02<00:00,  1.83it/s][A
+math unanswerable: 100%|██████████| 6/6 [00:03<00:00,  1.83it/s][A
+                                                                [ADomains:  20%|██        | 1/5 [00:08<00:32,  8.22s/it]
+science answerable:   0%|          | 0/7 [00:00<?, ?it/s][A
+science answerable:  14%|█▍        | 1/7 [00:00<00:03,  1.81it/s][A
+science answerable:  29%|██▊       | 2/7 [00:01<00:02,  1.82it/s][A
+science answerable:  43%|████▎     | 3/7 [00:01<00:02,  1.83it/s][A
+science answerable:  57%|█████▋    | 4/7 [00:02<00:01,  1.84it/s][A
+science answerable:  71%|███████▏  | 5/7 [00:02<00:01,  1.85it/s][A
+science answerable:  86%|████████▌ | 6/7 [00:03<00:00,  1.82it/s][A
+science answerable: 100%|██████████| 7/7 [00:03<00:00,  2.03it/s][A
+                                                                 [A
+science unanswerable:   0%|          | 0/6 [00:00<?, ?it/s][A
+science unanswerable:  17%|█▋        | 1/6 [00:00<00:02,  1.78it/s][A
+science unanswerable:  33%|███▎      | 2/6 [00:01<00:02,  1.77it/s][A
+science unanswerable:  50%|█████     | 3/6 [00:01<00:01,  1.77it/s][A
+science unanswerable:  67%|██████▋   | 4/6 [00:02<00:01,  1.78it/s][A
+science unanswerable:  83%|████████▎ | 5/6 [00:02<00:00,  1.78it/s][A
+science unanswerable: 100%|██████████| 6/6 [00:03<00:00,  1.79it/s][A
+                                                                   [ADomains:  40%|████      | 2/5 [00:15<00:22,  7.52s/it]
+history answerable:   0%|          | 0/6 [00:00<?, ?it/s][A
+history answerable:  17%|█▋        | 1/6 [00:00<00:02,  1.86it/s][A
+history answerable:  33%|███▎      | 2/6 [00:01<00:02,  1.86it/s][A
+history answerable:  50%|█████     | 3/6 [00:01<00:01,  1.85it/s][A
+history answerable:  67%|██████▋   | 4/6 [00:02<00:01,  1.85it/s][A
+history answerable:  83%|████████▎ | 5/6 [00:02<00:00,  1.83it/s][A
+history answerable: 100%|██████████| 6/6 [00:03<00:00,  1.83it/s][A
+                                                                 [A
+history unanswerable:   0%|          | 0/6 [00:00<?, ?it/s][A
+history unanswerable:  17%|█▋        | 1/6 [00:00<00:02,  1.79it/s][A
+history unanswerable:  33%|███▎      | 2/6 [00:01<00:02,  1.81it/s][A
+history unanswerable:  50%|█████     | 3/6 [00:01<00:01,  1.82it/s][A
+history unanswerable:  67%|██████▋   | 4/6 [00:02<00:01,  1.82it/s][A
+history unanswerable:  83%|████████▎ | 5/6 [00:02<00:00,  1.83it/s][A
+history unanswerable: 100%|██████████| 6/6 [00:03<00:00,  1.84it/s][A
+                                                                   [ADomains:  60%|██████    | 3/5 [00:21<00:14,  7.07s/it]
+geography answerable:   0%|          | 0/8 [00:00<?, ?it/s][A
+geography answerable:  12%|█▎        | 1/8 [00:00<00:03,  1.81it/s][A
+geography answerable:  25%|██▌       | 2/8 [00:01<00:03,  1.82it/s][A
+geography answerable:  38%|███▊      | 3/8 [00:01<00:02,  1.82it/s][A
+geography answerable:  50%|█████     | 4/8 [00:02<00:02,  1.82it/s][A
+geography answerable:  62%|██████▎   | 5/8 [00:02<00:01,  1.82it/s][A
+geography answerable:  75%|███████▌  | 6/8 [00:03<00:01,  1.81it/s][A
+geography answerable:  88%|████████▊ | 7/8 [00:03<00:00,  1.81it/s][A
+geography answerable: 100%|██████████| 8/8 [00:04<00:00,  1.82it/s][A
+                                                                   [A
+geography unanswerable:   0%|          | 0/11 [00:00<?, ?it/s][A
+geography unanswerable:   9%|▉         | 1/11 [00:00<00:05,  1.77it/s][A
+geography unanswerable:  18%|█▊        | 2/11 [00:01<00:05,  1.75it/s][A
+geography unanswerable:  27%|██▋       | 3/11 [00:01<00:04,  1.77it/s][A
+geography unanswerable:  36%|███▋      | 4/11 [00:02<00:03,  1.76it/s][A
+geography unanswerable:  45%|████▌     | 5/11 [00:02<00:03,  1.74it/s][A
+geography unanswerable:  55%|█████▍    | 6/11 [00:03<00:02,  1.73it/s][A
+geography unanswerable:  64%|██████▎   | 7/11 [00:04<00:02,  1.73it/s][A
+geography unanswerable:  73%|███████▎  | 8/11 [00:04<00:01,  1.74it/s][A
+geography unanswerable:  82%|████████▏ | 9/11 [00:05<00:01,  1.74it/s][A
+geography unanswerable:  91%|█████████ | 10/11 [00:05<00:00,  1.75it/s][A
+geography unanswerable: 100%|██████████| 11/11 [00:06<00:00,  1.75it/s][A
+                                                                       [ADomains:  80%|████████  | 4/5 [00:32<00:08,  8.50s/it]
+general answerable:   0%|          | 0/20 [00:00<?, ?it/s][A
+general answerable:   5%|▌         | 1/20 [00:00<00:10,  1.75it/s][A
+general answerable:  10%|█         | 2/20 [00:01<00:10,  1.75it/s][A
+general answerable:  15%|█▌        | 3/20 [00:01<00:09,  1.74it/s][A
+general answerable:  20%|██        | 4/20 [00:02<00:09,  1.73it/s][A
+general answerable:  25%|██▌       | 5/20 [00:02<00:08,  1.77it/s][A
+general answerable:  30%|███       | 6/20 [00:03<00:07,  1.76it/s][A
+general answerable:  35%|███▌      | 7/20 [00:03<00:07,  1.76it/s][A
+general answerable:  40%|████      | 8/20 [00:04<00:06,  1.75it/s][A
+general answerable:  45%|████▌     | 9/20 [00:05<00:06,  1.74it/s][A
+general answerable:  50%|█████     | 10/20 [00:05<00:05,  1.76it/s][A
+general answerable:  55%|█████▌    | 11/20 [00:06<00:05,  1.76it/s][A
+general answerable:  60%|██████    | 12/20 [00:06<00:04,  1.75it/s][A
+general answerable:  65%|██████▌   | 13/20 [00:07<00:03,  1.95it/s][A
+general answerable:  70%|███████   | 14/20 [00:07<00:03,  1.88it/s][A
+general answerable:  75%|███████▌  | 15/20 [00:08<00:02,  1.84it/s][A
+general answerable:  80%|████████  | 16/20 [00:08<00:02,  1.82it/s][A
+general answerable:  85%|████████▌ | 17/20 [00:09<00:01,  1.77it/s][A
+general answerable:  90%|█████████ | 18/20 [00:10<00:01,  1.76it/s][A
+general answerable:  95%|█████████▌| 19/20 [00:10<00:00,  1.76it/s][A
+general answerable: 100%|██████████| 20/20 [00:11<00:00,  1.76it/s][A
+                                                                   [A
+general unanswerable:   0%|          | 0/20 [00:00<?, ?it/s][A
+general unanswerable:   5%|▌         | 1/20 [00:00<00:10,  1.78it/s][A
+general unanswerable:  10%|█         | 2/20 [00:01<00:10,  1.78it/s][A
+general unanswerable:  15%|█▌        | 3/20 [00:01<00:09,  1.79it/s][A
+general unanswerable:  20%|██        | 4/20 [00:02<00:08,  1.79it/s][A
+general unanswerable:  25%|██▌       | 5/20 [00:02<00:08,  1.79it/s][A
+general unanswerable:  30%|███       | 6/20 [00:03<00:07,  1.79it/s][A
+general unanswerable:  35%|███▌      | 7/20 [00:03<00:07,  1.80it/s][A
+general unanswerable:  40%|████      | 8/20 [00:04<00:06,  1.80it/s][A
+general unanswerable:  45%|████▌     | 9/20 [00:05<00:06,  1.80it/s][A
+general unanswerable:  50%|█████     | 10/20 [00:05<00:05,  1.80it/s][A
+general unanswerable:  55%|█████▌    | 11/20 [00:06<00:05,  1.80it/s][A
+general unanswerable:  60%|██████    | 12/20 [00:06<00:04,  1.81it/s][A
+general unanswerable:  65%|██████▌   | 13/20 [00:07<00:03,  1.82it/s][A
+general unanswerable:  70%|███████   | 14/20 [00:07<00:03,  1.82it/s][A
+general unanswerable:  75%|███████▌  | 15/20 [00:08<00:02,  1.82it/s][A
+general unanswerable:  80%|████████  | 16/20 [00:08<00:02,  1.81it/s][A
+general unanswerable:  85%|████████▌ | 17/20 [00:09<00:01,  1.81it/s][A
+general unanswerable:  90%|█████████ | 18/20 [00:09<00:01,  1.80it/s][A
+general unanswerable:  95%|█████████▌| 19/20 [00:10<00:00,  1.79it/s][A
+general unanswerable: 100%|██████████| 20/20 [00:11<00:00,  1.79it/s][A
+                                                                     [ADomains: 100%|██████████| 5/5 [00:54<00:00, 13.51s/it]Domains: 100%|██████████| 5/5 [00:54<00:00, 10.97s/it]
+Determinism test:   0%|          | 0/20 [00:00<?, ?it/s]Determinism test:   5%|▌         | 1/20 [00:01<00:30,  1.61s/it]Determinism test:  10%|█         | 2/20 [00:03<00:29,  1.64s/it]Determinism test:  15%|█▌        | 3/20 [00:04<00:27,  1.63s/it]Determinism test:  20%|██        | 4/20 [00:06<00:26,  1.63s/it]Determinism test:  25%|██▌       | 5/20 [00:08<00:24,  1.63s/it]Determinism test:  30%|███       | 6/20 [00:09<00:20,  1.45s/it]Determinism test:  35%|███▌      | 7/20 [00:10<00:19,  1.52s/it]Determinism test:  40%|████      | 8/20 [00:12<00:19,  1.58s/it]Determinism test:  45%|████▌     | 9/20 [00:14<00:17,  1.63s/it]Determinism test:  50%|█████     | 10/20 [00:16<00:16,  1.65s/it]Determinism test:  55%|█████▌    | 11/20 [00:17<00:15,  1.67s/it]Determinism test:  60%|██████    | 12/20 [00:19<00:13,  1.68s/it]Determinism test:  65%|██████▌   | 13/20 [00:21<00:11,  1.67s/it]Determinism test:  70%|███████   | 14/20 [00:22<00:09,  1.66s/it]Determinism test:  75%|███████▌  | 15/20 [00:24<00:08,  1.64s/it]Determinism test:  80%|████████  | 16/20 [00:25<00:06,  1.63s/it]Determinism test:  85%|████████▌ | 17/20 [00:27<00:04,  1.62s/it]Determinism test:  90%|█████████ | 18/20 [00:29<00:03,  1.61s/it]Determinism test:  95%|█████████▌| 19/20 [00:30<00:01,  1.61s/it]Determinism test: 100%|██████████| 20/20 [00:32<00:00,  1.62s/it]Determinism test: 100%|██████████| 20/20 [00:32<00:00,  1.62s/it]

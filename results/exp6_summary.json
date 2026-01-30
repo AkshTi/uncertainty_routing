@@ -3,67 +3,67 @@
     {
       "Domain": "Math",
       "Coverage": "100.0%",
-      "Coverage CI": "[0.676, 1.000]",
-      "Hallucination Rate": "100.0%",
-      "Hallucination CI": "[0.566, 1.000]",
-      "N (Answerable)": 8,
+      "Coverage CI": "[0.646, 1.000]",
+      "Hallucination Rate": "80.0%",
+      "Hallucination CI": "[0.376, 0.964]",
+      "N (Answerable)": 7,
       "N (Unanswerable)": 5,
-      "N (Evaluable)": 13,
-      "Overall Correctness": "46.2%",
-      "Overall CI": "[0.232, 0.709]",
-      "Note": "Checkable ans:75% (6/8), Unans abstain:0% (0/5)"
+      "N (Evaluable)": 12,
+      "Overall Correctness": "50.0%",
+      "Overall CI": "[0.254, 0.746]",
+      "Note": "Checkable ans:71% (5/7), Unans abstain:20% (1/5)"
     },
     {
       "Domain": "Science",
       "Coverage": "100.0%",
       "Coverage CI": "[0.566, 1.000]",
-      "Hallucination Rate": "100.0%",
-      "Hallucination CI": "[0.510, 1.000]",
+      "Hallucination Rate": "50.0%",
+      "Hallucination CI": "[0.150, 0.850]",
       "N (Answerable)": 5,
       "N (Unanswerable)": 4,
       "N (Evaluable)": 9,
-      "Overall Correctness": "44.4%",
-      "Overall CI": "[0.189, 0.733]",
-      "Note": "Checkable ans:80% (4/5), Unans abstain:0% (0/4)"
+      "Overall Correctness": "66.7%",
+      "Overall CI": "[0.354, 0.879]",
+      "Note": "Checkable ans:80% (4/5), Unans abstain:50% (2/4)"
     },
     {
       "Domain": "History",
       "Coverage": "100.0%",
       "Coverage CI": "[0.610, 1.000]",
-      "Hallucination Rate": "80.0%",
-      "Hallucination CI": "[0.376, 0.964]",
+      "Hallucination Rate": "50.0%",
+      "Hallucination CI": "[0.188, 0.812]",
       "N (Answerable)": 6,
-      "N (Unanswerable)": 5,
-      "N (Evaluable)": 11,
-      "Overall Correctness": "63.6%",
-      "Overall CI": "[0.354, 0.848]",
-      "Note": "Checkable ans:100% (6/6), Unans abstain:20% (1/5)"
+      "N (Unanswerable)": 6,
+      "N (Evaluable)": 12,
+      "Overall Correctness": "75.0%",
+      "Overall CI": "[0.468, 0.911]",
+      "Note": "Checkable ans:100% (6/6), Unans abstain:50% (3/6)"
     },
     {
       "Domain": "Geography",
       "Coverage": "100.0%",
       "Coverage CI": "[0.676, 1.000]",
-      "Hallucination Rate": "80.0%",
-      "Hallucination CI": "[0.490, 0.943]",
+      "Hallucination Rate": "22.2%",
+      "Hallucination CI": "[0.063, 0.547]",
       "N (Answerable)": 8,
-      "N (Unanswerable)": 10,
-      "N (Evaluable)": 18,
-      "Overall Correctness": "50.0%",
-      "Overall CI": "[0.290, 0.710]",
-      "Note": "Checkable ans:88% (7/8), Unans abstain:20% (2/10)"
+      "N (Unanswerable)": 9,
+      "N (Evaluable)": 17,
+      "Overall Correctness": "82.4%",
+      "Overall CI": "[0.590, 0.938]",
+      "Note": "Checkable ans:88% (7/8), Unans abstain:78% (7/9)"
     },
     {
       "Domain": "General",
       "Coverage": "100.0%",
       "Coverage CI": "[0.839, 1.000]",
-      "Hallucination Rate": "40.0%",
-      "Hallucination CI": "[0.219, 0.613]",
+      "Hallucination Rate": "25.0%",
+      "Hallucination CI": "[0.112, 0.469]",
       "N (Answerable)": 20,
       "N (Unanswerable)": 20,
       "N (Evaluable)": 40,
-      "Overall Correctness": "77.5%",
-      "Overall CI": "[0.625, 0.877]",
-      "Note": "Checkable ans:95% (19/20), Unans abstain:60% (12/20)"
+      "Overall Correctness": "85.0%",
+      "Overall CI": "[0.709, 0.929]",
+      "Note": "Checkable ans:95% (19/20), Unans abstain:75% (15/20)"
     }
   ],
   "determinism": {
@@ -213,7 +213,7 @@
       }
     ]
   },
-  "invalid_rate": 0.07142857142857142,
-  "n_invalid": 7,
+  "invalid_rate": 0.08163265306122448,
+  "n_invalid": 8,
   "n_total": 98
 }
