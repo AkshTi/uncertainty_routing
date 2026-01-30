@@ -1,0 +1,371 @@
+Job ID: 8559605
+Node: node2434
+Start time: Fri Jan 30 02:23:05 EST 2026
+Running Experiment 3: Robust Steering Control
+==================================================
+Initializing model...
+Loading model Qwen/Qwen2.5-1.5B-Instruct...
+Model loaded successfully!
+
+Loading datasets...
+
+🔬 QUICK TEST MODE (Est. runtime: ~10 minutes)
+
+Dataset split:
+  Train: 9 answerable + 9 unanswerable
+  Test:  6 answerable + 6 unanswerable
+
+============================================================
+EXPERIMENT 3: ROBUST STEERING CONTROL
+============================================================
+Train/Eval split: 60% train, 40% eval
+Epsilon range: [0.0, 20.0]
+Testing layers: [14, 16, 18]
+Direction estimators: mean-diff, probe, PC1 + controls
+
+Train set: 9 POS + 9 NEG
+Eval set: 6 POS + 6 NEG
+Test set: 12 questions
+
+============================================================
+COMPUTING STEERING DIRECTIONS
+============================================================
+CONVENTION: Direction points from NEG→POS (unanswerable→answerable)
+            Positive ε pushes TOWARD answering
+            Negative ε pushes TOWARD abstaining
+  Computing directions for layer 14...
+    [Sanity] Decision position: 89/90 (0-indexed in prompt)
+    [Sanity] Decision is made at FIRST GENERATED TOKEN (after prompt)
+    [Sanity] Prompt token at pos 89: 'ER'
+    [Sanity] First generated tokens: 'ANSWER: Mercury is'
+    [Sanity] Starts with ABSTAIN/ANSWER: True
+    [Sanity] Decision position: 99/100 (0-indexed in prompt)
+    [Sanity] Decision is made at FIRST GENERATED TOKEN (after prompt)
+    [Sanity] Prompt token at pos 99: 'ER'
+    [Sanity] First generated tokens: 'ABSTAIN:
+
+Reason'
+    [Sanity] Starts with ABSTAIN/ANSWER: True
+    Computed 5 direction types
+  Layer 14, mean_diff: norm=1.0000
+  Layer 14, probe: norm=1.0000
+  Layer 14, pc1: norm=1.0000
+  Layer 14, random: norm=1.0000
+  Layer 14, shuffled: norm=1.0000
+  Computing directions for layer 16...
+    [Sanity] Decision position: 89/90 (0-indexed in prompt)
+    [Sanity] Decision is made at FIRST GENERATED TOKEN (after prompt)
+    [Sanity] Prompt token at pos 89: 'ER'
+    [Sanity] First generated tokens: 'ANSWER: Mercury is'
+    [Sanity] Starts with ABSTAIN/ANSWER: True
+    [Sanity] Decision position: 99/100 (0-indexed in prompt)
+    [Sanity] Decision is made at FIRST GENERATED TOKEN (after prompt)
+    [Sanity] Prompt token at pos 99: 'ER'
+    [Sanity] First generated tokens: 'ABSTAIN:
+
+Reason'
+    [Sanity] Starts with ABSTAIN/ANSWER: True
+    Computed 5 direction types
+  Layer 16, mean_diff: norm=1.0000
+  Layer 16, probe: norm=1.0000
+  Layer 16, pc1: norm=1.0000
+  Layer 16, random: norm=1.0000
+  Layer 16, shuffled: norm=1.0000
+  Computing directions for layer 18...
+    [Sanity] Decision position: 89/90 (0-indexed in prompt)
+    [Sanity] Decision is made at FIRST GENERATED TOKEN (after prompt)
+    [Sanity] Prompt token at pos 89: 'ER'
+    [Sanity] First generated tokens: 'ANSWER: Mercury is'
+    [Sanity] Starts with ABSTAIN/ANSWER: True
+    [Sanity] Decision position: 99/100 (0-indexed in prompt)
+    [Sanity] Decision is made at FIRST GENERATED TOKEN (after prompt)
+    [Sanity] Prompt token at pos 99: 'ER'
+    [Sanity] First generated tokens: 'ABSTAIN:
+
+Reason'
+    [Sanity] Starts with ABSTAIN/ANSWER: True
+    Computed 5 direction types
+  Layer 18, mean_diff: norm=0.9995
+  Layer 18, probe: norm=1.0000
+  Layer 18, pc1: norm=1.0000
+  Layer 18, random: norm=1.0000
+  Layer 18, shuffled: norm=1.0000
+
+Computing early-layer control (layer 7)...
+  Computing directions for layer 7...
+    [Sanity] Decision position: 89/90 (0-indexed in prompt)
+    [Sanity] Decision is made at FIRST GENERATED TOKEN (after prompt)
+    [Sanity] Prompt token at pos 89: 'ER'
+    [Sanity] First generated tokens: 'ANSWER: Mercury is'
+    [Sanity] Starts with ABSTAIN/ANSWER: True
+    [Sanity] Decision position: 99/100 (0-indexed in prompt)
+    [Sanity] Decision is made at FIRST GENERATED TOKEN (after prompt)
+    [Sanity] Prompt token at pos 99: 'ER'
+    [Sanity] First generated tokens: 'ABSTAIN:
+
+Reason'
+    [Sanity] Starts with ABSTAIN/ANSWER: True
+    Computed 5 direction types
+  Early layer control: norm=1.0000
+
+============================================================
+TESTING STEERING EFFECTS
+============================================================
+
+[SANITY CHECK] Testing abstention detection on first example...
+  Response: ANSWER:
+
+Spiders typically have eight legs. This is a well-established fact in biology and entomolog
+  Detected as: ANSWER
+    [Sanity Hook] First forward: seq_len=91, decision_pos=89
+    [Sanity Hook] First forward: seq_len=92, decision_pos=90
+    [Sanity Hook] First forward: seq_len=94, decision_pos=92
+    [Sanity Hook] First forward: seq_len=89, decision_pos=87
+    [Sanity Hook] First forward: seq_len=94, decision_pos=92
+    [Sanity Hook] First forward: seq_len=90, decision_pos=88
+    [Sanity Hook] First forward: seq_len=108, decision_pos=106
+    [Sanity Hook] First forward: seq_len=102, decision_pos=100
+    [Sanity Hook] First forward: seq_len=99, decision_pos=97
+    [Sanity Hook] First forward: seq_len=92, decision_pos=90
+    [Sanity Hook] First forward: seq_len=112, decision_pos=110
+    [Sanity Hook] First forward: seq_len=98, decision_pos=96
+    [Sanity Hook] First forward: seq_len=91, decision_pos=89
+    [Sanity Hook] First forward: seq_len=92, decision_pos=90
+    [Sanity Hook] First forward: seq_len=94, decision_pos=92
+    [Sanity Hook] First forward: seq_len=89, decision_pos=87
+    [Sanity Hook] First forward: seq_len=94, decision_pos=92
+    [Sanity Hook] First forward: seq_len=90, decision_pos=88
+    [Sanity Hook] First forward: seq_len=108, decision_pos=106
+    [Sanity Hook] First forward: seq_len=102, decision_pos=100
+    [Sanity Hook] First forward: seq_len=99, decision_pos=97
+    [Sanity Hook] First forward: seq_len=92, decision_pos=90
+    [Sanity Hook] First forward: seq_len=112, decision_pos=110
+    [Sanity Hook] First forward: seq_len=98, decision_pos=96
+    [Sanity Hook] First forward: seq_len=91, decision_pos=89
+    [Sanity Hook] First forward: seq_len=92, decision_pos=90
+    [Sanity Hook] First forward: seq_len=94, decision_pos=92
+    [Sanity Hook] First forward: seq_len=89, decision_pos=87
+    [Sanity Hook] First forward: seq_len=94, decision_pos=92
+    [Sanity Hook] First forward: seq_len=90, decision_pos=88
+    [Sanity Hook] First forward: seq_len=108, decision_pos=106
+    [Sanity Hook] First forward: seq_len=102, decision_pos=100
+    [Sanity Hook] First forward: seq_len=99, decision_pos=97
+    [Sanity Hook] First forward: seq_len=92, decision_pos=90
+    [Sanity Hook] First forward: seq_len=112, decision_pos=110
+    [Sanity Hook] First forward: seq_len=98, decision_pos=96
+    [Sanity Hook] First forward: seq_len=91, decision_pos=89
+    [Sanity Hook] First forward: seq_len=92, decision_pos=90
+    [Sanity Hook] First forward: seq_len=94, decision_pos=92
+    [Sanity Hook] First forward: seq_len=89, decision_pos=87
+    [Sanity Hook] First forward: seq_len=94, decision_pos=92
+    [Sanity Hook] First forward: seq_len=90, decision_pos=88
+    [Sanity Hook] First forward: seq_len=108, decision_pos=106
+    [Sanity Hook] First forward: seq_len=102, decision_pos=100
+    [Sanity Hook] First forward: seq_len=99, decision_pos=97
+    [Sanity Hook] First forward: seq_len=92, decision_pos=90
+    [Sanity Hook] First forward: seq_len=112, decision_pos=110
+    [Sanity Hook] First forward: seq_len=98, decision_pos=96
+    [Sanity Hook] First forward: seq_len=91, decision_pos=89
+    [Sanity Hook] First forward: seq_len=92, decision_pos=90
+    [Sanity Hook] First forward: seq_len=94, decision_pos=92
+    [Sanity Hook] First forward: seq_len=89, decision_pos=87
+    [Sanity Hook] First forward: seq_len=94, decision_pos=92
+    [Sanity Hook] First forward: seq_len=90, decision_pos=88
+    [Sanity Hook] First forward: seq_len=108, decision_pos=106
+    [Sanity Hook] First forward: seq_len=102, decision_pos=100
+    [Sanity Hook] First forward: seq_len=99, decision_pos=97
+    [Sanity Hook] First forward: seq_len=92, decision_pos=90
+    [Sanity Hook] First forward: seq_len=112, decision_pos=110
+    [Sanity Hook] First forward: seq_len=98, decision_pos=96
+    [Sanity Hook] First forward: seq_len=91, decision_pos=89
+    [Sanity Hook] First forward: seq_len=92, decision_pos=90
+    [Sanity Hook] First forward: seq_len=94, decision_pos=92
+    [Sanity Hook] First forward: seq_len=89, decision_pos=87
+    [Sanity Hook] First forward: seq_len=94, decision_pos=92
+    [Sanity Hook] First forward: seq_len=90, decision_pos=88
+    [Sanity Hook] First forward: seq_len=108, decision_pos=106
+    [Sanity Hook] First forward: seq_len=102, decision_pos=100
+    [Sanity Hook] First forward: seq_len=99, decision_pos=97
+    [Sanity Hook] First forward: seq_len=92, decision_pos=90
+    [Sanity Hook] First forward: seq_len=112, decision_pos=110
+    [Sanity Hook] First forward: seq_len=98, decision_pos=96
+    [Sanity Hook] First forward: seq_len=91, decision_pos=89
+    [Sanity Hook] First forward: seq_len=92, decision_pos=90
+    [Sanity Hook] First forward: seq_len=94, decision_pos=92
+    [Sanity Hook] First forward: seq_len=89, decision_pos=87
+    [Sanity Hook] First forward: seq_len=94, decision_pos=92
+    [Sanity Hook] First forward: seq_len=90, decision_pos=88
+    [Sanity Hook] First forward: seq_len=108, decision_pos=106
+    [Sanity Hook] First forward: seq_len=102, decision_pos=100
+    [Sanity Hook] First forward: seq_len=99, decision_pos=97
+    [Sanity Hook] First forward: seq_len=92, decision_pos=90
+    [Sanity Hook] First forward: seq_len=112, decision_pos=110
+    [Sanity Hook] First forward: seq_len=98, decision_pos=96
+    [Sanity Hook] First forward: seq_len=91, decision_pos=89
+    [Sanity Hook] First forward: seq_len=92, decision_pos=90
+    [Sanity Hook] First forward: seq_len=94, decision_pos=92
+    [Sanity Hook] First forward: seq_len=89, decision_pos=87
+    [Sanity Hook] First forward: seq_len=94, decision_pos=92
+    [Sanity Hook] First forward: seq_len=90, decision_pos=88
+    [Sanity Hook] First forward: seq_len=108, decision_pos=106
+    [Sanity Hook] First forward: seq_len=102, decision_pos=100
+    [Sanity Hook] First forward: seq_len=99, decision_pos=97
+    [Sanity Hook] First forward: seq_len=92, decision_pos=90
+    [Sanity Hook] First forward: seq_len=112, decision_pos=110
+    [Sanity Hook] First forward: seq_len=98, decision_pos=96
+    [Sanity Hook] First forward: seq_len=91, decision_pos=89
+    [Sanity Hook] First forward: seq_len=92, decision_pos=90
+    [Sanity Hook] First forward: seq_len=94, decision_pos=92
+    [Sanity Hook] First forward: seq_len=89, decision_pos=87
+    [Sanity Hook] First forward: seq_len=94, decision_pos=92
+    [Sanity Hook] First forward: seq_len=90, decision_pos=88
+    [Sanity Hook] First forward: seq_len=108, decision_pos=106
+    [Sanity Hook] First forward: seq_len=102, decision_pos=100
+    [Sanity Hook] First forward: seq_len=99, decision_pos=97
+    [Sanity Hook] First forward: seq_len=92, decision_pos=90
+    [Sanity Hook] First forward: seq_len=112, decision_pos=110
+    [Sanity Hook] First forward: seq_len=98, decision_pos=96
+    [Sanity Hook] First forward: seq_len=91, decision_pos=89
+    [Sanity Hook] First forward: seq_len=92, decision_pos=90
+    [Sanity Hook] First forward: seq_len=94, decision_pos=92
+    [Sanity Hook] First forward: seq_len=89, decision_pos=87
+    [Sanity Hook] First forward: seq_len=94, decision_pos=92
+    [Sanity Hook] First forward: seq_len=90, decision_pos=88
+    [Sanity Hook] First forward: seq_len=108, decision_pos=106
+    [Sanity Hook] First forward: seq_len=102, decision_pos=100
+    [Sanity Hook] First forward: seq_len=99, decision_pos=97
+    [Sanity Hook] First forward: seq_len=92, decision_pos=90
+    [Sanity Hook] First forward: seq_len=112, decision_pos=110
+    [Sanity Hook] First forward: seq_len=98, decision_pos=96
+    [Sanity Hook] First forward: seq_len=91, decision_pos=89
+    [Sanity Hook] First forward: seq_len=92, decision_pos=90
+    [Sanity Hook] First forward: seq_len=94, decision_pos=92
+    [Sanity Hook] First forward: seq_len=89, decision_pos=87
+    [Sanity Hook] First forward: seq_len=94, decision_pos=92
+    [Sanity Hook] First forward: seq_len=90, decision_pos=88
+    [Sanity Hook] First forward: seq_len=108, decision_pos=106
+    [Sanity Hook] First forward: seq_len=102, decision_pos=100
+    [Sanity Hook] First forward: seq_len=99, decision_pos=97
+    [Sanity Hook] First forward: seq_len=92, decision_pos=90
+    [Sanity Hook] First forward: seq_len=112, decision_pos=110
+    [Sanity Hook] First forward: seq_len=98, decision_pos=96
+    [Sanity Hook] First forward: seq_len=91, decision_pos=89
+    [Sanity Hook] First forward: seq_len=92, decision_pos=90
+    [Sanity Hook] First forward: seq_len=94, decision_pos=92
+    [Sanity Hook] First forward: seq_len=89, decision_pos=87
+    [Sanity Hook] First forward: seq_len=94, decision_pos=92
+    [Sanity Hook] First forward: seq_len=90, decision_pos=88
+    [Sanity Hook] First forward: seq_len=108, decision_pos=106
+    [Sanity Hook] First forward: seq_len=102, decision_pos=100
+    [Sanity Hook] First forward: seq_len=99, decision_pos=97
+    [Sanity Hook] First forward: seq_len=92, decision_pos=90
+    [Sanity Hook] First forward: seq_len=112, decision_pos=110
+    [Sanity Hook] First forward: seq_len=98, decision_pos=96
+    [Sanity Hook] First forward: seq_len=91, decision_pos=89
+    [Sanity Hook] First forward: seq_len=92, decision_pos=90
+    [Sanity Hook] First forward: seq_len=94, decision_pos=92
+    [Sanity Hook] First forward: seq_len=89, decision_pos=87
+    [Sanity Hook] First forward: seq_len=94, decision_pos=92
+    [Sanity Hook] First forward: seq_len=90, decision_pos=88
+    [Sanity Hook] First forward: seq_len=108, decision_pos=106
+    [Sanity Hook] First forward: seq_len=102, decision_pos=100
+    [Sanity Hook] First forward: seq_len=99, decision_pos=97
+    [Sanity Hook] First forward: seq_len=92, decision_pos=90
+    [Sanity Hook] First forward: seq_len=112, decision_pos=110
+    [Sanity Hook] First forward: seq_len=98, decision_pos=96
+    [Sanity Hook] First forward: seq_len=91, decision_pos=89
+    [Sanity Hook] First forward: seq_len=92, decision_pos=90
+    [Sanity Hook] First forward: seq_len=94, decision_pos=92
+    [Sanity Hook] First forward: seq_len=89, decision_pos=87
+    [Sanity Hook] First forward: seq_len=94, decision_pos=92
+    [Sanity Hook] First forward: seq_len=90, decision_pos=88
+    [Sanity Hook] First forward: seq_len=108, decision_pos=106
+    [Sanity Hook] First forward: seq_len=102, decision_pos=100
+    [Sanity Hook] First forward: seq_len=99, decision_pos=97
+    [Sanity Hook] First forward: seq_len=92, decision_pos=90
+    [Sanity Hook] First forward: seq_len=112, decision_pos=110
+    [Sanity Hook] First forward: seq_len=98, decision_pos=96
+    [Sanity Hook] First forward: seq_len=91, decision_pos=89
+    [Sanity Hook] First forward: seq_len=92, decision_pos=90
+    [Sanity Hook] First forward: seq_len=94, decision_pos=92
+    [Sanity Hook] First forward: seq_len=89, decision_pos=87
+    [Sanity Hook] First forward: seq_len=94, decision_pos=92
+    [Sanity Hook] First forward: seq_len=90, decision_pos=88
+    [Sanity Hook] First forward: seq_len=108, decision_pos=106
+    [Sanity Hook] First forward: seq_len=102, decision_pos=100
+    [Sanity Hook] First forward: seq_len=99, decision_pos=97
+    [Sanity Hook] First forward: seq_len=92, decision_pos=90
+    [Sanity Hook] First forward: seq_len=112, decision_pos=110
+    [Sanity Hook] First forward: seq_len=98, decision_pos=96
+
+Testing early-layer control...
+    [Sanity Hook] First forward: seq_len=91, decision_pos=89
+    [Sanity Hook] First forward: seq_len=92, decision_pos=90
+    [Sanity Hook] First forward: seq_len=94, decision_pos=92
+    [Sanity Hook] First forward: seq_len=89, decision_pos=87
+    [Sanity Hook] First forward: seq_len=94, decision_pos=92
+    [Sanity Hook] First forward: seq_len=90, decision_pos=88
+    [Sanity Hook] First forward: seq_len=108, decision_pos=106
+    [Sanity Hook] First forward: seq_len=102, decision_pos=100
+    [Sanity Hook] First forward: seq_len=99, decision_pos=97
+    [Sanity Hook] First forward: seq_len=92, decision_pos=90
+    [Sanity Hook] First forward: seq_len=112, decision_pos=110
+    [Sanity Hook] First forward: seq_len=98, decision_pos=96
+
+
+Results saved to results/exp3_robust_results.csv
+Steering vectors saved
+
+============================================================
+EXPERIMENT 3: ROBUST ANALYSIS
+============================================================
+
+1. FLIP RATES BY DIRECTION TYPE
+----------------------------------------
+NOTE: Best ε selected post-hoc on test set (exploratory analysis)
+      For publication, use fixed ε or validation split
+  mean_diff      : 8.3% at |ε|=20.0
+  probe          : 2.8% at |ε|=20.0
+  pc1            : 0.0% at |ε|=20.0
+  random         : 2.8% at |ε|=20.0
+  shuffled       : 5.6% at |ε|=20.0
+  early_layer    : 16.7% at |ε|=20.0
+
+2. MAIN ESTIMATORS VS CONTROLS
+----------------------------------------
+
+Main estimators (mean): 3.7%
+Controls (mean):        8.3%
+⚠️ Controls comparable to main estimators
+
+3. BEST LAYER
+----------------------------------------
+Best configuration: layer=14, mean_diff, ε=20.0
+Flip rate: 16.7%
+
+Comprehensive figure saved to results/exp3_robust_analysis.png
+
+============================================================
+SUMMARY TABLE: Direction Estimators vs Controls
+============================================================
+
+ Empty DataFrame
+Columns: []
+Index: []
+
+
+Summary table saved to results/exp3_summary_table.csv
+
+✓ Experiment 3 (Robust) complete!
+
+📊 Output files:
+  Results:              results/exp3_robust_results.csv
+  Summary:              results/exp3_robust_summary.json
+  Steering vectors:     results/steering_vectors_robust.pt
+
+📈 Figures:
+  Comprehensive:        results/exp3_robust_analysis.png
+  Summary table:        results/exp3_summary_table.csv
+==================================================
+Experiment 3 completed at: Fri Jan 30 02:30:50 EST 2026
+Check results in ./results/

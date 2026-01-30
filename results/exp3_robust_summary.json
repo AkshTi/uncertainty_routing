@@ -1,32 +1,36 @@
 {
   "flip_rates_by_direction": {
     "mean_diff": {
-      "best_epsilon": 8.0,
-      "flip_rate": 0.0
+      "best_epsilon": 20.0,
+      "flip_rate": 0.08333333333333333
     },
     "probe": {
-      "best_epsilon": 8.0,
-      "flip_rate": 0.0
+      "best_epsilon": 20.0,
+      "flip_rate": 0.027777777777777776
     },
     "pc1": {
-      "best_epsilon": 8.0,
+      "best_epsilon": 20.0,
       "flip_rate": 0.0
     },
     "random": {
-      "best_epsilon": 8.0,
-      "flip_rate": 0.0
+      "best_epsilon": 20.0,
+      "flip_rate": 0.027777777777777776
     },
     "shuffled": {
-      "best_epsilon": 8.0,
-      "flip_rate": 0.0
+      "best_epsilon": 20.0,
+      "flip_rate": 0.05555555555555555
     },
     "early_layer": {
-      "best_epsilon": 8.0,
-      "flip_rate": 0.08333333333333333
+      "best_epsilon": 20.0,
+      "flip_rate": 0.16666666666666666
     }
   },
-  "best_config": null,
-  "best_flip_rate": 0.0,
-  "main_estimator_mean": 0.0,
-  "control_mean": 0.027777777777777776
+  "best_config": [
+    "14",
+    "mean_diff",
+    20.0
+  ],
+  "best_flip_rate": 0.16666666666666666,
+  "main_estimator_mean": 0.037037037037037035,
+  "control_mean": 0.08333333333333333
 }
