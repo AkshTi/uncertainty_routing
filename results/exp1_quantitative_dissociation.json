@@ -1,0 +1,35 @@
+{
+  "semantic_entropy": {
+    "pseudo_r2_instruction": 0.12153077688657687,
+    "pseudo_r2_proxy": 0.0023053640862121805,
+    "pseudo_r2_both": 0.12423492340755637,
+    "delta_ll_instruction": 43.35152579999681,
+    "delta_ll_proxy": 0.8223517797067075,
+    "delta_ll_both": 44.31612818858042,
+    "coef_cautious": 1.5219369325375849,
+    "coef_confident": -0.3950706126809237,
+    "coef_proxy": 0.13545840113877886
+  },
+  "disagreement_rate": {
+    "pseudo_r2_instruction": 0.12153077688657687,
+    "pseudo_r2_proxy": 0.00013096421830094407,
+    "pseudo_r2_both": 0.12168512796806796,
+    "delta_ll_instruction": 43.35152579999681,
+    "delta_ll_proxy": 0.04671655060553803,
+    "delta_ll_both": 43.40658473291029,
+    "coef_cautious": 1.516390745250682,
+    "coef_confident": -0.3942650757093501,
+    "coef_proxy": -0.03176380376305092
+  },
+  "predictive_entropy": {
+    "pseudo_r2_instruction": 0.12153077688657687,
+    "pseudo_r2_proxy": 0.21812817152332353,
+    "pseudo_r2_both": 0.39317017707570767,
+    "delta_ll_instruction": 43.35152579999681,
+    "delta_ll_proxy": 77.80900688493773,
+    "delta_ll_both": 140.24864739566584,
+    "coef_cautious": 2.2715853115525277,
+    "coef_confident": -0.5849034112456359,
+    "coef_proxy": 1.6219524119054758
+  }
+}

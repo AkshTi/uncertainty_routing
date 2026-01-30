@@ -1333,3 +1333,210 @@ Testing K=15, T=1.0
   Measuring internal uncertainty (15 samples, T=1.0)...
 
 Testing K=30, T=1.0
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+  Measuring internal uncertainty (30 samples, T=1.0)...
+
+Proxy robustness results saved to results/exp1_proxy_robustness.csv
+
+============================================================
+ROBUSTNESS ANALYSIS
+============================================================
+K=10, T=0.7: Semantic Entropy = 1.324 ± 0.788
+K=15, T=1.0: Semantic Entropy = 1.703 ± 0.786
+K=30, T=1.0: Semantic Entropy = 2.036 ± 0.903
+
+============================================================
+EXPERIMENT 1: ANALYSIS
+============================================================
+
+Abstention Rates by Instruction Regime:
+            rate       std  count
+regime                           
+cautious   0.525  0.500628    200
+confident  0.135  0.342581    200
+neutral    0.185  0.389272    200
+
+Internal Uncertainty (Entropy) by Regime:
+               mean       std
+regime                       
+cautious   1.770186  0.738132
+confident  1.770186  0.738132
+neutral    1.770186  0.738132
+
+============================================================
+KEY FINDING: Behavior ≠ Belief
+============================================================
+Abstention rate (cautious):   0.525
+Abstention rate (neutral):    0.185
+Abstention rate (confident):  0.135
+
+Behavior gap (cautious - confident): 0.390
+Belief gap (entropy difference):     0.000
+
+Behavior/Belief ratio: 390000.0x
+
+Example questions where behavior changes but entropy doesn't:
+
+  Q: How many atoms are in a thought?
+     Entropy variance: 0.000
+     Abstain variance: 0.577
+
+  Q: How many grains of sand should I count?
+     Entropy variance: 0.000
+     Abstain variance: 0.577
+
+  Q: How many siblings did Shakespeare's grandmother have?
+     Entropy variance: 0.000
+     Abstain variance: 0.577
+
+  Q: How many times did Napoleon sneeze in his lifetime?
+     Entropy variance: 0.000
+     Abstain variance: 0.577
+
+  Q: How many trees were in Central Park on opening day?
+     Entropy variance: 0.000
+     Abstain variance: 0.577
+
+============================================================
+QUANTITATIVE DISSOCIATION TEST
+============================================================
+
+--- Testing proxy: semantic_entropy ---
+
+Pseudo-R² (McFadden):
+  Instruction only: 0.1215
+  Proxy only:       0.0023
+  Both:             0.1242
+
+Δ Log-Likelihood (vs null):
+  Instruction only: 43.35
+  Proxy only:       0.82
+  Both:             44.32
+
+Coefficients (Both model):
+  Cautious: 1.5219
+  Confident: -0.3951
+  semantic_entropy: 0.1355
+
+--- Testing proxy: disagreement_rate ---
+
+Pseudo-R² (McFadden):
+  Instruction only: 0.1215
+  Proxy only:       0.0001
+  Both:             0.1217
+
+Δ Log-Likelihood (vs null):
+  Instruction only: 43.35
+  Proxy only:       0.05
+  Both:             43.41
+
+Coefficients (Both model):
+  Cautious: 1.5164
+  Confident: -0.3943
+  disagreement_rate: -0.0318
+
+--- Testing proxy: predictive_entropy ---
+
+Pseudo-R² (McFadden):
+  Instruction only: 0.1215
+  Proxy only:       0.2181
+  Both:             0.3932
+
+Δ Log-Likelihood (vs null):
+  Instruction only: 43.35
+  Proxy only:       77.81
+  Both:             140.25
+
+Coefficients (Both model):
+  Cautious: 2.2716
+  Confident: -0.5849
+  predictive_entropy: 1.6220
+
+
+Quantitative dissociation results saved to results/exp1_quantitative_dissociation.json
+
+============================================================
+CREATING STRATIFIED PLOTS
+============================================================
+
+Stratified plots saved to results/exp1_stratified_plots.png
+
+Figure saved to results/exp1_behavior_belief_dissociation.png
+Paper figure saved to results/exp1_paper_figure.png
+
+============================================================
+SUMMARY TABLE: Predictive Power
+============================================================
+
+              Proxy Pseudo-R² (Instruction) Pseudo-R² (Proxy) Pseudo-R² (Both) Coef. Cautious Coef. Confident Coef. Proxy
+  Semantic Entropy                  0.1215            0.0023           0.1242         1.5219         -0.3951      0.1355
+ Disagreement Rate                  0.1215            0.0001           0.1217         1.5164         -0.3943     -0.0318
+Predictive Entropy                  0.1215            0.2181           0.3932         2.2716         -0.5849      1.6220
+
+
+Summary table saved to results/exp1_summary_table.csv
+
+✓ Experiment 1 complete!
+
+📊 Output files:
+  Raw results:          results/exp1_raw_results.csv
+  Summary:              results/exp1_summary.json
+  Quant. dissociation:  results/exp1_quantitative_dissociation.json
+  Summary table:        results/exp1_summary_table.csv
+  Proxy robustness:     results/exp1_proxy_robustness.csv
+
+📈 Figures:
+  Main figure:          results/exp1_behavior_belief_dissociation.png
+  Paper figure:         results/exp1_paper_figure.png
+  Stratified plots:     results/exp1_stratified_plots.png
+==================================================
+Experiment 1 completed at: Thu Jan 29 22:46:48 EST 2026
+Check results in ./results/

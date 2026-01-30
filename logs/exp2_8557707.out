@@ -1,0 +1,30 @@
+Job ID: 8557707
+Node: node3302
+Start time: Thu Jan 29 22:47:00 EST 2026
+Running Experiment 3: Robust Steering Control
+==================================================
+Initializing model...
+Loading model Qwen/Qwen2.5-1.5B-Instruct...
+Model loaded successfully!
+
+Loading datasets...
+
+============================================================
+EXPERIMENT 3: ROBUST STEERING CONTROL
+============================================================
+Train/Eval split: 60% train, 40% eval
+Epsilon range: [-20, -10, -5, -2, 0, 2, 5, 10, 20]
+Testing layers: [24, 25, 26, 27]
+Direction estimators: mean-diff, probe, PC1 + controls
+
+Train set: 12 POS + 12 NEG
+Eval set: 8 POS + 8 NEG
+Test set: 30 questions
+
+============================================================
+COMPUTING STEERING DIRECTIONS
+============================================================
+  Computing directions for layer 24...
+==================================================
+Experiment 3 completed at: Thu Jan 29 22:47:17 EST 2026
+Check results in ./results/

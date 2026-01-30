@@ -1,0 +1,4 @@
+Proxy,Pseudo-R² (Instruction),Pseudo-R² (Proxy),Pseudo-R² (Both),Coef. Cautious,Coef. Confident,Coef. Proxy
+Semantic Entropy,0.1215,0.0023,0.1242,1.5219,-0.3951,0.1355
+Disagreement Rate,0.1215,0.0001,0.1217,1.5164,-0.3943,-0.0318
+Predictive Entropy,0.1215,0.2181,0.3932,2.2716,-0.5849,1.6220

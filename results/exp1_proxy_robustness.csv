@@ -1,0 +1,151 @@
+question,K,T,semantic_entropy,disagreement_rate,max_token_prob,true_answerability
+What is the exact temperature at the center of the sun right now?,10,0.7,2.0253262199700677,0.8,0.43310546875,unanswerable
+What planet is closest to the Sun?,10,0.7,1.4184836614456566,0.6,0.408203125,answerable
+What is the sum of angles in a triangle?,10,0.7,1.0888999749452237,0.4,0.46044921875,answerable
+What will be the next major scientific discovery?,10,0.7,2.1639556559820567,0.8,0.24365234375,unanswerable
+What is 2 + 2?,10,0.7,2.1639556559820567,0.8,0.8447265625,answerable
+What is 7 factorial (7!)?,10,0.7,2.0253262199700677,0.8,0.6904296875,answerable
+What color was Einstein's first bicycle?,10,0.7,0.6390318593501769,0.19999999999999996,0.1683349609375,unanswerable
+What is the speed of light in vacuum?,10,0.7,2.1639556559820567,0.8,0.67431640625,answerable
+What is the square root of 144?,10,0.7,-1.000000082690371e-10,0.0,0.44189453125,answerable
+What will be the next major scientific discovery?,10,0.7,1.7480673478460895,0.6,0.24365234375,unanswerable
+What is the chemical symbol for gold?,10,0.7,0.6390318593501769,0.19999999999999996,0.469482421875,answerable
+What is the chemical symbol for gold?,10,0.7,1.0888999749452237,0.4,0.469482421875,answerable
+How many trees were in Central Park on opening day?,10,0.7,2.1639556559820567,0.8,0.279296875,unanswerable
+What was Cleopatra's favorite number?,10,0.7,1.4184836614456566,0.6,0.313720703125,unanswerable
+How many atoms are in this room at this exact moment?,10,0.7,0.9404479882553265,0.30000000000000004,0.2279052734375,unanswerable
+How many planets are in our solar system?,10,0.7,1.8343719695816234,0.7,0.31640625,answerable
+Who will win the next election?,10,0.7,0.9404479882553265,0.30000000000000004,0.263671875,unanswerable
+What is the best place to live?,10,0.7,2.302585091994046,0.9,0.5263671875,unanswerable
+What was Julius Caesar's favorite color?,10,0.7,1.4978661361769956,0.5,0.196044921875,unanswerable
+What year did World War II end?,10,0.7,-1.000000082690371e-10,0.0,0.43701171875,answerable
+What is 100 divided by 4?,10,0.7,2.302585091994046,0.9,0.7412109375,answerable
+What color was Einstein's first bicycle?,10,0.7,0.9404479882553265,0.30000000000000004,0.1683349609375,unanswerable
+What is the tallest mountain in the world?,10,0.7,1.2275294109572128,0.4,0.666015625,answerable
+What is infinity + 1?,10,0.7,2.1639556559820567,0.8,0.68505859375,unanswerable
+What year did World War II end?,10,0.7,-1.000000082690371e-10,0.0,0.43701171875,answerable
+What was the exact weight of the first wheel ever invented?,10,0.7,0.6390318593501769,0.19999999999999996,0.32861328125,unanswerable
+How many grains of sand should I count?,10,0.7,2.302585091994046,0.9,0.1864013671875,unanswerable
+What is the capital of Japan?,10,0.7,-1.000000082690371e-10,0.0,0.85546875,answerable
+Who was the first President of the United States?,10,0.7,1.4978661361769956,0.5,0.5458984375,answerable
+How many continents are there?,10,0.7,1.7480673478460895,0.6,0.72509765625,answerable
+What is the speed of light in vacuum?,10,0.7,2.302585091994046,0.9,0.67431640625,answerable
+What is the prettiest city in the world?,10,0.7,1.3138340327927471,0.7,0.239013671875,unanswerable
+In what year did Columbus reach the Americas?,10,0.7,-1.000000082690371e-10,0.0,0.7900390625,answerable
+"What time did Mozart wake up on March 12, 1785?",10,0.7,1.2275294109572128,0.4,0.1468505859375,unanswerable
+How many days are in a week?,10,0.7,1.6094379118341005,0.6,0.60888671875,answerable
+How many days are in a week?,10,0.7,0.9433483920290392,0.5,0.60888671875,answerable
+How many atoms are in a thought?,10,0.7,1.8343719695816239,0.7,0.2423095703125,unanswerable
+What is the best number?,10,0.7,2.302585091994046,0.9,0.446044921875,unanswerable
+What is the solution to the unsolved Goldbach conjecture?,10,0.7,1.973001405593613,0.7,0.68505859375,unanswerable
+What is 15 * 8?,10,0.7,1.8866967839580786,0.8,0.6826171875,answerable
+What is the square root of 144?,10,0.7,0.32508297319144824,0.09999999999999998,0.44189453125,answerable
+What is infinity + 1?,10,0.7,1.7480673478460895,0.6,0.68505859375,unanswerable
+What is the best number?,10,0.7,2.302585091994046,0.9,0.446044921875,unanswerable
+What year did World War II end?,10,0.7,-1.000000082690371e-10,0.0,0.43701171875,answerable
+What number am I thinking of right now?,10,0.7,1.2798542254336676,0.6,0.4326171875,unanswerable
+What is the square root of 144?,10,0.7,-1.000000082690371e-10,0.0,0.44189453125,answerable
+What was Cleopatra's favorite number?,10,0.7,0.32508297319144824,0.09999999999999998,0.313720703125,unanswerable
+What planet is closest to the Sun?,10,0.7,0.5004024233381879,0.19999999999999996,0.408203125,answerable
+"What time did Mozart wake up on March 12, 1785?",10,0.7,0.9404479882553265,0.30000000000000004,0.1468505859375,unanswerable
+What is the exact weight of happiness?,10,0.7,2.302585091994046,0.9,0.398193359375,unanswerable
+What is the exact temperature at the center of the sun right now?,15,1.0,2.7080501996022104,0.9333333333333333,0.43310546875,unanswerable
+What planet is closest to the Sun?,15,1.0,1.6216679164123506,0.6,0.408203125,answerable
+What is the sum of angles in a triangle?,15,1.0,2.079151271882851,0.6666666666666667,0.46044921875,answerable
+What will be the next major scientific discovery?,15,1.0,2.4883277420685883,0.8,0.24365234375,unanswerable
+What is 2 + 2?,15,1.0,2.079151271882851,0.6666666666666667,0.8447265625,answerable
+What is 7 factorial (7!)?,15,1.0,1.5226999253857525,0.5333333333333333,0.6904296875,answerable
+What color was Einstein's first bicycle?,15,1.0,0.7201248808718098,0.19999999999999996,0.1683349609375,unanswerable
+What is the speed of light in vacuum?,15,1.0,2.615630575627551,0.8666666666666667,0.67431640625,answerable
+What is the square root of 144?,15,1.0,0.9495936672167383,0.2666666666666667,0.44189453125,answerable
+What will be the next major scientific discovery?,15,1.0,1.991346412410988,0.6,0.24365234375,unanswerable
+What is the chemical symbol for gold?,15,1.0,1.7075391733350713,0.5333333333333333,0.469482421875,answerable
+What is the chemical symbol for gold?,15,1.0,1.297295830025819,0.4,0.469482421875,answerable
+How many trees were in Central Park on opening day?,15,1.0,2.3383717036035727,0.7333333333333334,0.279296875,unanswerable
+What was Cleopatra's favorite number?,15,1.0,1.6151195493604118,0.5333333333333333,0.313720703125,unanswerable
+How many atoms are in this room at this exact moment?,15,1.0,0.9495936672167383,0.2666666666666667,0.2279052734375,unanswerable
+How many planets are in our solar system?,15,1.0,2.153532455654254,0.7333333333333334,0.31640625,answerable
+Who will win the next election?,15,1.0,1.5990147114062978,0.4666666666666667,0.263671875,unanswerable
+What is the best place to live?,15,1.0,2.7080501996022104,0.9333333333333333,0.5263671875,unanswerable
+What was Julius Caesar's favorite color?,15,1.0,1.5802363397761086,0.5333333333333333,0.196044921875,unanswerable
+What year did World War II end?,15,1.0,0.7201248808718098,0.19999999999999996,0.43701171875,answerable
+What is 100 divided by 4?,15,1.0,2.3383717036035727,0.7333333333333334,0.7412109375,answerable
+What color was Einstein's first bicycle?,15,1.0,0.48509409100221157,0.1333333333333333,0.1683349609375,unanswerable
+What is the tallest mountain in the world?,15,1.0,1.3897154540004786,0.4,0.666015625,answerable
+What is infinity + 1?,15,1.0,2.7080501996022104,0.9333333333333333,0.68505859375,unanswerable
+What year did World War II end?,15,1.0,0.7201248808718098,0.19999999999999996,0.43701171875,answerable
+What was the exact weight of the first wheel ever invented?,15,1.0,1.3897154540004786,0.4,0.32861328125,unanswerable
+How many grains of sand should I count?,15,1.0,2.615630575627551,0.8666666666666667,0.1864013671875,unanswerable
+What is the capital of Japan?,15,1.0,-1.000000082690371e-10,0.0,0.85546875,answerable
+Who was the first President of the United States?,15,1.0,1.4548671086662879,0.6,0.5458984375,answerable
+How many continents are there?,15,1.0,2.4307913276782322,0.8666666666666667,0.72509765625,answerable
+What is the speed of light in vacuum?,15,1.0,2.615630575627551,0.8666666666666667,0.67431640625,answerable
+What is the prettiest city in the world?,15,1.0,1.8943120239335318,0.6666666666666667,0.239013671875,unanswerable
+In what year did Columbus reach the Americas?,15,1.0,-1.000000082690371e-10,0.0,0.7900390625,answerable
+"What time did Mozart wake up on March 12, 1785?",15,1.0,1.172993471839513,0.33333333333333337,0.1468505859375,unanswerable
+How many days are in a week?,15,1.0,1.0775733724921972,0.4,0.60888671875,answerable
+How many days are in a week?,15,1.0,1.0625354076615974,0.4666666666666667,0.60888671875,answerable
+How many atoms are in a thought?,15,1.0,1.679204330902707,0.6,0.2423095703125,unanswerable
+What is the best number?,15,1.0,2.7080501996022104,0.9333333333333333,0.446044921875,unanswerable
+What is the solution to the unsolved Goldbach conjecture?,15,1.0,2.3383717036035727,0.7333333333333334,0.68505859375,unanswerable
+What is 15 * 8?,15,1.0,2.3034884941192697,0.8,0.6826171875,answerable
+What is the square root of 144?,15,1.0,1.7999587973097309,0.5333333333333333,0.44189453125,answerable
+What is infinity + 1?,15,1.0,2.7080501996022104,0.9333333333333333,0.68505859375,unanswerable
+What is the best number?,15,1.0,2.7080501996022104,0.9333333333333333,0.446044921875,unanswerable
+What year did World War II end?,15,1.0,0.24493002659463536,0.06666666666666665,0.43701171875,answerable
+What number am I thinking of right now?,15,1.0,2.430791327678232,0.8666666666666667,0.4326171875,unanswerable
+What is the square root of 144?,15,1.0,0.7201248808718098,0.19999999999999996,0.44189453125,answerable
+What was Cleopatra's favorite number?,15,1.0,1.8989267884363288,0.6,0.313720703125,unanswerable
+What planet is closest to the Sun?,15,1.0,0.9495936672167383,0.2666666666666667,0.408203125,answerable
+"What time did Mozart wake up on March 12, 1785?",15,1.0,1.172993471839513,0.33333333333333337,0.1468505859375,unanswerable
+What is the exact weight of happiness?,15,1.0,2.7080501996022104,0.9333333333333333,0.398193359375,unanswerable
+What is the exact temperature at the center of the sun right now?,30,1.0,3.2451263380580144,0.9,0.43310546875,unanswerable
+What planet is closest to the Sun?,30,1.0,2.1174074076864784,0.6333333333333333,0.408203125,answerable
+What is the sum of angles in a triangle?,30,1.0,1.835673624115916,0.5666666666666667,0.46044921875,answerable
+What will be the next major scientific discovery?,30,1.0,2.1696372928083676,0.5333333333333333,0.24365234375,unanswerable
+What is 2 + 2?,30,1.0,1.795709818630299,0.43333333333333335,0.8447265625,answerable
+What is 7 factorial (7!)?,30,1.0,2.058670265175507,0.5666666666666667,0.6904296875,answerable
+What color was Einstein's first bicycle?,30,1.0,1.2700316742557591,0.30000000000000004,0.1683349609375,unanswerable
+What is the speed of light in vacuum?,30,1.0,3.2451263380580144,0.9,0.67431640625,answerable
+What is the square root of 144?,30,1.0,1.795709818630299,0.43333333333333335,0.44189453125,answerable
+What will be the next major scientific discovery?,30,1.0,2.8466796349141985,0.7333333333333334,0.24365234375,unanswerable
+What is the chemical symbol for gold?,30,1.0,1.864043578652025,0.6,0.469482421875,answerable
+What is the chemical symbol for gold?,30,1.0,2.092785256237275,0.6,0.469482421875,answerable
+How many trees were in Central Park on opening day?,30,1.0,1.795709818630299,0.43333333333333335,0.279296875,unanswerable
+What was Cleopatra's favorite number?,30,1.0,1.6426105743281094,0.5,0.313720703125,unanswerable
+How many atoms are in this room at this exact moment?,30,1.0,1.0882231030287275,0.2666666666666667,0.2279052734375,unanswerable
+How many planets are in our solar system?,30,1.0,2.7481450088004142,0.8,0.31640625,answerable
+Who will win the next election?,30,1.0,1.2700316742557591,0.30000000000000004,0.263671875,unanswerable
+What is the best place to live?,30,1.0,3.4011973786621548,0.9666666666666667,0.5263671875,unanswerable
+What was Julius Caesar's favorite color?,30,1.0,2.5228409855394243,0.7666666666666666,0.196044921875,unanswerable
+What year did World War II end?,30,1.0,0.8587543166837989,0.19999999999999996,0.43701171875,answerable
+What is 100 divided by 4?,30,1.0,2.586492402268906,0.7666666666666666,0.7412109375,answerable
+What color was Einstein's first bicycle?,30,1.0,1.404042531526161,0.33333333333333337,0.1683349609375,unanswerable
+What is the tallest mountain in the world?,30,1.0,0.9973184819831404,0.23333333333333328,0.666015625,answerable
+What is infinity + 1?,30,1.0,3.216358130812836,0.8666666666666667,0.68505859375,unanswerable
+What year did World War II end?,30,1.0,0.8587543166837989,0.19999999999999996,0.43701171875,answerable
+What was the exact weight of the first wheel ever invented?,30,1.0,0.8587543166837989,0.19999999999999996,0.32861328125,unanswerable
+How many grains of sand should I count?,30,1.0,3.291336149995344,0.9,0.1864013671875,unanswerable
+What is the capital of Japan?,30,1.0,-1.000000082690371e-10,0.0,0.85546875,answerable
+Who was the first President of the United States?,30,1.0,1.5280064541542193,0.6,0.5458984375,answerable
+How many continents are there?,30,1.0,2.7830282184847177,0.8666666666666667,0.72509765625,answerable
+What is the speed of light in vacuum?,30,1.0,3.198916526120685,0.9,0.67431640625,answerable
+What is the prettiest city in the world?,30,1.0,2.838257250573675,0.8333333333333334,0.239013671875,unanswerable
+In what year did Columbus reach the Americas?,30,1.0,0.1461447458085638,0.033333333333333326,0.7900390625,answerable
+"What time did Mozart wake up on March 12, 1785?",30,1.0,1.404042531526161,0.33333333333333337,0.1468505859375,unanswerable
+How many days are in a week?,30,1.0,1.14225140759707,0.5666666666666667,0.60888671875,answerable
+How many days are in a week?,30,1.0,0.9701157836869381,0.4666666666666667,0.60888671875,answerable
+How many atoms are in a thought?,30,1.0,2.243509513024826,0.5666666666666667,0.2423095703125,unanswerable
+What is the best number?,30,1.0,3.181474921328533,0.9,0.446044921875,unanswerable
+What is the solution to the unsolved Goldbach conjecture?,30,1.0,2.9471516778159152,0.7666666666666666,0.68505859375,unanswerable
+What is 15 * 8?,30,1.0,2.5859589656571487,0.7,0.6826171875,answerable
+What is the square root of 144?,30,1.0,1.2700316742557591,0.30000000000000004,0.44189453125,answerable
+What is infinity + 1?,30,1.0,3.216358130812836,0.8666666666666667,0.68505859375,unanswerable
+What is the best number?,30,1.0,3.3549875667248252,0.9333333333333333,0.446044921875,unanswerable
+What year did World War II end?,30,1.0,0.9973184819831404,0.23333333333333328,0.43701171875,answerable
+What number am I thinking of right now?,30,1.0,2.2337220747506628,0.8,0.4326171875,unanswerable
+What is the square root of 144?,30,1.0,1.9224833949676048,0.4666666666666667,0.44189453125,answerable
+What was Cleopatra's favorite number?,30,1.0,2.510980946474641,0.7,0.313720703125,unanswerable
+What planet is closest to the Sun?,30,1.0,1.1776120503810998,0.30000000000000004,0.408203125,answerable
+"What time did Mozart wake up on March 12, 1785?",30,1.0,2.123427480871038,0.5333333333333333,0.1468505859375,unanswerable
+What is the exact weight of happiness?,30,1.0,3.132957726989805,0.8333333333333334,0.398193359375,unanswerable

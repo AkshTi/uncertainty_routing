@@ -1,0 +1,38 @@
+Lmod has detected the following error: The following module(s) are unknown:
+"python/3.9"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "python/3.9"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+Lmod has detected the following error: The following module(s) are unknown:
+"cuda/11.8"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "cuda/11.8"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+`torch_dtype` is deprecated! Use `dtype` instead!
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Traceback (most recent call last):
+  File "/orcd/home/002/akshatat/uncertainty_routing_final/uncertainty_routing/experiment3_steering_robust.py", line 818, in <module>
+    main(quick_test=args.quick_test)
+  File "/orcd/home/002/akshatat/uncertainty_routing_final/uncertainty_routing/experiment3_steering_robust.py", line 781, in main
+    results_df = exp3.run(
+  File "/orcd/home/002/akshatat/uncertainty_routing_final/uncertainty_routing/experiment3_steering_robust.py", line 310, in run
+    directions = self.compute_all_directions(train_pos_prompts, train_neg_prompts, layer_idx)
+  File "/orcd/home/002/akshatat/uncertainty_routing_final/uncertainty_routing/experiment3_steering_robust.py", line 168, in compute_all_directions
+    directions['pc1'] = self.compute_pc1_direction(pos_acts, neg_acts)
+  File "/orcd/home/002/akshatat/uncertainty_routing_final/uncertainty_routing/experiment3_steering_robust.py", line 127, in compute_pc1_direction
+    pos_proj = (pos_acts @ direction.to(pos_acts.device)).mean()
+RuntimeError: expected scalar type Half but found Float
