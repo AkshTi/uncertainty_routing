@@ -853,15 +853,15 @@ def main(quick_test: bool = False):
     # test_questions will be set from eval split below
 
     if quick_test:
-        print("\n🔬 QUICK TEST MODE (Est. runtime: ~5 minutes)")
+        print("\n🔬 QUICK TEST MODE (Est. runtime: ~10 minutes)")
         # Use fewer examples for speed
         answerable = answerable[:15]
         unanswerable = unanswerable[:15]
         # Test on eval split (set below after train/eval split)
-        # Use minimal epsilon range - just baseline and one steering strength
-        epsilon_range = [0.0, 8.0]
-        # Test only layer 18 (best from exp2) for speed
-        test_layers = [18]
+        # Use higher epsilon - exp2 showed effects need stronger intervention
+        epsilon_range = [0.0, 20.0]
+        # Test layers 14-18 that showed causal effects in exp2 (20-40% flip rates)
+        test_layers = [14, 16, 18]
     else:
         print("\n⚠️  FULL MODE (Est. runtime: ~5 hours)")
         answerable = answerable[:40]
