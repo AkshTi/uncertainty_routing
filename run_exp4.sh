@@ -1,13 +1,13 @@
 #!/bin/bash
-#SBATCH --job-name=exp4_selectivity
-#SBATCH --output=logs/exp4_%j.out
-#SBATCH --error=logs/exp4_%j.err
-#SBATCH --time=02:30:00
-#SBATCH --partition=sched_mit_psfc_gpu_r8
-#SBATCH --gres=gpu:A100:1
-#SBATCH --constraint=A100
+#SBATCH --job-name=exp2_localization
+#SBATCH --output=logs/exp2_%j.out
+#SBATCH --error=logs/exp2_%j.err
+#SBATCH --time=01:30:00
+
+#SBATCH -p mit_normal_gpu
+#SBATCH -c 4
 #SBATCH --mem=32G
-#SBATCH --cpus-per-task=4
+#SBATCH -G h200:1
 
 # Load required modules
 module load python/3.9
