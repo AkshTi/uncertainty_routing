@@ -1,200 +1,219 @@
 {
-  "domain_stats": [
+  "domain_metrics": [
     {
-      "domain": "geography",
-      "condition": "baseline",
-      "is_unanswerable": false,
-      "abstained": 0.0
+      "Domain": "Math",
+      "Coverage": "100.0%",
+      "Coverage CI": "[0.646, 1.000]",
+      "Hallucination Rate": "80.0%",
+      "Hallucination CI": "[0.376, 0.964]",
+      "N (Answerable)": 7,
+      "N (Unanswerable)": 5,
+      "N (Evaluable)": 12,
+      "Overall Correctness": "50.0%",
+      "Overall CI": "[0.254, 0.746]",
+      "Note": "Checkable ans:71% (5/7), Unans abstain:20% (1/5)"
     },
     {
-      "domain": "geography",
-      "condition": "baseline",
-      "is_unanswerable": true,
-      "abstained": 0.6
+      "Domain": "Science",
+      "Coverage": "100.0%",
+      "Coverage CI": "[0.566, 1.000]",
+      "Hallucination Rate": "75.0%",
+      "Hallucination CI": "[0.301, 0.954]",
+      "N (Answerable)": 5,
+      "N (Unanswerable)": 4,
+      "N (Evaluable)": 9,
+      "Overall Correctness": "55.6%",
+      "Overall CI": "[0.267, 0.811]",
+      "Note": "Checkable ans:80% (4/5), Unans abstain:25% (1/4)"
     },
     {
-      "domain": "geography",
-      "condition": "steered",
-      "is_unanswerable": false,
-      "abstained": 0.2
+      "Domain": "History",
+      "Coverage": "100.0%",
+      "Coverage CI": "[0.610, 1.000]",
+      "Hallucination Rate": "50.0%",
+      "Hallucination CI": "[0.188, 0.812]",
+      "N (Answerable)": 6,
+      "N (Unanswerable)": 6,
+      "N (Evaluable)": 12,
+      "Overall Correctness": "75.0%",
+      "Overall CI": "[0.468, 0.911]",
+      "Note": "Checkable ans:100% (6/6), Unans abstain:50% (3/6)"
     },
     {
-      "domain": "geography",
-      "condition": "steered",
-      "is_unanswerable": true,
-      "abstained": 1.0
+      "Domain": "Geography",
+      "Coverage": "100.0%",
+      "Coverage CI": "[0.676, 1.000]",
+      "Hallucination Rate": "60.0%",
+      "Hallucination CI": "[0.313, 0.832]",
+      "N (Answerable)": 8,
+      "N (Unanswerable)": 10,
+      "N (Evaluable)": 18,
+      "Overall Correctness": "61.1%",
+      "Overall CI": "[0.386, 0.797]",
+      "Note": "Checkable ans:88% (7/8), Unans abstain:40% (4/10)"
     },
     {
-      "domain": "history",
-      "condition": "baseline",
-      "is_unanswerable": false,
-      "abstained": 0.2
-    },
-    {
-      "domain": "history",
-      "condition": "baseline",
-      "is_unanswerable": true,
-      "abstained": 0.0
-    },
-    {
-      "domain": "history",
-      "condition": "steered",
-      "is_unanswerable": false,
-      "abstained": 0.4
-    },
-    {
-      "domain": "history",
-      "condition": "steered",
-      "is_unanswerable": true,
-      "abstained": 0.6
-    },
-    {
-      "domain": "mathematics",
-      "condition": "baseline",
-      "is_unanswerable": false,
-      "abstained": 1.0
-    },
-    {
-      "domain": "mathematics",
-      "condition": "baseline",
-      "is_unanswerable": true,
-      "abstained": 0.6
-    },
-    {
-      "domain": "mathematics",
-      "condition": "steered",
-      "is_unanswerable": false,
-      "abstained": 1.0
-    },
-    {
-      "domain": "mathematics",
-      "condition": "steered",
-      "is_unanswerable": true,
-      "abstained": 1.0
-    },
-    {
-      "domain": "science",
-      "condition": "baseline",
-      "is_unanswerable": false,
-      "abstained": 0.0
-    },
-    {
-      "domain": "science",
-      "condition": "baseline",
-      "is_unanswerable": true,
-      "abstained": 0.6
-    },
-    {
-      "domain": "science",
-      "condition": "steered",
-      "is_unanswerable": false,
-      "abstained": 0.0
-    },
-    {
-      "domain": "science",
-      "condition": "steered",
-      "is_unanswerable": true,
-      "abstained": 1.0
+      "Domain": "General",
+      "Coverage": "100.0%",
+      "Coverage CI": "[0.839, 1.000]",
+      "Hallucination Rate": "30.0%",
+      "Hallucination CI": "[0.145, 0.519]",
+      "N (Answerable)": 20,
+      "N (Unanswerable)": 20,
+      "N (Evaluable)": 40,
+      "Overall Correctness": "82.5%",
+      "Overall CI": "[0.681, 0.913]",
+      "Note": "Checkable ans:95% (19/20), Unans abstain:70% (14/20)"
     }
   ],
-  "prompt_stats": [
-    {
-      "template": "concise",
-      "condition": "baseline",
-      "is_unanswerable": false,
-      "abstained": 0.0
-    },
-    {
-      "template": "concise",
-      "condition": "baseline",
-      "is_unanswerable": true,
-      "abstained": 0.0
-    },
-    {
-      "template": "concise",
-      "condition": "steered",
-      "is_unanswerable": false,
-      "abstained": 0.0
-    },
-    {
-      "template": "concise",
-      "condition": "steered",
-      "is_unanswerable": true,
-      "abstained": 0.2
-    },
-    {
-      "template": "standard",
-      "condition": "baseline",
-      "is_unanswerable": false,
-      "abstained": 0.6
-    },
-    {
-      "template": "standard",
-      "condition": "baseline",
-      "is_unanswerable": true,
-      "abstained": 0.4
-    },
-    {
-      "template": "standard",
-      "condition": "steered",
-      "is_unanswerable": false,
-      "abstained": 0.6
-    },
-    {
-      "template": "standard",
-      "condition": "steered",
-      "is_unanswerable": true,
-      "abstained": 0.4
-    },
-    {
-      "template": "verbose",
-      "condition": "baseline",
-      "is_unanswerable": false,
-      "abstained": 0.0
-    },
-    {
-      "template": "verbose",
-      "condition": "baseline",
-      "is_unanswerable": true,
-      "abstained": 0.2
-    },
-    {
-      "template": "verbose",
-      "condition": "steered",
-      "is_unanswerable": false,
-      "abstained": 0.6
-    },
-    {
-      "template": "verbose",
-      "condition": "steered",
-      "is_unanswerable": true,
-      "abstained": 0.2
-    }
-  ],
-  "adversarial_stats": [
-    {
-      "condition": "baseline",
-      "is_unanswerable": false,
-      "abstained": 0.667,
-      "hallucinated": 0.0
-    },
-    {
-      "condition": "baseline",
-      "is_unanswerable": true,
-      "abstained": 0.667,
-      "hallucinated": 0.333
-    },
-    {
-      "condition": "steered",
-      "is_unanswerable": false,
-      "abstained": 0.667,
-      "hallucinated": 0.0
-    },
-    {
-      "condition": "steered",
-      "is_unanswerable": true,
-      "abstained": 1.0,
-      "hallucinated": 0.0
-    }
-  ]
+  "determinism": {
+    "consistency_rate": 1.0,
+    "n_tested": 20,
+    "n_consistent": 20,
+    "details": [
+      {
+        "question": "What is 15 multiplied by 8?",
+        "domain": "math",
+        "answerability": "answerable",
+        "consistent": true,
+        "unique_decisions": 1
+      },
+      {
+        "question": "What is the square root of 144?",
+        "domain": "math",
+        "answerability": "answerable",
+        "consistent": true,
+        "unique_decisions": 1
+      },
+      {
+        "question": "Which equation is the most elegant?",
+        "domain": "math",
+        "answerability": "unanswerable",
+        "consistent": true,
+        "unique_decisions": 1
+      },
+      {
+        "question": "What is the best number?",
+        "domain": "math",
+        "answerability": "unanswerable",
+        "consistent": true,
+        "unique_decisions": 1
+      },
+      {
+        "question": "What is the speed of sound in air at 20\u00b0C?",
+        "domain": "science",
+        "answerability": "answerable",
+        "consistent": true,
+        "unique_decisions": 1
+      },
+      {
+        "question": "What is the atomic number of carbon?",
+        "domain": "science",
+        "answerability": "answerable",
+        "consistent": true,
+        "unique_decisions": 1
+      },
+      {
+        "question": "What does gravity taste like?",
+        "domain": "science",
+        "answerability": "unanswerable",
+        "consistent": true,
+        "unique_decisions": 1
+      },
+      {
+        "question": "How heavy is a dream in grams?",
+        "domain": "science",
+        "answerability": "unanswerable",
+        "consistent": true,
+        "unique_decisions": 1
+      },
+      {
+        "question": "What year did the American Civil War begin?",
+        "domain": "history",
+        "answerability": "answerable",
+        "consistent": true,
+        "unique_decisions": 1
+      },
+      {
+        "question": "What year did the Berlin Wall fall?",
+        "domain": "history",
+        "answerability": "answerable",
+        "consistent": true,
+        "unique_decisions": 1
+      },
+      {
+        "question": "How many times did Napoleon sneeze in his lifetime?",
+        "domain": "history",
+        "answerability": "unanswerable",
+        "consistent": true,
+        "unique_decisions": 1
+      },
+      {
+        "question": "What was Beethoven's favorite breakfast food?",
+        "domain": "history",
+        "answerability": "unanswerable",
+        "consistent": true,
+        "unique_decisions": 1
+      },
+      {
+        "question": "What is the largest ocean on Earth?",
+        "domain": "geography",
+        "answerability": "answerable",
+        "consistent": true,
+        "unique_decisions": 1
+      },
+      {
+        "question": "What is the capital of Germany?",
+        "domain": "geography",
+        "answerability": "answerable",
+        "consistent": true,
+        "unique_decisions": 1
+      },
+      {
+        "question": "What was the population of the city mentioned in the previous paragraph?",
+        "domain": "geography",
+        "answerability": "unanswerable",
+        "consistent": true,
+        "unique_decisions": 1
+      },
+      {
+        "question": "Which country has the nicest people?",
+        "domain": "geography",
+        "answerability": "unanswerable",
+        "consistent": true,
+        "unique_decisions": 1
+      },
+      {
+        "question": "Who painted the Mona Lisa?",
+        "domain": "general",
+        "answerability": "answerable",
+        "consistent": true,
+        "unique_decisions": 1
+      },
+      {
+        "question": "How many continents are there?",
+        "domain": "general",
+        "answerability": "answerable",
+        "consistent": true,
+        "unique_decisions": 1
+      },
+      {
+        "question": "What is the exact temperature at the center of the sun right now?",
+        "domain": "general",
+        "answerability": "unanswerable",
+        "consistent": true,
+        "unique_decisions": 1
+      },
+      {
+        "question": "How many trees were in Central Park on opening day?",
+        "domain": "general",
+        "answerability": "unanswerable",
+        "consistent": true,
+        "unique_decisions": 1
+      }
+    ]
+  },
+  "invalid_rate": 0.07142857142857142,
+  "n_invalid": 7,
+  "n_total": 98
 }
