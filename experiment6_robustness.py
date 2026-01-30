@@ -700,9 +700,10 @@ class Experiment6:
             hallucination_rate = n_hallucinated / n_unanswerable if n_unanswerable > 0 else 0.0
             hallucination_ci = wilson_confidence_interval(int(n_hallucinated), n_unanswerable)
 
-            # Overall correctness = (answerables correct) + (unanswerables abstained)
-            # This gives a single "accuracy" metric across both question types
-            n_total_domain = len(domain_df)
+            # Overall correctness = (checkable answerables correct) + (unanswerables abstained)
+            # Denominator = only evaluable items (checkable answerables + all unanswerables)
+            # This avoids penalizing questions without ground truth answers
+            n_evaluable = n_checkable + n_unanswerable
             n_correct_overall = 0
 
             # Count correct answerables (where we have ground truth)
@@ -712,8 +713,8 @@ class Experiment6:
             # Count correct unanswerables (abstained)
             n_correct_overall += n_abstained
 
-            overall_correctness = n_correct_overall / n_total_domain if n_total_domain > 0 else 0.0
-            overall_ci = wilson_confidence_interval(int(n_correct_overall), n_total_domain)
+            overall_correctness = n_correct_overall / n_evaluable if n_evaluable > 0 else None
+            overall_ci = wilson_confidence_interval(int(n_correct_overall), n_evaluable) if n_evaluable > 0 else (None, None)
 
             metrics_dict = {
                 'Domain': domain.capitalize(),
@@ -721,15 +722,18 @@ class Experiment6:
                 'Coverage CI': f"[{coverage_ci[0]:.3f}, {coverage_ci[1]:.3f}]",
                 'Hallucination Rate': f"{hallucination_rate:.1%}",
                 'Hallucination CI': f"[{hallucination_ci[0]:.3f}, {hallucination_ci[1]:.3f}]",
-                'Overall Correctness': f"{overall_correctness:.1%}",
-                'Overall CI': f"[{overall_ci[0]:.3f}, {overall_ci[1]:.3f}]",
                 'N (Answerable)': n_answerable,
-                'N (Unanswerable)': n_unanswerable
+                'N (Unanswerable)': n_unanswerable,
+                'N (Evaluable)': n_evaluable
             }
 
-            # Add per-type correctness breakdown in a note
-            if correctness_rate is not None:
-                metrics_dict['Note'] = f"Ans:{correctness_rate:.0%} ({n_correct_ans}/{n_checkable}), Unans:{abstention_rate:.0%}"
+            # Add overall correctness only if we have evaluable items
+            if overall_correctness is not None:
+                metrics_dict['Overall Correctness'] = f"{overall_correctness:.1%}"
+                metrics_dict['Overall CI'] = f"[{overall_ci[0]:.3f}, {overall_ci[1]:.3f}]"
+                # Add per-type breakdown in a note
+                if correctness_rate is not None:
+                    metrics_dict['Note'] = f"Checkable ans:{correctness_rate:.0%} ({n_correct_ans}/{n_checkable}), Unans abstain:{abstention_rate:.0%} ({n_abstained}/{n_unanswerable})"
 
             domain_metrics.append(metrics_dict)
 
@@ -755,12 +759,15 @@ class Experiment6:
             print(f"Tested: {determinism_check['n_tested']} questions")
             print(f"Consistent: {determinism_check['n_consistent']} questions")
 
-        # Create visualization
-        self.plot_cross_domain_results(df)
+        # Create visualization (using valid responses only)
+        self.plot_cross_domain_results(df_valid)
 
         return {
             "domain_metrics": domain_metrics,
-            "determinism": determinism_check
+            "determinism": determinism_check,
+            "invalid_rate": float(invalid_rate),
+            "n_invalid": int(n_invalid),
+            "n_total": int(n_total)
         }
 
     def plot_cross_domain_results(self, df: pd.DataFrame):
