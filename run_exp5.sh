@@ -3,7 +3,7 @@
 #SBATCH --output=logs/exp5_%j.out
 #SBATCH --error=logs/exp5_%j.err
 #SBATCH --time=06:00:00
-#SBATCH --partition=gpu
+#SBATCH --partition=mit_normal_gpu
 #SBATCH --gres=gpu:1
 #SBATCH --mem=32G
 #SBATCH --cpus-per-task=4
