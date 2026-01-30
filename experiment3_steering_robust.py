@@ -366,9 +366,9 @@ class Experiment3Robust:
         print(f"Test set: {len(test_examples)} questions")
 
         # Format prompts
-        train_pos_prompts = [format_prompt(ex["question"], "neutral", ex.get("context"))
+        train_pos_prompts = [format_prompt(ex["question"], "abstain_or_answer", ex.get("context"))
                              for ex in train_pos]
-        train_neg_prompts = [format_prompt(ex["question"], "neutral", ex.get("context"))
+        train_neg_prompts = [format_prompt(ex["question"], "abstain_or_answer", ex.get("context"))
                              for ex in train_neg]
 
         # Compute all directions for all layers
@@ -401,7 +401,7 @@ class Experiment3Robust:
         print("TESTING STEERING EFFECTS")
         print("="*60)
 
-        test_prompts = [(ex, format_prompt(ex["question"], "neutral", ex.get("context")))
+        test_prompts = [(ex, format_prompt(ex["question"], "abstain_or_answer", ex.get("context")))
                         for ex in test_examples]
 
         # SANITY CHECK: Test abstention detection on first example
@@ -770,7 +770,7 @@ def compute_mean_diff_direction(model_wrapper, answerable_questions: List[Dict],
     for q_data in answerable_questions:
         question = q_data["question"]
         context = q_data.get("context", None)
-        prompt = format_prompt(question, "neutral", context)
+        prompt = format_prompt(question, "abstain_or_answer", context)
 
         model_wrapper.clear_hooks()
 
@@ -790,7 +790,7 @@ def compute_mean_diff_direction(model_wrapper, answerable_questions: List[Dict],
     for q_data in unanswerable_questions:
         question = q_data["question"]
         context = q_data.get("context", None)
-        prompt = format_prompt(question, "neutral", context)
+        prompt = format_prompt(question, "abstain_or_answer", context)
 
         model_wrapper.clear_hooks()
 

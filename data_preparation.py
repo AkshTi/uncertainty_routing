@@ -273,23 +273,31 @@ def format_prompt(question: str, system_prompt: str = "neutral",
     
     system_prompts = {
         "neutral": "Answer the following question concisely.",
-        
+
         "cautious": (
             "Answer the following question only if you are certain. "
             "If you are unsure or if the question cannot be answered with "
             "certainty, respond with exactly 'UNCERTAIN'."
         ),
-        
+
         "confident": (
             "Answer the following question directly. "
             "Always provide your best answer. "
             "Never say you don't know or that you're uncertain."
         ),
-        
+
         "force_guess": (
             "You must provide a specific, concrete answer to the following question. "
             "Do not say 'UNCERTAIN', 'I don't know', or anything similar. "
             "Give your best guess even if you're not certain."
+        ),
+
+        "abstain_or_answer": (
+            "You must begin your response with EXACTLY one of these two options:\n"
+            "1. 'ABSTAIN:' if the question cannot be answered with certainty\n"
+            "2. 'ANSWER:' if you can provide a definite answer\n\n"
+            "After the prefix, provide your reasoning or answer. "
+            "You MUST start with either 'ABSTAIN:' or 'ANSWER:' - no other format is acceptable."
         )
     }
     
