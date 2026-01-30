@@ -1,0 +1,23 @@
+Job ID: 8560454
+Node: node3001
+Start time: Fri Jan 30 04:11:09 EST 2026
+Running Experiment 5: Risk-Coverage Tradeoff
+==================================================
+Initializing model...
+Loading model Qwen/Qwen2.5-1.5B-Instruct...
+Model loaded successfully!
+
+Loading datasets...
+
+Dataset: 20 answerable + 20 unanswerable
+
+WARNING: No saved steering direction found from Exp 3
+Computing steering direction from scratch...
+
+============================================================
+METHOD 1: ACTIVATION STEERING
+============================================================
+Sweeping epsilon: [-20, -15, -10, -5, -2, 0, 2, 5, 10, 15, 20]
+==================================================
+Experiment 5 completed at: Fri Jan 30 04:11:43 EST 2026
+Check results in ./results/

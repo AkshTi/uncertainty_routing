@@ -1,0 +1,11 @@
+{
+  "error": "insufficient_variation",
+  "flip_rate": 0.0,
+  "n_flips": 0,
+  "n_observations": 120,
+  "recommendations": [
+    "Increase epsilon values",
+    "Use more diverse questions",
+    "Check steering vector strength"
+  ]
+}

@@ -1,0 +1,28 @@
+Lmod has detected the following error: The following module(s) are unknown:
+"python/3.9"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "python/3.9"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+Lmod has detected the following error: The following module(s) are unknown:
+"cuda/11.8"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "cuda/11.8"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+`torch_dtype` is deprecated! Use `dtype` instead!
+Measuring uncertainty:   0%|          | 0/30 [00:00<?, ?it/s]Measuring uncertainty:   3%|▎         | 1/30 [00:10<05:10, 10.70s/it]Measuring uncertainty:   7%|▋         | 2/30 [00:19<04:29,  9.63s/it]Measuring uncertainty:  10%|█         | 3/30 [00:28<04:09,  9.25s/it]Measuring uncertainty:  13%|█▎        | 4/30 [00:37<03:55,  9.07s/it]Measuring uncertainty:  17%|█▋        | 5/30 [00:45<03:44,  8.97s/it]Measuring uncertainty:  20%|██        | 6/30 [00:54<03:34,  8.93s/it]Measuring uncertainty:  23%|██▎       | 7/30 [01:03<03:24,  8.90s/it]Measuring uncertainty:  27%|██▋       | 8/30 [01:12<03:15,  8.87s/it]Measuring uncertainty:  30%|███       | 9/30 [01:21<03:05,  8.84s/it]Measuring uncertainty:  33%|███▎      | 10/30 [01:29<02:56,  8.81s/it]Measuring uncertainty:  37%|███▋      | 11/30 [01:38<02:46,  8.77s/it]Measuring uncertainty:  40%|████      | 12/30 [01:47<02:38,  8.79s/it]Measuring uncertainty:  43%|████▎     | 13/30 [01:56<02:29,  8.78s/it]Measuring uncertainty:  47%|████▋     | 14/30 [02:05<02:21,  8.82s/it]Measuring uncertainty:  50%|█████     | 15/30 [02:13<02:12,  8.82s/it]Measuring uncertainty:  53%|█████▎    | 16/30 [02:22<02:03,  8.82s/it]Measuring uncertainty:  57%|█████▋    | 17/30 [02:31<01:54,  8.82s/it]Measuring uncertainty:  60%|██████    | 18/30 [02:40<01:45,  8.80s/it]Measuring uncertainty:  63%|██████▎   | 19/30 [02:49<01:36,  8.81s/it]Measuring uncertainty:  67%|██████▋   | 20/30 [02:57<01:27,  8.80s/it]Measuring uncertainty:  70%|███████   | 21/30 [03:06<01:19,  8.80s/it]Measuring uncertainty:  73%|███████▎  | 22/30 [03:15<01:10,  8.83s/it]Measuring uncertainty:  77%|███████▋  | 23/30 [03:24<01:01,  8.84s/it]Measuring uncertainty:  80%|████████  | 24/30 [03:33<00:52,  8.82s/it]Measuring uncertainty:  83%|████████▎ | 25/30 [03:42<00:44,  8.82s/it]Measuring uncertainty:  87%|████████▋ | 26/30 [03:50<00:35,  8.82s/it]Measuring uncertainty:  90%|█████████ | 27/30 [03:59<00:26,  8.80s/it]Measuring uncertainty:  93%|█████████▎| 28/30 [04:08<00:17,  8.72s/it]Measuring uncertainty:  97%|█████████▋| 29/30 [04:16<00:08,  8.65s/it]Measuring uncertainty: 100%|██████████| 30/30 [04:25<00:00,  8.62s/it]Measuring uncertainty: 100%|██████████| 30/30 [04:25<00:00,  8.84s/it]
+Questions:   0%|          | 0/30 [00:00<?, ?it/s]The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Questions:   3%|▎         | 1/30 [00:03<01:41,  3.49s/it]Questions:   7%|▋         | 2/30 [00:06<01:36,  3.45s/it]Questions:  10%|█         | 3/30 [00:10<01:32,  3.43s/it]Questions:  13%|█▎        | 4/30 [00:13<01:28,  3.41s/it]Questions:  17%|█▋        | 5/30 [00:17<01:25,  3.42s/it]Questions:  20%|██        | 6/30 [00:20<01:22,  3.43s/it]Questions:  23%|██▎       | 7/30 [00:24<01:19,  3.44s/it]Questions:  27%|██▋       | 8/30 [00:27<01:15,  3.44s/it]Questions:  30%|███       | 9/30 [00:31<01:12,  3.47s/it]Questions:  33%|███▎      | 10/30 [00:34<01:09,  3.49s/it]Questions:  37%|███▋      | 11/30 [00:37<01:06,  3.48s/it]Questions:  40%|████      | 12/30 [00:41<01:02,  3.48s/it]Questions:  43%|████▎     | 13/30 [00:44<00:59,  3.49s/it]Questions:  47%|████▋     | 14/30 [00:48<00:55,  3.47s/it]Questions:  50%|█████     | 15/30 [00:51<00:51,  3.45s/it]Questions:  53%|█████▎    | 16/30 [00:55<00:48,  3.43s/it]Questions:  57%|█████▋    | 17/30 [00:58<00:44,  3.42s/it]Questions:  60%|██████    | 18/30 [01:02<00:41,  3.43s/it]Questions:  63%|██████▎   | 19/30 [01:05<00:37,  3.43s/it]Questions:  67%|██████▋   | 20/30 [01:08<00:34,  3.45s/it]Questions:  70%|███████   | 21/30 [01:12<00:31,  3.46s/it]Questions:  73%|███████▎  | 22/30 [01:15<00:27,  3.45s/it]Questions:  77%|███████▋  | 23/30 [01:19<00:23,  3.43s/it]Questions:  80%|████████  | 24/30 [01:22<00:20,  3.40s/it]Questions:  83%|████████▎ | 25/30 [01:25<00:16,  3.39s/it]Questions:  87%|████████▋ | 26/30 [01:29<00:13,  3.36s/it]Questions:  90%|█████████ | 27/30 [01:32<00:10,  3.35s/it]Questions:  93%|█████████▎| 28/30 [01:35<00:06,  3.34s/it]Questions:  97%|█████████▋| 29/30 [01:39<00:03,  3.33s/it]Questions: 100%|██████████| 30/30 [01:42<00:00,  3.32s/it]Questions: 100%|██████████| 30/30 [01:42<00:00,  3.42s/it]

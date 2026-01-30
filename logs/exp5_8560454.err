@@ -1,0 +1,37 @@
+Lmod has detected the following error: The following module(s) are unknown:
+"python/3.9"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "python/3.9"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+Lmod has detected the following error: The following module(s) are unknown:
+"cuda/11.8"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "cuda/11.8"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+`torch_dtype` is deprecated! Use `dtype` instead!
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Steering sweep:   0%|          | 0/11 [00:00<?, ?it/s]Steering sweep:   0%|          | 0/11 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/orcd/home/002/akshatat/uncertainty_routing_final/uncertainty_routing/experiment5_risk_coverage.py", line 945, in <module>
+    main(
+  File "/orcd/home/002/akshatat/uncertainty_routing_final/uncertainty_routing/experiment5_risk_coverage.py", line 872, in main
+    steering_df = exp5.run_steering_sweep(
+  File "/orcd/home/002/akshatat/uncertainty_routing_final/uncertainty_routing/experiment5_risk_coverage.py", line 156, in run_steering_sweep
+    layer = self.model.model.layers[layer_idx]
+  File "/home/akshatat/.conda/envs/mech_interp_gpu/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1928, in __getattr__
+    raise AttributeError(
+AttributeError: 'Qwen2ForCausalLM' object has no attribute 'layers'

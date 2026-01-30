@@ -1,0 +1,98 @@
+Job ID: 8560408
+Node: node3000
+Start time: Fri Jan 30 04:05:10 EST 2026
+Running Experiment 4: Steering Selectivity
+==================================================
+Initializing model...
+Loading model Qwen/Qwen2.5-1.5B-Instruct...
+Model loaded successfully!
+Available keys: ["(14, 'mean_diff')", "(14, 'probe')", "(14, 'pc1')", "(14, 'random')", "(14, 'shuffled')", "(16, 'mean_diff')", "(16, 'probe')", "(16, 'pc1')", "(16, 'random')", "(16, 'shuffled')", "(18, 'mean_diff')", "(18, 'probe')", "(18, 'pc1')", "(18, 'random')", "(18, 'shuffled')", "(7, 'early_layer')"]
+Loaded steering vector: shape=torch.Size([1536]), norm=1.0000
+
+Loading questions...
+
+🔬 QUICK TEST MODE
+
+Using 30 questions
+Epsilon values: [0, -50, -20, 20, 50]
+
+============================================================
+EXPERIMENT 4: STEERING SELECTIVITY (ENHANCED)
+============================================================
+Questions: 30
+Target: ≥100 examples per entropy bin
+Epsilon values: [0, -50, -20, 20, 50]
+Layer: 27
+
+============================================================
+PHASE 1: MEASURING INTERNAL UNCERTAINTY
+============================================================
+
+Entropy range: [1.84, 3.00]
+Entropy mean: 2.78 ± 0.28
+
+Entropy distribution (4 bins):
+  Very Low    :    7 examples (23.3%)
+  Low         :    5 examples (16.7%)
+  Medium      :    8 examples (26.7%)
+  High        :   10 examples (33.3%)
+
+⚠️ WARNING: Some bins have <100 examples.
+   Smallest bin: 5 examples
+   Consider using more questions for robust analysis.
+
+============================================================
+PHASE 2: TESTING STEERING SELECTIVITY
+============================================================
+
+============================================================
+FORMAT COMPLIANCE REPORT
+============================================================
+Baseline responses:  30/30 valid (100.0%)
+Steered responses:   120/120 valid (100.0%)
+
+📍 Decision token position used for steering
+   (computed via get_decision_token_position for each prompt)
+
+
+Results saved to results/exp4_selectivity_results.csv
+
+============================================================
+EXPERIMENT 4: INTERACTION MODEL ANALYSIS
+============================================================
+
+Total observations (raw): 150
+Valid observations: 150
+Non-baseline observations for modeling: 120
+Total flips: 0
+
+============================================================
+⚠️  INSUFFICIENT VARIATION IN FLIPS
+============================================================
+
+Flip rate: 0.0% (0/120)
+
+❌ Cannot fit interaction model - no variation in outcome.
+
+📋 RECOMMENDATIONS:
+  1. Increase epsilon magnitude:
+     Current range: [-50, 50]
+     Suggested: Use epsilon values like [-50, -20, 0, 20, 50] or [-100, 0, 100]
+  2. Use more diverse questions (current: 30 questions)
+  3. Check steering vector strength and layer selection
+  4. Verify questions span a range of uncertainty levels
+
+💡 TIP: Run with --quick_test to verify setup before full run
+
+✓ Experiment 4 (Enhanced) complete!
+
+📊 Output files:
+  Results:              results/exp4_selectivity_results.csv
+  Summary:              results/exp4_selectivity_summary.json
+  Coefficient table:    results/exp4_coefficient_table.csv
+
+📈 Figures:
+  Interaction plots:    results/exp4_interaction_plots.png
+==================================================
+Experiment 4 completed at: Fri Jan 30 04:11:45 EST 2026
+Check results in ./results/
