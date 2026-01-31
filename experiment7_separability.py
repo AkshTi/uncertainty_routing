@@ -30,7 +30,7 @@ import torch
 
 from core_utils import (
     ModelWrapper, ExperimentConfig, extract_answer,
-    set_seed, compute_binary_margin_simple
+    set_seed, compute_binary_margin_simple, _get_blocks
 )
 from data_preparation import format_prompt
 
@@ -593,6 +593,9 @@ class Experiment7:
         activations1 = []
         activations2 = []
 
+        # Get model blocks using the helper function
+        blocks = _get_blocks(self.model.model)
+
         # Extract activations from first set
         for prompt_data in prompts1:
             prompt = prompt_data.get("prompt", prompt_data.get("question", ""))
@@ -605,7 +608,7 @@ class Experiment7:
                     hs = output
                 self.model.activation_cache[f"layer_{layer_idx}"] = hs[:, -1, :].detach().cpu()
 
-            layer = self.model.model.layers[layer_idx]
+            layer = blocks[layer_idx]
             handle = layer.register_forward_hook(cache_hook)
 
             try:
@@ -628,7 +631,7 @@ class Experiment7:
                     hs = output
                 self.model.activation_cache[f"layer_{layer_idx}"] = hs[:, -1, :].detach().cpu()
 
-            layer = self.model.model.layers[layer_idx]
+            layer = blocks[layer_idx]
             handle = layer.register_forward_hook(cache_hook)
 
             try:
@@ -675,6 +678,9 @@ class Experiment7:
         harmful_activations = []
         benign_activations = []
 
+        # Get model blocks using the helper function
+        blocks = _get_blocks(self.model.model)
+
         # Extract harmful activations
         for prompt_data in tqdm(harmful_prompts[:n_harmful], desc="Harmful activations"):
             prompt = prompt_data["prompt"]
@@ -690,7 +696,7 @@ class Experiment7:
                 # Cache last token activation
                 self.model.activation_cache[f"layer_{layer_idx}"] = hs[:, -1, :].detach().cpu()
 
-            layer = self.model.model.layers[layer_idx]
+            layer = blocks[layer_idx]
             handle = layer.register_forward_hook(cache_hook)
 
             _ = self.model.generate(prompt, temperature=0.0, do_sample=False)
@@ -714,7 +720,7 @@ class Experiment7:
                     hs = output
                 self.model.activation_cache[f"layer_{layer_idx}"] = hs[:, -1, :].detach().cpu()
 
-            layer = self.model.model.layers[layer_idx]
+            layer = blocks[layer_idx]
             handle = layer.register_forward_hook(cache_hook)
 
             _ = self.model.generate(prompt, temperature=0.0, do_sample=False)
@@ -961,7 +967,8 @@ class Experiment7:
             return hs
 
         # Use consistent layer accessor
-        layer = self.model.model.layers[layer_idx]
+        blocks = _get_blocks(self.model.model)
+        layer = blocks[layer_idx]
         handle = layer.register_forward_hook(steering_hook)
 
         try:
