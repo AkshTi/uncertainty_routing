@@ -1,0 +1,23 @@
+Job ID: 8583331
+Node: node3301
+Start time: Fri Jan 30 19:08:08 EST 2026
+Running Experiment 7: Separability from Refusal
+==================================================
+Initializing model...
+Loading model Qwen/Qwen2.5-1.5B-Instruct...
+Model loaded successfully!
+
+Loading datasets...
+
+Using layer 0 from Exp 2
+
+Using layer 0 for all interventions
+
+============================================================
+COMPUTING ABSTENTION DIRECTION
+============================================================
+Layer: 0
+Using 20 answerable, 20 unanswerable questions
+==================================================
+Experiment 7 completed at: Fri Jan 30 19:08:21 EST 2026
+Check results in ./results/
