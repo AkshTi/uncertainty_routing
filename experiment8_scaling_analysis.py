@@ -114,10 +114,17 @@ class Experiment8:
         best_layer = None
         best_trustworthiness_score = -float('inf')
 
-        # Quick test with first 20 eval questions (10 answerable + 10 unanswerable if possible)
-        quick_eval_answerable = [q for q in eval_questions if not q.get('is_unanswerable', False)][:10]
-        quick_eval_unanswerable = [q for q in eval_questions if q.get('is_unanswerable', False)][:10]
+        # Quick test with subset of eval questions for layer selection (adaptive to dataset size)
+        answerable_eval_all = [q for q in eval_questions if not q.get('is_unanswerable', False)]
+        unanswerable_eval_all = [q for q in eval_questions if q.get('is_unanswerable', False)]
+
+        # Use min(10, available) to adapt to small datasets
+        n_quick = min(10, len(answerable_eval_all), len(unanswerable_eval_all))
+        quick_eval_answerable = answerable_eval_all[:n_quick]
+        quick_eval_unanswerable = unanswerable_eval_all[:n_quick]
         quick_eval = quick_eval_answerable + quick_eval_unanswerable
+
+        print(f"  Quick validation: {len(quick_eval)} questions ({n_quick} answerable, {n_quick} unanswerable)")
 
         for layer_idx in steering_vectors.keys():
             exp5_temp = Experiment5(model_wrapper, config, {layer_idx: steering_vectors[layer_idx]})
