@@ -1,0 +1,15 @@
+Job ID: 8600686
+Node: node3001
+Start time: Sat Jan 31 12:00:11 EST 2026
+Running Experiment 8: Scaling Analysis
+Testing models: Qwen2.5-1.5B, 3B, 7B
+==================================================
+Loading questions...
+
+Splitting data to prevent leakage...
+==================================================
+Experiment 8 completed at: Sat Jan 31 12:00:41 EST 2026
+Check results in ./results/
+  - exp8_scaling_summary.csv
+  - exp8_scaling_analysis.png
+  - exp8_summary.json

@@ -1,0 +1,17 @@
+Job ID: 8602097
+Node: node2434
+Start time: Sat Jan 31 12:52:17 EST 2026
+Running Experiment 8: Scaling Analysis
+Testing models: Qwen2.5-1.5B, 3B, 7B
+Configuration: 50 questions per category, 10 min per split
+==================================================
+Loading questions...
+
+Splitting data to prevent leakage...
+Configuration: 50 questions per category, 10 minimum per split
+==================================================
+Experiment 8 completed at: Sat Jan 31 12:52:30 EST 2026
+Check results in ./results/
+  - exp8_scaling_summary.csv
+  - exp8_scaling_analysis.png
+  - exp8_summary.json

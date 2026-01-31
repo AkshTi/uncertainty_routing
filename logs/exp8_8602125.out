@@ -1,0 +1,238 @@
+Job ID: 8602125
+Node: node2434
+Start time: Sat Jan 31 12:55:12 EST 2026
+Running Experiment 8: Scaling Analysis
+Testing models: Qwen2.5-1.5B, 3B, 7B
+Configuration: 10 questions per category, 2 min per split
+==================================================
+Loading questions...
+
+Splitting data to prevent leakage...
+Configuration: 10 questions per category, 2 minimum per split
+✓ Dataset size check passed: 10 answerable, 10 unanswerable
+Train set: 10 questions (5 answerable, 5 unanswerable)
+Eval set:  10 questions (5 answerable, 5 unanswerable)
+✓ All assertions passed: sufficient data, no leakage
+
+
+======================================================================
+EXPERIMENT 8: SCALING ANALYSIS
+======================================================================
+Train set: 10 questions
+Eval set: 10 questions
+======================================================================
+
+
+======================================================================
+Testing model: Qwen/Qwen2.5-1.5B-Instruct
+======================================================================
+Loading model Qwen/Qwen2.5-1.5B-Instruct...
+Model loaded successfully!
+Loaded: 28 layers, 1536 hidden dim
+Auto-selected late layers: [22, 23, 24, 25, 26, 27]
+
+Extracting steering vectors from training set...
+  Train set: 5 answerable, 5 unanswerable
+  Testing deepest layers: [23, 24, 25, 26, 27]
+  Computing steering direction for layer 23...
+    Direction norm before normalization: 71.3125
+    POS activation norm: 121.4375
+    NEG activation norm: 132.2500
+  Computing steering direction for layer 24...
+    Direction norm before normalization: 81.1250
+    POS activation norm: 148.7500
+    NEG activation norm: 152.1250
+  Computing steering direction for layer 25...
+    Direction norm before normalization: 90.9375
+    POS activation norm: 180.0000
+    NEG activation norm: 199.2500
+  Computing steering direction for layer 26...
+    Direction norm before normalization: 97.3125
+    POS activation norm: 255.7500
+    NEG activation norm: 255.8750
+  Computing steering direction for layer 27...
+    Direction norm before normalization: 114.8750
+    POS activation norm: 159.2500
+    NEG activation norm: 192.2500
+  ✓ Extracted steering vectors for layers: [23, 24, 25, 26, 27]
+
+Finding best layer for this model...
+Selection criterion: max[Δ(abstain unanswerable) - Δ(abstain answerable)]
+  → Maximize hallucination reduction while minimizing coverage loss
+  Quick validation: 10 questions (5 answerable, 5 unanswerable)
+  Layer 23: Δ_unans=+0.600, Δ_ans=-0.200, score=+0.800
+  Layer 24: Δ_unans=+0.600, Δ_ans=+0.000, score=+0.600
+  Layer 25: Δ_unans=+0.600, Δ_ans=+0.000, score=+0.600
+  Layer 26: Δ_unans=+0.600, Δ_ans=+0.200, score=+0.400
+  Layer 27: Δ_unans=+0.600, Δ_ans=+0.200, score=+0.400
+  ✓ Selected layer 23 (trustworthiness score=+0.800)
+
+Testing steering effect on evaluation set (10 questions)...
+Using layer: 23
+EPSILON SIGN CONVENTION: -eps increases abstention (hallucination reduction)
+                         +eps decreases abstention (more answering)
+
+======================================================================
+RESULTS FOR Qwen/Qwen2.5-1.5B-Instruct:
+======================================================================
+  Baseline hallucination: 0.0%
+  Steered hallucination: 0.0%
+
+  RAW ABSTENTION DELTA: +0.000 (+0.0%)
+  RAW COVERAGE DELTA: +0.200 (+20.0%)
+======================================================================
+
+======================================================================
+Testing model: Qwen/Qwen2.5-3B-Instruct
+======================================================================
+Loading model Qwen/Qwen2.5-3B-Instruct...
+Model loaded successfully!
+Loaded: 36 layers, 2048 hidden dim
+Auto-selected late layers: [28, 29, 30, 31, 32, 33, 34, 35]
+
+Extracting steering vectors from training set...
+  Train set: 5 answerable, 5 unanswerable
+  Testing deepest layers: [31, 32, 33, 34, 35]
+  Computing steering direction for layer 31...
+    Direction norm before normalization: 103.2500
+    POS activation norm: 159.3750
+    NEG activation norm: 177.0000
+  Computing steering direction for layer 32...
+    Direction norm before normalization: 118.8750
+    POS activation norm: 198.1250
+    NEG activation norm: 225.0000
+  Computing steering direction for layer 33...
+    Direction norm before normalization: 125.6875
+    POS activation norm: 256.2500
+    NEG activation norm: 273.0000
+  Computing steering direction for layer 34...
+    Direction norm before normalization: 139.0000
+    POS activation norm: 322.2500
+    NEG activation norm: 325.7500
+  Computing steering direction for layer 35...
+    Direction norm before normalization: 152.5000
+    POS activation norm: 183.6250
+    NEG activation norm: 179.6250
+  ✓ Extracted steering vectors for layers: [31, 32, 33, 34, 35]
+
+Finding best layer for this model...
+Selection criterion: max[Δ(abstain unanswerable) - Δ(abstain answerable)]
+  → Maximize hallucination reduction while minimizing coverage loss
+  Quick validation: 10 questions (5 answerable, 5 unanswerable)
+  Layer 31: Δ_unans=+0.000, Δ_ans=+0.000, score=+0.000
+  Layer 32: Δ_unans=+0.000, Δ_ans=+0.000, score=+0.000
+  Layer 33: Δ_unans=+0.000, Δ_ans=+0.000, score=+0.000
+  Layer 34: Δ_unans=+0.000, Δ_ans=+0.000, score=+0.000
+  Layer 35: Δ_unans=+0.000, Δ_ans=+0.000, score=+0.000
+  ✓ Selected layer 31 (trustworthiness score=+0.000)
+
+Testing steering effect on evaluation set (10 questions)...
+Using layer: 31
+EPSILON SIGN CONVENTION: -eps increases abstention (hallucination reduction)
+                         +eps decreases abstention (more answering)
+
+======================================================================
+RESULTS FOR Qwen/Qwen2.5-3B-Instruct:
+======================================================================
+  Baseline hallucination: 0.0%
+  Steered hallucination: 0.0%
+
+  RAW ABSTENTION DELTA: +0.000 (+0.0%)
+  RAW COVERAGE DELTA: +0.000 (+0.0%)
+======================================================================
+
+======================================================================
+Testing model: Qwen/Qwen2.5-7B-Instruct
+======================================================================
+Loading model Qwen/Qwen2.5-7B-Instruct...
+Model loaded successfully!
+Loaded: 28 layers, 3584 hidden dim
+Auto-selected late layers: [22, 23, 24, 25, 26, 27]
+
+Extracting steering vectors from training set...
+  Train set: 5 answerable, 5 unanswerable
+  Testing deepest layers: [23, 24, 25, 26, 27]
+  Computing steering direction for layer 23...
+    Direction norm before normalization: 166.0000
+    POS activation norm: 159.8750
+    NEG activation norm: 191.6250
+  Computing steering direction for layer 24...
+    Direction norm before normalization: 188.2500
+    POS activation norm: 197.6250
+    NEG activation norm: 237.6250
+  Computing steering direction for layer 25...
+    Direction norm before normalization: 219.1250
+    POS activation norm: 256.5000
+    NEG activation norm: 307.0000
+  Computing steering direction for layer 26...
+    Direction norm before normalization: 250.3750
+    POS activation norm: 330.2500
+    NEG activation norm: 395.0000
+  Computing steering direction for layer 27...
+    Direction norm before normalization: 279.2500
+    POS activation norm: 234.5000
+    NEG activation norm: 295.7500
+  ✓ Extracted steering vectors for layers: [23, 24, 25, 26, 27]
+
+Finding best layer for this model...
+Selection criterion: max[Δ(abstain unanswerable) - Δ(abstain answerable)]
+  → Maximize hallucination reduction while minimizing coverage loss
+  Quick validation: 10 questions (5 answerable, 5 unanswerable)
+  Layer 23: Δ_unans=+0.600, Δ_ans=-0.200, score=+0.800
+  Layer 24: Δ_unans=+0.600, Δ_ans=-0.200, score=+0.800
+  Layer 25: Δ_unans=+0.600, Δ_ans=-0.200, score=+0.800
+  Layer 26: Δ_unans=+0.600, Δ_ans=-0.200, score=+0.800
+  Layer 27: Δ_unans=+0.600, Δ_ans=-0.200, score=+0.800
+  ✓ Selected layer 23 (trustworthiness score=+0.800)
+
+Testing steering effect on evaluation set (10 questions)...
+Using layer: 23
+EPSILON SIGN CONVENTION: -eps increases abstention (hallucination reduction)
+                         +eps decreases abstention (more answering)
+
+======================================================================
+RESULTS FOR Qwen/Qwen2.5-7B-Instruct:
+======================================================================
+  Baseline hallucination: 0.0%
+  Steered hallucination: 0.0%
+
+  RAW ABSTENTION DELTA: +0.000 (+0.0%)
+  RAW COVERAGE DELTA: +0.200 (+20.0%)
+======================================================================
+
+======================================================================
+EXPERIMENT 8: SCALING ANALYSIS
+======================================================================
+
+Model Comparison (Raw Abstention Deltas):
+                     model  n_layers  hidden_dim  best_layer  delta_abstain  delta_coverage  baseline_halluc  steered_halluc
+Qwen/Qwen2.5-1.5B-Instruct        28        1536          23            0.0             0.2              0.0             0.0
+  Qwen/Qwen2.5-3B-Instruct        36        2048          31            0.0             0.0              0.0             0.0
+  Qwen/Qwen2.5-7B-Instruct        28        3584          23            0.0             0.2              0.0             0.0
+
+======================================================================
+RAW ABSTENTION DELTAS BY MODEL:
+======================================================================
+Qwen2.5-1.5B        : Δ=+0.000 (+0.0%)
+Qwen2.5-3B          : Δ=+0.000 (+0.0%)
+Qwen2.5-7B          : Δ=+0.000 (+0.0%)
+======================================================================
+
+Scaling correlation (capacity vs effect): nan
+  (capacity = n_layers × hidden_dim)
+⚠️  Smaller models show stronger steering effects
+
+Best layers found per model:
+  Qwen2.5-1.5B        : Layer 23/27
+  Qwen2.5-3B          : Layer 31/35
+  Qwen2.5-7B          : Layer 23/27
+
+✓ Figure saved to results/exp8_scaling_analysis.png
+
+✓ Experiment 8 complete!
+==================================================
+Experiment 8 completed at: Sat Jan 31 13:07:14 EST 2026
+Check results in ./results/
+  - exp8_scaling_summary.csv
+  - exp8_scaling_analysis.png
+  - exp8_summary.json

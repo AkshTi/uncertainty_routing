@@ -1,0 +1,30 @@
+Lmod has detected the following error: The following module(s) are unknown:
+"python/3.9"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "python/3.9"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+Lmod has detected the following error: The following module(s) are unknown:
+"cuda/11.8"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "cuda/11.8"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+Traceback (most recent call last):
+  File "/orcd/home/002/akshatat/uncertainty_routing_final/uncertainty_routing/experiment8_scaling_analysis.py", line 547, in <module>
+    main()
+  File "/orcd/home/002/akshatat/uncertainty_routing_final/uncertainty_routing/experiment8_scaling_analysis.py", line 481, in main
+    assert len(answerable) >= min_required, f"Need at least {min_required} answerable questions, got {len(answerable)}"
+AssertionError: Need at least 50 answerable questions, got 10

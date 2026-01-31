@@ -1,0 +1,8 @@
+model,n_layers,hidden_dim,epsilon,coverage_answerable,abstain_unanswerable,hallucination_unanswerable
+Qwen/Qwen2.5-7B-Instruct,28,3584,-30.0,0.8,1.0,0.0
+Qwen/Qwen2.5-7B-Instruct,28,3584,-20.0,0.8,1.0,0.0
+Qwen/Qwen2.5-7B-Instruct,28,3584,-10.0,0.8,1.0,0.0
+Qwen/Qwen2.5-7B-Instruct,28,3584,0.0,0.6,1.0,0.0
+Qwen/Qwen2.5-7B-Instruct,28,3584,10.0,0.6,1.0,0.0
+Qwen/Qwen2.5-7B-Instruct,28,3584,20.0,0.8,1.0,0.0
+Qwen/Qwen2.5-7B-Instruct,28,3584,30.0,0.8,1.0,0.0
