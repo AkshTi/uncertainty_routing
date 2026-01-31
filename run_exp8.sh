@@ -19,16 +19,23 @@ module load cuda/11.8
 # Create logs directory if it doesn't exist
 mkdir -p logs
 
+# Configuration (adjust these as needed)
+N_QUESTIONS=${N_QUESTIONS:-50}       # Total questions per category (default: 50)
+MIN_PER_SPLIT=${MIN_PER_SPLIT:-10}   # Minimum per split (default: 10)
+
 # Print job info
 echo "Job ID: $SLURM_JOB_ID"
 echo "Node: $SLURM_NODELIST"
 echo "Start time: $(date)"
 echo "Running Experiment 8: Scaling Analysis"
 echo "Testing models: Qwen2.5-1.5B, 3B, 7B"
+echo "Configuration: ${N_QUESTIONS} questions per category, ${MIN_PER_SPLIT} min per split"
 echo "=================================================="
 
-# Run experiment
-python experiment8_scaling_analysis.py
+# Run experiment with configurable parameters
+python experiment8_scaling_analysis.py \
+    --n_questions ${N_QUESTIONS} \
+    --min_per_split ${MIN_PER_SPLIT}
 
 echo "=================================================="
 echo "Experiment 8 completed at: $(date)"

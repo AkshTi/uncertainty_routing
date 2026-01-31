@@ -17,6 +17,7 @@ from tqdm import tqdm
 from typing import List, Dict, Tuple, Optional
 import json
 import copy
+import argparse
 
 from core_utils import ModelWrapper, ExperimentConfig, extract_answer, set_seed
 
@@ -447,6 +448,14 @@ class Experiment8:
 
 def main():
     """Run scaling analysis"""
+    # Parse command line arguments
+    parser = argparse.ArgumentParser(description='Experiment 8: Scaling Analysis')
+    parser.add_argument('--n_questions', type=int, default=50,
+                        help='Minimum number of questions per category (default: 50)')
+    parser.add_argument('--min_per_split', type=int, default=10,
+                        help='Minimum number of questions per category per split (default: 10)')
+    args = parser.parse_args()
+
     config = ExperimentConfig()
 
     # Load questions
@@ -459,8 +468,9 @@ def main():
     # CRITICAL: Split into train/eval to prevent data leakage
     print("\nSplitting data to prevent leakage...")
 
-    # ASSERTIONS: Ensure we have enough data (minimum 50 total, but flexible)
-    min_required = 50
+    # ASSERTIONS: Ensure we have enough data
+    min_required = args.n_questions
+    print(f"Configuration: {min_required} questions per category, {args.min_per_split} minimum per split")
     assert len(answerable) >= min_required, f"Need at least {min_required} answerable questions, got {len(answerable)}"
     assert len(unanswerable) >= min_required, f"Need at least {min_required} unanswerable questions, got {len(unanswerable)}"
     print(f"✓ Dataset size check passed: {len(answerable)} answerable, {len(unanswerable)} unanswerable")
@@ -471,13 +481,14 @@ def main():
     random.shuffle(answerable)
     random.shuffle(unanswerable)
 
-    # Split: Use half for train, half for eval (minimum 25 each if possible)
-    n_ans_train = max(25, len(answerable) // 2)
-    n_unans_train = max(25, len(unanswerable) // 2)
+    # Split: Use half for train, half for eval (minimum min_per_split each if possible)
+    min_per_split = args.min_per_split
+    n_ans_train = max(min_per_split, len(answerable) // 2)
+    n_unans_train = max(min_per_split, len(unanswerable) // 2)
 
     # Ensure we don't exceed available data
-    n_ans_train = min(n_ans_train, len(answerable) - 25)  # Leave at least 25 for eval
-    n_unans_train = min(n_unans_train, len(unanswerable) - 25)
+    n_ans_train = min(n_ans_train, len(answerable) - min_per_split)  # Leave at least min_per_split for eval
+    n_unans_train = min(n_unans_train, len(unanswerable) - min_per_split)
 
     answerable_train = answerable[:n_ans_train]
     answerable_eval = answerable[n_ans_train:]  # Use remaining for eval
@@ -499,7 +510,6 @@ def main():
     ]
 
     # ASSERTIONS: Ensure splits have minimum required size
-    min_per_split = 10  # Minimum 10 per category per split
     assert len(answerable_train) >= min_per_split, f"Train needs ≥{min_per_split} answerable, got {len(answerable_train)}"
     assert len(unanswerable_train) >= min_per_split, f"Train needs ≥{min_per_split} unanswerable, got {len(unanswerable_train)}"
     assert len(answerable_eval) >= min_per_split, f"Eval needs ≥{min_per_split} answerable, got {len(answerable_eval)}"
