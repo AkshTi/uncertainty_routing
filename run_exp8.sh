@@ -20,8 +20,8 @@ module load cuda/11.8
 mkdir -p logs
 
 # Configuration (adjust these as needed)
-N_QUESTIONS=${N_QUESTIONS:-50}       # Total questions per category (default: 50)
-MIN_PER_SPLIT=${MIN_PER_SPLIT:-10}   # Minimum per split (default: 10)
+N_QUESTIONS=${N_QUESTIONS:-10}       # Total questions per category (default: 10)
+MIN_PER_SPLIT=${MIN_PER_SPLIT:-2}    # Minimum per split (default: 2)
 
 # Print job info
 echo "Job ID: $SLURM_JOB_ID"
