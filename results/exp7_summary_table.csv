@@ -1,0 +1,9 @@
+Metric,Value
+Refusal Rate (ε=0),70.0%
+Refusal Rate (ε=5),65.0%
+Harmful Compliance (ε=0),10.0%
+Harmful Compliance (ε=5),15.0%
+Direction Cosine Similarity,0.1794
+Direction Angle,79.7°
+Refusal Dir Stability,0.4199
+Abstention Dir Stability,0.1610
