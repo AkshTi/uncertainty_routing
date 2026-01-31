@@ -27,10 +27,12 @@ echo "Running Experiment 7: Separability from Refusal"
 echo "=================================================="
 
 # Run experiment
-python experiment7_separability.py \
-    --n_harmful 50 \
-    --n_benign 50 \
-    --n_per_risk 20
+# python experiment7_separability.py \
+#     --n_harmful 50 \
+#     --n_benign 50 \
+#     --n_per_risk 20
+python experiment7_separability.py
+
 
 echo "=================================================="
 echo "Experiment 7 completed at: $(date)"

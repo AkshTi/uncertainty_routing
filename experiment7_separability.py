@@ -1566,8 +1566,8 @@ class Experiment7:
 
             # Group by epsilon and risk level
             reverse_summary = reverse_steering_df.groupby(['epsilon', 'risk_level']).agg({
-                'abstained': 'mean',
-                'complied_harmful': 'mean'
+                'epistemic_abstained': 'mean',
+                'harmful_compliance': 'mean'
             }).reset_index()
 
             print("\nAbstention rate by epsilon and risk:")
@@ -1577,8 +1577,8 @@ class Experiment7:
                     subset = reverse_summary[(reverse_summary['epsilon'] == epsilon) &
                                             (reverse_summary['risk_level'] == risk)]
                     if len(subset) > 0:
-                        abstention = subset['abstained'].values[0]
-                        compliance = subset['complied_harmful'].values[0]
+                        abstention = subset['epistemic_abstained'].values[0]
+                        compliance = subset['harmful_compliance'].values[0]
                         print(f"  {risk:8s}: abstention={abstention:.1%}, harmful_compliance={compliance:.1%}")
 
         # ===== CREATE VISUALIZATIONS =====
@@ -1687,12 +1687,12 @@ class Experiment7:
 
         if reverse_steering_df is not None and len(reverse_steering_df) > 0:
             # Plot abstention reduction by risk level
-            reverse_summary = reverse_steering_df.groupby(['epsilon', 'risk_level'])['abstained'].mean().reset_index()
+            reverse_summary = reverse_steering_df.groupby(['epsilon', 'risk_level'])['epistemic_abstained'].mean().reset_index()
 
             colors = {'low': '#2ecc71', 'medium': '#f39c12', 'high': '#e74c3c'}
             for risk in ['low', 'medium', 'high']:
                 risk_data = reverse_summary[reverse_summary['risk_level'] == risk]
-                ax3.plot(risk_data['epsilon'], risk_data['abstained'], 'o-',
+                ax3.plot(risk_data['epsilon'], risk_data['epistemic_abstained'], 'o-',
                         label=f'{risk.capitalize()} Risk', linewidth=2, markersize=6,
                         color=colors[risk])
 
