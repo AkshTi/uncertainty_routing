@@ -55,6 +55,7 @@ class Experiment5:
         self.config = config
         self.steering_vectors = steering_vectors
         self.results = []
+        self.max_new_tokens = 100  # Override to 12 for publication-ready experiments
         set_seed(config.seed)
 
     def _prompt(self, question: str, context: Optional[str] = None) -> str:
@@ -239,7 +240,7 @@ class Experiment5:
             prompt,
             temperature=0.0,
             do_sample=False,
-            max_new_tokens=100,
+            max_new_tokens=self.max_new_tokens,
         )
 
         self.model.clear_hooks()

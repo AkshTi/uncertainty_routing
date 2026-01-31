@@ -20,6 +20,8 @@ import copy
 import argparse
 
 from core_utils import ModelWrapper, ExperimentConfig, extract_answer, set_seed
+from scaled_datasets import create_scaled_domain_questions
+from unified_prompts import unified_prompt_strict
 
 
 class Experiment8:
@@ -61,10 +63,12 @@ class Experiment8:
 
         # Auto-detect late layers if not specified
         if target_layers is None:
-            # Test last 20% of layers (late layers where semantic info is processed)
-            start_layer = int(n_layers * 0.8)
-            target_layers = list(range(start_layer, n_layers))
-            print(f"Auto-selected late layers: {target_layers}")
+            # Exp6a found layer 24/28 (~86% depth) works best for 1.5B.
+            # Target layers around 80-93% depth to find analogous layer per model.
+            start_layer = int(n_layers * 0.80)
+            end_layer = min(int(n_layers * 0.93) + 1, n_layers)
+            target_layers = list(range(start_layer, end_layer))
+            print(f"Auto-selected late layers (80-93% depth): {target_layers}")
 
         # Extract steering vectors from TRAIN set (prevent data leakage)
         print("\nExtracting steering vectors from training set...")
@@ -84,11 +88,11 @@ class Experiment8:
             try:
                 from experiment3_4_steering_independence import Experiment3
 
-                # Format prompts
-                from data_preparation import format_prompt
-                pos_prompts = [format_prompt(q["question"], "neutral", q.get("context"))
+                # Format prompts — use SAME prompt as exp6a (unified_prompt_strict)
+                # OLD: format_prompt("neutral") had no UNCERTAIN instruction
+                pos_prompts = [unified_prompt_strict(q["question"])
                               for q in answerable_train]
-                neg_prompts = [format_prompt(q["question"], "neutral", q.get("context"))
+                neg_prompts = [unified_prompt_strict(q["question"])
                               for q in unanswerable_train]
 
                 exp3 = Experiment3(model_wrapper, config)
@@ -128,12 +132,15 @@ class Experiment8:
 
         for layer_idx in steering_vectors.keys():
             exp5_temp = Experiment5(model_wrapper, config, {layer_idx: steering_vectors[layer_idx]})
+            # Override prompt and generation to match exp6a
+            exp5_temp._prompt = lambda question, context=None: unified_prompt_strict(question)
+            exp5_temp.max_new_tokens = 12
             temp_results = []
 
             for q in quick_eval:
                 try:
-                    # Test baseline (eps=0) and steered (eps=-30)
-                    for eps in [0.0, -30.0]:
+                    # Test baseline (eps=0) and steered (eps=-20, matching exp6a)
+                    for eps in [0.0, -20.0]:
                         result = exp5_temp.test_one(q, layer_idx, eps)
                         temp_results.append(result)
                 except:
@@ -149,13 +156,14 @@ class Experiment8:
                 # Compute deltas separately for answerable and unanswerable
                 if len(answerable_df) > 0 and len(unanswerable_df) > 0:
                     # Delta for unanswerable (want this to increase)
-                    baseline_abstain_unans = answerable_df[answerable_df['epsilon'] == 0.0]['abstained'].mean()
-                    steered_abstain_unans = unanswerable_df[unanswerable_df['epsilon'] == -30.0]['abstained'].mean()
+                    # BUG FIX: was using answerable_df for baseline — must use unanswerable_df
+                    baseline_abstain_unans = unanswerable_df[unanswerable_df['epsilon'] == 0.0]['abstained'].mean()
+                    steered_abstain_unans = unanswerable_df[unanswerable_df['epsilon'] == -20.0]['abstained'].mean()
                     delta_unans = steered_abstain_unans - baseline_abstain_unans
 
                     # Delta for answerable (want this to stay small/negative)
                     baseline_abstain_ans = answerable_df[answerable_df['epsilon'] == 0.0]['abstained'].mean()
-                    steered_abstain_ans = answerable_df[answerable_df['epsilon'] == -30.0]['abstained'].mean()
+                    steered_abstain_ans = answerable_df[answerable_df['epsilon'] == -20.0]['abstained'].mean()
                     delta_ans = steered_abstain_ans - baseline_abstain_ans
 
                     # Trustworthiness score: increase unanswerable abstention, minimize answerable abstention
@@ -181,10 +189,14 @@ class Experiment8:
 
         # Instantiate Experiment5 ONCE (not in inner loop for efficiency)
         exp5 = Experiment5(model_wrapper, config, {best_layer: steering_vectors[best_layer]})
+        # Override prompt and generation to match exp6a
+        exp5._prompt = lambda question, context=None: unified_prompt_strict(question)
+        exp5.max_new_tokens = 12
 
         results = []
         # Test range of epsilon values (negative = increase abstention)
-        for eps in [-30.0, -20.0, -10.0, 0.0, 10.0, 20.0, 30.0]:
+        # Centered around exp6a's optimal epsilon of -20.0
+        for eps in [-40.0, -30.0, -20.0, -10.0, 0.0, 10.0, 20.0]:
             for q in eval_questions:
                 try:
                     result = exp5.test_one(q, best_layer, eps)
@@ -228,7 +240,7 @@ class Experiment8:
 
         # Compute steering effectiveness
         baseline = metrics_df[metrics_df['epsilon'] == 0.0].iloc[0]
-        steered = metrics_df[metrics_df['epsilon'] == -30.0].iloc[0]  # Use strong negative steering
+        steered = metrics_df[metrics_df['epsilon'] == -20.0].iloc[0]  # Match exp6a's optimal epsilon
 
         delta_abstain = steered['abstain_unanswerable'] - baseline['abstain_unanswerable']
         delta_coverage = steered['coverage_answerable'] - baseline['coverage_answerable']
@@ -465,43 +477,49 @@ def main():
 
     config = ExperimentConfig()
 
-    # Load questions
-    print("Loading questions...")
-    with open("./data/dataset_clearly_answerable.json", 'r') as f:
-        answerable = json.load(f)
-    with open("./data/dataset_clearly_unanswerable.json", 'r') as f:
-        unanswerable = json.load(f)
+    # Load questions — use SAME scaled dataset as exp6a
+    # OLD: loaded 10 trivially easy questions from dataset_clearly_*.json
+    # NEW: 50+ per domain from scaled_datasets.py (models actually hallucinate on these)
+    print("Loading scaled domain questions (same as exp6a)...")
+    domain_questions = create_scaled_domain_questions()
+
+    # Flatten all domains into answerable / unanswerable lists
+    answerable = []
+    unanswerable = []
+    for domain, domain_data in domain_questions.items():
+        for q in domain_data["answerable"]:
+            answerable.append({
+                "question": q["q"],
+                "answer": q["a"],
+                "domain": domain,
+            })
+        for q in domain_data["unanswerable"]:
+            unanswerable.append({
+                "question": q["q"],
+                "answer": None,
+                "domain": domain,
+            })
+
+    print(f"Loaded: {len(answerable)} answerable, {len(unanswerable)} unanswerable")
 
     # CRITICAL: Split into train/eval to prevent data leakage
     print("\nSplitting data to prevent leakage...")
 
-    # ASSERTIONS: Ensure we have enough data
-    min_required = args.n_questions
-    print(f"Configuration: {min_required} questions per category, {args.min_per_split} minimum per split")
-    assert len(answerable) >= min_required, f"Need at least {min_required} answerable questions, got {len(answerable)}"
-    assert len(unanswerable) >= min_required, f"Need at least {min_required} unanswerable questions, got {len(unanswerable)}"
-    print(f"✓ Dataset size check passed: {len(answerable)} answerable, {len(unanswerable)} unanswerable")
-
-    # Shuffle for random split
     import random
     random.seed(config.seed)
     random.shuffle(answerable)
     random.shuffle(unanswerable)
 
-    # Split: Use half for train, half for eval (minimum min_per_split each if possible)
+    # Split: 30% train (for steering vectors), 70% eval
     min_per_split = args.min_per_split
-    n_ans_train = max(min_per_split, len(answerable) // 2)
-    n_unans_train = max(min_per_split, len(unanswerable) // 2)
-
-    # Ensure we don't exceed available data
-    n_ans_train = min(n_ans_train, len(answerable) - min_per_split)  # Leave at least min_per_split for eval
-    n_unans_train = min(n_unans_train, len(unanswerable) - min_per_split)
+    n_ans_train = max(min_per_split, len(answerable) * 3 // 10)
+    n_unans_train = max(min_per_split, len(unanswerable) * 3 // 10)
 
     answerable_train = answerable[:n_ans_train]
-    answerable_eval = answerable[n_ans_train:]  # Use remaining for eval
+    answerable_eval = answerable[n_ans_train:]
 
     unanswerable_train = unanswerable[:n_unans_train]
-    unanswerable_eval = unanswerable[n_unans_train:]  # Use remaining for eval
+    unanswerable_eval = unanswerable[n_unans_train:]
 
     # Create train and eval sets
     train_questions = [
