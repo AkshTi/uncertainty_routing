@@ -1,0 +1,173 @@
+Job ID: 8583504
+Node: node3301
+Start time: Fri Jan 30 19:15:08 EST 2026
+Running Experiment 7: Separability from Refusal
+==================================================
+Initializing model...
+Loading model Qwen/Qwen2.5-1.5B-Instruct...
+Model loaded successfully!
+
+Loading datasets...
+
+Using layer 0 from Exp 2
+
+Using layer 0 for all interventions
+
+============================================================
+COMPUTING ABSTENTION DIRECTION
+============================================================
+Layer: 0
+Using 20 answerable, 20 unanswerable questions
+
+Abstention direction computed: shape=torch.Size([1536]), norm=5.84
+
+Computing split-half stability...
+Split-half stability: 0.0820 ± 0.0385
+
+============================================================
+COMPUTING REFUSAL DIRECTION
+============================================================
+Layer: 0
+Using 50 harmful prompts, 50 benign prompts
+
+Refusal direction computed: shape=torch.Size([1536]), norm=12.48
+
+Computing split-half stability...
+Split-half stability: 0.9141 ± 0.0077
+
+✓ Direction stability saved
+
+============================================================
+DIRECTION SIMILARITY
+============================================================
+Cosine similarity: -0.0119
+Angle: 90.7°
+
+============================================================
+COMPUTING NULL BASELINE (SHUFFLED LABELS)
+============================================================
+Running 20 shuffle iterations...
+
+Null baseline statistics:
+  Mean |cosine|: 0.0423
+  Std |cosine|:  0.0378
+  Max |cosine|:  0.1467
+
+Null baseline check:
+  Observed |cosine|: 0.0119
+  Null mean |cosine|: 0.0423
+  Fraction null ≥ observed: 75.0%
+
+Testing refusal (epsilon=0.0)...
+
+Testing refusal (epsilon=5.0)...
+
+============================================================
+CROSS-EFFECT INTERVENTION TEST
+============================================================
+Epsilon values: [-8.0, -4.0, -2.0, -1.0, 0.0, 1.0, 2.0, 4.0, 8.0]
+
+--- Test 1: Abstention steering → Refusal ---
+Using 50 harmful prompts for evaluation
+
+Testing refusal (epsilon=-8.0)...
+
+Testing refusal (epsilon=-4.0)...
+
+Testing refusal (epsilon=-2.0)...
+
+Testing refusal (epsilon=-1.0)...
+
+Testing refusal (epsilon=0.0)...
+
+Testing refusal (epsilon=1.0)...
+
+Testing refusal (epsilon=2.0)...
+
+Testing refusal (epsilon=4.0)...
+
+Testing refusal (epsilon=8.0)...
+
+--- Test 2: Refusal steering → Epistemic abstention ---
+Using 20 unanswerable questions for evaluation
+
+Cross-effect results saved
+
+============================================================
+REVERSE STEERING EXPERIMENT
+============================================================
+Testing epsilon values: [-8.0, -4.0, -2.0, -1.0, 0.0, 1.0, 2.0, 4.0, 8.0]
+Risk levels: ['high', 'medium', 'low']
+
+Reverse steering results saved to results/exp7_reverse_steering.csv
+
+============================================================
+ANALYZING REVERSE STEERING (RISK-AWARE)
+============================================================
+
+Risk-aware summary saved to results/exp7_reverse_steering_risk_aware_summary.csv
+
+Selected epsilon for reverse steering: -8.0
+Risk-aware gap: 0.100
+
+============================================================
+SELECTING OPTIMAL EPSILON FOR ABSTENTION STEERING
+============================================================
+Criterion: Minimal |ε| with abstention change, ≤1.0% refusal change
+
+Baseline (ε=0):
+  Epistemic abstention: 0.0%
+  Policy refusal: 84.0%
+
+Warning: No epsilon meets criteria (≤1.0% refusal change)
+Using ε=0 (no steering)
+
+============================================================
+EXPERIMENT 7: SEPARABILITY ANALYSIS
+============================================================
+
+--- DIRECTION STABILITY ---
+Refusal direction: 0.9141 ± 0.0077
+Abstention direction: 0.0820 ± 0.0385
+
+--- REFUSAL METRICS (WITH 95% CI) ---
+
+Refusal rate (harmful prompts):
+  Baseline (ε=0): 84.0% [71.5%, 91.7%]
+  Steered (ε=5):  84.0% [71.5%, 91.7%]
+  Difference: +0.0% [-14.0%, +14.0%]
+
+--- DIRECTION SIMILARITY ---
+Cosine similarity: -0.0119
+Angle: 90.7°
+(Low similarity → orthogonal directions → separate mechanisms)
+
+--- NULL BASELINE (SHUFFLED LABELS) ---
+Observed |cosine|: 0.0119
+Null mean |cosine|: 0.0423 ± 0.0378
+Fraction null ≥ observed: 75.0%
+⚠ Observed cosine not significantly different from null
+
+--- SELECTED EPSILON FOR ABSTENTION STEERING ---
+⚠ No epsilon meets criteria (using ε=0)
+
+--- REVERSE STEERING (RISK-AWARE) ---
+Best ε for reverse steering: -8.0
+Risk-aware gap (coverage_low - coverage_high): 0.100
+
+--- CROSS-EFFECT INTERVENTIONS ---
+
+Abstention steering → Refusal:
+  Baseline: 84.0%
+  Steered:  nan%
+  Change: +nan%
+
+Refusal steering → Epistemic abstention:
+  Baseline: 0.0%
+  Steered:  nan%
+  Change: +nan%
+
+--- REVERSE STEERING ANALYSIS ---
+==================================================
+Experiment 7 completed at: Fri Jan 30 19:48:44 EST 2026
+Check results in ./results/
