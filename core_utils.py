@@ -26,9 +26,10 @@ class ExperimentConfig:
     device: str = "cuda" if torch.cuda.is_available() else "cpu"
     seed: int = 42
     results_dir: Path = Path("./results")
-    
+
     # Experiment parameters
     n_force_guess_samples: int = 20
+    n_cross_effect_eval: int = 200  # Size for cross-effect evaluation in Exp 7
     steering_epsilon_range: List[float] = None
     target_layers: List[int] = None
     
