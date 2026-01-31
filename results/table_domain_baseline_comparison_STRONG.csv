@@ -1,0 +1,5 @@
+Domain,Coverage Baseline,Coverage Steered,Coverage Δ,Abstention Baseline,Abstention Steered,Abstention Δ
+Mathematics,0%,0%,+0%,60%,100%,+40%
+Science,100%,100%,+0%,60%,100%,+40%
+History,80%,60%,-20%,0%,60%,+60%
+Geography,100%,80%,-20%,60%,100%,+40%
