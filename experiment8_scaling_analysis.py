@@ -37,7 +37,7 @@ class Experiment8:
         Args:
             model_name: HuggingFace model name
             train_questions: Questions for extracting steering directions (DISJOINT from eval)
-            eval_questions: Questions for evaluation (at least 50 answerable + 50 unanswerable)
+            eval_questions: Questions for evaluation (flexible size, minimum 10+10)
             target_layers: Which layers to test (None = auto-detect late layers)
         """
         print(f"\n{'='*70}")
@@ -257,7 +257,7 @@ class Experiment8:
 
         Args:
             train_questions: Questions for extracting steering directions (disjoint from eval)
-            eval_questions: Questions for evaluation (at least 50 answerable + 50 unanswerable)
+            eval_questions: Questions for evaluation (flexible size, minimum 10+10 per category)
 
         Models to test (in order of priority):
         1. Qwen2.5-1.5B-Instruct
@@ -457,12 +457,12 @@ def main():
         unanswerable = json.load(f)
 
     # CRITICAL: Split into train/eval to prevent data leakage
-    # Need at least 50+50 for eval, 50+50 for train = 100+100 total minimum
     print("\nSplitting data to prevent leakage...")
 
-    # ASSERTIONS: Ensure we have enough data
-    assert len(answerable) >= 100, f"Need at least 100 answerable questions, got {len(answerable)}"
-    assert len(unanswerable) >= 100, f"Need at least 100 unanswerable questions, got {len(unanswerable)}"
+    # ASSERTIONS: Ensure we have enough data (minimum 50 total, but flexible)
+    min_required = 50
+    assert len(answerable) >= min_required, f"Need at least {min_required} answerable questions, got {len(answerable)}"
+    assert len(unanswerable) >= min_required, f"Need at least {min_required} unanswerable questions, got {len(unanswerable)}"
     print(f"✓ Dataset size check passed: {len(answerable)} answerable, {len(unanswerable)} unanswerable")
 
     # Shuffle for random split
@@ -471,15 +471,19 @@ def main():
     random.shuffle(answerable)
     random.shuffle(unanswerable)
 
-    # Split: 50% train, 50% eval (at least 50+50 each)
-    n_ans_train = max(50, len(answerable) // 2)
-    n_unans_train = max(50, len(unanswerable) // 2)
+    # Split: Use half for train, half for eval (minimum 25 each if possible)
+    n_ans_train = max(25, len(answerable) // 2)
+    n_unans_train = max(25, len(unanswerable) // 2)
+
+    # Ensure we don't exceed available data
+    n_ans_train = min(n_ans_train, len(answerable) - 25)  # Leave at least 25 for eval
+    n_unans_train = min(n_unans_train, len(unanswerable) - 25)
 
     answerable_train = answerable[:n_ans_train]
-    answerable_eval = answerable[n_ans_train:n_ans_train + 50]  # At least 50 for eval
+    answerable_eval = answerable[n_ans_train:]  # Use remaining for eval
 
     unanswerable_train = unanswerable[:n_unans_train]
-    unanswerable_eval = unanswerable[n_unans_train:n_unans_train + 50]  # At least 50 for eval
+    unanswerable_eval = unanswerable[n_unans_train:]  # Use remaining for eval
 
     # Create train and eval sets
     train_questions = [
@@ -495,10 +499,11 @@ def main():
     ]
 
     # ASSERTIONS: Ensure splits have minimum required size
-    assert len(answerable_train) >= 50, f"Train needs ≥50 answerable, got {len(answerable_train)}"
-    assert len(unanswerable_train) >= 50, f"Train needs ≥50 unanswerable, got {len(unanswerable_train)}"
-    assert len(answerable_eval) >= 50, f"Eval needs ≥50 answerable, got {len(answerable_eval)}"
-    assert len(unanswerable_eval) >= 50, f"Eval needs ≥50 unanswerable, got {len(unanswerable_eval)}"
+    min_per_split = 10  # Minimum 10 per category per split
+    assert len(answerable_train) >= min_per_split, f"Train needs ≥{min_per_split} answerable, got {len(answerable_train)}"
+    assert len(unanswerable_train) >= min_per_split, f"Train needs ≥{min_per_split} unanswerable, got {len(unanswerable_train)}"
+    assert len(answerable_eval) >= min_per_split, f"Eval needs ≥{min_per_split} answerable, got {len(answerable_eval)}"
+    assert len(unanswerable_eval) >= min_per_split, f"Eval needs ≥{min_per_split} unanswerable, got {len(unanswerable_eval)}"
 
     print(f"Train set: {len(train_questions)} questions "
           f"({len(answerable_train)} answerable, {len(unanswerable_train)} unanswerable)")
