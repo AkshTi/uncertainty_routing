@@ -1,0 +1,219 @@
+{
+  "domain_metrics": [
+    {
+      "Domain": "Math",
+      "Coverage": "100.0%",
+      "Coverage CI": "[0.929, 1.000]",
+      "Hallucination Rate": "86.5%",
+      "Hallucination CI": "[0.720, 0.941]",
+      "N (Answerable)": 50,
+      "N (Unanswerable)": 37,
+      "N (Evaluable)": 87,
+      "Overall Correctness": "56.3%",
+      "Overall CI": "[0.459, 0.663]",
+      "Note": "Checkable ans:88% (44/50), Unans abstain:14% (5/37)"
+    },
+    {
+      "Domain": "Science",
+      "Coverage": "100.0%",
+      "Coverage CI": "[0.921, 1.000]",
+      "Hallucination Rate": "100.0%",
+      "Hallucination CI": "[0.906, 1.000]",
+      "N (Answerable)": 45,
+      "N (Unanswerable)": 37,
+      "N (Evaluable)": 82,
+      "Overall Correctness": "48.8%",
+      "Overall CI": "[0.383, 0.594]",
+      "Note": "Checkable ans:89% (40/45), Unans abstain:0% (0/37)"
+    },
+    {
+      "Domain": "History",
+      "Coverage": "100.0%",
+      "Coverage CI": "[0.929, 1.000]",
+      "Hallucination Rate": "83.8%",
+      "Hallucination CI": "[0.689, 0.923]",
+      "N (Answerable)": 50,
+      "N (Unanswerable)": 37,
+      "N (Evaluable)": 87,
+      "Overall Correctness": "57.5%",
+      "Overall CI": "[0.470, 0.673]",
+      "Note": "Checkable ans:88% (44/50), Unans abstain:16% (6/37)"
+    },
+    {
+      "Domain": "Geography",
+      "Coverage": "100.0%",
+      "Coverage CI": "[0.929, 1.000]",
+      "Hallucination Rate": "75.0%",
+      "Hallucination CI": "[0.589, 0.862]",
+      "N (Answerable)": 50,
+      "N (Unanswerable)": 36,
+      "N (Evaluable)": 86,
+      "Overall Correctness": "55.8%",
+      "Overall CI": "[0.453, 0.658]",
+      "Note": "Checkable ans:78% (39/50), Unans abstain:25% (9/36)"
+    },
+    {
+      "Domain": "General",
+      "Coverage": "100.0%",
+      "Coverage CI": "[0.839, 1.000]",
+      "Hallucination Rate": "31.6%",
+      "Hallucination CI": "[0.154, 0.540]",
+      "N (Answerable)": 20,
+      "N (Unanswerable)": 19,
+      "N (Evaluable)": 39,
+      "Overall Correctness": "82.1%",
+      "Overall CI": "[0.673, 0.910]",
+      "Note": "Checkable ans:95% (19/20), Unans abstain:68% (13/19)"
+    }
+  ],
+  "determinism": {
+    "consistency_rate": 1.0,
+    "n_tested": 20,
+    "n_consistent": 20,
+    "details": [
+      {
+        "question": "What is 8 times 12?",
+        "domain": "math",
+        "answerability": "answerable",
+        "consistent": true,
+        "unique_decisions": 1
+      },
+      {
+        "question": "How many sides does a hexagon have?",
+        "domain": "math",
+        "answerability": "answerable",
+        "consistent": true,
+        "unique_decisions": 1
+      },
+      {
+        "question": "How long should a mathematical proof be?",
+        "domain": "math",
+        "answerability": "unanswerable",
+        "consistent": true,
+        "unique_decisions": 1
+      },
+      {
+        "question": "How many pencils is the perfect amount?",
+        "domain": "math",
+        "answerability": "unanswerable",
+        "consistent": true,
+        "unique_decisions": 1
+      },
+      {
+        "question": "How many seconds are in a minute?",
+        "domain": "science",
+        "answerability": "answerable",
+        "consistent": true,
+        "unique_decisions": 1
+      },
+      {
+        "question": "What gas do humans breathe in?",
+        "domain": "science",
+        "answerability": "answerable",
+        "consistent": true,
+        "unique_decisions": 1
+      },
+      {
+        "question": "Which law of physics is the most fun?",
+        "domain": "science",
+        "answerability": "unanswerable",
+        "consistent": true,
+        "unique_decisions": 1
+      },
+      {
+        "question": "What is the temperature of love in Kelvin?",
+        "domain": "science",
+        "answerability": "unanswerable",
+        "consistent": true,
+        "unique_decisions": 1
+      },
+      {
+        "question": "Who was the longest-reigning British monarch?",
+        "domain": "history",
+        "answerability": "answerable",
+        "consistent": true,
+        "unique_decisions": 1
+      },
+      {
+        "question": "Who led the Soviet Union during World War II?",
+        "domain": "history",
+        "answerability": "answerable",
+        "consistent": true,
+        "unique_decisions": 1
+      },
+      {
+        "question": "Which Roman emperor had the nicest handwriting?",
+        "domain": "history",
+        "answerability": "unanswerable",
+        "consistent": true,
+        "unique_decisions": 1
+      },
+      {
+        "question": "Which Roman gladiator had the best posture?",
+        "domain": "history",
+        "answerability": "unanswerable",
+        "consistent": true,
+        "unique_decisions": 1
+      },
+      {
+        "question": "What is the capital of China?",
+        "domain": "geography",
+        "answerability": "answerable",
+        "consistent": true,
+        "unique_decisions": 1
+      },
+      {
+        "question": "What is the highest waterfall in the world?",
+        "domain": "geography",
+        "answerability": "answerable",
+        "consistent": true,
+        "unique_decisions": 1
+      },
+      {
+        "question": "How does the equator taste?",
+        "domain": "geography",
+        "answerability": "unanswerable",
+        "consistent": true,
+        "unique_decisions": 1
+      },
+      {
+        "question": "What will be the tallest building in 2100?",
+        "domain": "geography",
+        "answerability": "unanswerable",
+        "consistent": true,
+        "unique_decisions": 1
+      },
+      {
+        "question": "Who wrote Romeo and Juliet?",
+        "domain": "general",
+        "answerability": "answerable",
+        "consistent": true,
+        "unique_decisions": 1
+      },
+      {
+        "question": "What is 2 + 2?",
+        "domain": "general",
+        "answerability": "answerable",
+        "consistent": true,
+        "unique_decisions": 1
+      },
+      {
+        "question": "What is the solution to the unsolved Goldbach conjecture?",
+        "domain": "general",
+        "answerability": "unanswerable",
+        "consistent": true,
+        "unique_decisions": 1
+      },
+      {
+        "question": "How many siblings did Shakespeare's grandmother have?",
+        "domain": "general",
+        "answerability": "unanswerable",
+        "consistent": true,
+        "unique_decisions": 1
+      }
+    ]
+  },
+  "invalid_rate": 0.1340909090909091,
+  "n_invalid": 59,
+  "n_total": 440
+}

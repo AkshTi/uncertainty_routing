@@ -1,0 +1,6 @@
+Domain,Coverage,Coverage CI,Hallucination Rate,Hallucination CI,N (Answerable),N (Unanswerable),N (Evaluable),Overall Correctness,Overall CI,Note
+Math,100.0%,"[0.929, 1.000]",86.5%,"[0.720, 0.941]",50,37,87,56.3%,"[0.459, 0.663]","Checkable ans:88% (44/50), Unans abstain:14% (5/37)"
+Science,100.0%,"[0.921, 1.000]",100.0%,"[0.906, 1.000]",45,37,82,48.8%,"[0.383, 0.594]","Checkable ans:89% (40/45), Unans abstain:0% (0/37)"
+History,100.0%,"[0.929, 1.000]",83.8%,"[0.689, 0.923]",50,37,87,57.5%,"[0.470, 0.673]","Checkable ans:88% (44/50), Unans abstain:16% (6/37)"
+Geography,100.0%,"[0.929, 1.000]",75.0%,"[0.589, 0.862]",50,36,86,55.8%,"[0.453, 0.658]","Checkable ans:78% (39/50), Unans abstain:25% (9/36)"
+General,100.0%,"[0.839, 1.000]",31.6%,"[0.154, 0.540]",20,19,39,82.1%,"[0.673, 0.910]","Checkable ans:95% (19/20), Unans abstain:68% (13/19)"
