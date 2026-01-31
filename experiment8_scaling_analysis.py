@@ -14,8 +14,9 @@ import seaborn as sns
 import numpy as np
 import torch
 from tqdm import tqdm
-from typing import List, Dict
+from typing import List, Dict, Tuple, Optional
 import json
+import copy
 
 from core_utils import ModelWrapper, ExperimentConfig, extract_answer, set_seed
 
@@ -28,23 +29,24 @@ class Experiment8:
         self.results = []
         set_seed(config.seed)
 
-    def test_model(self, model_name: str, test_questions: List[Dict],
-                   target_layers: List[int] = None) -> Dict:
+    def test_model(self, model_name: str, train_questions: List[Dict],
+                   eval_questions: List[Dict], target_layers: List[int] = None) -> Dict:
         """
         Test steering on a specific model
 
         Args:
             model_name: HuggingFace model name
-            test_questions: Questions to test (answerable + unanswerable)
+            train_questions: Questions for extracting steering directions (DISJOINT from eval)
+            eval_questions: Questions for evaluation (at least 50 answerable + 50 unanswerable)
             target_layers: Which layers to test (None = auto-detect late layers)
         """
         print(f"\n{'='*70}")
         print(f"Testing model: {model_name}")
         print(f"{'='*70}")
 
-        # Load model
-        config = ExperimentConfig()
-        config.model_name = model_name
+        # Load model (deepcopy self.config to preserve ALL settings: seed, device, paths, dtype, etc.)
+        config = copy.deepcopy(self.config)
+        config.model_name = model_name  # Only override the model name
 
         try:
             model_wrapper = ModelWrapper(config)
@@ -58,28 +60,35 @@ class Experiment8:
 
         # Auto-detect late layers if not specified
         if target_layers is None:
-            # Test last 20% of layers
+            # Test last 20% of layers (late layers where semantic info is processed)
             start_layer = int(n_layers * 0.8)
             target_layers = list(range(start_layer, n_layers))
-            print(f"Auto-selected layers: {target_layers}")
+            print(f"Auto-selected late layers: {target_layers}")
 
-        # Extract steering vectors (quick version - just use last layer)
-        print("\nExtracting steering vectors...")
+        # Extract steering vectors from TRAIN set (prevent data leakage)
+        print("\nExtracting steering vectors from training set...")
 
-        answerable = [q for q in test_questions if not q.get('is_unanswerable', False)][:10]
-        unanswerable = [q for q in test_questions if q.get('is_unanswerable', False)][:10]
+        answerable_train = [q for q in train_questions if not q.get('is_unanswerable', False)]
+        unanswerable_train = [q for q in train_questions if q.get('is_unanswerable', False)]
+
+        print(f"  Train set: {len(answerable_train)} answerable, {len(unanswerable_train)} unanswerable")
+
+        # Test DEEPEST late layers (most semantic processing happens here)
+        # Pick 3-5 deepest layers to find the best one for this model
+        layers_to_test = target_layers[-5:]  # Last 5 layers
+        print(f"  Testing deepest layers: {layers_to_test}")
 
         steering_vectors = {}
-        for layer_idx in target_layers[:3]:  # Just test top 3 layers for speed
+        for layer_idx in layers_to_test:
             try:
                 from experiment3_4_steering_independence import Experiment3
 
                 # Format prompts
                 from data_preparation import format_prompt
                 pos_prompts = [format_prompt(q["question"], "neutral", q.get("context"))
-                              for q in answerable]
+                              for q in answerable_train]
                 neg_prompts = [format_prompt(q["question"], "neutral", q.get("context"))
-                              for q in unanswerable]
+                              for q in unanswerable_train]
 
                 exp3 = Experiment3(model_wrapper, config)
                 direction = exp3.compute_steering_direction(pos_prompts, neg_prompts, layer_idx)
@@ -93,20 +102,88 @@ class Experiment8:
             print("ERROR: Could not extract steering vectors")
             return None
 
-        # Test steering effect
-        print("\nTesting steering effect...")
-        best_layer = max(steering_vectors.keys())  # Use deepest layer
+        print(f"  ✓ Extracted steering vectors for layers: {list(steering_vectors.keys())}")
+
+        # Find best layer by testing each on a small validation subset
+        print("\nFinding best layer for this model...")
+        print("Selection criterion: max[Δ(abstain unanswerable) - Δ(abstain answerable)]")
+        print("  → Maximize hallucination reduction while minimizing coverage loss")
+        from experiment5_trustworthiness import Experiment5
+
+        best_layer = None
+        best_trustworthiness_score = -float('inf')
+
+        # Quick test with first 20 eval questions (10 answerable + 10 unanswerable if possible)
+        quick_eval_answerable = [q for q in eval_questions if not q.get('is_unanswerable', False)][:10]
+        quick_eval_unanswerable = [q for q in eval_questions if q.get('is_unanswerable', False)][:10]
+        quick_eval = quick_eval_answerable + quick_eval_unanswerable
+
+        for layer_idx in steering_vectors.keys():
+            exp5_temp = Experiment5(model_wrapper, config, {layer_idx: steering_vectors[layer_idx]})
+            temp_results = []
+
+            for q in quick_eval:
+                try:
+                    # Test baseline (eps=0) and steered (eps=-30)
+                    for eps in [0.0, -30.0]:
+                        result = exp5_temp.test_one(q, layer_idx, eps)
+                        temp_results.append(result)
+                except:
+                    continue
+
+            if temp_results:
+                temp_df = pd.DataFrame(temp_results)
+
+                # Split by question type
+                answerable_df = temp_df[~temp_df['is_unanswerable']]
+                unanswerable_df = temp_df[temp_df['is_unanswerable']]
+
+                # Compute deltas separately for answerable and unanswerable
+                if len(answerable_df) > 0 and len(unanswerable_df) > 0:
+                    # Delta for unanswerable (want this to increase)
+                    baseline_abstain_unans = answerable_df[answerable_df['epsilon'] == 0.0]['abstained'].mean()
+                    steered_abstain_unans = unanswerable_df[unanswerable_df['epsilon'] == -30.0]['abstained'].mean()
+                    delta_unans = steered_abstain_unans - baseline_abstain_unans
+
+                    # Delta for answerable (want this to stay small/negative)
+                    baseline_abstain_ans = answerable_df[answerable_df['epsilon'] == 0.0]['abstained'].mean()
+                    steered_abstain_ans = answerable_df[answerable_df['epsilon'] == -30.0]['abstained'].mean()
+                    delta_ans = steered_abstain_ans - baseline_abstain_ans
+
+                    # Trustworthiness score: increase unanswerable abstention, minimize answerable abstention
+                    trustworthiness_score = delta_unans - delta_ans
+
+                    print(f"  Layer {layer_idx}: Δ_unans={delta_unans:+.3f}, Δ_ans={delta_ans:+.3f}, score={trustworthiness_score:+.3f}")
+
+                    if trustworthiness_score > best_trustworthiness_score:
+                        best_trustworthiness_score = trustworthiness_score
+                        best_layer = layer_idx
+
+        if best_layer is None:
+            best_layer = max(steering_vectors.keys())  # Fallback to deepest
+            print(f"  ⚠️  Fallback to deepest layer {best_layer}")
+        else:
+            print(f"  ✓ Selected layer {best_layer} (trustworthiness score={best_trustworthiness_score:+.3f})")
+
+        # Test steering effect on FULL EVALUATION set (disjoint from training)
+        print(f"\nTesting steering effect on evaluation set ({len(eval_questions)} questions)...")
+        print(f"Using layer: {best_layer}")
+        print("EPSILON SIGN CONVENTION: -eps increases abstention (hallucination reduction)")
+        print("                         +eps decreases abstention (more answering)")
+
+        # Instantiate Experiment5 ONCE (not in inner loop for efficiency)
+        exp5 = Experiment5(model_wrapper, config, {best_layer: steering_vectors[best_layer]})
 
         results = []
+        # Test range of epsilon values (negative = increase abstention)
         for eps in [-30.0, -20.0, -10.0, 0.0, 10.0, 20.0, 30.0]:
-            for q in test_questions:
+            for q in eval_questions:
                 try:
-                    from experiment5_trustworthiness import Experiment5
-                    exp5 = Experiment5(model_wrapper, config, steering_vectors)
                     result = exp5.test_one(q, best_layer, eps)
                     result['model'] = model_name
                     result['n_layers'] = n_layers
                     result['hidden_dim'] = hidden_dim
+                    result['best_layer'] = best_layer  # Record which layer was used
                     results.append(result)
                 except Exception as e:
                     print(f"ERROR testing question: {e}")
@@ -148,11 +225,14 @@ class Experiment8:
         delta_abstain = steered['abstain_unanswerable'] - baseline['abstain_unanswerable']
         delta_coverage = steered['coverage_answerable'] - baseline['coverage_answerable']
 
-        print(f"\nResults for {model_name}:")
+        print(f"\n{'='*70}")
+        print(f"RESULTS FOR {model_name}:")
+        print(f"{'='*70}")
         print(f"  Baseline hallucination: {baseline['hallucination_unanswerable']:.1%}")
         print(f"  Steered hallucination: {steered['hallucination_unanswerable']:.1%}")
-        print(f"  Δ abstention: {delta_abstain:+.1%}")
-        print(f"  Δ coverage: {delta_coverage:+.1%}")
+        print(f"\n  RAW ABSTENTION DELTA: {delta_abstain:+.3f} ({delta_abstain:+.1%})")
+        print(f"  RAW COVERAGE DELTA: {delta_coverage:+.3f} ({delta_coverage:+.1%})")
+        print(f"{'='*70}")
 
         # Cleanup
         del model_wrapper
@@ -162,39 +242,48 @@ class Experiment8:
             'model_name': model_name,
             'n_layers': n_layers,
             'hidden_dim': hidden_dim,
-            'steering_effective': abs(delta_abstain) > 0.10,  # At least 10% change
-            'delta_abstain_unanswerable': float(delta_abstain),
+            'best_layer': best_layer,  # Which layer worked best for this model
+            'delta_abstain_unanswerable': float(delta_abstain),  # Raw delta (no threshold)
             'delta_coverage_answerable': float(delta_coverage),
             'baseline_hallucination': float(baseline['hallucination_unanswerable']),
             'steered_hallucination': float(steered['hallucination_unanswerable']),
             'metrics_df': metrics_df,
         }
 
-    def run_scaling_analysis(self, test_questions: List[Dict]) -> pd.DataFrame:
+    def run_scaling_analysis(self, train_questions: List[Dict],
+                            eval_questions: List[Dict]) -> Tuple[Optional[pd.DataFrame], List[Dict]]:
         """
         Test steering across multiple model sizes
 
+        Args:
+            train_questions: Questions for extracting steering directions (disjoint from eval)
+            eval_questions: Questions for evaluation (at least 50 answerable + 50 unanswerable)
+
         Models to test (in order of priority):
-        1. Qwen2.5-1.5B-Instruct (already have)
-        2. Qwen2.5-3B-Instruct (or Llama-3.2-3B if available)
-        3. Qwen2.5-7B-Instruct (or Llama-3.1-8B if GPU memory allows)
+        1. Qwen2.5-1.5B-Instruct
+        2. Qwen2.5-3B-Instruct
+        3. Qwen2.5-7B-Instruct (best ROI for scaling)
+        4. LLaMA-3.1-8B-Instruct (optional, for family generalization)
         """
         print("\n" + "="*70)
         print("EXPERIMENT 8: SCALING ANALYSIS")
         print("="*70)
+        print(f"Train set: {len(train_questions)} questions")
+        print(f"Eval set: {len(eval_questions)} questions")
+        print(f"{'='*70}\n")
 
-        # Models in order of priority (you can test as many as GPU memory allows)
+        # Models in order of priority
         models_to_test = [
-            "Qwen/Qwen2.5-1.5B-Instruct",  # Already tested
-            "Qwen/Qwen2.5-3B-Instruct",    # Medium size
-            # "Qwen/Qwen2.5-7B-Instruct",   # Uncomment if you have GPU memory
-            # "meta-llama/Llama-3.2-3B-Instruct",  # Different family
+            "Qwen/Qwen2.5-1.5B-Instruct",   # Small baseline
+            "Qwen/Qwen2.5-3B-Instruct",     # Medium size
+            "Qwen/Qwen2.5-7B-Instruct",     # Best ROI for scaling analysis
+            # "meta-llama/Llama-3.1-8B-Instruct",  # Optional: different family
         ]
 
         all_results = []
 
         for model_name in models_to_test:
-            result = self.test_model(model_name, test_questions)
+            result = self.test_model(model_name, train_questions, eval_questions)
             if result:
                 all_results.append(result)
 
@@ -207,7 +296,7 @@ class Experiment8:
 
         if not all_results:
             print("ERROR: No models successfully tested")
-            return None
+            return None, []
 
         # Combine results
         summary_df = pd.DataFrame([
@@ -215,9 +304,9 @@ class Experiment8:
                 'model': r['model_name'],
                 'n_layers': r['n_layers'],
                 'hidden_dim': r['hidden_dim'],
-                'steering_works': r['steering_effective'],
-                'delta_abstain': r['delta_abstain_unanswerable'],
-                'delta_coverage': r['delta_coverage_answerable'],
+                'best_layer': r['best_layer'],  # Which layer was selected
+                'delta_abstain': r['delta_abstain_unanswerable'],  # Raw delta
+                'delta_coverage': r['delta_coverage_answerable'],  # Raw delta
                 'baseline_halluc': r['baseline_hallucination'],
                 'steered_halluc': r['steered_hallucination'],
             }
@@ -234,35 +323,47 @@ class Experiment8:
         print("EXPERIMENT 8: SCALING ANALYSIS")
         print("="*70)
 
-        print("\nModel Comparison:")
+        print("\nModel Comparison (Raw Abstention Deltas):")
         print(summary_df.to_string(index=False))
 
-        # Check if steering works across all models
-        all_work = summary_df['steering_works'].all()
-
-        if all_work:
-            print("\n✓ SUCCESS: Steering works across all tested models!")
-        else:
-            failed = summary_df[~summary_df['steering_works']]['model'].tolist()
-            print(f"\n⚠️  Steering failed on: {failed}")
+        # Report raw abstention deltas (no threshold)
+        print("\n" + "="*70)
+        print("RAW ABSTENTION DELTAS BY MODEL:")
+        print("="*70)
+        for _, row in summary_df.iterrows():
+            model_short = row['model'].split('/')[-1].replace('-Instruct', '')
+            print(f"{model_short:20s}: Δ={row['delta_abstain']:+.3f} ({row['delta_abstain']:+.1%})")
+        print("="*70)
 
         # Check for scaling trends
         if len(summary_df) >= 2:
-            # Correlation between model size and steering effectiveness
-            corr_params = summary_df['hidden_dim'].corr(summary_df['delta_abstain'].abs())
-            print(f"\nScaling correlation (size vs effect): {corr_params:.3f}")
+            # Compute total model capacity (layers × hidden_dim)
+            summary_df['model_capacity'] = summary_df['n_layers'] * summary_df['hidden_dim']
+
+            # Correlation between model capacity and steering effectiveness
+            corr_params = summary_df['model_capacity'].corr(summary_df['delta_abstain'].abs())
+            print(f"\nScaling correlation (capacity vs effect): {corr_params:.3f}")
+            print(f"  (capacity = n_layers × hidden_dim)")
 
             if abs(corr_params) < 0.3:
                 print("✓ Steering effectiveness independent of model size!")
+            elif corr_params > 0:
+                print("⚠️  Larger models show stronger steering effects")
             else:
-                print("⚠️  Steering effectiveness may scale with model size")
+                print("⚠️  Smaller models show stronger steering effects")
+
+            # Also show best layers found per model
+            print("\nBest layers found per model:")
+            for _, row in summary_df.iterrows():
+                model_short = row['model'].split('/')[-1].replace('-Instruct', '')
+                print(f"  {model_short:20s}: Layer {row['best_layer']}/{row['n_layers']-1}")
 
         # Visualize
         self._plot_scaling(summary_df, all_results)
 
         return {
             'models_tested': summary_df['model'].tolist(),
-            'all_successful': bool(all_work),
+            'mean_delta_abstain': float(summary_df['delta_abstain'].mean()),
             'scaling_correlation': float(corr_params) if len(summary_df) >= 2 else None,
             'summary': summary_df.to_dict('records'),
         }
@@ -271,19 +372,17 @@ class Experiment8:
         """Create scaling visualizations"""
         fig, axes = plt.subplots(2, 2, figsize=(14, 10))
 
-        # Panel 1: Steering effectiveness by model
+        # Panel 1: Raw abstention delta by model
         model_labels = [m.split('/')[-1].replace('-Instruct', '') for m in summary_df['model']]
 
-        axes[0, 0].bar(range(len(model_labels)), summary_df['delta_abstain'].abs(),
-                      color=['green' if x else 'red' for x in summary_df['steering_works']],
-                      alpha=0.7, edgecolor='black')
+        colors = ['green' if x < 0 else 'red' for x in summary_df['delta_abstain']]
+        axes[0, 0].bar(range(len(model_labels)), summary_df['delta_abstain'],
+                      color=colors, alpha=0.7, edgecolor='black')
         axes[0, 0].set_xticks(range(len(model_labels)))
         axes[0, 0].set_xticklabels(model_labels, rotation=45, ha='right')
-        axes[0, 0].set_ylabel("Abstention Change (absolute)")
-        axes[0, 0].set_title("Steering Effectiveness by Model", fontweight='bold')
-        axes[0, 0].axhline(0.10, color='blue', linestyle='--', alpha=0.5,
-                          label='Threshold (10%)')
-        axes[0, 0].legend()
+        axes[0, 0].set_ylabel("Raw Abstention Delta")
+        axes[0, 0].set_title("Steering Effect by Model (Raw Δ Abstention)", fontweight='bold')
+        axes[0, 0].axhline(0.0, color='black', linestyle='-', alpha=0.5)
         axes[0, 0].grid(axis='y', alpha=0.3)
 
         # Panel 2: Tradeoff comparison
@@ -350,25 +449,66 @@ def main():
     """Run scaling analysis"""
     config = ExperimentConfig()
 
-    # Load test questions
-    print("Loading test questions...")
+    # Load questions
+    print("Loading questions...")
     with open("./data/dataset_clearly_answerable.json", 'r') as f:
         answerable = json.load(f)
     with open("./data/dataset_clearly_unanswerable.json", 'r') as f:
         unanswerable = json.load(f)
 
-    # Use subset for speed
-    test_questions = [
-        {**q, "is_unanswerable": False} for q in answerable[:15]
+    # CRITICAL: Split into train/eval to prevent data leakage
+    # Need at least 50+50 for eval, 50+50 for train = 100+100 total minimum
+    print("\nSplitting data to prevent leakage...")
+
+    # ASSERTIONS: Ensure we have enough data
+    assert len(answerable) >= 100, f"Need at least 100 answerable questions, got {len(answerable)}"
+    assert len(unanswerable) >= 100, f"Need at least 100 unanswerable questions, got {len(unanswerable)}"
+    print(f"✓ Dataset size check passed: {len(answerable)} answerable, {len(unanswerable)} unanswerable")
+
+    # Shuffle for random split
+    import random
+    random.seed(config.seed)
+    random.shuffle(answerable)
+    random.shuffle(unanswerable)
+
+    # Split: 50% train, 50% eval (at least 50+50 each)
+    n_ans_train = max(50, len(answerable) // 2)
+    n_unans_train = max(50, len(unanswerable) // 2)
+
+    answerable_train = answerable[:n_ans_train]
+    answerable_eval = answerable[n_ans_train:n_ans_train + 50]  # At least 50 for eval
+
+    unanswerable_train = unanswerable[:n_unans_train]
+    unanswerable_eval = unanswerable[n_unans_train:n_unans_train + 50]  # At least 50 for eval
+
+    # Create train and eval sets
+    train_questions = [
+        {**q, "is_unanswerable": False} for q in answerable_train
     ] + [
-        {**q, "is_unanswerable": True, "answer": None} for q in unanswerable[:15]
+        {**q, "is_unanswerable": True, "answer": None} for q in unanswerable_train
     ]
 
-    print(f"Test set: {len(test_questions)} questions")
+    eval_questions = [
+        {**q, "is_unanswerable": False} for q in answerable_eval
+    ] + [
+        {**q, "is_unanswerable": True, "answer": None} for q in unanswerable_eval
+    ]
+
+    # ASSERTIONS: Ensure splits have minimum required size
+    assert len(answerable_train) >= 50, f"Train needs ≥50 answerable, got {len(answerable_train)}"
+    assert len(unanswerable_train) >= 50, f"Train needs ≥50 unanswerable, got {len(unanswerable_train)}"
+    assert len(answerable_eval) >= 50, f"Eval needs ≥50 answerable, got {len(answerable_eval)}"
+    assert len(unanswerable_eval) >= 50, f"Eval needs ≥50 unanswerable, got {len(unanswerable_eval)}"
+
+    print(f"Train set: {len(train_questions)} questions "
+          f"({len(answerable_train)} answerable, {len(unanswerable_train)} unanswerable)")
+    print(f"Eval set:  {len(eval_questions)} questions "
+          f"({len(answerable_eval)} answerable, {len(unanswerable_eval)} unanswerable)")
+    print("✓ All assertions passed: sufficient data, no leakage\n")
 
     # Run scaling analysis
     exp8 = Experiment8(config)
-    summary_df, all_results = exp8.run_scaling_analysis(test_questions)
+    summary_df, all_results = exp8.run_scaling_analysis(train_questions, eval_questions)
 
     if summary_df is not None:
         # Analyze

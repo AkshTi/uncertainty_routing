@@ -1,0 +1,4 @@
+Instruction Regime,Abstention (%),Semantic Entropy (mean ± std),Predictive Entropy (mean ± std)
+Neutral (baseline),18.5,1.77 ± 0.74,0.85 ± 0.50
+Cautious,52.5,1.77 ± 0.74,0.85 ± 0.50
+Confident,13.5,1.77 ± 0.74,0.85 ± 0.50

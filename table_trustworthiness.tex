@@ -1,0 +1,39 @@
+\begin{table}[t]
+\centering
+\caption{Trustworthiness Evaluation of Abstention Control}
+\label{tab:trustworthiness}
+\small
+\begin{tabular}{lcc}
+\toprule
+\multicolumn{3}{l}{\textbf{Selective Prediction Across Domains}} \\
+\midrule
+Domain & Coverage on Answerable (\%) & Abstention on Unanswerable (\%) \\
+\midrule
+Math & 98.0 & 46.2 \\
+Science & 97.7 & 52.5 \\
+History & 94.0 & 60.0 \\
+Geography & 96.0 & 84.6 \\
+General Knowledge & 100.0 & 80.0 \\
+\midrule
+\multicolumn{3}{l}{\textbf{Robustness Metrics}} \\
+\midrule
+Metric & \multicolumn{2}{c}{Value} \\
+\midrule
+Direction consistency across domains & \multicolumn{2}{c}{Stable (all domains show positive effect)} \\
+Coverage variance across domains & \multicolumn{2}{c}{94--100\% (σ = 2.3\%)} \\
+Determinism under fixed steering & \multicolumn{2}{c}{100\% (20/20 tested)} \\
+\midrule
+\multicolumn{3}{l}{\textbf{Separability from Safety Refusal}} \\
+\midrule
+Metric & \multicolumn{2}{c}{Value} \\
+\midrule
+Cosine similarity (abstention vs. refusal direction) & \multicolumn{2}{c}{0.18 (~80° angle)} \\
+Δ Refusal rate on harmful prompts & \multicolumn{2}{c}{0\% (70\% → 70\%)} \\
+Δ Harmful compliance & \multicolumn{2}{c}{0--5\% (10\% → 10--15\%)} \\
+Split-half reliability (abstention) & \multicolumn{2}{c}{0.16 ± 0.09} \\
+Split-half reliability (refusal) & \multicolumn{2}{c}{0.42 ± 0.05} \\
+\bottomrule
+\end{tabular}
+\vspace{0.5em}
+\caption*{\small \textbf{Note:} Coverage and abstention rates measured with fixed steering intervention (ε=X) across n=391 prompts (213 answerable, 178 unanswerable). Separability metrics from n=100 cross-effect tests and 20 split-half stability estimates. Cosine similarity significantly higher than shuffled baseline (mean=0.08, p=0.05).}
+\end{table}

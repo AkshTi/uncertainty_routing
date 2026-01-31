@@ -1,0 +1,11 @@
+Intervention Type,Intervention Site,Mean Flip Rate (%),Relative Effect,Evidence (N)
+Localization,Late layers (2-3 window),22.5,1.00,18/80
+Localization,Late layers (single 14-20),20.0,0.89,8/40
+Localization,Early layers (0-12),5.7,0.25,12/210
+Direction,Mean-diff (late layer),8.3,0.37,3/36
+Direction,PC1,0.0,0.00,0/36
+Direction,Probe,2.8,0.12,1/36
+Direction,Random,2.8,0.12,1/36
+Direction,Shuffled labels,5.6,0.25,2/36
+Control,Unrelated prompt,10.0,0.44,1/10
+Control,Wrong position,0.0,0.00,0/10

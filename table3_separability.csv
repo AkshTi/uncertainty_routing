@@ -1,0 +1,6 @@
+Metric,Abstention,Refusal,Interpretation
+Direction similarity (cosine),—,—,0.179 (~79.7° angle)
+Direction stability (split-half),0.161 ± 0.087,0.420 ± 0.054,Refusal 2.6× more stable
+Null baseline comparison,0.080 ± 0.060,—,p=0.05 (observed > 95% of shuffled)
+Cross-effect: Abstention→Refusal,—,70% (no change from ε=-4 to +4),No cross-interference
+Cross-effect: Refusal→Abstention,0% (no change from ε=-4 to +4),—,No cross-interference
