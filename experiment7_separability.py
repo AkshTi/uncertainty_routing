@@ -40,9 +40,13 @@ from data_preparation import format_prompt
 # ============================================================================
 
 # Conservative epsilon sweep for Qwen-1.5
-EPSILON_SWEEP = [-8.0, -4.0, -2.0, -1.0, 0.0, 1.0, 2.0, 4.0, 8.0]
+# Default: smaller sweep for faster iteration
+EPSILON_SWEEP = [-4.0, -2.0, 0.0, 2.0, 4.0]
 
-# Quick test mode epsilon values
+# Full sweep (use --full flag or manually override)
+EPSILON_SWEEP_FULL = [-8.0, -4.0, -2.0, -1.0, 0.0, 1.0, 2.0, 4.0, 8.0]
+
+# Quick test mode epsilon values (ultra-fast)
 EPSILON_SWEEP_QUICK = [-4.0, 0.0, 4.0]
 
 
@@ -1788,7 +1792,7 @@ class Experiment7:
 # Main
 # ============================================================================
 
-def main(n_harmful: int = 50, n_benign: int = 50, n_per_risk: int = 20,
+def main(n_harmful: int = 20, n_benign: int = 20, n_per_risk: int = 10,
          quick_test: bool = False):
     """
     Run Experiment 7: Separability from Refusal
@@ -1808,10 +1812,10 @@ def main(n_harmful: int = 50, n_benign: int = 50, n_per_risk: int = 20,
     model = ModelWrapper(config)
 
     if quick_test:
-        print("\n🔬 QUICK TEST MODE")
-        n_harmful = 10
-        n_benign = 10
-        n_per_risk = 5
+        print("\n🔬 QUICK TEST MODE (ultra-fast)")
+        n_harmful = 5
+        n_benign = 5
+        n_per_risk = 3
 
     # Load datasets
     print("\nLoading datasets...")
@@ -1838,10 +1842,12 @@ def main(n_harmful: int = 50, n_benign: int = 50, n_per_risk: int = 20,
     # Initialize experiment
     exp7 = Experiment7(model, config)
 
-    # Determine layer
-    best_layer = int(exp7.n_layers * 0.75)
+    # Determine layer - use middle-to-late layer for steering
+    # Default: 75% through the model (layer 21 for 28-layer model)
+    default_layer = int(exp7.n_layers * 0.75)
+    best_layer = 16  # Hardcoded based on Exp3/Exp4 successful results
 
-    # Try to load from Exp 2/3
+    # Try to load from Exp 2/3 (with validation)
     try:
         exp2_summary_path = config.results_dir / "exp2_summary.json"
         if exp2_summary_path.exists():
@@ -1851,16 +1857,22 @@ def main(n_harmful: int = 50, n_benign: int = 50, n_per_risk: int = 20,
                 best_window_info = exp2_summary['best_windows'].get('1', None)
                 if best_window_info:
                     window_str = best_window_info['window']
-                    best_layer = int(window_str.strip('[]').split('-')[0])
-                    print(f"\nUsing layer {best_layer} from Exp 2")
-    except:
-        pass
+                    candidate_layer = int(window_str.strip('[]').split('-')[0])
+                    # Validate: reject embedding/early layers (< 5)
+                    if candidate_layer >= 5:
+                        best_layer = candidate_layer
+                        print(f"\nUsing layer {best_layer} from Exp 2")
+                    else:
+                        print(f"\nWarning: Exp 2 layer {candidate_layer} too early, using default {best_layer}")
+    except Exception as e:
+        print(f"\nCouldn't load Exp 2 layer (using default {best_layer}): {e}")
 
     # ===== COMPUTE DIRECTIONS =====
     print(f"\nUsing layer {best_layer} for all interventions")
 
     # Determine n_samples based on test mode
-    n_samples = 20 if quick_test else 200
+    # Quick: 10 samples, Default: 50 samples, Full run: use 200
+    n_samples = 10 if quick_test else 50
 
     abstention_direction, abstention_stability = exp7.compute_abstention_direction(
         answerable, unanswerable, best_layer, n_samples=n_samples
@@ -1969,12 +1981,12 @@ if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser(description='Run Experiment 7: Separability from Refusal')
-    parser.add_argument('--n_harmful', type=int, default=50,
-                       help='Number of harmful prompts')
-    parser.add_argument('--n_benign', type=int, default=50,
-                       help='Number of benign-but-sensitive prompts')
-    parser.add_argument('--n_per_risk', type=int, default=20,
-                       help='Number of questions per risk level')
+    parser.add_argument('--n_harmful', type=int, default=20,
+                       help='Number of harmful prompts (default: 20, use 50-200 for full run)')
+    parser.add_argument('--n_benign', type=int, default=20,
+                       help='Number of benign prompts (default: 20, use 50-200 for full run)')
+    parser.add_argument('--n_per_risk', type=int, default=10,
+                       help='Number of questions per risk level (default: 10, use 20-50 for full run)')
     parser.add_argument('--quick_test', action='store_true',
                        help='Quick test mode with minimal dataset')
 
