@@ -1,8 +1,8 @@
 model,n_layers,hidden_dim,epsilon,coverage_answerable,abstain_unanswerable,hallucination_unanswerable
-Qwen/Qwen2.5-7B-Instruct,28,3584,-30.0,0.8,1.0,0.0
-Qwen/Qwen2.5-7B-Instruct,28,3584,-20.0,0.8,1.0,0.0
-Qwen/Qwen2.5-7B-Instruct,28,3584,-10.0,0.8,1.0,0.0
-Qwen/Qwen2.5-7B-Instruct,28,3584,0.0,0.6,1.0,0.0
-Qwen/Qwen2.5-7B-Instruct,28,3584,10.0,0.6,1.0,0.0
-Qwen/Qwen2.5-7B-Instruct,28,3584,20.0,0.8,1.0,0.0
-Qwen/Qwen2.5-7B-Instruct,28,3584,30.0,0.8,1.0,0.0
+Qwen/Qwen2.5-7B-Instruct,28,3584,-40.0,0.0357142857142857,1.0,0.0
+Qwen/Qwen2.5-7B-Instruct,28,3584,-30.0,0.0357142857142857,1.0,0.0
+Qwen/Qwen2.5-7B-Instruct,28,3584,-20.0,0.042857142857142816,1.0,0.0
+Qwen/Qwen2.5-7B-Instruct,28,3584,-10.0,0.042857142857142816,1.0,0.0
+Qwen/Qwen2.5-7B-Instruct,28,3584,0.0,0.050000000000000044,1.0,0.0
+Qwen/Qwen2.5-7B-Instruct,28,3584,10.0,0.05714285714285716,1.0,0.0
+Qwen/Qwen2.5-7B-Instruct,28,3584,20.0,0.0714285714285714,1.0,0.0
